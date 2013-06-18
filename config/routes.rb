@@ -1,9 +1,13 @@
 SocialPoster::Application.routes.draw do
   
-  root :to => "static_pages#home"
+  root :to => "static_pages#connect_page"
   
   get "static_pages/home"
   get "static_pages/help"
+  get "static_pages/test"
+  
+  get "static_pages/connect_page"
+  get "static_pages/post_page"
   
   
   # The priority is based upon order of creation: first created -> highest priority.

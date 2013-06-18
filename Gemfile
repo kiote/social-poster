@@ -7,6 +7,8 @@ gem 'rails', '4.0.0.rc1'
 
 gem 'unicorn'
 
+gem 'haml-rails'
+
 group :production, :staging do
 	gem "pg"
 end
