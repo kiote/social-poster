@@ -10,7 +10,12 @@ gem 'unicorn'
 gem 'haml-rails'
 
 group :production, :staging do
-	gem "pg"
+  gem "pg"
+  
+  # it's about bootstrap's styles
+  gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
+  gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
+  
 end
 
 group :development, :test do
