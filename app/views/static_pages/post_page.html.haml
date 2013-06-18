@@ -7,7 +7,23 @@
     %meta{:content => "", :name => "description"}/
     %meta{:content => "", :name => "author"}/
     / Le styles
-    %link{:href => "assets/css/bootstrap.css", :rel => "stylesheet"}/
+    
+    %link{:href => "../bootstrap-wysihtml5/lib/css/bootstrap.min.css", :rel => "stylesheet", :type => "text/css"}/
+    /%link{:href => "../bootstrap-wysihtml5/lib/css/prettify.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "../bootstrap-wysihtml5/src/bootstrap-wysihtml5.css", :rel => "stylesheet", :type => "text/css"}/
+    %style{:media => "screen", :type => "text/css"}
+      \.btn.jumbo {
+      font-size: 20px;
+      font-weight: normal;
+      padding: 14px 24px;
+      margin-right: 10px;
+      \-webkit-border-radius: 6px;
+      \-moz-border-radius: 6px;
+      border-radius: 6px;
+      }
+  
+  
+    %link{:href => "../assets/css/bootstrap.css", :rel => "stylesheet"}/
     :css
       body {
         padding-top: 60px;
@@ -52,128 +68,78 @@
         margin-bottom: 15px;
         padding: 7px 9px;
       }
-    %link{:href => "assets/css/bootstrap-responsive.css", :rel => "stylesheet"}/
+    %link{:href => "../assets/css/bootstrap-responsive.css", :rel => "stylesheet"}/
     / HTML5 shim, for IE6-8 support of HTML5 elements
     /[if lt IE 9]
-      <script src="assets/js/html5shiv.js"></script>
+      <script src="../assets/js/html5shiv.js"></script>
     / Fav and touch icons
-    %link{:href => "assets/ico/apple-touch-icon-144-precomposed.png", :rel => "apple-touch-icon-precomposed", :sizes => "144x144"}/
-    %link{:href => "assets/ico/apple-touch-icon-114-precomposed.png", :rel => "apple-touch-icon-precomposed", :sizes => "114x114"}/
-    %link{:href => "assets/ico/apple-touch-icon-72-precomposed.png", :rel => "apple-touch-icon-precomposed", :sizes => "72x72"}/
-    %link{:href => "assets/ico/apple-touch-icon-57-precomposed.png", :rel => "apple-touch-icon-precomposed"}/
-    %link{:href => "assets/ico/favicon.png", :rel => "shortcut icon"}/
+    %link{:href => "../assets/ico/apple-touch-icon-144-precomposed.png", :rel => "apple-touch-icon-precomposed", :sizes => "144x144"}/
+    %link{:href => "../assets/ico/apple-touch-icon-114-precomposed.png", :rel => "apple-touch-icon-precomposed", :sizes => "114x114"}/
+    %link{:href => "../assets/ico/apple-touch-icon-72-precomposed.png", :rel => "apple-touch-icon-precomposed", :sizes => "72x72"}/
+    %link{:href => "../assets/ico/apple-touch-icon-57-precomposed.png", :rel => "apple-touch-icon-precomposed"}/
+    %link{:href => "../assets/ico/favicon.png", :rel => "shortcut icon"}/
+      
   %body
-    .navbar.navbar-inverse.navbar-fixed-top
-      .navbar-inner
-        .container-fluid
-          %button.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse", :type => "button"}
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          %a.brand{:href => "#"} RSS DJ
-          .nav-collapse.collapse
-            %p.navbar-text.pull-right
-              Logged in as
-              %a.navbar-link{:href => "#"} Username
-            %ul.nav
-              %li.active
-                %a{:href => "#"} Home
-              %li
-                %a{:href => "#about"} About
-              %li
-                %a{:href => "#contact"} Contact
-          / /.nav-collapse
-    .container-fluid
-      .row-fluid
-        .span3
-          .well.sidebar-nav
-            %ul.nav.nav-list
-              %li.nav-header Sidebar
-              %li
-                %a{:href => "/main_statistics"} Extract word statistics TOP100, TOP200, TOP500
-              %li
-                %a{:href => "/word_dynamics"} Word dynamics
-              %li
-                %a{:href => "/word_hystory"} Point a word for it's history
-              %li.nav-header Sidebar
-              %li
-                %a{:href => "/word_correlation"} Point 2 words for correlation coefficent between them
-              %li
-                %a{:href => "/word_hystory_top50"} See history of top-50 words
-              %li
-                %a{:href => "/word_correlation_top50"} See top-50 maximum correlations
-              %li
-                %a{:href => "/upload_sources"} See the source channels
-              %li
-                %a{:href => "/upload_filters"} See the word filters (the, a, and, et c.)
-              %li
-                %a{:href => "/updates"} See the database update date
-              %li.nav-header Sidebar
-              %li
-                %a{:href => "/xls_download"} Export word statistics into Xls
-              %li
-                %a{:href => "/subscribe_word"} Subscribe and get daily frequency of pointed word
-              %li
-                %a{:href => "/subscribe_word_correlaton"} Subscribe and get daily frequency of pointed word + correlations
-          / /.well
-        / /span
-        .span9
-          .hero-unit
-            %h2 Finally, I found that...
-            %img{:alt => "", :src => "assets/img/examples/slide-01.jpg"}/
-            %p This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
-            %p
-              %a.btn.btn-primary.btn-large{:href => "#"} Learn more &raquo;
-          .row-fluid
-            .span4
-              %h2 Heading
-              %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-              %p
-                %a.btn{:href => "#"} View details &raquo;
-            / /span
-            .span4
-              %h2 Heading
-              %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-              %p
-                %a.btn{:href => "#"} View details &raquo;
-            / /span
-            .span4
-              %h2 Heading
-              %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-              %p
-                %a.btn{:href => "#"} View details &raquo;
-            / /span
-          / /row
-        / /span
-      / /row
-      .container
-        %form.form-signin
-          %h2.form-signin-heading Please sign in
-          %input.input-block-level{:placeholder => "Email address", :type => "text"}/
-          %input.input-block-level{:placeholder => "Password", :type => "password"}/
-          %label.checkbox
-            %input{:type => "checkbox", :value => "remember-me"}/
-            Remember me
-          %button.btn.btn-large.btn-primary{:type => "submit"} Sign in
-      / /container
-      %hr/
-      %footer
-        %p &copy; Company 2013
-    / /.fluid-container
+    
+    .container
+      .hero-unit{:style => "margin-top:40px"}
+        %h1{:style => "font-size:58px"}
+          bootstrap-wysihtml5
+          %small Simple, beautiful wysiwyg editors
+        %hr/
+        %textarea.textarea{:placeholder => "Enter text ...", :style => "width: 810px; height: 200px"}
+      .row
+        .span6
+          %h2 About
+          %p
+            bootstrap-wysihtml5 is a javascript plugin that makes it easy to create simple, beautiful wysiwyg editors with the help of
+            %a{:href => "https://github.com/xing/wysihtml5"} wysihtml5
+            and
+            %a{:href => "http://twitter.github.com/bootstrap/"} Twitter Bootstrap
+          %p{:style => "text-align:center; margin-top:20px"}
+            %a.btn.btn-large.btn-primary.jumbo{:href => "https://github.com/jhollingworth/bootstrap-wysihtml5/"} View project on Github
+        .span6
+          %h2 Usage
+          %p
+          %pre.prettyprint.linenums $('.textarea').wysihtml5();
+          %h3 Dependencies
+          %p
+          %ul
+            %li
+              %a{:href => "https://raw.github.com/jhollingworth/bootstrap-wysihtml5/master/src/bootstrap-wysihtml5.js"} bootstrap-wysihtml5.js
+            %li
+              %a{:href => "https://raw.github.com/jhollingworth/bootstrap-wysihtml5/master/src/bootstrap-wysihtml5.css"} bootstrap-wysihtml5.css
+            %li
+              %a{:href => "https://github.com/xing/wysihtml5"} wysihtml5
+            %li
+              %a{:href => "http://twitter.github.com/bootstrap/"} Twitter Bootstrap
+    
+    %script{:src => "../bootstrap-wysihtml5/lib/js/wysihtml5-0.3.0.js"}
+    /%script{:src => "../bootstrap-wysihtml5/lib/js/jquery-1.7.2.min.js"}
+    /%script{:src => "../bootstrap-wysihtml5/lib/js/prettify.js"}
+    %script{:src => "../bootstrap-wysihtml5/lib/js/bootstrap.min.js"}
+    %script{:src => "../bootstrap-wysihtml5/src/bootstrap-wysihtml5.js"}
+    
+    :javascript
+      $('.textarea').wysihtml5();
+    
+    %script{:charset => "utf-8", :type => "text/javascript"}
+      $(prettyPrint);
+    
     /
       Le javascript
       \==================================================
     / Placed at the end of the document so the pages load faster
-    %script{:src => "assets/js/jquery.js"}
-    %script{:src => "assets/js/bootstrap-transition.js"}
-    %script{:src => "assets/js/bootstrap-alert.js"}
-    %script{:src => "assets/js/bootstrap-modal.js"}
-    %script{:src => "assets/js/bootstrap-dropdown.js"}
-    %script{:src => "assets/js/bootstrap-scrollspy.js"}
-    %script{:src => "assets/js/bootstrap-tab.js"}
-    %script{:src => "assets/js/bootstrap-tooltip.js"}
-    %script{:src => "assets/js/bootstrap-popover.js"}
-    %script{:src => "assets/js/bootstrap-button.js"}
-    %script{:src => "assets/js/bootstrap-collapse.js"}
-    %script{:src => "assets/js/bootstrap-carousel.js"}
-    %script{:src => "assets/js/bootstrap-typeahead.js"}
+    %script{:src => "../assets/js/jquery.js"}
+    %script{:src => "../assets/js/bootstrap-transition.js"}
+    %script{:src => "../assets/js/bootstrap-alert.js"}
+    %script{:src => "../assets/js/bootstrap-modal.js"}
+    %script{:src => "../assets/js/bootstrap-dropdown.js"}
+    %script{:src => "../assets/js/bootstrap-scrollspy.js"}
+    %script{:src => "../assets/js/bootstrap-tab.js"}
+    %script{:src => "../assets/js/bootstrap-tooltip.js"}
+    %script{:src => "../assets/js/bootstrap-popover.js"}
+    %script{:src => "../assets/js/bootstrap-button.js"}
+    %script{:src => "../assets/js/bootstrap-collapse.js"}
+    %script{:src => "../assets/js/bootstrap-carousel.js"}
+    %script{:src => "../assets/js/bootstrap-typeahead.js"}
