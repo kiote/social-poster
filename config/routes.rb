@@ -2,13 +2,14 @@ SocialPoster::Application.routes.draw do
   
   root :to => "static_pages#connect_page"
   
-  get "static_pages/home"
   get "static_pages/test"
-  get "static_pages/wysihtml5"
-  get "static_pages/wysihtml5_bootstrap"
   
   get "static_pages/connect_page"
-  get "static_pages/post_page"
+  
+  get "static_pages/post_page_facebook"
+  get "static_pages/post_page_linkedin"
+  get "static_pages/post_page_twitter"
+  get "static_pages/post_page_vk"
   
   
   # The priority is based upon order of creation: first created -> highest priority.

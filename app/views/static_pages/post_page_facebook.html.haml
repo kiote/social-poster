@@ -3,27 +3,8 @@
 
   %title post to facebook
   
-  %link{:href => "../assets/bootstrap/css/bootstrap.css", :rel => "stylesheet", :type => "text/css"}/
-  %link{:href => "../assets/bootstrap/js/google-code-prettify/prettify.css", :rel => "stylesheet", :type => "text/css"}/
-  %link{:href => "../assets/bootstrap-wysihtml5/css/bootstrap-wysihtml5.css", :rel => "stylesheet", :type => "text/css"}/
   
-  %style{:media => "screen", :type => "text/css"}
-    \.btn.jumbo {
-    font-size: 20px;
-    font-weight: normal;
-    padding: 14px 24px;
-    margin-right: 10px;
-    \-webkit-border-radius: 6px;
-    \-moz-border-radius: 6px;
-    border-radius: 6px;
-    width: 100px;
-    }
-    
-    \.custom {
-    width: 100px !important;
-    }
-
-.container
+.container.width_500
 
   %ul.nav.nav-tabs
     %li.active
@@ -35,7 +16,7 @@
     %li
       %a{:href => "/static_pages/post_page_vk#"} VK
 
-  %textarea.textarea{:placeholder => "Enter text ...", :style => "width: 810px; height: 200px"}
+  %textarea.textarea{:placeholder => "Enter text ...", :style => "width: 500px; height: 200px"}
   %br
   %a.btn.btn-large.btn-primary.jumbo{:href => "#"} Post
 
