@@ -3,8 +3,9 @@ SocialPoster::Application.routes.draw do
   root :to => "static_pages#connect_page"
   
   get "static_pages/home"
-  get "static_pages/help"
   get "static_pages/test"
+  get "static_pages/wysihtml5"
+  get "static_pages/wysihtml5_bootstrap"
   
   get "static_pages/connect_page"
   get "static_pages/post_page"
