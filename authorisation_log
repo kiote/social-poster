@@ -107,3 +107,6 @@ logger:  Twitter
 logger: 1
 logger: 2
 logger: 3
+logger: authorisation, session_id 94a41a4a9efeaa2df48522ace4b240f4
+logger: request_token.token: daGx21SO00CST6ax2dq18tVxpdSX9Tcm2wAKBkzrfw
+logger: request_token.secret: 2j45gdz1IDpI8AHPz0ZCmKvHt5J57jBfbsJl7EnV7o
