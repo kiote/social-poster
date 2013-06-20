@@ -23,11 +23,43 @@ class StaticPagesController < ApplicationController
   end
   
   def authentification
-  
-    @logger.debug "authentification, session_id %s" % request.session_options[:id]
-    @logger.debug "through %s" % params[:social_network][:name]
     
-    @auth_through = params[:social_network][:name]
+    social_network = params[:social_network][:name]
+    session[:social_network] = social_network
+    
+    if social_network == "Facebook"
+      auth_facebook
+    elsif social_network == "LinkedIN"
+      auth_linkedin 
+    elsif social_network == "Twitter"
+      auth_twitter
+    elsif social_network == "VK"
+      auth_vk
+    else
+      @logger.debug "no auth, goto index, session_id %s" % request.session_options[:id]
+      redirect_to "/"
+    end
+    
+  end
+  
+  def auth_facebook
+    @logger.debug "auth fb, session_id %s" % request.session_options[:id]
+    redirect_to "/"
+  end
+  
+  def auth_linkedin
+    @logger.debug "auth lkn, session_id %s" % request.session_options[:id]
+    redirect_to "/"
+  end
+  
+  def auth_twitter
+    
+    social_network = session[:social_network]
+    
+    @logger.debug "auth twitter, session_id %s" % request.session_options[:id]
+    @logger.debug "through %s" % social_network
+    
+    @auth_through = social_network
     
     client = TwitterOAuth::Client.new(
       :consumer_key => KEYS_AND_SECRETS['twitter']['consumer_key'],
@@ -46,7 +78,36 @@ class StaticPagesController < ApplicationController
     
   end
   
+  def auth_vk
+    @logger.debug "auth vk, session_id %s" % request.session_options[:id]
+    redirect_to "/"
+  end
+  
   def authorisation
+    
+    social_network = session[:social_network]
+    
+    if social_network == "Facebook"
+      authsn_facebook
+    elsif social_network == "LinkedIN"
+      authsn_linkedin 
+    elsif social_network == "Twitter"
+      authsn_twitter
+    elsif social_network == "VK"
+      authsn_vk
+    else
+      @logger.debug "no auth, goto index, session_id %s" % request.session_options[:id]
+      redirect_to "/"
+    end
+  end
+  
+  def authsn_facebook
+  end
+  
+  def authsn_linkedin
+  end
+  
+  def authsn_twitter
     
     @logger.debug "authorisation, session_id %s" % request.session_options[:id]
     
@@ -75,7 +136,6 @@ class StaticPagesController < ApplicationController
     response = access_token.request(:get, "https://api.twitter.com/1.1/account/verify_credentials.json ")
     
     msg = JSON.parse(response.body)
-    logger.debug "msg: %s" % msg
     
     @message = msg['screen_name']
     
@@ -83,6 +143,9 @@ class StaticPagesController < ApplicationController
     @logger.debug "\n"
     @logger.debug "\n"
   
+  end
+  
+  def authsn_vk
   end
   
   

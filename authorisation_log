@@ -1,151 +1,65 @@
-# Logfile created on 2013-06-20 11:23:03 +0000 by logger.rb/36483
-D, [2013-06-20T11:23:05.679709 #1676] DEBUG -- : authentification:
-D, [2013-06-20T11:23:05.680070 #1676] DEBUG -- : through Twitter: 
-D, [2013-06-20T11:23:06.748934 #1676] DEBUG -- : request_token: #<OAuth::RequestToken:0x875e7b8>
-D, [2013-06-20T11:23:10.268746 #1676] DEBUG -- : authorisation:
-D, [2013-06-20T11:23:10.269285 #1676] DEBUG -- : request_token: #<OAuth::RequestToken:0x8bb47cc>
-D, [2013-06-20T11:23:11.328439 #1676] DEBUG -- : access_token.token: 1497573638-g1qM4XdhbhQZ4o7WwFdAd36TS0JlJ92x8Hq4mza
-D, [2013-06-20T11:23:11.328842 #1676] DEBUG -- : access_token.secret: xuR4IjY85yxeACp9mnKRdkhKewdW3V2TLZCEclVk
-D, [2013-06-20T11:24:54.454757 #1676] DEBUG -- : authentification:
-D, [2013-06-20T11:25:19.929550 #1676] DEBUG -- : authentification:
-D, [2013-06-20T11:25:19.929841 #1676] DEBUG -- : through Twitter
-D, [2013-06-20T11:25:21.002490 #1676] DEBUG -- : request_token: #<OAuth::RequestToken:0x9d15ee4>
-D, [2013-06-20T11:25:24.639785 #1676] DEBUG -- : authorisation:
-D, [2013-06-20T11:25:24.640618 #1676] DEBUG -- : request_token: #<OAuth::RequestToken:0x9d27374>
-D, [2013-06-20T11:25:25.742699 #1676] DEBUG -- : access_token.token: 1497573638-g1qM4XdhbhQZ4o7WwFdAd36TS0JlJ92x8Hq4mza
-D, [2013-06-20T11:25:25.743073 #1676] DEBUG -- : access_token.secret: xuR4IjY85yxeACp9mnKRdkhKewdW3V2TLZCEclVk
-D, [2013-06-20T11:25:26.668341 #1676] DEBUG -- : is client authorised: false
-D, [2013-06-20T11:32:43.531284 #1676] DEBUG -- : authentification: 
-D, [2013-06-20T11:32:43.531918 #1676] DEBUG -- : through Twitter
-D, [2013-06-20T11:32:44.592498 #1676] DEBUG -- : request_token: #<OAuth::RequestToken:0x9baaeec>
-D, [2013-06-20T11:32:50.013463 #1676] DEBUG -- : authorisation: 
-D, [2013-06-20T11:32:50.027033 #1676] DEBUG -- : request_token: #<OAuth::RequestToken:0x9c14234>
-D, [2013-06-20T11:32:51.151953 #1676] DEBUG -- : access_token.token: 1497573638-g1qM4XdhbhQZ4o7WwFdAd36TS0JlJ92x8Hq4mza
-D, [2013-06-20T11:32:51.153232 #1676] DEBUG -- : access_token.secret: xuR4IjY85yxeACp9mnKRdkhKewdW3V2TLZCEclVk
-D, [2013-06-20T11:32:57.146082 #1676] DEBUG -- : is client authorised: false
-D, [2013-06-20T11:33:59.610834 #1676] DEBUG -- : authentification, session_id 
-D, [2013-06-20T11:33:59.612218 #1676] DEBUG -- : through Twitter
-D, [2013-06-20T11:34:00.816276 #1676] DEBUG -- : request_token: #<OAuth::RequestToken:0x9d127e4>
-D, [2013-06-20T11:34:04.346748 #1676] DEBUG -- : authorisation, session_id 
-D, [2013-06-20T11:34:04.349189 #1676] DEBUG -- : request_token: #<OAuth::RequestToken:0x9d1d84c>
-D, [2013-06-20T11:34:05.423109 #1676] DEBUG -- : access_token.token: 1497573638-g1qM4XdhbhQZ4o7WwFdAd36TS0JlJ92x8Hq4mza
-D, [2013-06-20T11:34:05.423521 #1676] DEBUG -- : access_token.secret: xuR4IjY85yxeACp9mnKRdkhKewdW3V2TLZCEclVk
-D, [2013-06-20T11:34:06.321620 #1676] DEBUG -- : is client authorised: false
-D, [2013-06-20T11:36:27.427858 #1676] DEBUG -- : authentification, session_id 94a41a4a9efeaa2df48522ace4b240f4
-D, [2013-06-20T11:36:27.428940 #1676] DEBUG -- : through Twitter
-D, [2013-06-20T11:36:28.500803 #1676] DEBUG -- : request_token: #<OAuth::RequestToken:0x8d82b30>
-D, [2013-06-20T11:36:32.376448 #1676] DEBUG -- : authorisation, session_id 94a41a4a9efeaa2df48522ace4b240f4
-D, [2013-06-20T11:36:32.387557 #1676] DEBUG -- : request_token: #<OAuth::RequestToken:0x910e8bc>
-D, [2013-06-20T11:36:33.500412 #1676] DEBUG -- : access_token.token: 1497573638-g1qM4XdhbhQZ4o7WwFdAd36TS0JlJ92x8Hq4mza
-D, [2013-06-20T11:36:33.501156 #1676] DEBUG -- : access_token.secret: xuR4IjY85yxeACp9mnKRdkhKewdW3V2TLZCEclVk
-D, [2013-06-20T11:36:34.423413 #1676] DEBUG -- : is client authorised: false
-logger: authentification, session_id 94a41a4a9efeaa2df48522ace4b240f4
+# Logfile created on 2013-06-20 14:43:25 +0000 by logger.rb/36483
+logger: auth fb, session_id 94a41a4a9efeaa2df48522ace4b240f4
+logger: auth lkn, session_id 94a41a4a9efeaa2df48522ace4b240f4
+logger: auth fb, session_id 94a41a4a9efeaa2df48522ace4b240f4
+logger: auth lkn, session_id 94a41a4a9efeaa2df48522ace4b240f4
+logger: auth vk, session_id 94a41a4a9efeaa2df48522ace4b240f4
+logger: auth twitter, session_id 94a41a4a9efeaa2df48522ace4b240f4
 logger: through Twitter
-logger: request_token: #<OAuth::RequestToken:0x9ccef58>
+logger: request_token.token: GLDxT14LbecysJg3OS6VNX2IRSMYP9ohczkuQBSdOg
+logger: request_token.secret: R8drGCE6tfQAtTdS6HOKH0IPE5L1GaPWAE4dpE0WDug
+logger: 
+
 logger: authorisation, session_id 94a41a4a9efeaa2df48522ace4b240f4
-logger: request_token: #<OAuth::RequestToken:0x9cd9b38>
+logger: request_token.token: GLDxT14LbecysJg3OS6VNX2IRSMYP9ohczkuQBSdOg
+logger: request_token.secret: R8drGCE6tfQAtTdS6HOKH0IPE5L1GaPWAE4dpE0WDug
 logger: access_token.token: 1497573638-g1qM4XdhbhQZ4o7WwFdAd36TS0JlJ92x8Hq4mza
 logger: access_token.secret: xuR4IjY85yxeACp9mnKRdkhKewdW3V2TLZCEclVk
 logger: is client authorised: true
-logger: authentification, session_id 94a41a4a9efeaa2df48522ace4b240f4
+logger: 
+
+logger: 
+
+logger: 
+
+logger: auth twitter, session_id 94a41a4a9efeaa2df48522ace4b240f4
 logger: through Twitter
-logger: request_token: #<OAuth::RequestToken:0x8af1c2c>
+logger: request_token.token: iHojLIgTXtjQX6CzYCpxJfWBEWE96RlWltnyukIdY
+logger: request_token.secret: jmhzcvd88honzF2ibqEkn0q9huyH7SphbCzncPQ
+logger: 
+
 logger: authorisation, session_id 94a41a4a9efeaa2df48522ace4b240f4
-logger: request_token: #<OAuth::RequestToken:0x8f4a968>
+logger: request_token.token: iHojLIgTXtjQX6CzYCpxJfWBEWE96RlWltnyukIdY
+logger: request_token.secret: jmhzcvd88honzF2ibqEkn0q9huyH7SphbCzncPQ
 logger: access_token.token: 1497573638-g1qM4XdhbhQZ4o7WwFdAd36TS0JlJ92x8Hq4mza
 logger: access_token.secret: xuR4IjY85yxeACp9mnKRdkhKewdW3V2TLZCEclVk
 logger: is client authorised: true
-logger: authentification, session_id 94a41a4a9efeaa2df48522ace4b240f4
+logger: 
+
+logger: 
+
+logger: 
+
+logger: auth lkn, session_id 94a41a4a9efeaa2df48522ace4b240f4
+logger: auth fb, session_id 94a41a4a9efeaa2df48522ace4b240f4
+logger: auth twitter, session_id 94a41a4a9efeaa2df48522ace4b240f4
 logger: through Twitter
-logger: request_token: #<OAuth::RequestToken:0xa048a94>
-logger: authorisation, session_id 94a41a4a9efeaa2df48522ace4b240f4
-logger: request_token: #<OAuth::RequestToken:0xa05ba68>
-logger: access_token.token: 1497573638-g1qM4XdhbhQZ4o7WwFdAd36TS0JlJ92x8Hq4mza
-logger: access_token.secret: xuR4IjY85yxeACp9mnKRdkhKewdW3V2TLZCEclVk
-logger: is client authorised: false
-logger: authentification, session_id 94a41a4a9efeaa2df48522ace4b240f4
+logger: request_token.token: huo6CMzVLzg81icAi2mQG8eYMpVAJJJQTDBtqA1K48
+logger: request_token.secret: YF2m93KcMLEf6QocYPJjEMgE0tLf4rfmghzVVmBBQ
+logger: 
+
+logger: auth fb, session_id 94a41a4a9efeaa2df48522ace4b240f4
+logger: auth fb, session_id 94a41a4a9efeaa2df48522ace4b240f4
+logger: auth lkn, session_id 94a41a4a9efeaa2df48522ace4b240f4
+logger: auth twitter, session_id 94a41a4a9efeaa2df48522ace4b240f4
 logger: through Twitter
-logger: request_token.token: X7nXGyXORrpEGqLgCNrOvxvygzwmDoD193ioGvHU8
-logger: request_token.secret: sR1NOuEv4h1ncIg26eOehkJVAWBUdHDSQM2nqJas
-logger: authorisation, session_id 94a41a4a9efeaa2df48522ace4b240f4
-logger: request_token.token: X7nXGyXORrpEGqLgCNrOvxvygzwmDoD193ioGvHU8
-logger: request_token.secret: sR1NOuEv4h1ncIg26eOehkJVAWBUdHDSQM2nqJas
-logger: access_token.token: 1497573638-g1qM4XdhbhQZ4o7WwFdAd36TS0JlJ92x8Hq4mza
-logger: access_token.secret: xuR4IjY85yxeACp9mnKRdkhKewdW3V2TLZCEclVk
-logger: is client authorised: false
-logger: authentification, session_id 94a41a4a9efeaa2df48522ace4b240f4
-logger: through Twitter
-logger: request_token.token: bv5vLtPtXW7tTFK32mdLCoBbWyhNS2XobWcKFruI
-logger: request_token.secret: ULwAneiuEqY9sR3daW1hpiCfxZAdrGtaMRzSQrhd0A
-logger: authorisation, session_id 94a41a4a9efeaa2df48522ace4b240f4
-logger: request_token.token: bv5vLtPtXW7tTFK32mdLCoBbWyhNS2XobWcKFruI
-logger: request_token.secret: ULwAneiuEqY9sR3daW1hpiCfxZAdrGtaMRzSQrhd0A
-logger: access_token.token: 1497573638-g1qM4XdhbhQZ4o7WwFdAd36TS0JlJ92x8Hq4mza
-logger: access_token.secret: xuR4IjY85yxeACp9mnKRdkhKewdW3V2TLZCEclVk
-logger: is client authorised: false
-logger: authentification, session_id 94a41a4a9efeaa2df48522ace4b240f4
-logger: through Twitter
-logger: request_token.token: iOsBaQBLFLSroj77fgIbLhbt2FhK9SUpI7vBEPPCca4
-logger: request_token.secret: oPljdxFtJuvi6pul6NfWXEO01cUuTVhSudJoFJXTw8
+logger: request_token.token: iYmL37dsKK44yd0qc6KghXJw02DnGElw0J4NwOcVa90
+logger: request_token.secret: H94a471uxYHwx0YQhjFR4vj9ccjV6b1CQSXKAj4qiI
 logger: 
 
 logger: authorisation, session_id 94a41a4a9efeaa2df48522ace4b240f4
-logger: request_token.token: iOsBaQBLFLSroj77fgIbLhbt2FhK9SUpI7vBEPPCca4
-logger: request_token.secret: oPljdxFtJuvi6pul6NfWXEO01cUuTVhSudJoFJXTw8
-logger: access_token.token: 1497573638-g1qM4XdhbhQZ4o7WwFdAd36TS0JlJ92x8Hq4mza
-logger: access_token.secret: xuR4IjY85yxeACp9mnKRdkhKewdW3V2TLZCEclVk
-logger: is client authorised: false
-logger: 
-
-logger: 
-
-logger: 
-
-logger: authentification, session_id 94a41a4a9efeaa2df48522ace4b240f4
-logger: through Twitter
-logger: request_token.token: uahKU4CILX4xRW9K1ZO0BywvB2auqZCPFrCT71Yf4
-logger: request_token.secret: 9rq3jac3j2s2aRM2ZLQJhGdQjlhP8MeUvfTTbmCVaBI
-logger: 
-
-logger: authorisation, session_id 94a41a4a9efeaa2df48522ace4b240f4
-logger: request_token.token: uahKU4CILX4xRW9K1ZO0BywvB2auqZCPFrCT71Yf4
-logger: request_token.secret: 9rq3jac3j2s2aRM2ZLQJhGdQjlhP8MeUvfTTbmCVaBI
-logger: access_token.token: 1497573638-g1qM4XdhbhQZ4o7WwFdAd36TS0JlJ92x8Hq4mza
-logger: access_token.secret: xuR4IjY85yxeACp9mnKRdkhKewdW3V2TLZCEclVk
-logger: is client authorised: false
-logger: 
-
-logger: 
-
-logger: 
-
-logger: authentification, session_id 94a41a4a9efeaa2df48522ace4b240f4
-logger: through Twitter
-logger: request_token.token: E0gQnVnJm30vbhwyUBw5uVQuF784bjChYrhsujiH5Y
-logger: request_token.secret: 5XePnRbyc7qIcMi3KO46Rn3xYt14MBzQ3pEYilVjw
-logger: 
-
-logger: authorisation, session_id 94a41a4a9efeaa2df48522ace4b240f4
-logger: request_token.token: E0gQnVnJm30vbhwyUBw5uVQuF784bjChYrhsujiH5Y
-logger: request_token.secret: 5XePnRbyc7qIcMi3KO46Rn3xYt14MBzQ3pEYilVjw
-logger: access_token.token: 1497573638-g1qM4XdhbhQZ4o7WwFdAd36TS0JlJ92x8Hq4mza
-logger: access_token.secret: xuR4IjY85yxeACp9mnKRdkhKewdW3V2TLZCEclVk
-logger: is client authorised: false
-logger: 
-
-logger: 
-
-logger: 
-
-logger: authentification, session_id 94a41a4a9efeaa2df48522ace4b240f4
-logger: through Twitter
-logger: request_token.token: rhTP7b3jzNot7GkuvJf7qEA2yXjDirT0V7ytINtQ
-logger: request_token.secret: vH8I3HQOLmq6QzVB62glA2qGDJGGpRP7GIP9mPS1l0
-logger: 
-
-logger: authorisation, session_id 94a41a4a9efeaa2df48522ace4b240f4
-logger: request_token.token: rhTP7b3jzNot7GkuvJf7qEA2yXjDirT0V7ytINtQ
-logger: request_token.secret: vH8I3HQOLmq6QzVB62glA2qGDJGGpRP7GIP9mPS1l0
+logger: request_token.token: iYmL37dsKK44yd0qc6KghXJw02DnGElw0J4NwOcVa90
+logger: request_token.secret: H94a471uxYHwx0YQhjFR4vj9ccjV6b1CQSXKAj4qiI
 logger: access_token.token: 1497573638-g1qM4XdhbhQZ4o7WwFdAd36TS0JlJ92x8Hq4mza
 logger: access_token.secret: xuR4IjY85yxeACp9mnKRdkhKewdW3V2TLZCEclVk
 logger: is client authorised: true
