@@ -1,15 +1,16 @@
 SocialPoster::Application.routes.draw do
   
-  root :to => "static_pages#connect_page"
+  root :to => "static_pages#index"
   
   get "static_pages/test"
   
-  get "static_pages/connect_page"
+  get "static_pages/authentification"
+  get "static_pages/authorisation"
   
-  get "static_pages/post_page_facebook"
-  get "static_pages/post_page_linkedin"
-  get "static_pages/post_page_twitter"
-  get "static_pages/post_page_vk"
+  get "static_pages/post_facebook"
+  get "static_pages/post_linkedin"
+  get "static_pages/post_twitter"
+  get "static_pages/post_vk"
   
   
   # The priority is based upon order of creation: first created -> highest priority.

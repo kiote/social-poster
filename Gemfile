@@ -9,6 +9,8 @@ gem 'unicorn'
 
 gem 'haml-rails'
 
+gem 'twitter_oauth'
+
 group :production, :staging do
   gem "pg"
   
