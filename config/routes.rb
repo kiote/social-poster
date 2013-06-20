@@ -6,6 +6,7 @@ SocialPoster::Application.routes.draw do
   
   get "static_pages/authentification"
   get "static_pages/authorisation"
+  get "static_pages/post_message"
   
   get "static_pages/post_facebook"
   get "static_pages/post_linkedin"

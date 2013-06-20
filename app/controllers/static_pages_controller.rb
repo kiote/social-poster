@@ -138,14 +138,25 @@ class StaticPagesController < ApplicationController
     msg = JSON.parse(response.body)
     
     @message = msg['screen_name']
+    session[:message] = msg['screen_name']
+    @social_network = session[:social_network]
     
-    @logger.debug "\n"
-    @logger.debug "\n"
-    @logger.debug "\n"
+    redirect_to "/static_pages/post_message"
+    
+    @logger.debug " %s " % @message
+    @logger.debug " %s " % @social_network
+    @logger.debug "1"
+    @logger.debug "2"
+    @logger.debug "3"
   
   end
   
   def authsn_vk
+  end
+  
+  def post_message
+    @message = session[:message]
+    @social_network = session[:social_network]
   end
   
   
