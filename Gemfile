@@ -17,7 +17,7 @@ gem 'haml-rails'
 gem 'unicorn'
 
 group :production, :staging do
-  gem "pg"
+  gem 'pg'
   
   # it's about bootstrap's styles
   gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
