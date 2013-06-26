@@ -65,4 +65,16 @@ SocialPoster::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+  
+  Rails.application.config.middleware.use OmniAuth::Builder do
+    # ALWAYS RESTART YOUR SERVER IF YOU MAKE CHANGES TO THESE SETTINGS!
+    
+    # providers with id/secret, you need to sign up for their services (see below) and enter the parameters here
+    provider :facebook, '542283809165927', '1a8e252855790961ed937a993304e480'
+    provider :vkontakte, '3725656 ', '016vuNmtyghJpkcwccjU'
+    provider :twitter, '78Xe54R18Dx0xjehhGOAw', 'IMNaQoy65nLkWa15qp5HvoqHYAu5XTXCfgg86fKC0'
+    provider :linkedin, 'l6on5uqdtfc8', 'LiDHc2gdkyYTOEuB'
+    
+  end
+
 end

@@ -2635,3 +2635,154 @@ logger: services_controller, index: signed with: twitter
 > send_facebook;
 > signed_in_with facebook
 > current_user_providers.contains true
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>twitter</provider>
+  <uid>1497573638</uid>
+  <info>
+    <nickname>SavvaVoloshin</nickname>
+    <name>Savva</name>
+    <location nil="true"/>
+    <image>http://a0.twimg.com/profile_images/378800000001567456/55538540b4df5e9caa9dbaa4da9b4b0e_normal.png</image>
+    <description>It begins long time ago.. Omsk, Syberia, since 1985.</description>
+    <urls>
+      <Website nil="true"/>
+      <Twitter>https://twitter.com/SavvaVoloshin</Twitter>
+    </urls>
+  </info>
+  <credentials>
+    <token>1497573638-g1qM4XdhbhQZ4o7WwFdAd36TS0JlJ92x8Hq4mza</token>
+    <secret>xuR4IjY85yxeACp9mnKRdkhKewdW3V2TLZCEclVk</secret>
+  </credentials>
+  <extra>
+    <access-token type="OAuth::AccessToken">#&lt;OAuth::AccessToken:0xb6863e48&gt;</access-token>
+    <raw-info>
+      <default-profile-image type="boolean">false</default-profile-image>
+      <profile-sidebar-fill-color>DDEEF6</profile-sidebar-fill-color>
+      <name>Savva</name>
+      <favourites-count type="integer">0</favourites-count>
+      <lang>en</lang>
+      <friends-count type="integer">3</friends-count>
+      <statuses-count type="integer">1</statuses-count>
+      <geo-enabled type="boolean">false</geo-enabled>
+      <screen-name>SavvaVoloshin</screen-name>
+      <id type="integer">1497573638</id>
+      <profile-background-color>C0DEED</profile-background-color>
+      <verified type="boolean">false</verified>
+      <notifications type="boolean">false</notifications>
+      <profile-background-image-url>http://a0.twimg.com/images/themes/theme1/bg.png</profile-background-image-url>
+      <default-profile type="boolean">true</default-profile>
+      <profile-link-color>0084B4</profile-link-color>
+      <following type="boolean">false</following>
+      <utc-offset nil="true"/>
+      <created-at>Mon Jun 10 07:01:23 +0000 2013</created-at>
+      <contributors-enabled type="boolean">false</contributors-enabled>
+      <id-str>1497573638</id-str>
+      <profile-use-background-image type="boolean">true</profile-use-background-image>
+      <listed-count type="integer">0</listed-count>
+      <profile-image-url>http://a0.twimg.com/profile_images/378800000001567456/55538540b4df5e9caa9dbaa4da9b4b0e_normal.png</profile-image-url>
+      <protected type="boolean">false</protected>
+      <profile-text-color>333333</profile-text-color>
+      <description>It begins long time ago.. Omsk, Syberia, since 1985.</description>
+      <profile-sidebar-border-color>C0DEED</profile-sidebar-border-color>
+      <time-zone nil="true"/>
+      <follow-request-sent type="boolean">false</follow-request-sent>
+      <url nil="true"/>
+      <entities>
+        <description>
+          <urls type="array"/>
+        </description>
+      </entities>
+      <followers-count type="integer">0</followers-count>
+      <is-translator type="boolean">false</is-translator>
+      <profile-image-url-https>https://twimg0-a.akamaihd.net/profile_images/378800000001567456/55538540b4df5e9caa9dbaa4da9b4b0e_normal.png</profile-image-url-https>
+      <profile-background-image-url-https>https://twimg0-a.akamaihd.net/images/themes/theme1/bg.png</profile-background-image-url-https>
+      <profile-background-tile type="boolean">false</profile-background-tile>
+      <location nil="true"/>
+    </raw-info>
+  </extra>
+</hash>
+
+> services_controller: create: Your account at Twitter is already connected with this site.
+> redirect_somewhere_or_render_something
+> signed_in_with facebook
+> redirect_to services#send_facebook
+> send_facebook;
+> signed_in_with facebook
+> current_user_providers.contains true
+> services_controller: create: You have been signed out!
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>twitter</provider>
+  <uid>1497573638</uid>
+  <info>
+    <nickname>SavvaVoloshin</nickname>
+    <name>Savva</name>
+    <location nil="true"/>
+    <image>http://a0.twimg.com/profile_images/378800000001567456/55538540b4df5e9caa9dbaa4da9b4b0e_normal.png</image>
+    <description>It begins long time ago.. Omsk, Syberia, since 1985.</description>
+    <urls>
+      <Website nil="true"/>
+      <Twitter>https://twitter.com/SavvaVoloshin</Twitter>
+    </urls>
+  </info>
+  <credentials>
+    <token>1497573638-g1qM4XdhbhQZ4o7WwFdAd36TS0JlJ92x8Hq4mza</token>
+    <secret>xuR4IjY85yxeACp9mnKRdkhKewdW3V2TLZCEclVk</secret>
+  </credentials>
+  <extra>
+    <access-token type="OAuth::AccessToken">#&lt;OAuth::AccessToken:0xb68cbf20&gt;</access-token>
+    <raw-info>
+      <default-profile-image type="boolean">false</default-profile-image>
+      <profile-sidebar-fill-color>DDEEF6</profile-sidebar-fill-color>
+      <name>Savva</name>
+      <favourites-count type="integer">0</favourites-count>
+      <lang>en</lang>
+      <friends-count type="integer">3</friends-count>
+      <statuses-count type="integer">1</statuses-count>
+      <geo-enabled type="boolean">false</geo-enabled>
+      <screen-name>SavvaVoloshin</screen-name>
+      <id type="integer">1497573638</id>
+      <profile-background-color>C0DEED</profile-background-color>
+      <verified type="boolean">false</verified>
+      <notifications type="boolean">false</notifications>
+      <profile-background-image-url>http://a0.twimg.com/images/themes/theme1/bg.png</profile-background-image-url>
+      <default-profile type="boolean">true</default-profile>
+      <profile-link-color>0084B4</profile-link-color>
+      <following type="boolean">false</following>
+      <utc-offset nil="true"/>
+      <created-at>Mon Jun 10 07:01:23 +0000 2013</created-at>
+      <contributors-enabled type="boolean">false</contributors-enabled>
+      <id-str>1497573638</id-str>
+      <profile-use-background-image type="boolean">true</profile-use-background-image>
+      <listed-count type="integer">0</listed-count>
+      <profile-image-url>http://a0.twimg.com/profile_images/378800000001567456/55538540b4df5e9caa9dbaa4da9b4b0e_normal.png</profile-image-url>
+      <protected type="boolean">false</protected>
+      <profile-text-color>333333</profile-text-color>
+      <description>It begins long time ago.. Omsk, Syberia, since 1985.</description>
+      <profile-sidebar-border-color>C0DEED</profile-sidebar-border-color>
+      <time-zone nil="true"/>
+      <follow-request-sent type="boolean">false</follow-request-sent>
+      <url nil="true"/>
+      <entities>
+        <description>
+          <urls type="array"/>
+        </description>
+      </entities>
+      <followers-count type="integer">0</followers-count>
+      <is-translator type="boolean">false</is-translator>
+      <profile-image-url-https>https://twimg0-a.akamaihd.net/profile_images/378800000001567456/55538540b4df5e9caa9dbaa4da9b4b0e_normal.png</profile-image-url-https>
+      <profile-background-image-url-https>https://twimg0-a.akamaihd.net/images/themes/theme1/bg.png</profile-background-image-url-https>
+      <profile-background-tile type="boolean">false</profile-background-tile>
+      <location nil="true"/>
+    </raw-info>
+  </extra>
+</hash>
+
+> services_controller: create: Signed in successfully via Twitter.
+> redirect_somewhere_or_render_something
+> signed_in_with twitter
+> redirect_to services/send_twitter
+> send_twitter;
+> signed_in_with twitter
+> current_user_providers.contains true
