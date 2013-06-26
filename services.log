@@ -2786,3 +2786,512 @@ logger: services_controller, index: signed with: twitter
 > send_twitter;
 > signed_in_with twitter
 > current_user_providers.contains true
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>facebook</provider>
+  <uid>100005133014329</uid>
+  <info>
+    <nickname>vcabba</nickname>
+    <email>vcabba@bmail.ru</email>
+    <name>Savva  Voloshin</name>
+    <first-name>Savva</first-name>
+    <last-name>Voloshin</last-name>
+    <image>http://graph.facebook.com/100005133014329/picture?type=square</image>
+    <urls>
+      <Facebook>http://www.facebook.com/vcabba</Facebook>
+    </urls>
+    <verified type="boolean">true</verified>
+  </info>
+  <credentials>
+    <token>CAAHtNEnQEmcBAN4u8FxCqjrRQ1o09FBZCbGZCho0SmcxWefTSqQu48inZAg0NZA7BI5PVP1BqJmxpwSkFShBWNOWplCO32ym576VGNhU3zIBrINPecswGmsGtcz9OR9w6sIdnHnjY13rl7irtxNS</token>
+    <expires-at type="integer">1377426679</expires-at>
+    <expires type="boolean">true</expires>
+  </credentials>
+  <extra>
+    <raw-info>
+      <id>100005133014329</id>
+      <name>Savva  Voloshin</name>
+      <first-name>Savva</first-name>
+      <last-name>Voloshin</last-name>
+      <link>http://www.facebook.com/vcabba</link>
+      <username>vcabba</username>
+      <gender>male</gender>
+      <email>vcabba@bmail.ru</email>
+      <timezone type="integer">0</timezone>
+      <locale>ru_RU</locale>
+      <verified type="boolean">true</verified>
+      <updated-time>2013-06-21T18:48:44+0000</updated-time>
+    </raw-info>
+  </extra>
+</hash>
+
+> services_controller: create: Signed in successfully via Facebook.
+> redirect_somewhere_or_render_something
+> signed_in_with facebook
+> redirect_to services#send_facebook
+> send_facebook;
+> signed_in_with facebook
+> current_user_providers.contains true
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>facebook</provider>
+  <uid>100005133014329</uid>
+  <info>
+    <nickname>vcabba</nickname>
+    <email>vcabba@bmail.ru</email>
+    <name>Savva  Voloshin</name>
+    <first-name>Savva</first-name>
+    <last-name>Voloshin</last-name>
+    <image>http://graph.facebook.com/100005133014329/picture?type=square</image>
+    <urls>
+      <Facebook>http://www.facebook.com/vcabba</Facebook>
+    </urls>
+    <verified type="boolean">true</verified>
+  </info>
+  <credentials>
+    <token>CAAHtNEnQEmcBAGA5svgnefhORHHUdDwWbOeQm2pJoQjqZCHrYWADiZAagrZCqwZCyHuv2HxLXJJa77cZCc7mw7ZB3MYsjSNmJv8TrDAmW6m9jSY9huiayGxiEYHVH4KAfSc7mbW8Lk4SYcMms5tGZC4</token>
+    <expires-at type="integer">1377426679</expires-at>
+    <expires type="boolean">true</expires>
+  </credentials>
+  <extra>
+    <raw-info>
+      <id>100005133014329</id>
+      <name>Savva  Voloshin</name>
+      <first-name>Savva</first-name>
+      <last-name>Voloshin</last-name>
+      <link>http://www.facebook.com/vcabba</link>
+      <username>vcabba</username>
+      <gender>male</gender>
+      <email>vcabba@bmail.ru</email>
+      <timezone type="integer">0</timezone>
+      <locale>ru_RU</locale>
+      <verified type="boolean">true</verified>
+      <updated-time>2013-06-21T18:48:44+0000</updated-time>
+    </raw-info>
+  </extra>
+</hash>
+
+> services_controller: create: Your account at Facebook is already connected with this site.
+> redirect_somewhere_or_render_something
+> signed_in_with facebook
+> redirect_to services#send_facebook
+> send_facebook;
+> signed_in_with facebook
+> current_user_providers.contains true
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>facebook</provider>
+  <uid>100005133014329</uid>
+  <info>
+    <nickname>vcabba</nickname>
+    <email>vcabba@bmail.ru</email>
+    <name>Savva  Voloshin</name>
+    <first-name>Savva</first-name>
+    <last-name>Voloshin</last-name>
+    <image>http://graph.facebook.com/100005133014329/picture?type=square</image>
+    <urls>
+      <Facebook>http://www.facebook.com/vcabba</Facebook>
+    </urls>
+    <verified type="boolean">true</verified>
+  </info>
+  <credentials>
+    <token>CAAHtNEnQEmcBAMQ0fZBwsiaZCwuq1Ne8YZAfT8Iv3K6ZCY9ESE9ZArms9lSZALXUWfpDi8Xk73NpN172UmZCl6GZBHW5oltssA0Rgq6Dvqs9ZA7VZBwIHkPvu474ZBpFInO1yqy8gjMUwgZAizpVqZAKqLclE</token>
+    <expires-at type="integer">1377426678</expires-at>
+    <expires type="boolean">true</expires>
+  </credentials>
+  <extra>
+    <raw-info>
+      <id>100005133014329</id>
+      <name>Savva  Voloshin</name>
+      <first-name>Savva</first-name>
+      <last-name>Voloshin</last-name>
+      <link>http://www.facebook.com/vcabba</link>
+      <username>vcabba</username>
+      <gender>male</gender>
+      <email>vcabba@bmail.ru</email>
+      <timezone type="integer">0</timezone>
+      <locale>ru_RU</locale>
+      <verified type="boolean">true</verified>
+      <updated-time>2013-06-21T18:48:44+0000</updated-time>
+    </raw-info>
+  </extra>
+</hash>
+
+> services_controller: create: Your account at Facebook is already connected with this site.
+> redirect_somewhere_or_render_something
+> signed_in_with facebook
+> redirect_to services#send_facebook
+> send_facebook;
+> signed_in_with facebook
+> current_user_providers.contains true
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>facebook</provider>
+  <uid>100005133014329</uid>
+  <info>
+    <nickname>vcabba</nickname>
+    <email>vcabba@bmail.ru</email>
+    <name>Savva  Voloshin</name>
+    <first-name>Savva</first-name>
+    <last-name>Voloshin</last-name>
+    <image>http://graph.facebook.com/100005133014329/picture?type=square</image>
+    <urls>
+      <Facebook>http://www.facebook.com/vcabba</Facebook>
+    </urls>
+    <verified type="boolean">true</verified>
+  </info>
+  <credentials>
+    <token>CAAHtNEnQEmcBAPxhGcf2xaU9ZArP1FGnahbal7ZA3JceEIP4UDZB3i3CR19uAZBXdeOkhySWiT0lW6WaYauw5HRS6kDs3dQup5SrPjYaZAtUZCUgzrXaKBFJArKGmCZC3AlepfZBiN6PhjRpamEGskhQ</token>
+    <expires-at type="integer">1377426679</expires-at>
+    <expires type="boolean">true</expires>
+  </credentials>
+  <extra>
+    <raw-info>
+      <id>100005133014329</id>
+      <name>Savva  Voloshin</name>
+      <first-name>Savva</first-name>
+      <last-name>Voloshin</last-name>
+      <link>http://www.facebook.com/vcabba</link>
+      <username>vcabba</username>
+      <gender>male</gender>
+      <email>vcabba@bmail.ru</email>
+      <timezone type="integer">0</timezone>
+      <locale>ru_RU</locale>
+      <verified type="boolean">true</verified>
+      <updated-time>2013-06-21T18:48:44+0000</updated-time>
+    </raw-info>
+  </extra>
+</hash>
+
+> services_controller: create: Your account at Facebook is already connected with this site.
+> redirect_somewhere_or_render_something
+> signed_in_with facebook
+> redirect_to services#send_facebook
+> send_facebook;
+> signed_in_with facebook
+> current_user_providers.contains true
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>facebook</provider>
+  <uid>100005133014329</uid>
+  <info>
+    <nickname>vcabba</nickname>
+    <email>vcabba@bmail.ru</email>
+    <name>Savva  Voloshin</name>
+    <first-name>Savva</first-name>
+    <last-name>Voloshin</last-name>
+    <image>http://graph.facebook.com/100005133014329/picture?type=square</image>
+    <urls>
+      <Facebook>http://www.facebook.com/vcabba</Facebook>
+    </urls>
+    <verified type="boolean">true</verified>
+  </info>
+  <credentials>
+    <token>CAAHtNEnQEmcBAG9MCZArnCqvy2vHCUjFJ0wD8UHrYluk51XbWK0896aIEh8LlNHyH41kWTmIx1VRiXBcKb2c2HCLwoHAOQzDHrG6wD0EbZCWUILZA2N35Ycg6HCzmZAPEeAcHjkdtudd67srHTkZC</token>
+    <expires-at type="integer">1377426679</expires-at>
+    <expires type="boolean">true</expires>
+  </credentials>
+  <extra>
+    <raw-info>
+      <id>100005133014329</id>
+      <name>Savva  Voloshin</name>
+      <first-name>Savva</first-name>
+      <last-name>Voloshin</last-name>
+      <link>http://www.facebook.com/vcabba</link>
+      <username>vcabba</username>
+      <gender>male</gender>
+      <email>vcabba@bmail.ru</email>
+      <timezone type="integer">0</timezone>
+      <locale>ru_RU</locale>
+      <verified type="boolean">true</verified>
+      <updated-time>2013-06-21T18:48:44+0000</updated-time>
+    </raw-info>
+  </extra>
+</hash>
+
+> services_controller: create: Your account at Facebook is already connected with this site.
+> redirect_somewhere_or_render_something
+> signed_in_with facebook
+> redirect_to services#send_facebook
+> send_facebook;
+> signed_in_with facebook
+> current_user_providers.contains true
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>facebook</provider>
+  <uid>100005133014329</uid>
+  <info>
+    <nickname>vcabba</nickname>
+    <email>vcabba@bmail.ru</email>
+    <name>Savva  Voloshin</name>
+    <first-name>Savva</first-name>
+    <last-name>Voloshin</last-name>
+    <image>http://graph.facebook.com/100005133014329/picture?type=square</image>
+    <urls>
+      <Facebook>http://www.facebook.com/vcabba</Facebook>
+    </urls>
+    <verified type="boolean">true</verified>
+  </info>
+  <credentials>
+    <token>CAAHtNEnQEmcBAE40tgWZAy1pvStaX5Jpm24npEqzXTaf8SZBbgEphdNVQgZBq8qdKI3ZAmN1Xo3yFnEIR0A0nsdyUYpVBpO6QB0XqnFqPQdJoCjrKniqm3rVjRk7ZAF3tyXIenzkLJAyWvZCCxsjiz</token>
+    <expires-at type="integer">1377426679</expires-at>
+    <expires type="boolean">true</expires>
+  </credentials>
+  <extra>
+    <raw-info>
+      <id>100005133014329</id>
+      <name>Savva  Voloshin</name>
+      <first-name>Savva</first-name>
+      <last-name>Voloshin</last-name>
+      <link>http://www.facebook.com/vcabba</link>
+      <username>vcabba</username>
+      <gender>male</gender>
+      <email>vcabba@bmail.ru</email>
+      <timezone type="integer">0</timezone>
+      <locale>ru_RU</locale>
+      <verified type="boolean">true</verified>
+      <updated-time>2013-06-21T18:48:44+0000</updated-time>
+    </raw-info>
+  </extra>
+</hash>
+
+> services_controller: create: Your account at Facebook is already connected with this site.
+> redirect_somewhere_or_render_something
+> signed_in_with facebook
+> redirect_to services#send_facebook
+> send_facebook;
+> signed_in_with facebook
+> current_user_providers.contains true
+> services_controller: create: You have been signed out!
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>facebook</provider>
+  <uid>100005133014329</uid>
+  <info>
+    <nickname>vcabba</nickname>
+    <email>vcabba@bmail.ru</email>
+    <name>Savva  Voloshin</name>
+    <first-name>Savva</first-name>
+    <last-name>Voloshin</last-name>
+    <image>http://graph.facebook.com/100005133014329/picture?type=square</image>
+    <urls>
+      <Facebook>http://www.facebook.com/vcabba</Facebook>
+    </urls>
+    <verified type="boolean">true</verified>
+  </info>
+  <credentials>
+    <token>CAAHtNEnQEmcBALZCwb2qc8ZCkMnV8t52JvdAH1m36cLcGvQgNZCZAr8ZBlneGsWCPV2qZAMFjUgj2OvQHk67UExdU2u2zYSzqbSkwXHR7C8FZBTjZCsjkQGrJjch5otPQ2ZAiwoPnTjg9mPj7bMFT3MUJ</token>
+    <expires-at type="integer">1377426679</expires-at>
+    <expires type="boolean">true</expires>
+  </credentials>
+  <extra>
+    <raw-info>
+      <id>100005133014329</id>
+      <name>Savva  Voloshin</name>
+      <first-name>Savva</first-name>
+      <last-name>Voloshin</last-name>
+      <link>http://www.facebook.com/vcabba</link>
+      <username>vcabba</username>
+      <gender>male</gender>
+      <email>vcabba@bmail.ru</email>
+      <timezone type="integer">0</timezone>
+      <locale>ru_RU</locale>
+      <verified type="boolean">true</verified>
+      <updated-time>2013-06-21T18:48:44+0000</updated-time>
+    </raw-info>
+  </extra>
+</hash>
+
+> services_controller: create: Signed in successfully via Facebook.
+> redirect_somewhere_or_render_something
+> signed_in_with facebook
+> redirect_to services#send_facebook
+> send_facebook;
+> signed_in_with facebook
+> current_user_providers.contains true
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>facebook</provider>
+  <uid>100005133014329</uid>
+  <info>
+    <nickname>vcabba</nickname>
+    <email>vcabba@bmail.ru</email>
+    <name>Savva  Voloshin</name>
+    <first-name>Savva</first-name>
+    <last-name>Voloshin</last-name>
+    <image>http://graph.facebook.com/100005133014329/picture?type=square</image>
+    <urls>
+      <Facebook>http://www.facebook.com/vcabba</Facebook>
+    </urls>
+    <verified type="boolean">true</verified>
+  </info>
+  <credentials>
+    <token>CAAHtNEnQEmcBAEeSz5kL8TkIFIKxnZCaLgsjT5iiQZAdI7YjhpbDrsgV1Ur4Eg96KhcWMqNh2DNEG1YjxK1YZBCcPYcTNmHQ6APj2vFwc3QnVNyWpXy86q81QsuHH5H0ZCCCXgCyABysVlczRY6x</token>
+    <expires-at type="integer">1377426679</expires-at>
+    <expires type="boolean">true</expires>
+  </credentials>
+  <extra>
+    <raw-info>
+      <id>100005133014329</id>
+      <name>Savva  Voloshin</name>
+      <first-name>Savva</first-name>
+      <last-name>Voloshin</last-name>
+      <link>http://www.facebook.com/vcabba</link>
+      <username>vcabba</username>
+      <gender>male</gender>
+      <email>vcabba@bmail.ru</email>
+      <timezone type="integer">0</timezone>
+      <locale>ru_RU</locale>
+      <verified type="boolean">true</verified>
+      <updated-time>2013-06-21T18:48:44+0000</updated-time>
+    </raw-info>
+  </extra>
+</hash>
+
+> services_controller: create: Your account at Facebook is already connected with this site.
+> redirect_somewhere_or_render_something
+> signed_in_with facebook
+> redirect_to services#send_facebook
+> send_facebook;
+> signed_in_with facebook
+> current_user_providers.contains true
+> services_controller: create: You have been signed out!
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>facebook</provider>
+  <uid>100005133014329</uid>
+  <info>
+    <nickname>vcabba</nickname>
+    <email>vcabba@bmail.ru</email>
+    <name>Savva  Voloshin</name>
+    <first-name>Savva</first-name>
+    <last-name>Voloshin</last-name>
+    <image>http://graph.facebook.com/100005133014329/picture?type=square</image>
+    <urls>
+      <Facebook>http://www.facebook.com/vcabba</Facebook>
+    </urls>
+    <verified type="boolean">true</verified>
+  </info>
+  <credentials>
+    <token>CAAHtNEnQEmcBAPFrrVN2LcefkCCoCzSmcyx2V2u5Cp7h1ZAzjUsst1DWYUIF5pcLhCfDZCLILeM7YSH1K9kcSa29upD2OZBnFmHSIXplUkw87yeZAFF90jXzH5stlzoiuKyynsOUowMEITGra6Pm</token>
+    <expires-at type="integer">1377426679</expires-at>
+    <expires type="boolean">true</expires>
+  </credentials>
+  <extra>
+    <raw-info>
+      <id>100005133014329</id>
+      <name>Savva  Voloshin</name>
+      <first-name>Savva</first-name>
+      <last-name>Voloshin</last-name>
+      <link>http://www.facebook.com/vcabba</link>
+      <username>vcabba</username>
+      <gender>male</gender>
+      <email>vcabba@bmail.ru</email>
+      <timezone type="integer">0</timezone>
+      <locale>ru_RU</locale>
+      <verified type="boolean">true</verified>
+      <updated-time>2013-06-21T18:48:44+0000</updated-time>
+    </raw-info>
+  </extra>
+</hash>
+
+> services_controller: create: Signed in successfully via Facebook.
+> redirect_somewhere_or_render_something
+> signed_in_with facebook
+> redirect_to services#send_facebook
+> send_facebook;
+> signed_in_with facebook
+> current_user_providers.contains true
+> services_controller: create: You have been signed out!
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>facebook</provider>
+  <uid>100005133014329</uid>
+  <info>
+    <nickname>vcabba</nickname>
+    <email>vcabba@bmail.ru</email>
+    <name>Savva  Voloshin</name>
+    <first-name>Savva</first-name>
+    <last-name>Voloshin</last-name>
+    <image>http://graph.facebook.com/100005133014329/picture?type=square</image>
+    <urls>
+      <Facebook>http://www.facebook.com/vcabba</Facebook>
+    </urls>
+    <verified type="boolean">true</verified>
+  </info>
+  <credentials>
+    <token>CAAHtNEnQEmcBAJQe1Tocor3kWUNTVozXpf9NGeZBapvW3Ul5rrOYfobEkhCpDSIluhvIMEFZBSWnGTQVZA7r4nHsrOXC2ogM57eZCkbshyGdNMBDKM9EI2bGJEY4duCEMaZClvWUdu3uLKUUqZAyY8</token>
+    <expires-at type="integer">1377426679</expires-at>
+    <expires type="boolean">true</expires>
+  </credentials>
+  <extra>
+    <raw-info>
+      <id>100005133014329</id>
+      <name>Savva  Voloshin</name>
+      <first-name>Savva</first-name>
+      <last-name>Voloshin</last-name>
+      <link>http://www.facebook.com/vcabba</link>
+      <username>vcabba</username>
+      <gender>male</gender>
+      <email>vcabba@bmail.ru</email>
+      <timezone type="integer">0</timezone>
+      <locale>ru_RU</locale>
+      <verified type="boolean">true</verified>
+      <updated-time>2013-06-21T18:48:44+0000</updated-time>
+    </raw-info>
+  </extra>
+</hash>
+
+> services_controller: create: Signed in successfully via Facebook.
+> redirect_somewhere_or_render_something
+> signed_in_with facebook
+> redirect_to services#send_facebook
+> send_facebook;
+> signed_in_with facebook
+> current_user_providers.contains true
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>facebook</provider>
+  <uid>100005133014329</uid>
+  <info>
+    <nickname>vcabba</nickname>
+    <email>vcabba@bmail.ru</email>
+    <name>Savva  Voloshin</name>
+    <first-name>Savva</first-name>
+    <last-name>Voloshin</last-name>
+    <image>http://graph.facebook.com/100005133014329/picture?type=square</image>
+    <urls>
+      <Facebook>http://www.facebook.com/vcabba</Facebook>
+    </urls>
+    <verified type="boolean">true</verified>
+  </info>
+  <credentials>
+    <token>CAAHtNEnQEmcBANeHprT13zpuRqICOvPJ6bnmDXb1zNTi6ZAigAOg4RpgB5qUteL9rPtiUjv4bwKkHYlHCLJZB2i8HtVLEaQY37ZBpS9A9W5K5MCiNIEH3xIfMzutrxSSEljVAalUx3VbkvLxuXq</token>
+    <expires-at type="integer">1377426679</expires-at>
+    <expires type="boolean">true</expires>
+  </credentials>
+  <extra>
+    <raw-info>
+      <id>100005133014329</id>
+      <name>Savva  Voloshin</name>
+      <first-name>Savva</first-name>
+      <last-name>Voloshin</last-name>
+      <link>http://www.facebook.com/vcabba</link>
+      <username>vcabba</username>
+      <gender>male</gender>
+      <email>vcabba@bmail.ru</email>
+      <timezone type="integer">0</timezone>
+      <locale>ru_RU</locale>
+      <verified type="boolean">true</verified>
+      <updated-time>2013-06-21T18:48:44+0000</updated-time>
+    </raw-info>
+  </extra>
+</hash>
+
+> services_controller: create: Your account at Facebook is already connected with this site.
+> redirect_somewhere_or_render_something
+> signed_in_with facebook
+> redirect_to services#send_facebook
+> send_facebook;
+> signed_in_with facebook
+> current_user_providers.contains true
