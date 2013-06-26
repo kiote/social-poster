@@ -29,6 +29,6 @@ SocialPoster::Application.routes.draw do
     end
   end
    
-  #~ root :to => "users#index"
-  root to: "services#signin"
+  root :to => "users#index"
+  #~ root to: "services#signin"
 end

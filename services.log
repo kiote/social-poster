@@ -2150,3 +2150,349 @@ logger: services_controller, index: signed with: twitter
 > send_facebook;
 > signed_in_with facebook
 > current_user_providers.contains true
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>facebook</provider>
+  <uid>100005133014329</uid>
+  <info>
+    <nickname>vcabba</nickname>
+    <email>vcabba@bmail.ru</email>
+    <name>Savva  Voloshin</name>
+    <first-name>Savva</first-name>
+    <last-name>Voloshin</last-name>
+    <image>http://graph.facebook.com/100005133014329/picture?type=square</image>
+    <urls>
+      <Facebook>http://www.facebook.com/vcabba</Facebook>
+    </urls>
+    <verified type="boolean">true</verified>
+  </info>
+  <credentials>
+    <token>CAAHtNEnQEmcBAETJjhN4Ii8lbHfkb7ULx10JVNGUAsQvzrdOtkt4hRb3NIxlu5rGs4S9YadIuwqkkHgRuaMRaxthLaB9AMZAMiPV01l9OwbD3uizHwwzOyByvZApn2qaadeXPQg7hgGMrzpn22</token>
+    <expires-at type="integer">1377339990</expires-at>
+    <expires type="boolean">true</expires>
+  </credentials>
+  <extra>
+    <raw-info>
+      <id>100005133014329</id>
+      <name>Savva  Voloshin</name>
+      <first-name>Savva</first-name>
+      <last-name>Voloshin</last-name>
+      <link>http://www.facebook.com/vcabba</link>
+      <username>vcabba</username>
+      <gender>male</gender>
+      <email>vcabba@bmail.ru</email>
+      <timezone type="integer">0</timezone>
+      <locale>ru_RU</locale>
+      <verified type="boolean">true</verified>
+      <updated-time>2013-06-21T18:48:44+0000</updated-time>
+    </raw-info>
+  </extra>
+</hash>
+
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>facebook</provider>
+  <uid>100005133014329</uid>
+  <info>
+    <nickname>vcabba</nickname>
+    <email>vcabba@bmail.ru</email>
+    <name>Savva  Voloshin</name>
+    <first-name>Savva</first-name>
+    <last-name>Voloshin</last-name>
+    <image>http://graph.facebook.com/100005133014329/picture?type=square</image>
+    <urls>
+      <Facebook>http://www.facebook.com/vcabba</Facebook>
+    </urls>
+    <verified type="boolean">true</verified>
+  </info>
+  <credentials>
+    <token>CAAHtNEnQEmcBAPvYMAsZAqmCrPlfDB4bkOWGQkwqvz1XYh4TtwwZA6ZBAGws8ALeMYb5z25LiOWVF81DPODLD4pryzvPGAp9FNzavsWMnzyge1006GobIOOxkRdcNAbXkjZBj5OcZCsLXAgxDTiRR</token>
+    <expires-at type="integer">1377339990</expires-at>
+    <expires type="boolean">true</expires>
+  </credentials>
+  <extra>
+    <raw-info>
+      <id>100005133014329</id>
+      <name>Savva  Voloshin</name>
+      <first-name>Savva</first-name>
+      <last-name>Voloshin</last-name>
+      <link>http://www.facebook.com/vcabba</link>
+      <username>vcabba</username>
+      <gender>male</gender>
+      <email>vcabba@bmail.ru</email>
+      <timezone type="integer">0</timezone>
+      <locale>ru_RU</locale>
+      <verified type="boolean">true</verified>
+      <updated-time>2013-06-21T18:48:44+0000</updated-time>
+    </raw-info>
+  </extra>
+</hash>
+
+> services_controller: newaccount: Your account has been created and you have been signed in!
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>linkedin</provider>
+  <uid>EsKOV6HBMr</uid>
+  <info>
+    <name>Savva Voloshin</name>
+    <email>savva.voloshin@gmail.com</email>
+    <nickname>Savva Voloshin</nickname>
+    <first-name>Savva</first-name>
+    <last-name>Voloshin</last-name>
+    <location>Russian Federation, RU</location>
+    <description>freelance</description>
+    <image nil="true"/>
+    <phone nil="true"/>
+    <headline>freelance</headline>
+    <industry>Program Development</industry>
+    <urls>
+      <public-profile>http://www.linkedin.com/pub/savva-voloshin/75/97/635</public-profile>
+    </urls>
+  </info>
+  <credentials>
+    <token>6790cba8-c920-4c2e-a610-28b0dbf318ac</token>
+    <secret>a0b3529b-124f-4f73-870a-0c85944853b7</secret>
+  </credentials>
+  <extra>
+    <access-token type="OAuth::AccessToken">#&lt;OAuth::AccessToken:0xb69dead4&gt;</access-token>
+    <raw-info>
+      <emailAddress>savva.voloshin@gmail.com</emailAddress>
+      <firstName>Savva</firstName>
+      <headline>freelance</headline>
+      <id>EsKOV6HBMr</id>
+      <industry>Program Development</industry>
+      <lastName>Voloshin</lastName>
+      <location>
+        <country>
+          <code>ru</code>
+        </country>
+        <name>Russian Federation</name>
+      </location>
+      <publicProfileUrl>http://www.linkedin.com/pub/savva-voloshin/75/97/635</publicProfileUrl>
+    </raw-info>
+  </extra>
+</hash>
+
+> services_controller: create: Your Linkedin account has been added for signing in at this site.
+> redirect_somewhere_or_render_something
+> signed_in_with facebook
+> redirect_to services#send_facebook
+> send_facebook;
+> signed_in_with facebook
+> current_user_providers.contains true
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>linkedin</provider>
+  <uid>EsKOV6HBMr</uid>
+  <info>
+    <name>Savva Voloshin</name>
+    <email>savva.voloshin@gmail.com</email>
+    <nickname>Savva Voloshin</nickname>
+    <first-name>Savva</first-name>
+    <last-name>Voloshin</last-name>
+    <location>Russian Federation, RU</location>
+    <description>freelance</description>
+    <image nil="true"/>
+    <phone nil="true"/>
+    <headline>freelance</headline>
+    <industry>Program Development</industry>
+    <urls>
+      <public-profile>http://www.linkedin.com/pub/savva-voloshin/75/97/635</public-profile>
+    </urls>
+  </info>
+  <credentials>
+    <token>6790cba8-c920-4c2e-a610-28b0dbf318ac</token>
+    <secret>a0b3529b-124f-4f73-870a-0c85944853b7</secret>
+  </credentials>
+  <extra>
+    <access-token type="OAuth::AccessToken">#&lt;OAuth::AccessToken:0xb69b114c&gt;</access-token>
+    <raw-info>
+      <emailAddress>savva.voloshin@gmail.com</emailAddress>
+      <firstName>Savva</firstName>
+      <headline>freelance</headline>
+      <id>EsKOV6HBMr</id>
+      <industry>Program Development</industry>
+      <lastName>Voloshin</lastName>
+      <location>
+        <country>
+          <code>ru</code>
+        </country>
+        <name>Russian Federation</name>
+      </location>
+      <publicProfileUrl>http://www.linkedin.com/pub/savva-voloshin/75/97/635</publicProfileUrl>
+    </raw-info>
+  </extra>
+</hash>
+
+> services_controller: create: Your account at Linkedin is already connected with this site.
+> redirect_somewhere_or_render_something
+> signed_in_with facebook
+> redirect_to services#send_facebook
+> send_facebook;
+> signed_in_with facebook
+> current_user_providers.contains true
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>twitter</provider>
+  <uid>1497573638</uid>
+  <info>
+    <nickname>SavvaVoloshin</nickname>
+    <name>Savva</name>
+    <location nil="true"/>
+    <image>http://a0.twimg.com/profile_images/378800000001567456/55538540b4df5e9caa9dbaa4da9b4b0e_normal.png</image>
+    <description>It begins long time ago.. Omsk, Syberia, since 1985.</description>
+    <urls>
+      <Website nil="true"/>
+      <Twitter>https://twitter.com/SavvaVoloshin</Twitter>
+    </urls>
+  </info>
+  <credentials>
+    <token>1497573638-g1qM4XdhbhQZ4o7WwFdAd36TS0JlJ92x8Hq4mza</token>
+    <secret>xuR4IjY85yxeACp9mnKRdkhKewdW3V2TLZCEclVk</secret>
+  </credentials>
+  <extra>
+    <access-token type="OAuth::AccessToken">#&lt;OAuth::AccessToken:0xb65f5e2c&gt;</access-token>
+    <raw-info>
+      <default-profile-image type="boolean">false</default-profile-image>
+      <profile-sidebar-fill-color>DDEEF6</profile-sidebar-fill-color>
+      <name>Savva</name>
+      <favourites-count type="integer">0</favourites-count>
+      <lang>en</lang>
+      <friends-count type="integer">3</friends-count>
+      <statuses-count type="integer">1</statuses-count>
+      <geo-enabled type="boolean">false</geo-enabled>
+      <screen-name>SavvaVoloshin</screen-name>
+      <id type="integer">1497573638</id>
+      <profile-background-color>C0DEED</profile-background-color>
+      <verified type="boolean">false</verified>
+      <notifications type="boolean">false</notifications>
+      <profile-background-image-url>http://a0.twimg.com/images/themes/theme1/bg.png</profile-background-image-url>
+      <default-profile type="boolean">true</default-profile>
+      <profile-link-color>0084B4</profile-link-color>
+      <following type="boolean">false</following>
+      <utc-offset nil="true"/>
+      <created-at>Mon Jun 10 07:01:23 +0000 2013</created-at>
+      <contributors-enabled type="boolean">false</contributors-enabled>
+      <id-str>1497573638</id-str>
+      <profile-use-background-image type="boolean">true</profile-use-background-image>
+      <listed-count type="integer">0</listed-count>
+      <profile-image-url>http://a0.twimg.com/profile_images/378800000001567456/55538540b4df5e9caa9dbaa4da9b4b0e_normal.png</profile-image-url>
+      <protected type="boolean">false</protected>
+      <profile-text-color>333333</profile-text-color>
+      <description>It begins long time ago.. Omsk, Syberia, since 1985.</description>
+      <profile-sidebar-border-color>C0DEED</profile-sidebar-border-color>
+      <time-zone nil="true"/>
+      <follow-request-sent type="boolean">false</follow-request-sent>
+      <url nil="true"/>
+      <entities>
+        <description>
+          <urls type="array"/>
+        </description>
+      </entities>
+      <followers-count type="integer">0</followers-count>
+      <is-translator type="boolean">false</is-translator>
+      <profile-image-url-https>https://twimg0-a.akamaihd.net/profile_images/378800000001567456/55538540b4df5e9caa9dbaa4da9b4b0e_normal.png</profile-image-url-https>
+      <profile-background-image-url-https>https://twimg0-a.akamaihd.net/images/themes/theme1/bg.png</profile-background-image-url-https>
+      <profile-background-tile type="boolean">false</profile-background-tile>
+      <location nil="true"/>
+    </raw-info>
+  </extra>
+</hash>
+
+> services_controller: create: Your Twitter account has been added for signing in at this site.
+> redirect_somewhere_or_render_something
+> signed_in_with facebook
+> redirect_to services#send_facebook
+> send_facebook;
+> signed_in_with facebook
+> current_user_providers.contains true
+> services_controller: create: You have been signed out!
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>vkontakte</provider>
+  <uid type="integer">162733550</uid>
+  <info>
+    <name>Савва Волошин</name>
+    <nickname></nickname>
+    <first-name>Савва</first-name>
+    <last-name>Волошин</last-name>
+    <image>https://vk.com/images/camera_c.gif</image>
+    <location>Россия, Омск</location>
+    <urls>
+      <Vkontakte>http://vk.com/vcabba</Vkontakte>
+    </urls>
+  </info>
+  <credentials>
+    <token>72a40fee53ad37efec8810e67280e7ccd8865023d90179cac4a2a37daf6d74ae383fda66e0937e3369fc1</token>
+    <expires-at type="integer">1372328118</expires-at>
+    <expires type="boolean">true</expires>
+  </credentials>
+  <extra>
+    <raw-info>
+      <uid type="integer">162733550</uid>
+      <first-name>Савва</first-name>
+      <last-name>Волошин</last-name>
+      <sex type="integer">2</sex>
+      <nickname></nickname>
+      <screen-name>vcabba</screen-name>
+      <city>104</city>
+      <country>1</country>
+      <photo>https://vk.com/images/camera_c.gif</photo>
+      <photo-big>https://vk.com/images/camera_a.gif</photo-big>
+      <online type="integer">0</online>
+    </raw-info>
+  </extra>
+</hash>
+
+> services_controller: newaccount: Your account has been created and you have been signed in!
+> services_controller: create: You have been signed out!
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>facebook</provider>
+  <uid>100005133014329</uid>
+  <info>
+    <nickname>vcabba</nickname>
+    <email>vcabba@bmail.ru</email>
+    <name>Savva  Voloshin</name>
+    <first-name>Savva</first-name>
+    <last-name>Voloshin</last-name>
+    <image>http://graph.facebook.com/100005133014329/picture?type=square</image>
+    <urls>
+      <Facebook>http://www.facebook.com/vcabba</Facebook>
+    </urls>
+    <verified type="boolean">true</verified>
+  </info>
+  <credentials>
+    <token>CAAHtNEnQEmcBADg3woyaR0HhoUfChOhP2ZBUd1zNoyhZCaFDTMyjMvVgRrIqPrpZAYlvS5yjRG1djbluafpFDmZCUYZBJIsCUkD7Ysw1cHdJZBDiR1v0pZAQE0Og7iZA5YdfGVRhh8L6IbRkzdUIagvO</token>
+    <expires-at type="integer">1377339990</expires-at>
+    <expires type="boolean">true</expires>
+  </credentials>
+  <extra>
+    <raw-info>
+      <id>100005133014329</id>
+      <name>Savva  Voloshin</name>
+      <first-name>Savva</first-name>
+      <last-name>Voloshin</last-name>
+      <link>http://www.facebook.com/vcabba</link>
+      <username>vcabba</username>
+      <gender>male</gender>
+      <email>vcabba@bmail.ru</email>
+      <timezone type="integer">0</timezone>
+      <locale>ru_RU</locale>
+      <verified type="boolean">true</verified>
+      <updated-time>2013-06-21T18:48:44+0000</updated-time>
+    </raw-info>
+  </extra>
+</hash>
+
+> services_controller: create: Signed in successfully via Facebook.
+> redirect_somewhere_or_render_something
+> signed_in_with facebook
+> redirect_to services#send_facebook
+> send_facebook;
+> signed_in_with facebook
+> current_user_providers.contains true
+> send_twitter;
+> signed_in_with facebook
+> current_user_providers.contains true
+> services_controller: create: You have been signed out!
