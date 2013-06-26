@@ -1,9 +1,9 @@
 # Be sure to restart your server when you modify this file.
 
-OmniauthDemo::Application.config.session_store :cookie_store
+SocialPoster::Application.config.session_store :cookie_store
 
-OmniauthDemo::Application.config.session = {
-  :key          => '_omniauthpure_session',     # name of cookie that stores the data
+SocialPoster::Application.config.session = {
+  :key          => '_socialposter_session',     # name of cookie that stores the data
   :domain       => nil,                         # you can share between subdomains here: '.communityguides.eu'
   :expire_after => 1.month,                     # expire cookie
   :secure       => false,                       # fore https if true

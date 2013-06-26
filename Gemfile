@@ -1,6 +1,8 @@
 
 source 'https://rubygems.org'
 
+ruby '2.0.0'
+
 gem 'rails', '4.0.0.rc1'
 gem 'omniauth'
 gem 'omniauth-facebook'
@@ -8,9 +10,9 @@ gem 'omniauth-vkontakte'
 gem 'omniauth-linkedin'
 gem 'omniauth-twitter'
 
-gem 'bootstrap-sass'
-gem 'bootstrap-wysihtml5-rails', :require => 'bootstrap-wysihtml5-rails',
-                              :git => 'git://github.com/Nerian/bootstrap-wysihtml5-rails.git'
+#gem 'bootstrap-sass'
+#gem 'bootstrap-wysihtml5-rails', :require => 'bootstrap-wysihtml5-rails',
+#                              :git => 'git://github.com/Nerian/bootstrap-wysihtml5-rails.git'
 gem 'haml-rails'
 gem 'unicorn'
 
@@ -35,4 +37,5 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'turbolinks'
 gem 'protected_attributes'

@@ -1,11 +1,4 @@
 GIT
-  remote: git://github.com/Nerian/bootstrap-wysihtml5-rails.git
-  revision: 75d8c060fcee2b5967603abcad5b02a82f83d093
-  specs:
-    bootstrap-wysihtml5-rails (0.3.1.20)
-      railties (>= 3.0)
-
-GIT
   remote: git://github.com/heroku/rails3_serve_static_assets.git
   revision: 84910ceb4ca2851d650e66d3b22f5008acf253f8
   specs:
@@ -46,8 +39,6 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.0)
     atomic (1.1.9)
-    bootstrap-sass (2.3.2.0)
-      sass (~> 3.2)
     builder (3.1.4)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
@@ -156,6 +147,8 @@ GEM
     treetop (1.4.14)
       polyglot
       polyglot (>= 0.3.1)
+    turbolinks (1.2.0)
+      coffee-rails
     tzinfo (0.3.37)
     uglifier (2.1.1)
       execjs (>= 0.3.0)
@@ -169,8 +162,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass
-  bootstrap-wysihtml5-rails!
   coffee-rails
   haml-rails
   jquery-rails
@@ -186,5 +177,6 @@ DEPENDENCIES
   rails_log_stdout!
   sass-rails (~> 4.0.0.rc1)
   sqlite3
+  turbolinks
   uglifier (>= 1.0.3)
   unicorn

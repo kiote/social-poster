@@ -1,0 +1,2 @@
+
+SocialPoster, omniauth based;

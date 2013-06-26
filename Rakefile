@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-OmniauthDemo::Application.load_tasks
+SocialPoster::Application.load_tasks

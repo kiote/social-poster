@@ -2104,3 +2104,49 @@ logger: services_controller, index: signed with: twitter
 > signed_in_with linkedin
 > current_user_providers.contains true
 > services_controller: create: You have been signed out!
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>facebook</provider>
+  <uid>100005133014329</uid>
+  <info>
+    <nickname>vcabba</nickname>
+    <email>vcabba@bmail.ru</email>
+    <name>Savva  Voloshin</name>
+    <first-name>Savva</first-name>
+    <last-name>Voloshin</last-name>
+    <image>http://graph.facebook.com/100005133014329/picture?type=square</image>
+    <urls>
+      <Facebook>http://www.facebook.com/vcabba</Facebook>
+    </urls>
+    <verified type="boolean">true</verified>
+  </info>
+  <credentials>
+    <token>CAAHtNEnQEmcBAJ4xhSCQerPK4SAAmNaSij05Qqhgupy7JpXLkxApYCf2ka3VQ8Qb0BUm2VStoEPEwYBru5stjfYSfhA3eDEmK2drqDQVQ7gZAZA0GzYPnO0jpJaFOp1qWSeYNfr2Jg5yny9f9q</token>
+    <expires-at type="integer">1377339991</expires-at>
+    <expires type="boolean">true</expires>
+  </credentials>
+  <extra>
+    <raw-info>
+      <id>100005133014329</id>
+      <name>Savva  Voloshin</name>
+      <first-name>Savva</first-name>
+      <last-name>Voloshin</last-name>
+      <link>http://www.facebook.com/vcabba</link>
+      <username>vcabba</username>
+      <gender>male</gender>
+      <email>vcabba@bmail.ru</email>
+      <timezone type="integer">0</timezone>
+      <locale>ru_RU</locale>
+      <verified type="boolean">true</verified>
+      <updated-time>2013-06-21T18:48:44+0000</updated-time>
+    </raw-info>
+  </extra>
+</hash>
+
+> services_controller: create: Signed in successfully via Facebook.
+> redirect_somewhere_or_render_something
+> signed_in_with facebook
+> redirect_to services#send_facebook
+> send_facebook;
+> signed_in_with facebook
+> current_user_providers.contains true
