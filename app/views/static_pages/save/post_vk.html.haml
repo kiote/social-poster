@@ -1,0 +1,32 @@
+
+- content_for :head do
+
+  %title post to facebook
+  
+  
+.container.width_500
+
+  %ul.nav.nav-tabs
+    %li
+      %a{:href => "/static_pages/post_page_facebook#"} Facebook
+    %li
+      %a{:href => "/static_pages/post_page_linkedin#"} LinkedIN
+    %li
+      %a{:href => "/static_pages/post_page_twitter#"} Twitter
+    %li.active
+      %a{:href => "/static_pages/post_page_vk#"} VK
+
+  %textarea.textarea{:placeholder => "Enter text ...", :style => "width: 500px; height: 200px"}
+  %br
+  %a.btn.btn-large.btn-primary.jumbo{:href => "#"} Post
+
+%script{:src => "../assets/wysihtml5/js/wysihtml5-0.3.0.js"}
+%script{:src => "../assets/bootstrap/js/jquery.js"}
+%script{:src => "../assets/bootstrap/js/google-code-prettify/prettify.js"}
+%script{:src => "../assets/bootstrap/js/bootstrap.min.js"}
+%script{:src => "../assets/bootstrap-wysihtml5/js/bootstrap-wysihtml5.js"}
+
+:javascript
+  $('.textarea').wysihtml5();
+%script{:charset => "utf-8", :type => "text/javascript"}
+  $(prettyPrint);

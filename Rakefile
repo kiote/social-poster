@@ -2,5 +2,6 @@
 # for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
 
 require File.expand_path('../config/application', __FILE__)
+require 'rake'
 
-SocialPoster::Application.load_tasks
+OmniauthDemo::Application.load_tasks

@@ -1,64 +1,34 @@
-SocialPoster::Application.routes.draw do
+OmniauthDemo::Application.routes.draw do
+
+  get "/signin" => "services#signin"
+  get "/signout" => "services#signout"
   
-  root :to => "static_pages#index"
+  get '/auth/:service/callback' => 'services#create' 
   
-  get "static_pages/test"
+  get '/auth/failure' => 'services#failure'
   
-  get "static_pages/authentification"
-  get "static_pages/authorisation"
-  get "static_pages/post_message"
-  
-  get "static_pages/post_facebook"
-  get "static_pages/post_linkedin"
-  get "static_pages/post_twitter"
-  get "static_pages/post_vk"
-  
-  
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  get "services/send_facebook"
+  get "services/send_vkontakte"
+  get "services/send_twitter" => "services#send_twitter"
+  get "services/send_linkedin"
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  resources :services, :only => [:index, :create, :destroy] do
+    collection do
+      get 'signin'
+      get 'signout'
+      get 'signup'
+      post 'newaccount'
+      get 'failure'
+    end
+  end
 
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
-
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  # used for the demo application only
+  resources :users, :only => [:index] do
+    collection do
+      get 'test'
+    end
+  end
+   
+  root :to => "users#index"
+  #root to: "services#signin"
 end

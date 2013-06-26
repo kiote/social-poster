@@ -5,17 +5,20 @@
   
   
 .container.width_500
-
+  
+  %h1 congratulations, #{ @message };
+  %h1 _: #{ session[:social_network] };
+  
   %ul.nav.nav-tabs
     %li
-      %a{:href => "/static_pages/post_page_facebook#"} Facebook
+      %a{:href => "/static_pages/post_facebook"} Facebook
+    %li
+      %a{:href => "/static_pages/post_linkedin"} LinkedIN
     %li.active
-      %a{:href => "/static_pages/post_page_linkedin#"} LinkedIN
+      %a{:href => "/static_pages/post_twitter"} Twitter
     %li
-      %a{:href => "/static_pages/post_page_twitter#"} Twitter
-    %li
-      %a{:href => "/static_pages/post_page_vk#"} VK
-
+      %a{:href => "/static_pages/post_vk"} VK
+  
   %textarea.textarea{:placeholder => "Enter text ...", :style => "width: 500px; height: 200px"}
   %br
   %a.btn.btn-large.btn-primary.jumbo{:href => "#"} Post
