@@ -11,6 +11,10 @@
     
     / Le styles
     
+    %link{:href => "/assets/bootstrap/css/bootstrap.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "/assets/bootstrap/js/google-code-prettify/prettify.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "/assets/bootstrap-wysihtml5/css/bootstrap-wysihtml5.css", :rel => "stylesheet", :type => "text/css"}/
+    
     :css
       body {
         padding-top: 40px;
@@ -56,3 +60,22 @@
   %body
     
     = yield
+    
+    
+    / Le javascript
+    / \==================================================
+    / Placed at the end of the document so the pages load faster
+    
+    %script{:src => "/assets/bootstrap/js/jquery.js"}
+    / %script{:src => "/assets/bootstrap/js/bootstrap-transition.js"}
+    / %script{:src => "/assets/bootstrap/js/bootstrap-alert.js"}
+    / %script{:src => "/assets/bootstrap/js/bootstrap-modal.js"}
+    / %script{:src => "/assets/bootstrap/js/bootstrap-dropdown.js"}
+    / %script{:src => "/assets/bootstrap/js/bootstrap-scrollspy.js"}
+    / %script{:src => "/assets/bootstrap/js/bootstrap-tab.js"}
+    / %script{:src => "/assets/bootstrap/js/bootstrap-tooltip.js"}
+    / %script{:src => "/assets/bootstrap/js/bootstrap-popover.js"}
+    %script{:src => "/assets/bootstrap/js/bootstrap-button.js"}
+    / %script{:src => "/assets/bootstrap/js/bootstrap-collapse.js"}
+    / %script{:src => "/assets/bootstrap/js/bootstrap-carousel.js"}
+    / %script{:src => "/assets/bootstrap/js/bootstrap-typeahead.js"}
