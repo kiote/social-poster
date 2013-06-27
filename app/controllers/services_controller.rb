@@ -1,5 +1,7 @@
 class ServicesController < ApplicationController
   
+  include Authorise
+  
   layout "social_poster"
   
   before_filter :authenticate_user!, :except => [:create, :signin, :signup, :newaccount, :failure]
@@ -91,103 +93,7 @@ class ServicesController < ApplicationController
   end
   
   # callback: success
-  # This handles signing in and adding an authentication service to existing accounts itself
-  # It renders a separate view if there is a new user to create
-  def create
-    # get the service parameter from the Rails router
-    params[:service] ? service_route = params[:service] : service_route = 'No service recognized (invalid callback)'
-
-    # get the full hash from omniauth
-    omniauth = request.env['omniauth.auth']
-    
-    # continue only if hash and parameter exist
-    if omniauth and params[:service]
-
-      # map the returned hashes to our variables first - the hashes differs for every service
-      
-      # create a new hash
-      @authhash = Hash.new
-      
-      @logger.debug "omniauth_hash: %s" % omniauth.to_xml
-      
-      if service_route == 'facebook'
-        omniauth['extra']['raw_info']['email'] ? @authhash[:email] =  omniauth['extra']['raw_info']['email'] : @authhash[:email] = ''
-        omniauth['extra']['raw_info']['name'] ? @authhash[:name] =  omniauth['extra']['raw_info']['name'] : @authhash[:name] = ''
-        omniauth['extra']['raw_info']['id'] ?  @authhash[:uid] =  omniauth['extra']['raw_info']['id'].to_s : @authhash[:uid] = ''
-        omniauth['provider'] ? @authhash[:provider] = omniauth['provider'] : @authhash[:provider] = ''
-        
-        
-      elsif ['twitter', 'linkedin', 'vkontakte'].index(service_route) != nil
-        omniauth['info']['email'] ? @authhash[:email] =  omniauth['info']['email'] : @authhash[:email] = ''
-        omniauth['info']['name'] ? @authhash[:name] =  omniauth['info']['name'] : @authhash[:name] = ''
-        omniauth['uid'] ? @authhash[:uid] = omniauth['uid'].to_s : @authhash[:uid] = ''
-        omniauth['provider'] ? @authhash[:provider] = omniauth['provider'] : @authhash[:provider] = ''
-      
-      
-      else
-        # debug to output the hash that has been returned when adding new services
-        render :text => omniauth.to_yaml
-        return
-      end 
-      
-      if @authhash[:uid] != '' and @authhash[:provider] != ''
-        
-        auth = Service.find_by_provider_and_uid(@authhash[:provider], @authhash[:uid])
-        
-        # if the user is currently signed in, he/she might want to add another account to signin
-        if user_signed_in?
-          if auth
-            
-            msg = 'Your account at ' + @authhash[:provider].capitalize + ' is already connected with this site.'
-            @logger.debug "services_controller: create: %s" % msg
-            
-            flash[:notice] = 'Your account at ' + @authhash[:provider].capitalize + ' is already connected with this site.'
-            
-            #~ redirect_to services_path
-            redirect_somewhere_or_render_something
-          else
-            current_user.services.create!(:provider => @authhash[:provider], :uid => @authhash[:uid], :uname => @authhash[:name], :uemail => @authhash[:email])
-            flash[:notice] = 'Your ' + @authhash[:provider].capitalize + ' account has been added for signing in at this site.'
-            
-            msg = flash[:notice]
-            @logger.debug "services_controller: create: %s" % msg
-            
-            #~ redirect_to services_path
-            redirect_somewhere_or_render_something
-          end
-        else
-          if auth
-            # signin existing user
-            # in the session his user id and the service id used for signing in is stored
-            session[:user_id] = auth.user.id
-            session[:service_id] = auth.id
-            
-            msg = 'Signed in successfully via ' + @authhash[:provider].capitalize + '.'
-            @logger.debug "services_controller: create: %s" % msg
-            
-            flash[:notice] = msg
-            
-            #~ redirect_to root_url
-            redirect_somewhere_or_render_something
-          else
-            # this is a new user; show signup; @authhash is available to the view and stored in the sesssion for creation of a new user
-            session[:authhash] = @authhash
-            render signup_services_path
-          end
-        end
-      else
-        msg = 'Error while authenticating via ' + service_route + '/' + @authhash[:provider].capitalize + '. The service returned invalid data for the user id.'
-        @logger.debug "services_controller: create: %s" % msg
-        flash[:error] = msg
-        redirect_to signin_path
-      end
-    else
-      msg = 'Error while authenticating via ' + service_route.capitalize + '. The service did not return valid data.'
-      @logger.debug "services_controller: create: %s" % msg
-      flash[:error] = msg
-      redirect_to signin_path
-    end
-  end
+  #~ authorise mixin's create
   
   # callback: failure
   def failure
