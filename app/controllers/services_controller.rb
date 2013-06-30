@@ -1,6 +1,6 @@
 class ServicesController < ApplicationController
   
-  include Authorise
+  include ServicesCreate
   
   layout "social_poster"
   
@@ -8,6 +8,7 @@ class ServicesController < ApplicationController
   protect_from_forgery :except => :create
   
   before_filter :set_logger
+  
   def set_logger
     @logger = Logger.new("services.log")
     @logger.formatter = proc do |severity, datetime, progname, msg|
@@ -169,14 +170,7 @@ class ServicesController < ApplicationController
     else
       render "/services/send_facebook"
     end
-    #~ if signed_in_with != 'facebook'
-      #~ session[:user_id] = nil
-      #~ session[:service_id] = nil
-      #~ session.delete :user_id
-      #~ session.delete :service_id
-      #~ 
-      #~ redirect_to "/services/send_facebook"
-    #~ end
+    
   end
   
   def send_twitter
@@ -193,14 +187,7 @@ class ServicesController < ApplicationController
     else
       render "/services/send_twitter"
     end
-    #~ if signed_in_with != 'twitter'
-      #~ session[:user_id] = nil
-      #~ session[:service_id] = nil
-      #~ session.delete :user_id
-      #~ session.delete :service_id
-      #~ 
-      #~ redirect_to "/services/send_twitter"
-    #~ end
+    
   end
   
   def send_linkedin
@@ -216,14 +203,7 @@ class ServicesController < ApplicationController
     else
       render "/services/send_linkedin"
     end
-    #~ if signed_in_with != 'linkedin'
-      #~ session[:user_id] = nil
-      #~ session[:service_id] = nil
-      #~ session.delete :user_id
-      #~ session.delete :service_id
-      #~ 
-      #~ redirect_to "/services/send_linkedin"
-    #~ end
+    
   end
   
   def send_vkontakte
@@ -239,14 +219,6 @@ class ServicesController < ApplicationController
     else
       render "/services/send_vkontakte"
     end
-    #~ if signed_in_with != 'vkontakte'
-      #~ session[:user_id] = nil
-      #~ session[:service_id] = nil
-      #~ session.delete :user_id
-      #~ session.delete :service_id
-      #~ 
-      #~ redirect_to "/auth/vkontakte"
-    #~ end
     
   end
   

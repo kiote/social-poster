@@ -3433,3 +3433,875 @@ logger: services_controller, index: signed with: twitter
 > send_facebook;
 > signed_in_with facebook
 > current_user_providers.contains true
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>facebook</provider>
+  <uid>100005133014329</uid>
+  <info>
+    <nickname>vcabba</nickname>
+    <email>vcabba@bmail.ru</email>
+    <name>Savva  Voloshin</name>
+    <first-name>Savva</first-name>
+    <last-name>Voloshin</last-name>
+    <image>http://graph.facebook.com/100005133014329/picture?type=square</image>
+    <urls>
+      <Facebook>http://www.facebook.com/vcabba</Facebook>
+    </urls>
+    <verified type="boolean">true</verified>
+  </info>
+  <credentials>
+    <token>CAAHtNEnQEmcBAC8mqTt44plTT0b9mJ60WwhmZAHqFNRdqRpmJZAwZAkGJLy8JytJwCcAvpcCaCL0mF3Wyfyry6C7VE5wX5JvrxLZC651UUtOVMqWuuhZASenFCKfJa2SdOhk6PqvfpQCufA0AO1ih</token>
+    <expires-at type="integer">1377810561</expires-at>
+    <expires type="boolean">true</expires>
+  </credentials>
+  <extra>
+    <raw-info>
+      <id>100005133014329</id>
+      <name>Savva  Voloshin</name>
+      <first-name>Savva</first-name>
+      <last-name>Voloshin</last-name>
+      <link>http://www.facebook.com/vcabba</link>
+      <username>vcabba</username>
+      <gender>male</gender>
+      <email>vcabba@bmail.ru</email>
+      <timezone type="integer">0</timezone>
+      <locale>ru_RU</locale>
+      <verified type="boolean">true</verified>
+      <updated-time>2013-06-21T18:48:44+0000</updated-time>
+    </raw-info>
+  </extra>
+</hash>
+
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>facebook</provider>
+  <uid>100005133014329</uid>
+  <info>
+    <nickname>vcabba</nickname>
+    <email>vcabba@bmail.ru</email>
+    <name>Savva  Voloshin</name>
+    <first-name>Savva</first-name>
+    <last-name>Voloshin</last-name>
+    <image>http://graph.facebook.com/100005133014329/picture?type=square</image>
+    <urls>
+      <Facebook>http://www.facebook.com/vcabba</Facebook>
+    </urls>
+    <verified type="boolean">true</verified>
+  </info>
+  <credentials>
+    <token>CAAHtNEnQEmcBANQpCehT2iur9zxigg4ZAp7OLh9VrjbZAZBmqy4AfvZC3oFkZAlqJGUFV7kmidXbdgOmlJZA3BZAqXIHSAWhCINM2u3BK2TZCJrggaThQ4G7eWJBcjbv5SgZAMq8mGAcZCmShA8y1tRjJg</token>
+    <expires-at type="integer">1377810561</expires-at>
+    <expires type="boolean">true</expires>
+  </credentials>
+  <extra>
+    <raw-info>
+      <id>100005133014329</id>
+      <name>Savva  Voloshin</name>
+      <first-name>Savva</first-name>
+      <last-name>Voloshin</last-name>
+      <link>http://www.facebook.com/vcabba</link>
+      <username>vcabba</username>
+      <gender>male</gender>
+      <email>vcabba@bmail.ru</email>
+      <timezone type="integer">0</timezone>
+      <locale>ru_RU</locale>
+      <verified type="boolean">true</verified>
+      <updated-time>2013-06-21T18:48:44+0000</updated-time>
+    </raw-info>
+  </extra>
+</hash>
+
+> services_controller: create: Signed in successfully via Facebook.
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>facebook</provider>
+  <uid>100005133014329</uid>
+  <info>
+    <nickname>vcabba</nickname>
+    <email>vcabba@bmail.ru</email>
+    <name>Savva  Voloshin</name>
+    <first-name>Savva</first-name>
+    <last-name>Voloshin</last-name>
+    <image>http://graph.facebook.com/100005133014329/picture?type=square</image>
+    <urls>
+      <Facebook>http://www.facebook.com/vcabba</Facebook>
+    </urls>
+    <verified type="boolean">true</verified>
+  </info>
+  <credentials>
+    <token>CAAHtNEnQEmcBAMqbvGaMBo3iR1mDvRCWNQlsSRkk7gFxeEXNPBiF2hZAJSHf6qSA0qAeEnSXY5sj0ZBEmrwcLpv9XSKor5lF5hzMAAEcDUwIp4ZBDPqOWu8y7bUI0ZCyNn1kbB0jxjCCYS7gMTvr</token>
+    <expires-at type="integer">1377810561</expires-at>
+    <expires type="boolean">true</expires>
+  </credentials>
+  <extra>
+    <raw-info>
+      <id>100005133014329</id>
+      <name>Savva  Voloshin</name>
+      <first-name>Savva</first-name>
+      <last-name>Voloshin</last-name>
+      <link>http://www.facebook.com/vcabba</link>
+      <username>vcabba</username>
+      <gender>male</gender>
+      <email>vcabba@bmail.ru</email>
+      <timezone type="integer">0</timezone>
+      <locale>ru_RU</locale>
+      <verified type="boolean">true</verified>
+      <updated-time>2013-06-21T18:48:44+0000</updated-time>
+    </raw-info>
+  </extra>
+</hash>
+
+> services_controller: create: Signed in successfully via Facebook.
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>facebook</provider>
+  <uid>100005133014329</uid>
+  <info>
+    <nickname>vcabba</nickname>
+    <email>vcabba@bmail.ru</email>
+    <name>Savva  Voloshin</name>
+    <first-name>Savva</first-name>
+    <last-name>Voloshin</last-name>
+    <image>http://graph.facebook.com/100005133014329/picture?type=square</image>
+    <urls>
+      <Facebook>http://www.facebook.com/vcabba</Facebook>
+    </urls>
+    <verified type="boolean">true</verified>
+  </info>
+  <credentials>
+    <token>CAAHtNEnQEmcBAHIPfuxagyCkqWSf2O9oW0ZBdCu9xCWCXjesN815WhIVbWY6NkBlFJPmseWBaFjAlWjZC8C3H7CYsaAFPMENSWYR8tZC0kYFB9Pg3cZChFMqz4k4wpIupAqbAgIYALHGVDhBPCuU</token>
+    <expires-at type="integer">1377810561</expires-at>
+    <expires type="boolean">true</expires>
+  </credentials>
+  <extra>
+    <raw-info>
+      <id>100005133014329</id>
+      <name>Savva  Voloshin</name>
+      <first-name>Savva</first-name>
+      <last-name>Voloshin</last-name>
+      <link>http://www.facebook.com/vcabba</link>
+      <username>vcabba</username>
+      <gender>male</gender>
+      <email>vcabba@bmail.ru</email>
+      <timezone type="integer">0</timezone>
+      <locale>ru_RU</locale>
+      <verified type="boolean">true</verified>
+      <updated-time>2013-06-21T18:48:44+0000</updated-time>
+    </raw-info>
+  </extra>
+</hash>
+
+> services_controller: create: Signed in successfully via Facebook.
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>facebook</provider>
+  <uid>100005133014329</uid>
+  <info>
+    <nickname>vcabba</nickname>
+    <email>vcabba@bmail.ru</email>
+    <name>Savva  Voloshin</name>
+    <first-name>Savva</first-name>
+    <last-name>Voloshin</last-name>
+    <image>http://graph.facebook.com/100005133014329/picture?type=square</image>
+    <urls>
+      <Facebook>http://www.facebook.com/vcabba</Facebook>
+    </urls>
+    <verified type="boolean">true</verified>
+  </info>
+  <credentials>
+    <token>CAAHtNEnQEmcBACwvGHvitYTPUUhDQHP3eIQDkVu9xx4vWIB3ZCIoD5eGtaZB2IWnZBJ1lo2d64N74ZCU7W7W1QrugZA8GZA0OZAlzPbeXuhLNC26rAWH8UosWYn9D8whJTZBGBsbkeBfmFQk37NEIULp</token>
+    <expires-at type="integer">1377810561</expires-at>
+    <expires type="boolean">true</expires>
+  </credentials>
+  <extra>
+    <raw-info>
+      <id>100005133014329</id>
+      <name>Savva  Voloshin</name>
+      <first-name>Savva</first-name>
+      <last-name>Voloshin</last-name>
+      <link>http://www.facebook.com/vcabba</link>
+      <username>vcabba</username>
+      <gender>male</gender>
+      <email>vcabba@bmail.ru</email>
+      <timezone type="integer">0</timezone>
+      <locale>ru_RU</locale>
+      <verified type="boolean">true</verified>
+      <updated-time>2013-06-21T18:48:44+0000</updated-time>
+    </raw-info>
+  </extra>
+</hash>
+
+> services_controller: create: Signed in successfully via Facebook.
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>twitter</provider>
+  <uid>1497573638</uid>
+  <info>
+    <nickname>SavvaVoloshin</nickname>
+    <name>Savva</name>
+    <location nil="true"/>
+    <image>http://a0.twimg.com/profile_images/378800000001567456/55538540b4df5e9caa9dbaa4da9b4b0e_normal.png</image>
+    <description>It begins long time ago.. Omsk, Syberia, since 1985.</description>
+    <urls>
+      <Website nil="true"/>
+      <Twitter>https://twitter.com/SavvaVoloshin</Twitter>
+    </urls>
+  </info>
+  <credentials>
+    <token>1497573638-g1qM4XdhbhQZ4o7WwFdAd36TS0JlJ92x8Hq4mza</token>
+    <secret>xuR4IjY85yxeACp9mnKRdkhKewdW3V2TLZCEclVk</secret>
+  </credentials>
+  <extra>
+    <access-token type="OAuth::AccessToken">#&lt;OAuth::AccessToken:0xb5cb41c4&gt;</access-token>
+    <raw-info>
+      <friends-count type="integer">3</friends-count>
+      <name>Savva</name>
+      <lang>en</lang>
+      <profile-background-color>C0DEED</profile-background-color>
+      <url nil="true"/>
+      <contributors-enabled type="boolean">false</contributors-enabled>
+      <id type="integer">1497573638</id>
+      <is-translator type="boolean">false</is-translator>
+      <profile-background-image-url>http://a0.twimg.com/images/themes/theme1/bg.png</profile-background-image-url>
+      <default-profile type="boolean">true</default-profile>
+      <profile-link-color>0084B4</profile-link-color>
+      <location nil="true"/>
+      <profile-image-url>http://a0.twimg.com/profile_images/378800000001567456/55538540b4df5e9caa9dbaa4da9b4b0e_normal.png</profile-image-url>
+      <id-str>1497573638</id-str>
+      <following type="boolean">false</following>
+      <utc-offset nil="true"/>
+      <profile-use-background-image type="boolean">true</profile-use-background-image>
+      <time-zone nil="true"/>
+      <follow-request-sent type="boolean">false</follow-request-sent>
+      <profile-text-color>333333</profile-text-color>
+      <listed-count type="integer">0</listed-count>
+      <screen-name>SavvaVoloshin</screen-name>
+      <verified type="boolean">false</verified>
+      <notifications type="boolean">false</notifications>
+      <protected type="boolean">false</protected>
+      <followers-count type="integer">0</followers-count>
+      <description>It begins long time ago.. Omsk, Syberia, since 1985.</description>
+      <profile-sidebar-border-color>C0DEED</profile-sidebar-border-color>
+      <statuses-count type="integer">1</statuses-count>
+      <geo-enabled type="boolean">false</geo-enabled>
+      <profile-background-image-url-https>https://twimg0-a.akamaihd.net/images/themes/theme1/bg.png</profile-background-image-url-https>
+      <created-at>Mon Jun 10 07:01:23 +0000 2013</created-at>
+      <profile-image-url-https>https://twimg0-a.akamaihd.net/profile_images/378800000001567456/55538540b4df5e9caa9dbaa4da9b4b0e_normal.png</profile-image-url-https>
+      <profile-background-tile type="boolean">false</profile-background-tile>
+      <entities>
+        <description>
+          <urls type="array"/>
+        </description>
+      </entities>
+      <default-profile-image type="boolean">false</default-profile-image>
+      <profile-sidebar-fill-color>DDEEF6</profile-sidebar-fill-color>
+      <favourites-count type="integer">0</favourites-count>
+    </raw-info>
+  </extra>
+</hash>
+
+> services_controller: create: Signed in successfully via Twitter.
+> services_controller: create
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>facebook</provider>
+  <uid>100005133014329</uid>
+  <info>
+    <nickname>vcabba</nickname>
+    <email>vcabba@bmail.ru</email>
+    <name>Savva  Voloshin</name>
+    <first-name>Savva</first-name>
+    <last-name>Voloshin</last-name>
+    <image>http://graph.facebook.com/100005133014329/picture?type=square</image>
+    <urls>
+      <Facebook>http://www.facebook.com/vcabba</Facebook>
+    </urls>
+    <verified type="boolean">true</verified>
+  </info>
+  <credentials>
+    <token>CAAHtNEnQEmcBADsI5K1DpE2wja7gCaUY8W4HX54Iq31vtJjqaUrXo0QFhY8FyITINGTsv22bkzNxTBheuioZCpBbeJZCkZB55dBu5J1EbmNQRYAp6nFyZAgJZBVjrrbF200IourZBb5ZCahRJCPMcNB</token>
+    <expires-at type="integer">1377810562</expires-at>
+    <expires type="boolean">true</expires>
+  </credentials>
+  <extra>
+    <raw-info>
+      <id>100005133014329</id>
+      <name>Savva  Voloshin</name>
+      <first-name>Savva</first-name>
+      <last-name>Voloshin</last-name>
+      <link>http://www.facebook.com/vcabba</link>
+      <username>vcabba</username>
+      <gender>male</gender>
+      <email>vcabba@bmail.ru</email>
+      <timezone type="integer">0</timezone>
+      <locale>ru_RU</locale>
+      <verified type="boolean">true</verified>
+      <updated-time>2013-06-21T18:48:44+0000</updated-time>
+    </raw-info>
+  </extra>
+</hash>
+
+> Signed in successfully via Facebook.
+> services_controller: create
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>facebook</provider>
+  <uid>100005133014329</uid>
+  <info>
+    <nickname>vcabba</nickname>
+    <email>vcabba@bmail.ru</email>
+    <name>Savva  Voloshin</name>
+    <first-name>Savva</first-name>
+    <last-name>Voloshin</last-name>
+    <image>http://graph.facebook.com/100005133014329/picture?type=square</image>
+    <urls>
+      <Facebook>http://www.facebook.com/vcabba</Facebook>
+    </urls>
+    <verified type="boolean">true</verified>
+  </info>
+  <credentials>
+    <token>CAAHtNEnQEmcBAPXT8Fsc7oO0XZCw7WXG62e5DLYHJZB16QrZCC3ZBZCRlPvQJjU770QzwPQqOXKJJAPZC16eTZCDnskCRKPbzZA8psZCQfNM1shDn3hX0gYv0QK9ZBHHtHZAXkbKbMopHoKBDXip6vTlj4B</token>
+    <expires-at type="integer">1377810561</expires-at>
+    <expires type="boolean">true</expires>
+  </credentials>
+  <extra>
+    <raw-info>
+      <id>100005133014329</id>
+      <name>Savva  Voloshin</name>
+      <first-name>Savva</first-name>
+      <last-name>Voloshin</last-name>
+      <link>http://www.facebook.com/vcabba</link>
+      <username>vcabba</username>
+      <gender>male</gender>
+      <email>vcabba@bmail.ru</email>
+      <timezone type="integer">0</timezone>
+      <locale>ru_RU</locale>
+      <verified type="boolean">true</verified>
+      <updated-time>2013-06-21T18:48:44+0000</updated-time>
+    </raw-info>
+  </extra>
+</hash>
+
+> Signed in successfully via Facebook.
+> services_controller: create
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>facebook</provider>
+  <uid>100005133014329</uid>
+  <info>
+    <nickname>vcabba</nickname>
+    <email>vcabba@bmail.ru</email>
+    <name>Savva  Voloshin</name>
+    <first-name>Savva</first-name>
+    <last-name>Voloshin</last-name>
+    <image>http://graph.facebook.com/100005133014329/picture?type=square</image>
+    <urls>
+      <Facebook>http://www.facebook.com/vcabba</Facebook>
+    </urls>
+    <verified type="boolean">true</verified>
+  </info>
+  <credentials>
+    <token>CAAHtNEnQEmcBABjZCgfMd5TkWZBMbGBj9xaIaEZBgZAKumZB4ZCrZAIYM1aTXhrjQz9ecFqXShhbmlZBF6OoJae2wGUgS3f4SEP8oHBAdRLMVaL4jFFZCX9drkdnv6ayYdSbx72cQ1Vgth5hZCZAULOTDkn</token>
+    <expires-at type="integer">1377810561</expires-at>
+    <expires type="boolean">true</expires>
+  </credentials>
+  <extra>
+    <raw-info>
+      <id>100005133014329</id>
+      <name>Savva  Voloshin</name>
+      <first-name>Savva</first-name>
+      <last-name>Voloshin</last-name>
+      <link>http://www.facebook.com/vcabba</link>
+      <username>vcabba</username>
+      <gender>male</gender>
+      <email>vcabba@bmail.ru</email>
+      <timezone type="integer">0</timezone>
+      <locale>ru_RU</locale>
+      <verified type="boolean">true</verified>
+      <updated-time>2013-06-21T18:48:44+0000</updated-time>
+    </raw-info>
+  </extra>
+</hash>
+
+> Signed in successfully via Facebook.
+> services_controller: create
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>facebook</provider>
+  <uid>100005133014329</uid>
+  <info>
+    <nickname>vcabba</nickname>
+    <email>vcabba@bmail.ru</email>
+    <name>Savva  Voloshin</name>
+    <first-name>Savva</first-name>
+    <last-name>Voloshin</last-name>
+    <image>http://graph.facebook.com/100005133014329/picture?type=square</image>
+    <urls>
+      <Facebook>http://www.facebook.com/vcabba</Facebook>
+    </urls>
+    <verified type="boolean">true</verified>
+  </info>
+  <credentials>
+    <token>CAAHtNEnQEmcBAFODL0wFhNThbxwoF9bG8dt01wkHP0X8ujJk5b5zxs9Wnx4ZAqUv744RRrmqUnZB5JZApfC210y4WqsuNaBFZCmZCS5ZCc1DZAEJlDKLculhHgWJkYzRLyshuLu3IsKEfBFe3OY8ZBmt</token>
+    <expires-at type="integer">1377810561</expires-at>
+    <expires type="boolean">true</expires>
+  </credentials>
+  <extra>
+    <raw-info>
+      <id>100005133014329</id>
+      <name>Savva  Voloshin</name>
+      <first-name>Savva</first-name>
+      <last-name>Voloshin</last-name>
+      <link>http://www.facebook.com/vcabba</link>
+      <username>vcabba</username>
+      <gender>male</gender>
+      <email>vcabba@bmail.ru</email>
+      <timezone type="integer">0</timezone>
+      <locale>ru_RU</locale>
+      <verified type="boolean">true</verified>
+      <updated-time>2013-06-21T18:48:44+0000</updated-time>
+    </raw-info>
+  </extra>
+</hash>
+
+> Your account at Facebook is already connected with this site.
+> services_controller: create
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>facebook</provider>
+  <uid>100005133014329</uid>
+  <info>
+    <nickname>vcabba</nickname>
+    <email>vcabba@bmail.ru</email>
+    <name>Savva  Voloshin</name>
+    <first-name>Savva</first-name>
+    <last-name>Voloshin</last-name>
+    <image>http://graph.facebook.com/100005133014329/picture?type=square</image>
+    <urls>
+      <Facebook>http://www.facebook.com/vcabba</Facebook>
+    </urls>
+    <verified type="boolean">true</verified>
+  </info>
+  <credentials>
+    <token>CAAHtNEnQEmcBAPpZBiJJdXkkBRyNC7kvNQuEfBj9bIU5yaZA2Wash4gpJBqVGs2QPTBKN29gdwcbtG6bdqG8k454ZB8j6WiZA8ZBvIoAGiosJ8Cho1hWdpqMC2A3c5oqWaGZBZBdHJCDK18BqgbLU90</token>
+    <expires-at type="integer">1377810561</expires-at>
+    <expires type="boolean">true</expires>
+  </credentials>
+  <extra>
+    <raw-info>
+      <id>100005133014329</id>
+      <name>Savva  Voloshin</name>
+      <first-name>Savva</first-name>
+      <last-name>Voloshin</last-name>
+      <link>http://www.facebook.com/vcabba</link>
+      <username>vcabba</username>
+      <gender>male</gender>
+      <email>vcabba@bmail.ru</email>
+      <timezone type="integer">0</timezone>
+      <locale>ru_RU</locale>
+      <verified type="boolean">true</verified>
+      <updated-time>2013-06-21T18:48:44+0000</updated-time>
+    </raw-info>
+  </extra>
+</hash>
+
+> Your account at Facebook is already connected with this site.
+> services_controller: create
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>facebook</provider>
+  <uid>100005133014329</uid>
+  <info>
+    <nickname>vcabba</nickname>
+    <email>vcabba@bmail.ru</email>
+    <name>Savva  Voloshin</name>
+    <first-name>Savva</first-name>
+    <last-name>Voloshin</last-name>
+    <image>http://graph.facebook.com/100005133014329/picture?type=square</image>
+    <urls>
+      <Facebook>http://www.facebook.com/vcabba</Facebook>
+    </urls>
+    <verified type="boolean">true</verified>
+  </info>
+  <credentials>
+    <token>CAAHtNEnQEmcBAI4WoZBsPK7GGs3gJOoq34HIA6nZBKCCyoyEFTiPAaQkZBIqk5AMvYp9XIXNPd1kOpl4tnZC60MOrxhsMXXrZAQyOPfAM3iWtdq6dkCrXKRNXIB8gnFy7M5JW5djZBp27j5QjDLBmD</token>
+    <expires-at type="integer">1377810561</expires-at>
+    <expires type="boolean">true</expires>
+  </credentials>
+  <extra>
+    <raw-info>
+      <id>100005133014329</id>
+      <name>Savva  Voloshin</name>
+      <first-name>Savva</first-name>
+      <last-name>Voloshin</last-name>
+      <link>http://www.facebook.com/vcabba</link>
+      <username>vcabba</username>
+      <gender>male</gender>
+      <email>vcabba@bmail.ru</email>
+      <timezone type="integer">0</timezone>
+      <locale>ru_RU</locale>
+      <verified type="boolean">true</verified>
+      <updated-time>2013-06-21T18:48:44+0000</updated-time>
+    </raw-info>
+  </extra>
+</hash>
+
+> Your account at Facebook is already connected with this site.
+> services_controller: create
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>facebook</provider>
+  <uid>100005133014329</uid>
+  <info>
+    <nickname>vcabba</nickname>
+    <email>vcabba@bmail.ru</email>
+    <name>Savva  Voloshin</name>
+    <first-name>Savva</first-name>
+    <last-name>Voloshin</last-name>
+    <image>http://graph.facebook.com/100005133014329/picture?type=square</image>
+    <urls>
+      <Facebook>http://www.facebook.com/vcabba</Facebook>
+    </urls>
+    <verified type="boolean">true</verified>
+  </info>
+  <credentials>
+    <token>CAAHtNEnQEmcBAIwFnGfMg5zENeA1zs1MifeRdGPzq6yZCyvU4ZBd2qdRHthmyuHCIofZBDxzsJbb546RBJVZCyqBOc0tcN1rj2i95pQEePc3rmW6bL3ijbGLZCzKEW1bTuwkF3QLkGLmsa3ZC66LPo</token>
+    <expires-at type="integer">1377810561</expires-at>
+    <expires type="boolean">true</expires>
+  </credentials>
+  <extra>
+    <raw-info>
+      <id>100005133014329</id>
+      <name>Savva  Voloshin</name>
+      <first-name>Savva</first-name>
+      <last-name>Voloshin</last-name>
+      <link>http://www.facebook.com/vcabba</link>
+      <username>vcabba</username>
+      <gender>male</gender>
+      <email>vcabba@bmail.ru</email>
+      <timezone type="integer">0</timezone>
+      <locale>ru_RU</locale>
+      <verified type="boolean">true</verified>
+      <updated-time>2013-06-21T18:48:44+0000</updated-time>
+    </raw-info>
+  </extra>
+</hash>
+
+> Your account at Facebook is already connected with this site.
+> services_controller: create
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>facebook</provider>
+  <uid>100005133014329</uid>
+  <info>
+    <nickname>vcabba</nickname>
+    <email>vcabba@bmail.ru</email>
+    <name>Savva  Voloshin</name>
+    <first-name>Savva</first-name>
+    <last-name>Voloshin</last-name>
+    <image>http://graph.facebook.com/100005133014329/picture?type=square</image>
+    <urls>
+      <Facebook>http://www.facebook.com/vcabba</Facebook>
+    </urls>
+    <verified type="boolean">true</verified>
+  </info>
+  <credentials>
+    <token>CAAHtNEnQEmcBAGvil3zillIeV0XQR16X6LCZA9p3RB8tvHpDqHUtQO3zq2h4lfITWunxNWxwzwEacQ2kTyXZAewGb7sNhTTsF43Jyht2c79ThtTaXheLPU0BPZCTf4vpmiCQeo8RFSsALqgMe77</token>
+    <expires-at type="integer">1377810561</expires-at>
+    <expires type="boolean">true</expires>
+  </credentials>
+  <extra>
+    <raw-info>
+      <id>100005133014329</id>
+      <name>Savva  Voloshin</name>
+      <first-name>Savva</first-name>
+      <last-name>Voloshin</last-name>
+      <link>http://www.facebook.com/vcabba</link>
+      <username>vcabba</username>
+      <gender>male</gender>
+      <email>vcabba@bmail.ru</email>
+      <timezone type="integer">0</timezone>
+      <locale>ru_RU</locale>
+      <verified type="boolean">true</verified>
+      <updated-time>2013-06-21T18:48:44+0000</updated-time>
+    </raw-info>
+  </extra>
+</hash>
+
+> Your account at Facebook is already connected with this site.
+> services_controller: create
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>facebook</provider>
+  <uid>100005133014329</uid>
+  <info>
+    <nickname>vcabba</nickname>
+    <email>vcabba@bmail.ru</email>
+    <name>Savva  Voloshin</name>
+    <first-name>Savva</first-name>
+    <last-name>Voloshin</last-name>
+    <image>http://graph.facebook.com/100005133014329/picture?type=square</image>
+    <urls>
+      <Facebook>http://www.facebook.com/vcabba</Facebook>
+    </urls>
+    <verified type="boolean">true</verified>
+  </info>
+  <credentials>
+    <token>CAAHtNEnQEmcBAKLP51HaPnbngeKr9yWGVemtMLyfLmREDA4p4s82X1qSsMFEWppbSd6JLSvaq5Ivgj1nZAUJtxC2lFewWfeO48EGZCQ2VHVlqhqErw1MbpFcydqcT3tL3MABeZBqPf6zIZCWnpyu</token>
+    <expires-at type="integer">1377810561</expires-at>
+    <expires type="boolean">true</expires>
+  </credentials>
+  <extra>
+    <raw-info>
+      <id>100005133014329</id>
+      <name>Savva  Voloshin</name>
+      <first-name>Savva</first-name>
+      <last-name>Voloshin</last-name>
+      <link>http://www.facebook.com/vcabba</link>
+      <username>vcabba</username>
+      <gender>male</gender>
+      <email>vcabba@bmail.ru</email>
+      <timezone type="integer">0</timezone>
+      <locale>ru_RU</locale>
+      <verified type="boolean">true</verified>
+      <updated-time>2013-06-21T18:48:44+0000</updated-time>
+    </raw-info>
+  </extra>
+</hash>
+
+> Your account at Facebook is already connected with this site.
+> services_controller: create
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>facebook</provider>
+  <uid>100005133014329</uid>
+  <info>
+    <nickname>vcabba</nickname>
+    <email>vcabba@bmail.ru</email>
+    <name>Savva  Voloshin</name>
+    <first-name>Savva</first-name>
+    <last-name>Voloshin</last-name>
+    <image>http://graph.facebook.com/100005133014329/picture?type=square</image>
+    <urls>
+      <Facebook>http://www.facebook.com/vcabba</Facebook>
+    </urls>
+    <verified type="boolean">true</verified>
+  </info>
+  <credentials>
+    <token>CAAHtNEnQEmcBAI3MZCD89AOmQHz5k7mZCZAT0SWMGzzg4Gto45DFD1TcQnGkXWdrGVyxOpPuELVOCBKXlCynbTIHyzDjxyVZBcIZCjeQrRWlkQtxJKspYftAXMyIZBO7VAi4se7o3oLB2Vc2V9H0T4</token>
+    <expires-at type="integer">1377810561</expires-at>
+    <expires type="boolean">true</expires>
+  </credentials>
+  <extra>
+    <raw-info>
+      <id>100005133014329</id>
+      <name>Savva  Voloshin</name>
+      <first-name>Savva</first-name>
+      <last-name>Voloshin</last-name>
+      <link>http://www.facebook.com/vcabba</link>
+      <username>vcabba</username>
+      <gender>male</gender>
+      <email>vcabba@bmail.ru</email>
+      <timezone type="integer">0</timezone>
+      <locale>ru_RU</locale>
+      <verified type="boolean">true</verified>
+      <updated-time>2013-06-21T18:48:44+0000</updated-time>
+    </raw-info>
+  </extra>
+</hash>
+
+> Your account at Facebook is already connected with this site.
+> services_controller: create
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>facebook</provider>
+  <uid>100005133014329</uid>
+  <info>
+    <nickname>vcabba</nickname>
+    <email>vcabba@bmail.ru</email>
+    <name>Savva  Voloshin</name>
+    <first-name>Savva</first-name>
+    <last-name>Voloshin</last-name>
+    <image>http://graph.facebook.com/100005133014329/picture?type=square</image>
+    <urls>
+      <Facebook>http://www.facebook.com/vcabba</Facebook>
+    </urls>
+    <verified type="boolean">true</verified>
+  </info>
+  <credentials>
+    <token>CAAHtNEnQEmcBAIdJ4FZAtrEhxKNxNmRGJAVdRVhmmn9mvRC3RgvWyAVe8sVi8OC5FVnttCWzZChOm1a98t2CtXbCuPOUSdCkC9gD0YRFpGPAnLELOyh1sX3SZCICZARJ5cTZChCJtNlI50tOPODXL</token>
+    <expires-at type="integer">1377810561</expires-at>
+    <expires type="boolean">true</expires>
+  </credentials>
+  <extra>
+    <raw-info>
+      <id>100005133014329</id>
+      <name>Savva  Voloshin</name>
+      <first-name>Savva</first-name>
+      <last-name>Voloshin</last-name>
+      <link>http://www.facebook.com/vcabba</link>
+      <username>vcabba</username>
+      <gender>male</gender>
+      <email>vcabba@bmail.ru</email>
+      <timezone type="integer">0</timezone>
+      <locale>ru_RU</locale>
+      <verified type="boolean">true</verified>
+      <updated-time>2013-06-21T18:48:44+0000</updated-time>
+    </raw-info>
+  </extra>
+</hash>
+
+> Your account at Facebook is already connected with this site.
+> services_controller: create: You have been signed out!
+> services_controller: create
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>facebook</provider>
+  <uid>100005133014329</uid>
+  <info>
+    <nickname>vcabba</nickname>
+    <email>vcabba@bmail.ru</email>
+    <name>Savva  Voloshin</name>
+    <first-name>Savva</first-name>
+    <last-name>Voloshin</last-name>
+    <image>http://graph.facebook.com/100005133014329/picture?type=square</image>
+    <urls>
+      <Facebook>http://www.facebook.com/vcabba</Facebook>
+    </urls>
+    <verified type="boolean">true</verified>
+  </info>
+  <credentials>
+    <token>CAAHtNEnQEmcBAA1fGfXyaAQ5whHdCw3KskRNtnyVJO7NiRoISaVOWPZAXZB0ZBuCJK7M5D4hlpM1IDccK03oUnBADiFFh1IHmcfMCgMGrahCdzuNN4NatiH7Wefj4AZBUyVPbkZCT7b6DFwh7yFYg</token>
+    <expires-at type="integer">1377810561</expires-at>
+    <expires type="boolean">true</expires>
+  </credentials>
+  <extra>
+    <raw-info>
+      <id>100005133014329</id>
+      <name>Savva  Voloshin</name>
+      <first-name>Savva</first-name>
+      <last-name>Voloshin</last-name>
+      <link>http://www.facebook.com/vcabba</link>
+      <username>vcabba</username>
+      <gender>male</gender>
+      <email>vcabba@bmail.ru</email>
+      <timezone type="integer">0</timezone>
+      <locale>ru_RU</locale>
+      <verified type="boolean">true</verified>
+      <updated-time>2013-06-21T18:48:44+0000</updated-time>
+    </raw-info>
+  </extra>
+</hash>
+
+> Signed in successfully via Facebook.
+> services_controller: create
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>facebook</provider>
+  <uid>100005133014329</uid>
+  <info>
+    <nickname>vcabba</nickname>
+    <email>vcabba@bmail.ru</email>
+    <name>Savva  Voloshin</name>
+    <first-name>Savva</first-name>
+    <last-name>Voloshin</last-name>
+    <image>http://graph.facebook.com/100005133014329/picture?type=square</image>
+    <urls>
+      <Facebook>http://www.facebook.com/vcabba</Facebook>
+    </urls>
+    <verified type="boolean">true</verified>
+  </info>
+  <credentials>
+    <token>CAAHtNEnQEmcBAB4oNwzqSI9fKZCHrPRKQ8ckZCkfXwPjWXAaDgBnLF444zFeSSSpur4WOKZChLzKMEJgaf5UKK2XoRH0mbZCttKIDC9sw0ZAePAZAyMe67ei8owvnt5wSawHs1PgENcUD0ot1QJOHF</token>
+    <expires-at type="integer">1377810561</expires-at>
+    <expires type="boolean">true</expires>
+  </credentials>
+  <extra>
+    <raw-info>
+      <id>100005133014329</id>
+      <name>Savva  Voloshin</name>
+      <first-name>Savva</first-name>
+      <last-name>Voloshin</last-name>
+      <link>http://www.facebook.com/vcabba</link>
+      <username>vcabba</username>
+      <gender>male</gender>
+      <email>vcabba@bmail.ru</email>
+      <timezone type="integer">0</timezone>
+      <locale>ru_RU</locale>
+      <verified type="boolean">true</verified>
+      <updated-time>2013-06-21T18:48:44+0000</updated-time>
+    </raw-info>
+  </extra>
+</hash>
+
+> Signed in successfully via Facebook.
+> services_controller: create
+> omniauth_hash: <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <provider>twitter</provider>
+  <uid>1497573638</uid>
+  <info>
+    <nickname>SavvaVoloshin</nickname>
+    <name>Savva</name>
+    <location nil="true"/>
+    <image>http://a0.twimg.com/profile_images/378800000001567456/55538540b4df5e9caa9dbaa4da9b4b0e_normal.png</image>
+    <description>It begins long time ago.. Omsk, Syberia, since 1985.</description>
+    <urls>
+      <Website nil="true"/>
+      <Twitter>https://twitter.com/SavvaVoloshin</Twitter>
+    </urls>
+  </info>
+  <credentials>
+    <token>1497573638-g1qM4XdhbhQZ4o7WwFdAd36TS0JlJ92x8Hq4mza</token>
+    <secret>xuR4IjY85yxeACp9mnKRdkhKewdW3V2TLZCEclVk</secret>
+  </credentials>
+  <extra>
+    <access-token type="OAuth::AccessToken">#&lt;OAuth::AccessToken:0xb6354cb8&gt;</access-token>
+    <raw-info>
+      <friends-count type="integer">3</friends-count>
+      <name>Savva</name>
+      <lang>en</lang>
+      <profile-background-color>C0DEED</profile-background-color>
+      <url nil="true"/>
+      <contributors-enabled type="boolean">false</contributors-enabled>
+      <id type="integer">1497573638</id>
+      <is-translator type="boolean">false</is-translator>
+      <profile-background-image-url>http://a0.twimg.com/images/themes/theme1/bg.png</profile-background-image-url>
+      <default-profile type="boolean">true</default-profile>
+      <profile-link-color>0084B4</profile-link-color>
+      <location nil="true"/>
+      <profile-image-url>http://a0.twimg.com/profile_images/378800000001567456/55538540b4df5e9caa9dbaa4da9b4b0e_normal.png</profile-image-url>
+      <id-str>1497573638</id-str>
+      <following type="boolean">false</following>
+      <utc-offset nil="true"/>
+      <profile-use-background-image type="boolean">true</profile-use-background-image>
+      <time-zone nil="true"/>
+      <follow-request-sent type="boolean">false</follow-request-sent>
+      <profile-text-color>333333</profile-text-color>
+      <listed-count type="integer">0</listed-count>
+      <screen-name>SavvaVoloshin</screen-name>
+      <verified type="boolean">false</verified>
+      <notifications type="boolean">false</notifications>
+      <protected type="boolean">false</protected>
+      <followers-count type="integer">0</followers-count>
+      <description>It begins long time ago.. Omsk, Syberia, since 1985.</description>
+      <profile-sidebar-border-color>C0DEED</profile-sidebar-border-color>
+      <statuses-count type="integer">1</statuses-count>
+      <geo-enabled type="boolean">false</geo-enabled>
+      <profile-background-image-url-https>https://twimg0-a.akamaihd.net/images/themes/theme1/bg.png</profile-background-image-url-https>
+      <created-at>Mon Jun 10 07:01:23 +0000 2013</created-at>
+      <profile-image-url-https>https://twimg0-a.akamaihd.net/profile_images/378800000001567456/55538540b4df5e9caa9dbaa4da9b4b0e_normal.png</profile-image-url-https>
+      <profile-background-tile type="boolean">false</profile-background-tile>
+      <entities>
+        <description>
+          <urls type="array"/>
+        </description>
+      </entities>
+      <default-profile-image type="boolean">false</default-profile-image>
+      <profile-sidebar-fill-color>DDEEF6</profile-sidebar-fill-color>
+      <favourites-count type="integer">0</favourites-count>
+    </raw-info>
+  </extra>
+</hash>
+
+> Your account at Twitter is already connected with this site.
