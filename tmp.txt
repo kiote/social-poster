@@ -1,0 +1,12 @@
+class User < ActiveRecord::Base
+  has_many :services
+  has_many :authorisations
+  attr_accessible :name, :email
+end
+
+
+class Service < ActiveRecord::Base
+  belongs_to :user
+
+  attr_accessible :provider, :uid, :uname, :uemail
+end
