@@ -1,0 +1,406 @@
+# Logfile created on 2013-07-01 01:56:51 +0000 by logger.rb/36483
+> %s
+> %s
+> --- !ruby/hash:OmniAuth::AuthHash
+provider: linkedin
+uid: EsKOV6HBMr
+info: !ruby/hash:OmniAuth::AuthHash::InfoHash
+  name: Savva Voloshin
+  email: savva.voloshin@gmail.com
+  nickname: Savva Voloshin
+  first_name: Savva
+  last_name: Voloshin
+  location: Russian Federation, RU
+  description: freelance
+  image: 
+  phone: 
+  headline: freelance
+  industry: Program Development
+  urls: !ruby/hash:OmniAuth::AuthHash
+    public_profile: http://www.linkedin.com/pub/savva-voloshin/75/97/635
+credentials: !ruby/hash:OmniAuth::AuthHash
+  token: 6790cba8-c920-4c2e-a610-28b0dbf318ac
+  secret: a0b3529b-124f-4f73-870a-0c85944853b7
+extra: !ruby/hash:OmniAuth::AuthHash
+  access_token: !ruby/object:OAuth::AccessToken
+    token: 6790cba8-c920-4c2e-a610-28b0dbf318ac
+    secret: a0b3529b-124f-4f73-870a-0c85944853b7
+    consumer: !ruby/object:OAuth::Consumer
+      key: l6on5uqdtfc8
+      secret: LiDHc2gdkyYTOEuB
+      options:
+        :signature_method: HMAC-SHA1
+        :request_token_path: /uas/oauth/requestToken
+        :authorize_path: /oauth/authorize
+        :access_token_path: /uas/oauth/accessToken
+        :proxy: 
+        :scheme: :header
+        :http_method: :post
+        :oauth_version: '1.0'
+        :site: https://api.linkedin.com
+        :authorize_url: https://www.linkedin.com/uas/oauth/authenticate
+      http: !ruby/object:Net::HTTP
+        address: api.linkedin.com
+        port: 443
+        local_host: 
+        local_port: 
+        curr_http_version: '1.1'
+        keep_alive_timeout: 2
+        last_communicated: 
+        close_on_empty_response: false
+        socket: 
+        started: false
+        open_timeout: 30
+        read_timeout: 30
+        continue_timeout: 
+        debug_output: 
+        proxy_from_env: true
+        proxy_uri: 
+        proxy_address: 
+        proxy_port: 
+        proxy_user: 
+        proxy_pass: 
+        use_ssl: true
+        ssl_context: !ruby/object:OpenSSL::SSL::SSLContext
+          cert: 
+          key: 
+          client_ca: 
+          ca_file: /etc/ssl/certs/ca-certificates.crt
+          ca_path: 
+          timeout: 
+          verify_mode: 1
+          verify_depth: 5
+          renegotiation_cb: 
+          verify_callback: 
+          options: -2147482625
+          cert_store: 
+          extra_chain_cert: 
+          client_cert_cb: 
+          tmp_dh_callback: 
+          session_id_context: 
+          session_get_cb: 
+          session_new_cb: 
+          session_remove_cb: 
+          servername_cb: 
+          npn_protocols: 
+          npn_select_cb: 
+        ssl_session: !ruby/object:OpenSSL::SSL::Session {}
+        enable_post_connection_check: true
+        sspi_enabled: false
+        ca_file: /etc/ssl/certs/ca-certificates.crt
+        ca_path: 
+        cert: 
+        cert_store: 
+        ciphers: 
+        key: 
+        ssl_timeout: 
+        ssl_version: 
+        verify_callback: 
+        verify_depth: 5
+        verify_mode: 1
+      http_method: :post
+      uri: !ruby/object:URI::HTTPS
+        scheme: https
+        user: 
+        password: 
+        host: api.linkedin.com
+        port: 443
+        path: ''
+        query: 
+        opaque: 
+        registry: 
+        fragment: 
+        parser: 
+    params:
+      :oauth_token: 6790cba8-c920-4c2e-a610-28b0dbf318ac
+      oauth_token: 6790cba8-c920-4c2e-a610-28b0dbf318ac
+      :oauth_token_secret: a0b3529b-124f-4f73-870a-0c85944853b7
+      oauth_token_secret: a0b3529b-124f-4f73-870a-0c85944853b7
+      :oauth_expires_in: '5183998'
+      oauth_expires_in: '5183998'
+      :oauth_authorization_expires_in: '5183998'
+      oauth_authorization_expires_in: '5183998'
+    response: !ruby/object:Net::HTTPOK
+      http_version: '1.1'
+      code: '200'
+      message: OK
+      header:
+        server:
+        - Apache-Coyote/1.1
+        x-li-request-id:
+        - 0WXLBWVZU7
+        vary:
+        - '*'
+        x-li-format:
+        - json
+        content-type:
+        - application/json;charset=UTF-8
+        transfer-encoding:
+        - chunked
+        date:
+        - Mon, 01 Jul 2013 02:00:05 GMT
+      body: |-
+        {
+          "emailAddress": "savva.voloshin@gmail.com",
+          "firstName": "Savva",
+          "headline": "freelance",
+          "id": "EsKOV6HBMr",
+          "industry": "Program Development",
+          "lastName": "Voloshin",
+          "location": {
+            "country": {"code": "ru"},
+            "name": "Russian Federation"
+          },
+          "publicProfileUrl": "http://www.linkedin.com/pub/savva-voloshin/75/97/635"
+        }
+      read: true
+      uri: 
+      decode_content: true
+      socket: 
+      body_exist: true
+  raw_info: !ruby/hash:OmniAuth::AuthHash
+    emailAddress: savva.voloshin@gmail.com
+    firstName: Savva
+    headline: freelance
+    id: EsKOV6HBMr
+    industry: Program Development
+    lastName: Voloshin
+    location: !ruby/hash:OmniAuth::AuthHash
+      country: !ruby/hash:OmniAuth::AuthHash
+        code: ru
+      name: Russian Federation
+    publicProfileUrl: http://www.linkedin.com/pub/savva-voloshin/75/97/635
+
+> --- !ruby/hash:OmniAuth::AuthHash
+provider: linkedin
+uid: EsKOV6HBMr
+info: !ruby/hash:OmniAuth::AuthHash::InfoHash
+  name: Savva Voloshin
+  email: savva.voloshin@gmail.com
+  nickname: Savva Voloshin
+  first_name: Savva
+  last_name: Voloshin
+  location: Russian Federation, RU
+  description: freelance
+  image: 
+  phone: 
+  headline: freelance
+  industry: Program Development
+  urls: !ruby/hash:OmniAuth::AuthHash
+    public_profile: http://www.linkedin.com/pub/savva-voloshin/75/97/635
+credentials: !ruby/hash:OmniAuth::AuthHash
+  token: 6790cba8-c920-4c2e-a610-28b0dbf318ac
+  secret: a0b3529b-124f-4f73-870a-0c85944853b7
+extra: !ruby/hash:OmniAuth::AuthHash
+  access_token: !ruby/object:OAuth::AccessToken
+    token: 6790cba8-c920-4c2e-a610-28b0dbf318ac
+    secret: a0b3529b-124f-4f73-870a-0c85944853b7
+    consumer: !ruby/object:OAuth::Consumer
+      key: l6on5uqdtfc8
+      secret: LiDHc2gdkyYTOEuB
+      options:
+        :signature_method: HMAC-SHA1
+        :request_token_path: /uas/oauth/requestToken
+        :authorize_path: /oauth/authorize
+        :access_token_path: /uas/oauth/accessToken
+        :proxy: 
+        :scheme: :header
+        :http_method: :post
+        :oauth_version: '1.0'
+        :site: https://api.linkedin.com
+        :authorize_url: https://www.linkedin.com/uas/oauth/authenticate
+      http: !ruby/object:Net::HTTP
+        address: api.linkedin.com
+        port: 443
+        local_host: 
+        local_port: 
+        curr_http_version: '1.1'
+        keep_alive_timeout: 2
+        last_communicated: 
+        close_on_empty_response: false
+        socket: 
+        started: false
+        open_timeout: 30
+        read_timeout: 30
+        continue_timeout: 
+        debug_output: 
+        proxy_from_env: true
+        proxy_uri: 
+        proxy_address: 
+        proxy_port: 
+        proxy_user: 
+        proxy_pass: 
+        use_ssl: true
+        ssl_context: !ruby/object:OpenSSL::SSL::SSLContext
+          cert: 
+          key: 
+          client_ca: 
+          ca_file: /etc/ssl/certs/ca-certificates.crt
+          ca_path: 
+          timeout: 
+          verify_mode: 1
+          verify_depth: 5
+          renegotiation_cb: 
+          verify_callback: 
+          options: -2147482625
+          cert_store: 
+          extra_chain_cert: 
+          client_cert_cb: 
+          tmp_dh_callback: 
+          session_id_context: 
+          session_get_cb: 
+          session_new_cb: 
+          session_remove_cb: 
+          servername_cb: 
+          npn_protocols: 
+          npn_select_cb: 
+        ssl_session: !ruby/object:OpenSSL::SSL::Session {}
+        enable_post_connection_check: true
+        sspi_enabled: false
+        ca_file: /etc/ssl/certs/ca-certificates.crt
+        ca_path: 
+        cert: 
+        cert_store: 
+        ciphers: 
+        key: 
+        ssl_timeout: 
+        ssl_version: 
+        verify_callback: 
+        verify_depth: 5
+        verify_mode: 1
+      http_method: :post
+      uri: !ruby/object:URI::HTTPS
+        scheme: https
+        user: 
+        password: 
+        host: api.linkedin.com
+        port: 443
+        path: ''
+        query: 
+        opaque: 
+        registry: 
+        fragment: 
+        parser: 
+    params:
+      :oauth_token: 6790cba8-c920-4c2e-a610-28b0dbf318ac
+      oauth_token: 6790cba8-c920-4c2e-a610-28b0dbf318ac
+      :oauth_token_secret: a0b3529b-124f-4f73-870a-0c85944853b7
+      oauth_token_secret: a0b3529b-124f-4f73-870a-0c85944853b7
+      :oauth_expires_in: '5183998'
+      oauth_expires_in: '5183998'
+      :oauth_authorization_expires_in: '5183998'
+      oauth_authorization_expires_in: '5183998'
+    response: !ruby/object:Net::HTTPOK
+      http_version: '1.1'
+      code: '200'
+      message: OK
+      header:
+        server:
+        - Apache-Coyote/1.1
+        x-li-request-id:
+        - I5AKBIO0F8
+        vary:
+        - '*'
+        x-li-format:
+        - json
+        content-type:
+        - application/json;charset=UTF-8
+        transfer-encoding:
+        - chunked
+        date:
+        - Mon, 01 Jul 2013 02:03:13 GMT
+      body: |-
+        {
+          "emailAddress": "savva.voloshin@gmail.com",
+          "firstName": "Savva",
+          "headline": "freelance",
+          "id": "EsKOV6HBMr",
+          "industry": "Program Development",
+          "lastName": "Voloshin",
+          "location": {
+            "country": {"code": "ru"},
+            "name": "Russian Federation"
+          },
+          "publicProfileUrl": "http://www.linkedin.com/pub/savva-voloshin/75/97/635"
+        }
+      read: true
+      uri: 
+      decode_content: true
+      socket: 
+      body_exist: true
+  raw_info: !ruby/hash:OmniAuth::AuthHash
+    emailAddress: savva.voloshin@gmail.com
+    firstName: Savva
+    headline: freelance
+    id: EsKOV6HBMr
+    industry: Program Development
+    lastName: Voloshin
+    location: !ruby/hash:OmniAuth::AuthHash
+      country: !ruby/hash:OmniAuth::AuthHash
+        code: ru
+      name: Russian Federation
+    publicProfileUrl: http://www.linkedin.com/pub/savva-voloshin/75/97/635
+
+> read_authhash
+> read_authhash
+> text's authhash
+> read_authhash
+> else's authhash
+> <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <email>savva.voloshin@gmail.com</email>
+  <name>Savva Voloshin</name>
+  <uid>EsKOV6HBMr</uid>
+  <provider>linkedin</provider>
+</hash>
+
+> read_authhash
+> else's authhash
+> <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <email>savva.voloshin@gmail.com</email>
+  <name>Savva Voloshin</name>
+  <uid>EsKOV6HBMr</uid>
+  <provider>linkedin</provider>
+</hash>
+
+> read_authhash
+> else's authhash
+> <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <email>savva.voloshin@gmail.com</email>
+  <name>Savva Voloshin</name>
+  <uid>EsKOV6HBMr</uid>
+  <provider>linkedin</provider>
+</hash>
+
+> read_authhash
+> else's authhash
+> <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <email>savva.voloshin@gmail.com</email>
+  <name>Savva Voloshin</name>
+  <uid>EsKOV6HBMr</uid>
+  <provider>linkedin</provider>
+</hash>
+
+> read_authhash
+> else's authhash
+> <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <email>savva.voloshin@gmail.com</email>
+  <name>Savva Voloshin</name>
+  <uid>EsKOV6HBMr</uid>
+  <provider>linkedin</provider>
+</hash>
+
+> read_authhash
+> else's authhash
+> <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <email></email>
+  <name>Савва Волошин</name>
+  <uid>162733550</uid>
+  <provider>vkontakte</provider>
+</hash>
+

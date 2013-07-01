@@ -3,7 +3,7 @@ class Authorisation < ActiveRecord::Base
   validates :provider, :uid, :presence => true
   
   #TODO: strong parameters
-  attr_accessible :provider, :uid
+  attr_accessible :provider, :uid, :user
   
   
   def self.find_or_create(auth_hash)
