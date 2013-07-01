@@ -4,22 +4,14 @@ class SessionsController < ApplicationController
   
   before_filter :set_logger  
   
-  def set_logger
-    @logger = Logger.new("sessions.log")
-    @logger.formatter = proc do |severity, datetime, progname, msg|
-      "> #{msg}\n"
-    end
-  end
-  
   def new
+    
+    
   end
 
   def create
     
-    
     auth_hash = read_authhash(request.env['omniauth.auth'])
-    
-    @logger.debug("%s" % auth_hash.to_xml)
     
     if session[:user_id]
       # Means our user is signed in. Add the authorization to the user
@@ -34,6 +26,7 @@ class SessionsController < ApplicationController
       session[:user_id] = auth.user.id
       
       render :text => "Welcome #{auth.user.name}!"
+      #~ redirect_to :controller => 'send_message', :action => 'new', :provider => auth_hash[:provider]
     end
     
   end

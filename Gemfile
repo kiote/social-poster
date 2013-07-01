@@ -36,6 +36,14 @@ group :test do
 	gem 'capybara'
 	gem 'guard-rspec'
 	gem 'launchy'
+
+	#gem 'webmock'
+	#gem 'fakeweb'
+	#gem 'vcr'
+	
+	gem 'capybara-webkit'
+	gem 'database_cleaner'
+
 end
 
 

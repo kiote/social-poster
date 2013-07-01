@@ -404,3 +404,233 @@ extra: !ruby/hash:OmniAuth::AuthHash
   <provider>vkontakte</provider>
 </hash>
 
+> read_authhash
+> facebook's authhash
+> <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <email>vcabba@bmail.ru</email>
+  <name>Savva  Voloshin</name>
+  <uid>100005133014329</uid>
+  <provider>facebook</provider>
+</hash>
+
+> read_authhash
+> facebook's authhash
+> <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <email>vcabba@bmail.ru</email>
+  <name>Savva  Voloshin</name>
+  <uid>100005133014329</uid>
+  <provider>facebook</provider>
+</hash>
+
+> read_authhash
+> else's authhash
+> <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <email>savva.voloshin@gmail.com</email>
+  <name>Savva Voloshin</name>
+  <uid>EsKOV6HBMr</uid>
+  <provider>linkedin</provider>
+</hash>
+
+> read_authhash
+> else's authhash
+> <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <email>savva.voloshin@gmail.com</email>
+  <name>Savva Voloshin</name>
+  <uid>EsKOV6HBMr</uid>
+  <provider>linkedin</provider>
+</hash>
+
+> read_authhash
+> else's authhash
+> <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <email>savva.voloshin@gmail.com</email>
+  <name>Savva Voloshin</name>
+  <uid>EsKOV6HBMr</uid>
+  <provider>linkedin</provider>
+</hash>
+
+> read_authhash
+> else's authhash
+> <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <email>savva.voloshin@gmail.com</email>
+  <name>Savva Voloshin</name>
+  <uid>EsKOV6HBMr</uid>
+  <provider>linkedin</provider>
+</hash>
+
+> read_authhash
+> else's authhash
+> <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <email>savva.voloshin@gmail.com</email>
+  <name>Savva Voloshin</name>
+  <uid>EsKOV6HBMr</uid>
+  <provider>linkedin</provider>
+</hash>
+
+> read_authhash
+> else's authhash
+> <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <email>savva.voloshin@gmail.com</email>
+  <name>Savva Voloshin</name>
+  <uid>EsKOV6HBMr</uid>
+  <provider>linkedin</provider>
+</hash>
+
+> read_authhash
+> else's authhash
+> <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <email>savva.voloshin@gmail.com</email>
+  <name>Savva Voloshin</name>
+  <uid>EsKOV6HBMr</uid>
+  <provider>linkedin</provider>
+</hash>
+
+> read_authhash
+> else's authhash
+> <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <email>savva.voloshin@gmail.com</email>
+  <name>Savva Voloshin</name>
+  <uid>EsKOV6HBMr</uid>
+  <provider>linkedin</provider>
+</hash>
+
+> read_authhash
+> else's authhash
+> <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <email>savva.voloshin@gmail.com</email>
+  <name>Savva Voloshin</name>
+  <uid>EsKOV6HBMr</uid>
+  <provider>linkedin</provider>
+</hash>
+
+> read_authhash
+> else's authhash
+> <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <email>savva.voloshin@gmail.com</email>
+  <name>Savva Voloshin</name>
+  <uid>EsKOV6HBMr</uid>
+  <provider>linkedin</provider>
+</hash>
+
+> read_authhash
+> else's authhash
+> <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <email>savva.voloshin@gmail.com</email>
+  <name>Savva Voloshin</name>
+  <uid>EsKOV6HBMr</uid>
+  <provider>linkedin</provider>
+</hash>
+
+> read_authhash
+> else's authhash
+> <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <email>savva.voloshin@gmail.com</email>
+  <name>Savva Voloshin</name>
+  <uid>EsKOV6HBMr</uid>
+  <provider>linkedin</provider>
+</hash>
+
+> read_authhash
+> else's authhash
+> <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <email>savva.voloshin@gmail.com</email>
+  <name>Savva Voloshin</name>
+  <uid>EsKOV6HBMr</uid>
+  <provider>linkedin</provider>
+</hash>
+
+> read_authhash
+> else's authhash
+> <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <email>savva.voloshin@gmail.com</email>
+  <name>Savva Voloshin</name>
+  <uid>EsKOV6HBMr</uid>
+  <provider>linkedin</provider>
+</hash>
+
+> read_authhash
+> else's authhash
+> <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <email>savva.voloshin@gmail.com</email>
+  <name>Savva Voloshin</name>
+  <uid>EsKOV6HBMr</uid>
+  <provider>linkedin</provider>
+</hash>
+
+> read_authhash
+> else's authhash
+> <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <email></email>
+  <name>Savva</name>
+  <uid>1497573638</uid>
+  <provider>twitter</provider>
+</hash>
+
+> read_authhash
+> else's authhash
+> <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <email>savva.voloshin@gmail.com</email>
+  <name>Savva Voloshin</name>
+  <uid>EsKOV6HBMr</uid>
+  <provider>linkedin</provider>
+</hash>
+
+> read_authhash
+> facebook's authhash
+> <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <email>vcabba@bmail.ru</email>
+  <name>Savva  Voloshin</name>
+  <uid>100005133014329</uid>
+  <provider>facebook</provider>
+</hash>
+
+> read_authhash
+> facebook's authhash
+> <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <email>vcabba@bmail.ru</email>
+  <name>Savva  Voloshin</name>
+  <uid>100005133014329</uid>
+  <provider>facebook</provider>
+</hash>
+
+> read_authhash
+> facebook's authhash
+> <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <email>vcabba@bmail.ru</email>
+  <name>Savva  Voloshin</name>
+  <uid>100005133014329</uid>
+  <provider>facebook</provider>
+</hash>
+
+> read_authhash
+> facebook's authhash
+> <?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <email>vcabba@bmail.ru</email>
+  <name>Savva  Voloshin</name>
+  <uid>100005133014329</uid>
+  <provider>facebook</provider>
+</hash>
+
