@@ -1,7 +1,7 @@
 
 source 'https://rubygems.org'
 
-ruby '2.0.0'
+#ruby '2.0.0'
 
 gem 'rails', '4.0.0.rc1'
 gem 'omniauth'
@@ -26,12 +26,15 @@ group :production, :staging do
 end
 
 group :development, :test do
+
 	gem "sqlite3"
 	gem 'rspec-rails'
 	gem 'factory_girl_rails'
+
 end
 
 group :test do
+
 	gem 'faker'
 	gem 'capybara'
 	gem 'guard-rspec'
@@ -47,11 +50,9 @@ group :test do
 end
 
 
-group :assets do
-  gem 'coffee-rails'
-	gem 'sass-rails', '~> 4.0.0.rc1'
-  gem 'uglifier', '>= 1.0.3'
-end
+gem 'coffee-rails'
+gem 'sass-rails', '~> 4.0.0.rc1'
+gem 'uglifier', '>= 1.0.3'
 
 gem 'jquery-rails'
 gem 'turbolinks'

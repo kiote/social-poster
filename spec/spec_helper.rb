@@ -8,19 +8,14 @@ require "capybara/rspec"
 require "capybara/rails"
 Capybara.javascript_driver = :webkit
 
-#require 'webmock/rspec'
-#require 'webmock/cucumber'
-
-#require 'vcr'
-
-#VCR.configure do |c|
-	#c.cassette_library_dir = 'vcr_cassettes'
-	#c.hook_into :webmock
-	#c.configure_rspec_metadata!
-	#c.ignore_localhost = true
-	#c.default_cassette_options = { :record => :new_episodes }
-	#c.stub_with :webmock
-#end
+OmniAuth.config.test_mode = true
+OmniAuth.config.add_mock(:twitter,
+  {
+    :provider => "twitter",
+    :uid => "1234",
+    "info" => { "name" => "Bob hope", :nickname => "bobby", :urls => {:Twitter => "www.twitter.com/bobster"}},
+    :credentials => { :auth_token => "lk2j3lkjasldkjflk3ljsdf"}
+  })
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -30,22 +25,11 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
-OmniAuth.config.test_mode = true
-
-omniauth_hash = { 'uid' => '12345', 'nickname' => 'testuser', 'credentials' => { 'token' => 'umad', 'secret' => 'bro?' } }
-
-OmniAuth.config.add_mock(:twitter, omniauth_hash)
-OmniAuth.config.add_mock(:foursquare, omniauth_hash)
-OmniAuth.config.add_mock(:facebook, omniauth_hash.merge({'nickname' => 'Mr Herpy Derpy Pants'}))
-
 RSpec.configure do |config|
-	
-	config.include Capybara::DSL
-	#config.include OauthMocking
-	#config.include(OauthMocking, :type => :feature)
-	config.include(OauthMocking, :type => :request)
-
-
+  
+  config.include Capybara::DSL
+  
+  
 	#config.extend VCR::RSpec::Macros
 
   # ## Mock Framework

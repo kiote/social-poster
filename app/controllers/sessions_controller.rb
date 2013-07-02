@@ -2,16 +2,14 @@ class SessionsController < ApplicationController
   
   include SessionsControllerExtra
   
-  before_filter :set_logger  
-  
   def new
-    
-    
   end
 
   def create
     
     auth_hash = read_authhash(request.env['omniauth.auth'])
+    
+    Rails.logger.debug auth_hash.to_yaml
     
     if session[:user_id]
       # Means our user is signed in. Add the authorization to the user
