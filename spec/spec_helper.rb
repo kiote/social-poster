@@ -16,6 +16,27 @@ OmniAuth.config.add_mock(:twitter,
     "info" => { "name" => "Bob hope", :nickname => "bobby", :urls => {:Twitter => "www.twitter.com/bobster"}},
     :credentials => { :auth_token => "lk2j3lkjasldkjflk3ljsdf"}
   })
+OmniAuth.config.add_mock(:facebook,
+  {
+    :provider => "facebook",
+    :uid => "1234",
+    "extra" => { "raw_info" => { "name" => "Bob hope", :nickname => "bobby", :urls => {:Twitter => "www.twitter.com/bobster"}}},
+    :credentials => { :auth_token => "lk2j3lkjasldkjflk3ljsdf"}
+  })
+OmniAuth.config.add_mock(:vkontakte,
+  {
+    :provider => "vkontakte",
+    :uid => "1234",
+    "info" => { "name" => "Bob hope", :nickname => "bobby", :urls => {:Twitter => "www.twitter.com/bobster"}},
+    :credentials => { :auth_token => "lk2j3lkjasldkjflk3ljsdf"}
+  })
+OmniAuth.config.add_mock(:linkedin,
+  {
+    :provider => "linkedin",
+    :uid => "1234",
+    "info" => { "name" => "Bob hope", :nickname => "bobby", :urls => {:Twitter => "www.twitter.com/bobster"}},
+    :credentials => { :auth_token => "lk2j3lkjasldkjflk3ljsdf"}
+  })
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
