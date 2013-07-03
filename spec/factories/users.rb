@@ -2,6 +2,7 @@
 
 FactoryGirl.define do
   factory :user do
+    id  100
     name "Petya"
     email "petya@gmail.com"
   end

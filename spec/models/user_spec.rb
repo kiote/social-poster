@@ -14,5 +14,11 @@ describe User do
 	it 'has valid fact' do
 		FactoryGirl.build(:user).should be_valid
 	end
+  
+  it 'has ability to custom id' do
+    user = FactoryGirl.create(:user)
+    puts user.id
+    user.should be_valid
+  end
 
 end

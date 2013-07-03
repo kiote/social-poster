@@ -12,11 +12,13 @@ class SessionsController < ApplicationController
     Rails.logger.debug auth_hash.to_yaml
     
     if session[:user_id]
+      
       # Means our user is signed in. Add the authorization to the user
       User.find(session[:user_id]).add_provider(auth_hash)
       
       render :text => "You can now login using #{auth_hash[:provider].capitalize} too!"
     else
+      
       # Log him in or sign him up
       auth = Authorisation.find_or_create(auth_hash)
       
@@ -31,11 +33,11 @@ class SessionsController < ApplicationController
   
   def destroy
     session[:user_id] = nil
-    render :text => "You've logged out!"
+    #~ render :text => "You've logged out!"
   end
 
   def failure
-    render :text => "Sorry, but you didn't allow access to our app!"
+    #~ render :text => "Sorry, but you didn't allow access to our app!"
   end
   
 end
