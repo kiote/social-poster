@@ -6,7 +6,7 @@ SocialPoster::Application.routes.draw do
   get "sessions/create"
   get "sessions/failure"
   
-  get "sessions/send_message"
+  get "contact/new"
   
   get '/login', :to => 'sessions#new', :as => :login
   get '/logout', :to => 'sessions#destroy'
