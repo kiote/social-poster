@@ -11,7 +11,6 @@ describe SessionsController, :type => :controller do
   
   describe "#create" do
     
-    # TODO: another providers beside twitter
     describe 'user ne signed in' do
        { "twitter" => :twitter, "facebook" => :facebook, "vkontakte" => :vkontakte, "linkedin" => :linkedin }.each do |provider_str, provider_sym|
         it "authorise she on #{provider_str}" do

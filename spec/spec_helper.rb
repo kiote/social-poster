@@ -9,6 +9,7 @@ require "capybara/rails"
 Capybara.javascript_driver = :webkit
 
 OmniAuth.config.test_mode = true
+# TODO: config parameters
 OmniAuth.config.add_mock(:twitter,
   {
     :provider => "twitter",
