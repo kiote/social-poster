@@ -1,3 +1,4 @@
+
 class User < ActiveRecord::Base
   
   has_many :authorisations
@@ -9,9 +10,9 @@ class User < ActiveRecord::Base
     # Check if the provider already exists, so we don't add it twice
     
     unless authorisations.find_by_provider_and_uid(auth_hash[:provider], auth_hash[:uid])
-      
       auth = authorisations.create :provider => auth_hash[:provider], :uid => auth_hash[:uid]
-      
     end
-end
+  end
+  
+  
 end

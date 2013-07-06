@@ -4,12 +4,19 @@ class SessionsController < ApplicationController
   
   def new
   end
-
+  
   def create
     
     auth_hash = read_authhash(request.env['omniauth.auth'])
     
-    Rails.logger.debug auth_hash.to_yaml
+    Rails.logger.debug ""
+    Rails.logger.debug " ---===+++ request.env['omniauth.auth']: "
+    Rails.logger.debug ""
+    Rails.logger.debug request.env['omniauth.auth'].to_yaml
+    
+
+    request.env['omniauth.auth']['credentials']['token'] ? session[:token] = request.env['omniauth.auth']['credentials']['token'] : session[:token] = ''
+    request.env['omniauth.auth']['credentials']['secret'] ? session[:secret] = request.env['omniauth.auth']['credentials']['secret'] : session[:secret] = ''
     
     if session[:user_id]
       

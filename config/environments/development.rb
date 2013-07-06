@@ -42,8 +42,8 @@ SocialPoster::Application.configure do
     # ALWAYS RESTART YOUR SERVER IF YOU MAKE CHANGES TO THESE SETTINGS!
     
     # providers with id/secret, you need to sign up for their services (see below) and enter the parameters here
-    provider :facebook, '542283809165927', '1a8e252855790961ed937a993304e480'
-    provider :vkontakte, '3725656 ', '016vuNmtyghJpkcwccjU'
+    provider :facebook, '542283809165927', '1a8e252855790961ed937a993304e480', {:scope => 'publish_stream,offline_access,email'}
+    provider :vkontakte, '3725656 ', '016vuNmtyghJpkcwccjU', {:scope => 'publish_stream,offline_access,email'}
     provider :twitter, '78Xe54R18Dx0xjehhGOAw', 'IMNaQoy65nLkWa15qp5HvoqHYAu5XTXCfgg86fKC0'
     provider :linkedin, 'l6on5uqdtfc8', 'LiDHc2gdkyYTOEuB'
 
