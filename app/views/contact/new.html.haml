@@ -1,7 +1,90 @@
-%h2
-  should pe baste form
+- if @authorized_with.index(@selected_provider)
+  %p you can send it to 
+  = @authorized_with[@authorized_with.index(@selected_provider)]
+- else
+  %p you cant send it to available providers
 
 = form_for :message, :url => {action: "create"}, method: :post do |f|
   = f.text_area :body, :size => "48x8"
   %br
   = submit_tag "Send"
+
+- content_for :head do
+
+  %title post to facebook
+  
+  
+.container.width_500
+  
+  %p
+    - @authorized_with.each do |provider|
+      = provider
+      %br
+  %p
+    session[:provider]:
+    = session[:provider]
+  %p
+    selected_provider:
+    = @selected_provider
+  
+  / TODO: remove ugly "case"
+  
+  - if @selected_provider == 'facebook'
+    %ul.nav.nav-tabs
+      %li.active
+        %a{:href => "/contact/facebook"} Facebook
+      %li
+        %a{:href => "/contact/linkedin"} LinkedIN
+      %li
+        %a{:href => "/contact/twitter"} Twitter
+      %li
+        %a{:href => "/contact/vkontakte"} VKontakte
+  
+  - if @selected_provider == 'twitter'
+    %ul.nav.nav-tabs
+      %li
+        %a{:href => "/contact/facebook"} Facebook
+      %li
+        %a{:href => "/contact/linkedin"} LinkedIN
+      %li.active
+        %a{:href => "/contact/twitter"} Twitter
+      %li
+        %a{:href => "/contact/vkontakte"} VKontakte
+  
+  - if @selected_provider == 'linkedin'
+    %ul.nav.nav-tabs
+      %li
+        %a{:href => "/contact/facebook"} Facebook
+      %li.active
+        %a{:href => "/contact/linkedin"} LinkedIN
+      %li
+        %a{:href => "/contact/twitter"} Twitter
+      %li
+        %a{:href => "/contact/vkontakte"} VKontakte
+  
+  - if @selected_provider == 'vkontakte'
+    %ul.nav.nav-tabs
+      %li
+        %a{:href => "/contact/facebook"} Facebook
+      %li
+        %a{:href => "/contact/linkedin"} LinkedIN
+      %li
+        %a{:href => "/contact/twitter"} Twitter
+      %li.active
+        %a{:href => "/contact/vkontakte"} VKontakte
+  
+  %textarea.textarea{:placeholder => "Enter text ...", :style => "width: 500px; height: 200px"}
+  %br
+  %a.btn.btn-large.btn-primary.jumbo{:href => "#"} Post
+
+%script{:src => "/assets/wysihtml5/js/wysihtml5-0.3.0.js"}
+%script{:src => "/assets/bootstrap/js/jquery.js"}
+%script{:src => "/assets/bootstrap/js/google-code-prettify/prettify.js"}
+%script{:src => "/assets/bootstrap/js/bootstrap.min.js"}
+%script{:src => "/assets/bootstrap-wysihtml5/js/bootstrap-wysihtml5.js"}
+
+:javascript
+  $('.textarea').wysihtml5();
+%script{:charset => "utf-8", :type => "text/javascript"}
+  $(prettyPrint);
+

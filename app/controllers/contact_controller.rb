@@ -6,8 +6,23 @@ end
 
 class ContactController < ApplicationController
   
+  layout "social_poster"
+  
   def new
     @message = Message.new
+    
+    @user = User.find(session[:user_id])
+    @selected_provider = params[:provider]
+    
+    @authorized_with = Array.new
+    @user.authorisations.each do |auth|
+      @authorized_with << auth.provider
+    end
+    
+    unless @authorized_with.include? @selected_provider
+      render :text => "please, authorise with #{@selected_provider} first"
+    end
+    
   end
   
   def create

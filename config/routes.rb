@@ -6,7 +6,7 @@ SocialPoster::Application.routes.draw do
   get "sessions/create"
   get "sessions/failure"
   
-  get "contact/new"
+  get "contact/:provider", to: 'contact#new'
   post "contact/create"
   
   get '/login', :to => 'sessions#new', :as => :login

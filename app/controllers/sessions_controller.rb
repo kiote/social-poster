@@ -14,10 +14,8 @@ class SessionsController < ApplicationController
     Rails.logger.debug ""
     Rails.logger.debug request.env['omniauth.auth'].to_yaml
     
-
-    request.env['omniauth.auth']['credentials']['token'] ? session[:token] = request.env['omniauth.auth']['credentials']['token'] : session[:token] = ''
-    request.env['omniauth.auth']['credentials']['secret'] ? session[:secret] = request.env['omniauth.auth']['credentials']['secret'] : session[:secret] = ''
-    
+    #~ TODO: правильно учитывается поставщик, под которым выполнен вход?
+    session[:provider] = auth_hash[:provider]
     
     unless session[:user_id]
     
