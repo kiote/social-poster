@@ -18,22 +18,24 @@ class SessionsController < ApplicationController
     request.env['omniauth.auth']['credentials']['token'] ? session[:token] = request.env['omniauth.auth']['credentials']['token'] : session[:token] = ''
     request.env['omniauth.auth']['credentials']['secret'] ? session[:secret] = request.env['omniauth.auth']['credentials']['secret'] : session[:secret] = ''
     
-    if session[:user_id]
-      
-      # Means our user is signed in. Add the authorization to the user
-      User.find(session[:user_id]).add_provider(auth_hash)
-      
-      render :text => "You can now login using #{auth_hash[:provider].capitalize} too!"
-    else
-      
-      # Log him in or sign him up
+    
+    unless session[:user_id]
+    
+      #~ not signed in => sign in or sign up
       auth = Authorisation.find_or_create(auth_hash)
       
-      # Create the session
+      #~ create the session
       session[:user_id] = auth.user.id
       
       render :text => "Welcome #{auth.user.name}!"
-      #~ redirect_to :controller => 'send_message', :action => 'new', :provider => auth_hash[:provider]
+      
+    else
+      
+      #~ signed in => add the authorization
+      User.find(session[:user_id]).add_provider(auth_hash)
+      
+      render :text => "You can now login using #{auth_hash[:provider].capitalize} too!"
+      
     end
     
   end
