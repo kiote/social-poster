@@ -2,6 +2,8 @@ class SessionsController < ApplicationController
   
   include SessionsControllerExtra
   
+  layout "social_poster"
+  
   def new
   end
   
@@ -25,14 +27,14 @@ class SessionsController < ApplicationController
       #~ create the session
       session[:user_id] = auth.user.id
       
-      render :text => "Welcome #{auth.user.name}!"
+      redirect_to "/contact/#{session[:provider]}"
       
     else
       
       #~ signed in => add the authorization
       User.find(session[:user_id]).add_provider(auth_hash)
       
-      render :text => "You can now login using #{auth_hash[:provider].capitalize} too!"
+      redirect_to "/contact/#{session[:provider]}"
       
     end
     
@@ -40,7 +42,7 @@ class SessionsController < ApplicationController
   
   def destroy
     session[:user_id] = nil
-    #~ render :text => "You've logged out!"
+    redirect_to root_path
   end
 
   def failure

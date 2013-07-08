@@ -7,10 +7,10 @@ SocialPoster::Application.routes.draw do
   get "sessions/failure"
   
   get "contact/:provider", to: 'contact#new'
-  post "contact/create"
+  post "contact/create/:provider", to: 'contact#create'
   
-  get '/login', :to => 'sessions#new', :as => :login
-  get '/logout', :to => 'sessions#destroy'
+  get '/signin', :to => 'sessions#new', :as => :signin
+  get '/signout', :to => 'sessions#destroy'
   
   get '/auth/:provider/callback', :to => 'sessions#create'
   get '/auth/failure', :to => 'sessions#failure'

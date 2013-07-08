@@ -1,19 +1,31 @@
-- if @authorized_with.index(@selected_provider)
-  %p you can send it to 
-  = @authorized_with[@authorized_with.index(@selected_provider)]
-- else
-  %p you cant send it to available providers
-
-= form_for :message, :url => {action: "create"}, method: :post do |f|
-  = f.text_area :body, :size => "48x8"
-  %br
-  = submit_tag "Send"
 
 - content_for :head do
 
   %title post to facebook
   
-  
+
+
+.navbar.navbar-inverse.navbar-fixed-top
+  .navbar-inner
+    .container-fluid
+      %button.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.brand{:href => "#"} Social Poster
+      .nav-collapse.collapse
+        %p.navbar-text.pull-right
+          / Logged in as
+          %a.navbar-link{:href => "/signout"} Signout
+        %ul.nav
+          %li.active
+            %a{:href => "#"} Home
+          %li
+            %a{:href => "#about"} About
+          %li
+            %a{:href => "#contact"} Contact
+      / /.nav-collapse
+
 .container.width_500
   
   %p
@@ -75,7 +87,10 @@
   
   %textarea.textarea{:placeholder => "Enter text ...", :style => "width: 500px; height: 200px"}
   %br
-  %a.btn.btn-large.btn-primary.jumbo{:href => "#"} Post
+  / %a.btn.btn-large.btn-primary.jumbo{:href => "#"} Send
+  
+  / = button_to "Acknowledged", { :controller => 'contact', :action => "create"}, :method => :post
+  = button_to('Send', { :controller => 'contact', :action => "create", :message => @message.body, :provider => @selected_provider}, :class => 'btn btn-large btn-primary jumbo')
 
 %script{:src => "/assets/wysihtml5/js/wysihtml5-0.3.0.js"}
 %script{:src => "/assets/bootstrap/js/jquery.js"}
