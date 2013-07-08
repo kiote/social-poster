@@ -23,3 +23,14 @@ end
       #~ 
       #~ render :text => "Hi #{user.name}! You've signed up."
     #~ end
+
+
+
+%p
+  #{link_to "signin with twitter", "/auth/twitter"}
+%p
+  #{link_to "signin with facebook", "/auth/facebook"}
+%p
+  #{link_to "signin with linkedin", "/auth/linkedin"}
+%p
+  #{link_to "signin with vkontakte", "/auth/vkontakte"}
