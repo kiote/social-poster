@@ -1,7 +1,7 @@
 
 .navbar.navbar-inverse.navbar-fixed-top
   .navbar-inner
-    .container
+    .container-fluid
       %button.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse", :type => "button"}
         %span.icon-bar
         %span.icon-bar
@@ -17,7 +17,7 @@
             %a{:href => "#contact"} Contact
         
         %ul.nav.pull-right
-          %li.dropdown.pull-right
+          %li.dropdown
             %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
               Sign In
               %b.caret
@@ -39,7 +39,7 @@
           
       / /.nav-collapse
 
-
+%br
 
 
 .container

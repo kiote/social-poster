@@ -26,6 +26,8 @@
             %a{:href => "#contact"} Contact
       / /.nav-collapse
 
+%br
+
 .container.width_500
   
   %p
@@ -85,13 +87,11 @@
       %li.active
         %a{:href => "/contact/vkontakte"} VKontakte
   
-  %textarea.textarea{:placeholder => "Enter text ...", :style => "width: 500px; height: 200px"}
+  %textarea.textarea#textarea{:placeholder => "Enter text ...", :style => "width: 500px; height: 200px"}
   %br
-  / %a.btn.btn-large.btn-primary.jumbo{:href => "#"} Send
   
-  / = button_to "Acknowledged", { :controller => 'contact', :action => "create"}, :method => :post
-  = button_to('Send', { :controller => 'contact', :action => "create", :message => @message.body, :provider => @selected_provider}, :class => 'btn btn-large btn-primary jumbo')
-
+  = button_to('Send', { :controller => 'contact', :action => "create", :message => @message, :provider => @selected_provider}, :class => 'btn btn-large btn-primary jumbo')
+  
 %script{:src => "/assets/wysihtml5/js/wysihtml5-0.3.0.js"}
 %script{:src => "/assets/bootstrap/js/jquery.js"}
 %script{:src => "/assets/bootstrap/js/google-code-prettify/prettify.js"}

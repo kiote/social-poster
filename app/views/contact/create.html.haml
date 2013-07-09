@@ -1,5 +1,6 @@
 %h2
-  should be create for sending message
+  probably your message is sent:
 %p
-  and the body is:
-  =params[:message][:body]
+  =params[:message]
+%p
+  #{link_to "back to", :controller => 'contact', :action => "new", :provider => @selected_provider }

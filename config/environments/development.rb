@@ -48,4 +48,5 @@ SocialPoster::Application.configure do
     provider :linkedin, 'l6on5uqdtfc8', 'LiDHc2gdkyYTOEuB'
 
   end
+  
 end

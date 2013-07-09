@@ -11,6 +11,7 @@ gem 'omniauth-linkedin'
 gem 'omniauth-twitter'
 
 gem 'fb_graph'
+gem 'linkedin'
 
 #gem 'bootstrap-sass'
 #gem 'bootstrap-wysihtml5-rails', :require => 'bootstrap-wysihtml5-rails',

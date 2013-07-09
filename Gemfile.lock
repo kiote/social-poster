@@ -110,6 +110,10 @@ GEM
     kgio (2.8.0)
     launchy (2.3.0)
       addressable (~> 2.3)
+    linkedin (0.4.1)
+      hashie (>= 1.2, < 2.1)
+      multi_json (~> 1.0)
+      oauth (~> 0.4)
     listen (1.2.2)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
@@ -256,6 +260,7 @@ DEPENDENCIES
   haml-rails
   jquery-rails
   launchy
+  linkedin
   omniauth
   omniauth-facebook
   omniauth-linkedin
