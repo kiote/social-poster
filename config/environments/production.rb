@@ -73,7 +73,7 @@ SocialPoster::Application.configure do
     
     # providers with id/secret, you need to sign up for their services (see below) and enter the parameters here
     provider :facebook, '542283809165927', '1a8e252855790961ed937a993304e480', {:scope => 'publish_stream,offline_access,email'}
-    provider :vkontakte, '3756304 ', 'PQlol0o4iIEn7GEljq49', {:scope => 'wall,friends'} # :display => 'popup' :redirect_uri => 'http://oauth.vk.com/blank.html'
+    provider :vkontakte, '3756304 ', 'PQlol0o4iIEn7GEljq49', {:scope => 'wall,friends', :redirect_uri => 'http://oauth.vk.com/blank.html'} # :display => 'popup' 
     provider :twitter, '78Xe54R18Dx0xjehhGOAw', 'IMNaQoy65nLkWa15qp5HvoqHYAu5XTXCfgg86fKC0'
     provider :linkedin, 'l6on5uqdtfc8', 'LiDHc2gdkyYTOEuB'
     
