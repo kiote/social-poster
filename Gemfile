@@ -12,6 +12,7 @@ gem 'omniauth-twitter'
 
 gem 'fb_graph'
 gem 'linkedin'
+gem 'vkontakte_api', '~> 1.1'
 
 #gem 'bootstrap-sass'
 #gem 'bootstrap-wysihtml5-rails', :require => 'bootstrap-wysihtml5-rails',

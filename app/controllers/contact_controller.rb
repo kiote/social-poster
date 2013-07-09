@@ -91,6 +91,19 @@ class ContactController < ApplicationController
       #~ client.add_share(:comment => text)
       
     elsif params[:provider] == 'vkontakte'
+      
+      auth = @user.authorisations.find_by_provider(params[:provider])      
+      oauth_token_token = auth.token
+      oauth_token_secret = auth.secret
+      
+      vk = VkontakteApi::Client.new auth.token
+      
+      Rails.logger.debug "---===+++++++"
+      text = "%s %s" % [params[:message], Time.new]
+      #~ vk.wall.post text
+      Rails.logger.debug "%s" % auth.token
+      Rails.logger.debug "---===++++++++"
+      
     else
       render :text => "nothing"
     end
