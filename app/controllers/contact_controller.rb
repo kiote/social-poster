@@ -100,7 +100,7 @@ class ContactController < ApplicationController
       
       Rails.logger.debug "---===+++++++"
       text = "%s %s" % [params[:message], Time.new]
-      #~ vk.wall.post text
+      vk.wall.post(message: text)
       Rails.logger.debug "%s" % auth.token
       Rails.logger.debug "---===++++++++"
       
