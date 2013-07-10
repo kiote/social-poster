@@ -40,13 +40,13 @@ module MessagesSend
       }
       
       client = LinkedIn::Client.new('l6on5uqdtfc8', 'LiDHc2gdkyYTOEuB', consumer_options)
-      client.authorize_from_access(oauth_token_token, oauth_token_secret)
+      client.authorize_from_access(@token, @secret)
    
       Rails.logger.debug "---==="
       Rails.logger.debug "%s" % client.profile
       Rails.logger.debug "---==="
       
-      #~ client.add_share(:comment => text)
+      client.add_share(:comment => @text)
     end
   end
   
