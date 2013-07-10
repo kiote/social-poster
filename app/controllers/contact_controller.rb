@@ -1,18 +1,10 @@
 
 
-class Message
-  attr_reader :body
-  
-  def initialize
-    @body = "ve"
-  end
-end
-
 class ContactController < ApplicationController
   
   layout "social_poster"
   
-  before_filter :set_up, :except => [:update, :destroy]
+  before_filter :authenticate_user!
   
   def set_up
   
@@ -27,7 +19,8 @@ class ContactController < ApplicationController
   end
   
   def new
-    @message = "ksajbvksadbkdjbckdjsajbc %s" % Time.new
+    
+    set_up
     
     unless @authorized_with.include? @selected_provider
       render :text => "please, authorise with #{@selected_provider} first"
@@ -37,8 +30,12 @@ class ContactController < ApplicationController
   
   def create
     
+    set_up
+    
     #~ TODO: remove ugly cases
+    
     if params[:provider] == 'twitter'
+    
       consumer = OAuth::Consumer.new("78Xe54R18Dx0xjehhGOAw", "IMNaQoy65nLkWa15qp5HvoqHYAu5XTXCfgg86fKC0", { :site => "http://api.twitter.com" })
       # now create the access token object from passed values
       
@@ -50,19 +47,23 @@ class ContactController < ApplicationController
       token_hash = { :oauth_token => oauth_token_token, :oauth_token_secret => oauth_token_secret }
       access_token = OAuth::AccessToken.from_hash(consumer, token_hash)
       
-      text = "%s %s" % [params[:message], Time.new]
+      text = params[:send_message][:text]
+      
       response = access_token.request(:post, "http://api.twitter.com/1.1/statuses/update.json", :status => text)
       #~ response = access_token.request(:get, "http://api.twitter.com/1.1/statuses/user_timeline.json")
       
       render :text => "%s" % response.body
       
     elsif params[:provider] == 'facebook'
+    
       auth = @user.authorisations.find_by_provider(params[:provider])      
       oauth_token_token = auth.token
       oauth_token_secret = auth.secret
       
       fb_user ||= FbGraph::User.me(auth.token)
-      text = "%s %s" % [params[:message], Time.new]
+      
+      text = params[:send_message][:text]
+      
       fb_user.feed!(:message => text, :name => 'feed_name')
       
     elsif params[:provider] == 'linkedin'
@@ -87,7 +88,8 @@ class ContactController < ApplicationController
       Rails.logger.debug "%s" % client.profile
       Rails.logger.debug "---==="
       
-      text = "%s %s" % [params[:message], Time.new]
+      text = params[:send_message][:text]
+      
       #~ client.add_share(:comment => text)
       
     elsif params[:provider] == 'vkontakte'
@@ -99,7 +101,7 @@ class ContactController < ApplicationController
       vk = VkontakteApi::Client.new auth.token
       
       Rails.logger.debug "---===+++++++"
-      text = "%s %s" % [params[:message], Time.new]
+      text = params[:send_message][:text]
       vk.wall.post(message: text)
       Rails.logger.debug "%s" % auth.token
       Rails.logger.debug "---===++++++++"

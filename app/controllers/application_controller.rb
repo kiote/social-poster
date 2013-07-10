@@ -14,13 +14,13 @@ class ApplicationController < ActionController::Base
     end
     
     def user_signed_in?
-      return 1 if current_user 
+      return true if current_user 
     end
       
     def authenticate_user!
       if !current_user
         flash[:error] = 'You need to sign in before accessing this page!'
-        redirect_to signin_services_path
+        redirect_to '/signin'
       end
     end
   
