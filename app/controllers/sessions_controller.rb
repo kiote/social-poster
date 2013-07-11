@@ -8,6 +8,8 @@ class SessionsController < ApplicationController
   end
   
   def create
+  
+    Rails.logger.debug "> %s" % 'touch'
     
     auth_hash = read_authhash(request.env['omniauth.auth'])
     

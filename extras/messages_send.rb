@@ -15,6 +15,7 @@ module MessagesSend
   
   class MessageTwitter < Message
     def send
+      # TODO: ключи в yaml
       consumer = OAuth::Consumer.new("78Xe54R18Dx0xjehhGOAw", "IMNaQoy65nLkWa15qp5HvoqHYAu5XTXCfgg86fKC0", { :site => "http://api.twitter.com" })
       token_hash = { :oauth_token => @token, :oauth_token_secret => @secret }
       access_token = OAuth::AccessToken.from_hash(consumer, token_hash)
@@ -52,10 +53,13 @@ module MessagesSend
   
   class MessageVkontakte < Message
     def send
-      vk = VkontakteApi::Client.new auth.token
+      #~ приходится так делать: токен из omniauth почемуто не подходит
+      
+      vk = VkontakteApi::Client.new @token
       Rails.logger.debug "---===+++++++"
-      vk.wall.post(message: text)
-      Rails.logger.debug "%s" % auth.token
+      vk.wall.post(message: @text)
+      Rails.logger.debug "token %s" % @token
+      Rails.logger.debug "secret %s" % @secret
       Rails.logger.debug "---===++++++++"
     end
   end

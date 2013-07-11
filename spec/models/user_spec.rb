@@ -15,10 +15,26 @@ describe User do
 		FactoryGirl.build(:user).should be_valid
 	end
   
-  it 'has ability to custom id' do
+  it 'should be_valid' do
     user = FactoryGirl.create(:user)
-    puts user.id
     user.should be_valid
+  end
+  
+  it 'should be okay to add provider' do
+    user = FactoryGirl.create(:user)
+    
+    auth_hash = Hash.new
+    
+    auth_hash[:provider] = 'vk'
+    auth_hash[:uid] = '31'
+    auth_hash[:token] = 'aq1'
+    auth_hash[:secret] = 'sw2'
+    
+    user.add_provider(auth_hash)
+    
+    user.authorisations.length.should == 1
+    
+    
   end
 
 end

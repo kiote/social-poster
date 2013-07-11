@@ -42,11 +42,41 @@ SocialPoster::Application.configure do
     # ALWAYS RESTART YOUR SERVER IF YOU MAKE CHANGES TO THESE SETTINGS!
     
     # providers with id/secret, you need to sign up for their services (see below) and enter the parameters here
-    provider :facebook, '542283809165927', '1a8e252855790961ed937a993304e480', {:scope => 'publish_stream,offline_access,email'}
-    provider :vkontakte, '3756304 ', 'PQlol0o4iIEn7GEljq49', {:scope => 'wall,friends'} # :display => 'popup' , :redirect_uri => 'http://oauth.vk.com/blank.html'
+    provider :facebook, '542283809165927', '1a8e252855790961ed937a993304e480', { scope: 'publish_stream,offline_access,email' }
+    provider :vkontakte, '3756304 ', 'PQlol0o4iIEn7GEljq49', scope: 'wall, friends', type: 'client'
     provider :twitter, '78Xe54R18Dx0xjehhGOAw', 'IMNaQoy65nLkWa15qp5HvoqHYAu5XTXCfgg86fKC0'
-    provider :linkedin, 'l6on5uqdtfc8', 'LiDHc2gdkyYTOEuB', {:scope => 'rw_nus'}
+    provider :linkedin, 'l6on5uqdtfc8', 'LiDHc2gdkyYTOEuB', { scope: 'rw_nus'}
 
   end
+  
+  VkontakteApi.configure do |config|
+    # параметры, необходимые для авторизации средствами vkontakte_api
+    # (не нужны при использовании сторонней авторизации)
+    config.app_id       = '3756304'
+    config.app_secret   = 'PQlol0o4iIEn7GEljq49'
+    config.redirect_uri = 'http://oauth.vk.com/blank.html'
+    
+    # faraday-адаптер для сетевых запросов
+    config.adapter = :net_http
+    # HTTP-метод для вызова методов API (:get или :post)
+    config.http_verb = :post
+    # параметры для faraday-соединения
+    #~ config.faraday_options = {
+      #~ ssl: {
+        #~ ca_path:  '/usr/lib/ssl/certs'
+      #~ },
+      #~ proxy: {
+        #~ uri:      'http://proxy.example.com',
+        #~ user:     'foo',
+        #~ password: 'bar'
+      #~ }
+    #~ }
+    
+    # логгер
+    #~ config.logger        = Rails.logger
+    #~ config.log_requests  = true  # URL-ы запросов
+    #~ config.log_errors    = true  # ошибки
+    #~ config.log_responses = false # удачные ответы
+    end
   
 end
