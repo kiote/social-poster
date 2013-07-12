@@ -11,24 +11,74 @@ describe SessionsController, :type => :controller do
   
   describe "#create" do
     
-    describe 'user ne signed in' do
-       { "twitter" => :twitter, "facebook" => :facebook, "vkontakte" => :vkontakte, "linkedin" => :linkedin }.each do |provider_str, provider_sym|
-        it "authorise she on #{provider_str}" do
-          request.env['omniauth.auth'] = OmniAuth.config.mock_auth[provider_sym]
-          post :create, :provider => provider_str
-          expect(response.body).to include "Welcome "
+    providers = { twitter: "twitter", facebook: "facebook", vkontakte: "vkontakte", linkedin: "linkedin" }
+      
+    describe 'user not signed in' do
+      
+      #~ session[:user_id] = nil
+      
+      describe 'already exist authorisations for user' do
+      
+        providers.each do |provider_sym, provider_str|
+        
+          it "sign in she on #{provider_str}" do
+            
+            request.env['omniauth.auth'] = OmniAuth.config.mock_auth[provider_sym]
+            auth_hash = {'name' => 'name', 'email' => 'email',
+              provider: provider_str,
+              uid: '13', token: 'token', secret: 'secret'
+            }
+            auth = Authorisation.build_it_with_user(auth_hash)
+            
+            post :create, :provider => provider_str
+            
+            response.should redirect_to "/contact/#{provider_str}"
+            
+          end
+          
         end
+        
       end
+      
+      describe 'build new authorisations for user' do
+      
+        providers.each do |provider_sym, provider_str|
+        
+          it "sign in she on #{provider_str}" do
+            
+            request.env['omniauth.auth'] = OmniAuth.config.mock_auth[provider_sym]
+            
+            #~ auth = Authorisation.build_it_with_user(auth_hash)
+            #~ they could be created from within controller
+            
+            post :create, provider: provider_str
+            
+            response.should redirect_to "/contact/#{provider_str}"
+            
+          end
+        end
+        
+      end
+      
     end
     
-    describe 'user is signed in' do
-      { "twitter" => :twitter, "facebook" => :facebook, "vkontakte" => :vkontakte, "linkedin" => :linkedin }.each do |provider_str, provider_sym|
+    describe 'user signed in' do
+      
+      before :each do
+        get "new"
+        session[:user_id] = 13
+      end
+      
+      
+      providers.each do |provider_sym, provider_str|
         it "should authorise on #{provider_str}" do
-          session[:user_id] = 100
+        
           user = FactoryGirl.create(:user)
           request.env['omniauth.auth'] = OmniAuth.config.mock_auth[provider_sym]
           post :create, :provider => provider_str
-          expect(response.body).to include "You can now login"
+          
+          response.should redirect_to "/contact/#{provider_str}"
+          
         end
       end
     end
@@ -39,7 +89,6 @@ describe SessionsController, :type => :controller do
     it 'should signout' do
       post :destroy
       session[:user_id].should == nil
-      response.should render_template :destroy
     end
   end
   

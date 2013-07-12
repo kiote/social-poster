@@ -21,10 +21,18 @@ class SessionsController < ApplicationController
     #~ TODO: правильно учитывается поставщик, под которым выполнен вход?
     session[:provider] = auth_hash[:provider]
     
-    unless session[:user_id]
     
-      #~ not signed in => sign in or sign up
-      auth = Authorisation.find_or_create(auth_hash)
+    #~ not signed in => sign in or sign up
+    
+    if session[:user_id] == nil
+    
+      auth = Authorisation.find_by_provider_and_uid(auth_hash[:provider] , auth_hash[:uid])
+      
+      if auth
+        auth.update(auth_hash)
+      else
+        auth = Authorisation.build_it_with_user(auth_hash)
+      end
       
       #~ create the session
       session[:user_id] = auth.user.id
@@ -32,9 +40,11 @@ class SessionsController < ApplicationController
       redirect_to "/contact/#{session[:provider]}"
       
     else
-      
       #~ signed in => add the authorization
-      User.find(session[:user_id]).add_provider(auth_hash)
+      
+      user = User.find(session[:user_id])
+      user.add_authorisation(auth_hash)
+      user.update_info(auth_hash)
       
       redirect_to "/contact/#{session[:provider]}"
       

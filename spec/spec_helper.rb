@@ -12,30 +12,31 @@ OmniAuth.config.test_mode = true
 # TODO: config parameters
 OmniAuth.config.add_mock(:twitter,
   {
-    :provider => "twitter",
-    :uid => "1234",
-    "info" => { "name" => "Bob hope", :nickname => "bobby", :urls => {:Twitter => "www.twitter.com/bobster"}},
-    :credentials => { :auth_token => "lk2j3lkjasldkjflk3ljsdf"}
+    provider: "twitter",
+    uid: "1234",
+    "info" => { "name" => "Bob hope", "email" => "email"},
+    credentials: { auth_token: "lk2j3lkjasldkjflk3ljsdf"}
   })
 OmniAuth.config.add_mock(:facebook,
   {
     :provider => "facebook",
     :uid => "1234",
-    "extra" => { "raw_info" => { "name" => "Bob hope", :nickname => "bobby", :urls => {:Twitter => "www.twitter.com/bobster"}}},
+    #~ "extra" => { "raw_info" => { "name" => "Bob hope", :nickname => "bobby", :urls => {:Twitter => "www.twitter.com/bobster"}}},
+    "info" => { "name" => "Bob hope", "email" => "email"},
     :credentials => { :auth_token => "lk2j3lkjasldkjflk3ljsdf"}
   })
 OmniAuth.config.add_mock(:vkontakte,
   {
     :provider => "vkontakte",
     :uid => "1234",
-    "info" => { "name" => "Bob hope", :nickname => "bobby", :urls => {:Twitter => "www.twitter.com/bobster"}},
+    "info" => { "name" => "Bob hope", "email" => "email"},
     :credentials => { :auth_token => "lk2j3lkjasldkjflk3ljsdf"}
   })
 OmniAuth.config.add_mock(:linkedin,
   {
     :provider => "linkedin",
     :uid => "1234",
-    "info" => { "name" => "Bob hope", :nickname => "bobby", :urls => {:Twitter => "www.twitter.com/bobster"}},
+    "info" => { "name" => "Bob hope", "email" => "email"},
     :credentials => { :auth_token => "lk2j3lkjasldkjflk3ljsdf"}
   })
 
