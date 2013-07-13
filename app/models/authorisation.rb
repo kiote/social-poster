@@ -1,16 +1,11 @@
-
-
-class Authorisation < ActiveRecord::Base
-  
+class Authorisation < ActiveRecord::Base  
   belongs_to :user
   validates :provider, :uid, presence: true
   
   validates :user_id, uniqueness: {scope: [:provider, :uid]}
   
-  class << self
-    
+  class << self    
     def build_it_with_user(auth_hash)
-    
       user = User.create(name: auth_hash['name'], email: auth_hash['email'])
       
       auth = create(user: user,
@@ -18,11 +13,9 @@ class Authorisation < ActiveRecord::Base
         uid: auth_hash[:uid],
         token: auth_hash[:token],
         secret: auth_hash[:secret])
-      
+      # а тебе не кажется, что после присваивания и так вернётся auth?
       auth
     end
-    
-    
   end
   
   def update(auth_hash)
@@ -32,5 +25,4 @@ class Authorisation < ActiveRecord::Base
     self.user.email = auth_hash['email']
     self.save!
   end
-  
 end

@@ -1,15 +1,7 @@
-
 module MessagesSend
-
-  class Message
-    
-    def initialize(text, token, secret)
-      @text = text
-      @token = token
-      @secret = secret
-    end
-    
+  class Message < Struct.new(:text, :token, :secret)
     def send
+      throw 'you should inherit this class'
     end
   end
   
@@ -32,11 +24,11 @@ module MessagesSend
   class MessageLinkedin < Message
     def send
       consumer_options = {
-        :request_token_path => "/uas/oauth/requestToken?scope=r_basicprofile+rw_nus",
-        :access_token_path  => "/uas/oauth/accessToken",
-        :authorize_path     => "/uas/oauth/authorize",
-        :api_host           => "https://api.linkedin.com",
-        :auth_host          => "https://www.linkedin.com"
+        request_token_path: "/uas/oauth/requestToken?scope=r_basicprofile+rw_nus",
+        access_token_path: "/uas/oauth/accessToken",
+        authorize_path: "/uas/oauth/authorize",
+        api_host: "https://api.linkedin.com",
+        auth_host: "https://www.linkedin.com"
       }
       
       client = LinkedIn::Client.new(APP_KEYS['linkedin']['app_key'], APP_KEYS['linkedin']['app_secret'], consumer_options)
@@ -52,7 +44,6 @@ module MessagesSend
   
   class MessageVkontakte < Message
     def send
-      
       vk = VkontakteApi::Client.new @token
       Rails.logger.debug "---===+++++++"
       #~ vk.wall.post(message: @text)
