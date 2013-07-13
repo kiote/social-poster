@@ -1,4 +1,5 @@
 module MessagesSend
+
   class Message < Struct.new(:text, :token, :secret)
     def send
       throw 'you should inherit this class'
@@ -8,16 +9,16 @@ module MessagesSend
   class MessageTwitter < Message
     def send
       consumer = OAuth::Consumer.new(APP_KEYS['twitter']['app_key'], APP_KEYS['twitter']['app_secret'], { :site => "http://api.twitter.com" })
-      token_hash = { :oauth_token => @token, :oauth_token_secret => @secret }
+      token_hash = { oauth_token: @token, oauth_token_secret: @secret }
       access_token = OAuth::AccessToken.from_hash(consumer, token_hash)
-      response = access_token.request(:post, "http://api.twitter.com/1.1/statuses/update.json", :status => @text)
+      response = access_token.request(:post, "http://api.twitter.com/1.1/statuses/update.json", status: @text)
     end
   end
   
   class MessageFacebook < Message
     def send
       fb_user ||= FbGraph::User.me(@token)
-      fb_user.feed!(:message => @text, :name => 'feed_name')
+      fb_user.feed!(message: @text, name: 'feed_name')
     end
   end
   
@@ -38,7 +39,7 @@ module MessagesSend
       Rails.logger.debug "%s" % client.profile
       Rails.logger.debug "---==="
       
-      client.add_share(:comment => @text)
+      client.add_share(comment: @text)
     end
   end
   
