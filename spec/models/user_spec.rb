@@ -41,7 +41,6 @@ describe User do
   
   it 'can update name, email, tokens' do
     
-    
     user = FactoryGirl.create(:user)
     
     auth_hash = Hash.new

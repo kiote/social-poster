@@ -1,20 +1,11 @@
 
 
 class Authorisation < ActiveRecord::Base
+  
   belongs_to :user
   validates :provider, :uid, presence: true
   
-  #TODO:
   validates :user_id, uniqueness: {scope: [:provider, :uid]}
-  
-  #TODO: strong parameters
-  attr_accessible :provider, :uid, :user
-  attr_accessible :token, :secret
-  
-  # какой-то неудачный метод и его название
-  # называется find_or_create и заодно делает update
-  # кострукции вида unless .. else .. end лучше не использовать - перейти на if .. else .. end (проще для понимания)
-  # если у метода параметров больше одного, нужно ставить скобки
   
   class << self
     

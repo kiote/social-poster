@@ -9,36 +9,34 @@ require "capybara/rails"
 Capybara.javascript_driver = :webkit
 
 OmniAuth.config.test_mode = true
-# TODO: config parameters
-OmniAuth.config.add_mock(:twitter,
-  {
-    provider: "twitter",
-    uid: "1234",
-    "info" => { "name" => "Bob hope", "email" => "email"},
-    credentials: { auth_token: "lk2j3lkjasldkjflk3ljsdf"}
-  })
-OmniAuth.config.add_mock(:facebook,
-  {
-    :provider => "facebook",
-    :uid => "1234",
-    #~ "extra" => { "raw_info" => { "name" => "Bob hope", :nickname => "bobby", :urls => {:Twitter => "www.twitter.com/bobster"}}},
-    "info" => { "name" => "Bob hope", "email" => "email"},
-    :credentials => { :auth_token => "lk2j3lkjasldkjflk3ljsdf"}
-  })
-OmniAuth.config.add_mock(:vkontakte,
-  {
-    :provider => "vkontakte",
-    :uid => "1234",
-    "info" => { "name" => "Bob hope", "email" => "email"},
-    :credentials => { :auth_token => "lk2j3lkjasldkjflk3ljsdf"}
-  })
-OmniAuth.config.add_mock(:linkedin,
-  {
-    :provider => "linkedin",
-    :uid => "1234",
-    "info" => { "name" => "Bob hope", "email" => "email"},
-    :credentials => { :auth_token => "lk2j3lkjasldkjflk3ljsdf"}
-  })
+
+OmniAuth.config.add_mock(:twitter, {
+  provider: "twitter",
+  uid: "31",
+  info: { name: "Tom Jerry", email: "tj@mgm.com"},
+  credentials: { token: "lk2j3lkjasldkjflk3ljsdf", secret: "lk2j3lkjasldkjflk3ljsdf"}
+})
+
+OmniAuth.config.add_mock(:facebook, {
+  provider: "facebook",
+  uid: "31",
+  info: { name: "Tom Jerry", email: "tj@mgm.com"},
+  credentials: { token: "lk2j3lkjasldkjflk3ljsdf", secret: "lk2j3lkjasldkjflk3ljsdf"}
+})
+
+OmniAuth.config.add_mock(:vkontakte, {
+  provider: "vkontakte",
+  uid: "31",
+  info: { name: "Tom Jerry", email: "tj@mgm.com"},
+  credentials: { token: "lk2j3lkjasldkjflk3ljsdf", secret: "lk2j3lkjasldkjflk3ljsdf"}
+})
+
+OmniAuth.config.add_mock(:linkedin, {
+  provider: "linkedin",
+  uid: "31",
+  info: { name: "Tom Jerry", email: "tj@mgm.com"},
+  credentials: { token: "lk2j3lkjasldkjflk3ljsdf", secret: "lk2j3lkjasldkjflk3ljsdf"}
+})
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.

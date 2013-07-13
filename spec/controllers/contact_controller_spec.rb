@@ -2,10 +2,8 @@ require 'spec_helper'
 
 describe ContactController, :type => :controller do
   
-  describe "#new" do
-    it "should be page for new message" do
-      get :new
-      response.should render_template :new
+  describe "get new" do
+    it "should get new" do
     end
   end
   

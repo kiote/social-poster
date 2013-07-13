@@ -15,8 +15,7 @@ module MessagesSend
   
   class MessageTwitter < Message
     def send
-      # TODO: ключи в yaml
-      consumer = OAuth::Consumer.new("78Xe54R18Dx0xjehhGOAw", "IMNaQoy65nLkWa15qp5HvoqHYAu5XTXCfgg86fKC0", { :site => "http://api.twitter.com" })
+      consumer = OAuth::Consumer.new(APP_KEYS['twitter']['app_key'], APP_KEYS['twitter']['app_secret'], { :site => "http://api.twitter.com" })
       token_hash = { :oauth_token => @token, :oauth_token_secret => @secret }
       access_token = OAuth::AccessToken.from_hash(consumer, token_hash)
       response = access_token.request(:post, "http://api.twitter.com/1.1/statuses/update.json", :status => @text)
@@ -40,7 +39,7 @@ module MessagesSend
         :auth_host          => "https://www.linkedin.com"
       }
       
-      client = LinkedIn::Client.new('l6on5uqdtfc8', 'LiDHc2gdkyYTOEuB', consumer_options)
+      client = LinkedIn::Client.new(APP_KEYS['linkedin']['app_key'], APP_KEYS['linkedin']['app_secret'], consumer_options)
       client.authorize_from_access(@token, @secret)
    
       Rails.logger.debug "---==="
@@ -53,11 +52,10 @@ module MessagesSend
   
   class MessageVkontakte < Message
     def send
-      #~ приходится так делать: токен из omniauth почемуто не подходит
       
       vk = VkontakteApi::Client.new @token
       Rails.logger.debug "---===+++++++"
-      vk.wall.post(message: @text)
+      #~ vk.wall.post(message: @text)
       Rails.logger.debug "token %s" % @token
       Rails.logger.debug "secret %s" % @secret
       Rails.logger.debug "---===++++++++"

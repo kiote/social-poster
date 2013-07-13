@@ -3,9 +3,6 @@ class User < ActiveRecord::Base
   
   has_many :authorisations
   
-  #TODO: strong parameters
-  attr_accessible :name, :email
-  
   def add_authorisation(auth_hash)
   
     # Check if the provider already exists, so we don't add it twice

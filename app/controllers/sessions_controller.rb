@@ -13,15 +13,6 @@ class SessionsController < ApplicationController
     
     auth_hash = read_authhash(request.env['omniauth.auth'])
     
-    Rails.logger.debug ""
-    Rails.logger.debug " ---===+++ request.env['omniauth.auth']: "
-    Rails.logger.debug ""
-    Rails.logger.debug request.env['omniauth.auth'].to_yaml
-    
-    #~ TODO: правильно учитывается поставщик, под которым выполнен вход?
-    session[:provider] = auth_hash[:provider]
-    
-    
     #~ not signed in => sign in or sign up
     
     if session[:user_id] == nil
@@ -37,16 +28,16 @@ class SessionsController < ApplicationController
       #~ create the session
       session[:user_id] = auth.user.id
       
-      redirect_to "/contact/#{session[:provider]}"
+      redirect_to "/contact/#{auth_hash[:provider]}"
       
     else
-      #~ signed in => add the authorization
       
+      #~ signed in => add the authorization
       user = User.find(session[:user_id])
       user.add_authorisation(auth_hash)
       user.update_info(auth_hash)
       
-      redirect_to "/contact/#{session[:provider]}"
+      redirect_to "/contact/#{auth_hash[:provider]}"
       
     end
     
@@ -58,7 +49,6 @@ class SessionsController < ApplicationController
   end
 
   def failure
-    #~ render :text => "Sorry, but you didn't allow access to our app!"
   end
   
 end

@@ -15,14 +15,8 @@ module SessionsControllerExtra
       
       omniauth['credentials']['token'] ? authhash[:token] =  omniauth['credentials']['token'] : authhash[:token] = ''
       omniauth['credentials']['secret'] ? authhash[:secret] =  omniauth['credentials']['secret'] : authhash[:secret] = ''
-      
-      return authhash
-    
-    else
-      # TODO:
-      render :text => omniauth.to_yaml
-      return
     end
+    authhash
   end
   
 end
