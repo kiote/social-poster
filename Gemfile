@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 
 #ruby '2.0.0'
 
-gem 'rails', '4.0.0.rc1'
+gem 'rails', '4.0.0'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-vkontakte'
@@ -13,6 +13,8 @@ gem 'omniauth-twitter'
 gem 'fb_graph'
 gem 'linkedin'
 gem 'vkontakte_api', '~> 1.1'
+
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 #gem 'bootstrap-sass'
 #gem 'bootstrap-wysihtml5-rails', :require => 'bootstrap-wysihtml5-rails',

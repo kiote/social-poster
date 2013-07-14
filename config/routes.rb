@@ -1,5 +1,6 @@
 SocialPoster::Application.routes.draw do
   
+  get "users/new"
   root to: "sessions#new"
   
   get "sessions/new"

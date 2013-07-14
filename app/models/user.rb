@@ -3,6 +3,16 @@ class User < ActiveRecord::Base
   
   has_many :authorisations
   
+  has_secure_password
+  
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  
+  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX},
+    uniqueness: true
+  
+  validates :password, presence: true, length: { minimum: 5 }
+  validates :password_confirmation, presence: true
+  
   def add_authorisation(auth_hash)
   
     # Check if the provider already exists, so we don't add it twice
