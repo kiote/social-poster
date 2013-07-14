@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   
   private
     def user_params
-    #~ TODO
+    #~ TODO:
     #~ User.new(name: 'Savva', email: 'vcabba@rambler.ru', password: 'qqqwww', password_confirmation: 'qqqwww')
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
