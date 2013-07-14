@@ -1,7 +1,13 @@
 SocialPoster::Application.routes.draw do
   
+  get "messages/new"
   get "users/new"
+  
   root to: "sessions#new"
+  
+  resources :users
+  
+  get '/signup', to: 'users#new'
   
   get "sessions/new"
   get "sessions/create"

@@ -3,8 +3,8 @@ require 'spec_helper'
 describe User do
 
   before do
-    #~ @user = FactoryGirl.create(:user)
-    @user = User.new(name: 'Savva', email: 'vcabba@rambler.ru', password: 'qqqwww', password_confirmation: 'qqqwww')
+    @user = FactoryGirl.create(:user)
+    #~ @user = User.new(name: 'Savva', email: 'vcabba@rambler.ru', password: 'qqqwww', password_confirmation: 'qqqwww')
     @user.save
   end
   
