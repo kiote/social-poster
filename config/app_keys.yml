@@ -1,15 +1,19 @@
 twitter:
-  app_key: "78Xe54R18Dx0xjehhGOAw"
-  app_secret: "IMNaQoy65nLkWa15qp5HvoqHYAu5XTXCfgg86fKC0"
+  consumer_key: "78Xe54R18Dx0xjehhGOAw"
+  secret_key: "IMNaQoy65nLkWa15qp5HvoqHYAu5XTXCfgg86fKC0"
 
 facebook:
-  app_key: "542283809165927"
-  app_secret: "1a8e252855790961ed937a993304e480"
+  consumer_key: "542283809165927"
+  secret_key: "1a8e252855790961ed937a993304e480"
+
+tumblr:
+  consumer_key: "RTeUQFDPqbrtYPZMgpEkDPxkMAOudz2bJOgo9Mb0Fo2cgf6Mex"
+  secret_key: "yc022iFsUezIMjXYsiRffv1pEhX2hsHB0FW2LK4hmLzgmTeYxl"
 
 linkedin:
-  app_key: "l6on5uqdtfc8"
-  app_secret: "LiDHc2gdkyYTOEuB"
+  consumer_key: "l6on5uqdtfc8"
+  secret_key: "LiDHc2gdkyYTOEuB"
 
 vkontakte:
-  app_key: "3756304"
-  app_secret: "PQlol0o4iIEn7GEljq49"
+  consumer_key: "3756304"
+  secret_key: "PQlol0o4iIEn7GEljq49"

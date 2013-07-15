@@ -10,13 +10,22 @@ describe User do
   
   subject { @user }
   
+  it { should be_valid }
+  
   it { should respond_to(:name) }
   it { should respond_to(:email) }
   it { should respond_to(:password_digest) }
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
   
-  it { should be_valid }
+  it { should respond_to(:remember_me) }
+  it { should respond_to(:authenticate) }
+  
+  describe "remember_me token" do
+    before { @user.save }
+    its(:remember_me) { should_not be_blank }
+  end
+  
   
   describe 'pass didnt match confirmation' do
     before { @user.password_confirmation = "typo" }

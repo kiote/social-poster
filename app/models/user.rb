@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 5 }
   validates :password_confirmation, presence: true
   
+  before_create :create_remember_token
+  
   before_save { self.email = email.downcase }
   
   def add_authorisation(auth_hash)
@@ -43,6 +45,20 @@ class User < ActiveRecord::Base
     self.save!
     
   end
+  
+  def User.new_remember_token
+    SecureRandom.urlsafe_base64
+  end
+  
+  def User.encrypt(token)
+    Digest::SHA1.hexdigest(token.to_s)
+  end
+  
+  private
+    
+    def create_remember_token
+      self.remember_me = User.encrypt(User.new_remember_token)
+    end
   
   
 end
