@@ -7,6 +7,11 @@ module SessionsHelper
     self.current_user = user
   end
   
+  def sign_out
+    self.current_user = nil
+    cookies.delete(:remember_me)
+  end
+  
   def current_user=(user)
     @current_user = user
   end
@@ -18,7 +23,7 @@ module SessionsHelper
   
   def signed_in?
     !current_user.nil?
-    Rails.logger.debug "> %s" % !current_user.nil?
+    #~ Rails.logger.debug "> current_user: %s" % @current_user.name
   end
   
   

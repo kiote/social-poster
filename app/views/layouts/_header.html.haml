@@ -14,7 +14,7 @@
           - if signed_in?
             %li=link_to "Users", '#'
             
-            %li.fat-menu.dropdown
+            %li#fat-menu.dropdown
               
               %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
                 Account
@@ -27,8 +27,7 @@
                   = link_to "Settings", '#'
                 %li{ class: "divider" }
                 %li
-                  = link_to "Sign out", signout_path, method: "delete"
+                  =link_to "Sign out", signout_path, method: "delete"
           - else
-            %li
-              = link_to "Sign in", signin_path
+            %li=link_to "Sign in", signin_path
   

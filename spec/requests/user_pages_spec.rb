@@ -17,7 +17,7 @@ describe "User pages" do
 			end
 		end
 
-		describe "with valid information" do
+		describe "с правильными данными" do
 			before do
 				fill_in "Name", with: "Savva"
 				fill_in "Email", with: "vcabba@rambler.ru"
@@ -28,6 +28,17 @@ describe "User pages" do
 			it "should create a user" do
 				expect { click_button submit }.to change(User, :count).by(1)
 			end
+      
+      describe "после того, как запомнился" do
+        before { click_button submit }
+        let(:user) { User.find_by(email: 'vcabba@rambler.ru') }
+        
+        it { should have_link('Sign out') }
+        it { should have_title(user.name) }
+        #~ TODO:
+        it { should have_selector('div.alert.alert-msg', text: 'ё') }
+      end
+      
 		end
 
 	end
