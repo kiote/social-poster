@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 5 }
   validates :password_confirmation, presence: true
   
+  before_save { self.email = email.downcase }
+  
   def add_authorisation(auth_hash)
   
     # Check if the provider already exists, so we don't add it twice

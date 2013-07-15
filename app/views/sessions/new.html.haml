@@ -1,56 +1,20 @@
 
-.navbar.navbar-inverse.navbar-fixed-top
-  .navbar-inner
-    .container-fluid
-      %button.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse", :type => "button"}
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
-      %a.brand{:href => "#"} Social Poster
-      .nav-collapse.collapse
-        %ul.nav
-          %li.active
-            %a{:href => "#"} Home
-          %li
-            %a{:href => "#about"} About
-          %li
-            %a{:href => "#contact"} Contact
-        
-        %ul.nav.pull-right
-          %li.dropdown
-            %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-              Sign In
-              %b.caret
-            %ul.dropdown-menu
-              %li
-                %a{:href => "/auth/twitter"} Connect Twitter
-              %li
-                %a{:href => "/auth/facebook"} Connect Facebook
-              %li
-                %a{:href => "/auth/linkedin"} Connect LinkedIn
-              %li
-                %a{:href => "/auth/vkontakte"} Connect VKontakte
-              %li.divider
-              %li.nav-header Nav header
-              %li
-                %a{:href => "#"} Separated link
-              %li
-                %a{:href => "#"} One more separated link
-          
-      / /.nav-collapse
+- provide(:title, "Sign in")
 
-%br
+%h1
+  Sign in
 
-
-.container
-  / Main hero unit for a primary marketing message or call to action
-  .hero-unit
-    %h1 Hello, human!
-    %p This is a template for a simple website for sending messages through multiple social networks.
+%div.row
+  %div.span6.offset3
+    = form_for(:session, url: sessions_path) do |f|
+      
+      = f.label :email
+      = f.text_field :email
+      
+      = f.label :password
+      = f.password_field :password
+      
+      = f.submit "Sign in", class: "btn btn-large btn-primary"
+    
     %p
-      %a.btn.btn-primary.btn-large{:href => "#"} Learn more »
-
-  %hr/
-  %footer
-    %p © Company 2013
-/ /container
+      You can #{ link_to "sign up.", signup_path }
