@@ -54,7 +54,8 @@ group :test do
 	#gem 'vcr'
 	
 	gem 'capybara-webkit'
-	gem 'database_cleaner'
+	gem 'cucumber-rails'
+	gem 'database_cleaner', github: 'bmabey/database_cleaner'
 
 end
 
