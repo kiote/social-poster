@@ -24,6 +24,7 @@ gem 'bootstrap-sass'
 #                              :git => 'git://github.com/Nerian/bootstrap-wysihtml5-rails.git'
 gem 'haml-rails'
 gem 'unicorn'
+gem 'will_paginate'
 
 group :production, :staging do
   gem 'pg'

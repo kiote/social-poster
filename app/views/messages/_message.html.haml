@@ -1,0 +1,8 @@
+
+%li
+  %span.content
+    = message.text
+  %span.timestamp
+    , for long (#{ time_ago_in_words(message.created_at) }) time ago
+
+/ TODO: same partial for users

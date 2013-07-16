@@ -1,0 +1,18 @@
+
+- if signed_in?
+  %div.row
+    %aside.span4
+      %section
+        = render 'shared/user_info'
+      %section
+        = render 'shared/message_form'
+- else
+  %div.center.hero-unit
+    
+    %h2
+      = link_to "Sign up", signup_path, class: "btn btn-large btn-primary"
+      It's Pocial Soster
+      = link_to "Sign up", signup_path, class: "btn btn-large btn-primary"
+      
+  = link_to image_tag("social_poster.png", alt: "SocialPoster"), 'http://social-poster.herokuapp.com'
+  

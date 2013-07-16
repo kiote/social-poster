@@ -21,6 +21,8 @@ describe User do
   it { should respond_to(:remember_me) }
   it { should respond_to(:authenticate) }
   
+  #~ TODO: проверки метода аутентификации cm.6.3.3
+  
   describe "remember_me token" do
     before { @user.save }
     its(:remember_me) { should_not be_blank }

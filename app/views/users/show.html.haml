@@ -2,8 +2,16 @@
 = provide(:title, @user.name)
 
 %div.row
+  
   %aside.span4
     %section
       %h1
         = gravatar_for @user
         = @user.name
+  
+  %div.span8
+    - if @user.messages.any?
+      %h3 Messages #{ @user.messages.count }
+      %ol.messages
+        = render @messages
+        = will_paginate @messages

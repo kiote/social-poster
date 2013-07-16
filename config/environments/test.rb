@@ -34,4 +34,7 @@ SocialPoster::Application.configure do
   config.active_support.deprecation = :stderr
   
   config.eager_load = false
+  
+# should do tests faster
+  ActiveModel::SecurePassword.min_cost = true
 end
