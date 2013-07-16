@@ -1,14 +1,14 @@
 
-Feature: Вписка
+Feature: Signing in
 
-Scenario: Человеку вписаться не удалось
-Given человек заходит на страницу вписки
-When человек вводит не корректную информацию
-Then надо показать ошибку
+Scenario: user fails to sign in
+Given user is on the signin page
+When user's input is incorrect
+Then show that its error
 
-Scenario: Человеку вписаться удалось
-Given человек на странице для вписки
-And при этом у человека существует авторизация
-When подтверждает корректную входную информацию
-Then видит свою страницу
-And может видеть указатель к выходу
+Scenario: signing in
+Given user is on the signin' page
+And there's account already
+When user submit email & password
+Then user's page is visible
+And it's avaliable to click signout

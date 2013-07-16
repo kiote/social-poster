@@ -1,35 +1,43 @@
 # encoding: utf-8
 
-Given(/^человек заходит на страницу вписки$/) do
+#~ человек заходит на страницу вписки
+Given(/^user is on the signin page$/) do
   visit signin_path
 end
 
-When(/^человек вводит не корректную информацию$/) do
+#~ человек вводит не корректную информацию
+When(/^user's input is incorrect$/) do
   click_button "Sign in"
 end
 
-Then(/^надо показать ошибку$/) do
+#~ надо показать ошибку
+Then(/^show that its error$/) do
   expect(page).to have_selector('div.alert.alert-error')
 end
 
-Given(/^человек на странице для вписки$/) do
+#~ человек на странице для вписки
+Given(/^user is on the signin' page$/) do
   visit signin_path
 end
 
-Given(/^при этом у человека существует авторизация$/) do
+#~ при этом у человека существует авторизация
+Given(/^there's account already$/) do
   @user = User.create(name: "Савва", email: "vcabba@yahoo.com", password: "qqqwww", password_confirmation: "qqqwww")
 end
 
-When(/^подтверждает корректную входную информацию$/) do
+#~ подтверждает корректную входную информацию
+When(/^user submit email & password$/) do
   fill_in "Email", with: @user.email
   fill_in "Password", with: @user.password
   click_button "Sign in"
 end
 
-Then(/^видит свою страницу$/u) do
+#~ видит свою страницу
+Then(/^user's page is visible$/u) do
   expect(page).to have_title(@user.name)
 end
 
-Then(/^может видеть указатель к выходу$/u) do
+#~ может видеть указатель к выходу
+Then(/^it's avaliable to click signout$/u) do
   expect(page).to have_link('Sign out', href: signout_path)
 end
