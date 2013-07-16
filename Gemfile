@@ -54,8 +54,10 @@ group :test do
 	#gem 'vcr'
 	
 	gem 'capybara-webkit'
-	gem 'cucumber-rails'
-	gem 'database_cleaner', github: 'bmabey/database_cleaner'
+
+# чёто дурака валяют при litesql3
+#	gem 'cucumber-rails'
+#	gem 'database_cleaner', github: 'bmabey/database_cleaner'
 
 end
 

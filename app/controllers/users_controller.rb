@@ -19,13 +19,23 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
-    
+  end
+  
+  def edit
+    @user = User.find(params[:id])
+  end
+  
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      #~ TODO: this; settings' link also
+    else
+      render 'edit'
+    end
   end
   
   private
     def user_params
-    #~ TODO:
-    #~ User.new(name: 'Savva', email: 'vcabba@rambler.ru', password: 'qqqwww', password_confirmation: 'qqqwww')
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
   
