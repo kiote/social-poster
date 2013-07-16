@@ -1,7 +1,8 @@
 
 class User < ActiveRecord::Base
   
-  has_many :authorisations
+  has_many :authorisations, dependent: :destroy
+  has_many :messages, dependent: :destroy
   
   has_secure_password
   
