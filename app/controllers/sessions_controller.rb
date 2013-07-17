@@ -1,9 +1,5 @@
 class SessionsController < ApplicationController
   
-  include SessionsControllerExtra
-  
-  #~ layout "social_poster"
-  
   def new
   end
   

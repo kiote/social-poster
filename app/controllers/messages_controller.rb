@@ -7,7 +7,7 @@ class MessagesController < ApplicationController
   def create
     @message = current_user.messages.build(message_params)
     if @message.save
-      flash[:suckcess] = "Message saced!"
+      flash[:suckcess] = "message sent"
       redirect_to root_url
     else
       render 'static_pages/home'

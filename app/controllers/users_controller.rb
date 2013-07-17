@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @messages = @user.messages.paginate(page: params[:page])
+    @authorisations = @user.authorisations
   end
   
   def create

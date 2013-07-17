@@ -25,10 +25,13 @@ class User < ActiveRecord::Base
     auth = authorisations.find_by_provider_and_uid(auth_hash[:provider], auth_hash[:uid])
     
     if auth == nil
-      auth = authorisations.create :provider => auth_hash[:provider],
-        :uid => auth_hash[:uid],
-        :token => auth_hash[:token],
-        :secret => auth_hash[:secret]      
+      auth = authorisations.create(
+        provider: auth_hash[:provider],
+        uid: auth_hash[:uid],
+        token: auth_hash[:token],
+        secret: auth_hash[:secret]
+      )
+      auth.user = self
     end
     
   end
@@ -41,9 +44,7 @@ class User < ActiveRecord::Base
     auth.secret = auth_hash[:secret]
     auth.save!
     
-    self.name = auth_hash['name']
-    self.email = auth_hash['email']
-    self.save!
+    #~ TODO: auth name&email
     
   end
   

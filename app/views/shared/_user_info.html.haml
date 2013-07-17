@@ -7,6 +7,10 @@
 
 %span
   = link_to "view profile", current_user
+%span
+  = link_to "view providers", authorise_path
 
 %span
   = pluralize(current_user.messages.count, "message")
+%span
+  = pluralize(current_user.authorisations.count, "authorisation")

@@ -1,0 +1,6 @@
+
+%li
+  %span.content
+    = authorisation.provider
+  %span.timestamp
+    , for long (#{ time_ago_in_words(authorisation.created_at) }) time ago

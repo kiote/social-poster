@@ -1,5 +1,5 @@
 
-module SessionsControllerExtra
+module AuthorisationsExtra
   
   
   def read_authhash(omniauth)

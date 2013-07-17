@@ -45,10 +45,10 @@ SocialPoster::Application.configure do
     # ALWAYS RESTART YOUR SERVER IF YOU MAKE CHANGES TO THESE SETTINGS!
     
     # providers with id/secret, you need to sign up for their services (see below) and enter the parameters here
-    provider :twitter, APP_KEYS['twitter']['app_key'], APP_KEYS['twitter']['app_secret']
-    provider :facebook, APP_KEYS['facebook']['app_key'], APP_KEYS['facebook']['app_secret'], scope: 'publish_stream,offline_access,email'
-    provider :linkedin, APP_KEYS['linkedin']['app_key'], APP_KEYS['linkedin']['app_secret'], scope: 'rw_nus'
-    provider :vkontakte, APP_KEYS['vkontakte']['app_key'], APP_KEYS['vkontakte']['app_secret'], scope: 'notify,wall,friends'
+    provider :twitter, APP_KEYS['twitter']['consumer_key'], APP_KEYS['twitter']['secret_key']
+    provider :facebook, APP_KEYS['facebook']['consumer_key'], APP_KEYS['facebook']['secret_key'], scope: 'publish_stream,offline_access,email'
+    provider :linkedin, APP_KEYS['linkedin']['consumer_key'], APP_KEYS['linkedin']['secret_key'], scope: 'rw_nus'
+    provider :vkontakte, APP_KEYS['vkontakte']['consumer_key'], APP_KEYS['vkontakte']['secret_key'], scope: 'notify,wall,friends'
 
   end
   

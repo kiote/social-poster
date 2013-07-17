@@ -16,12 +16,12 @@ SocialPoster::Application.routes.draw do
   
   match '/help', to: 'sessions#new', via: 'get'
   
-  get "sessions/failure"
+  match '/authorise', to: 'authorisations#new', via: 'get'
   
   get "contact/:provider", to: 'contact#new'
   post "contact/create/:provider", to: 'contact#create'
   
-  get '/auth/:provider/callback', to: 'sessions#create'
-  get '/auth/failure', to: 'sessions#failure'
+  get '/auth/:provider/callback', to: 'authorisations#create'
+  get '/auth/failure', to: 'authorisations#failure'
   
 end
