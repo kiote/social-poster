@@ -39,11 +39,11 @@ describe "Static pages" do
     expect(page).to have_title(full_title('Contact'))
     
     click_link 'Home'
-    click_link 'sign up'
+    all(:xpath, '//a[text()="Sign up"]').first.click
     expect(page).to have_title(full_title('Sign up'))
     
     click_link 'Social Poster'
-    expect(page).to have_title(full_title('Social Poster'))
+    expect(page).to have_title(full_title('Home'))
 
   end
   

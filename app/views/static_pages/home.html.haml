@@ -1,11 +1,26 @@
 
+- provide(:title, "Home")
+
 - if signed_in?
   %div.row
     %aside.span4
       %section
         = render 'shared/user_info'
-      %section
         = render 'shared/message_form'
+        
+    %div.span8
+      %h4 Authorisations
+      %p
+        connect
+        %a{href: '/auth/twitter'} Twitter
+        %a{href: '/auth/facebook'} Facebook
+        %a{href: '/auth/linkedin'} LinkedIn
+        %a{href: '/auth/vkontakte'} Vkontakte
+        %p/
+        
+      - if current_user.authorisations.any?
+        %ol.authorisations
+          = render current_user.authorisations
 - else
   %div.center.hero-unit
     

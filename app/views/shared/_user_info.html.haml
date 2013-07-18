@@ -10,10 +10,6 @@
 %span
   = link_to "view providers", authorise_path
 
-- if @user.authorisations.any?
-  %h3 Authorisations #{ current_user.authorisations.count }
-  %ol.authorisations
-    = render current_user.authorisations
 
 %span
   = pluralize(current_user.messages.count, "message")

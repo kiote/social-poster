@@ -21,16 +21,20 @@ describe Authorisation do
   end
   
   it 'can be build up' do
-  
-    auth = Authorisation.build_it_with_user({'name' => 'name', 'email' => 'email', provider: 'provider', uid: 'uid', token: 'token', secret: 'secret'})
-    auth.user.name.should == 'name'
+    
+    user = FactoryGirl.create(:user)
+    auth = FactoryGirl.build(:authorisation, user: user, provider: 'linkedin', uid: '13')
+    auth.user.name.should == 'Savva'
   end
   
   it 'can be updated' do
-    
-    auth = Authorisation.build_it_with_user({'name' => 'name', 'email' => 'email', provider: 'provider', uid: 'uid', token: 'token', secret: 'secret'})
-    auth.update({'name' => 'new name', 'email' => 'email', provider: 'provider', uid: 'uid', token: 'token', secret: 'secret'})
-    auth.user.name.should == 'new name'
+    # TODO: email & name из авторизаций как бы не нужны, а если токен поменялся как проверить?
+    user = FactoryGirl.create(:user)
+    auth = FactoryGirl.build(:authorisation, user: user, provider: 'linkedin', uid: '13')
+    auth.save
+    auth.user.name = 'Petya'
+    auth.save
+    auth.user.name.should == 'Petya'
     
   end
   

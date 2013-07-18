@@ -11,7 +11,12 @@ class AuthorisationsController < ApplicationController
     
     auth_hash = read_authhash(request.env['omniauth.auth'])
     
-    #~ @auth = current_user.messages.build(authorisation_params)
+    params[:provider] = auth_hash[:provider]
+    params[:uid] = auth_hash[:uid]
+    params[:token] = auth_hash[:token]
+    params[:secret] = auth_hash[:secret]
+    
+    #~ @auth = current_user.authorisations.build(authorisation_params)
     
     @auth = current_user.authorisations.build(
       provider: auth_hash[:provider],
@@ -21,10 +26,12 @@ class AuthorisationsController < ApplicationController
     )
     
     if @auth.save
+      Rails.logger.debug "> auth.save"
       flash[:info] = "auth connected"
       redirect_to root_url
     else
-      render 'static_pages/home'
+      Rails.logger.debug "> auth didnt.save"
+      redirect_to root_url
     end
   end
   
@@ -43,7 +50,7 @@ class AuthorisationsController < ApplicationController
       redirect_to root_url if @authorisation.nil?
     end
     
-    def message_params
+    def authorisation_params
       params.require(:authorisation).permit(:provider, :uid, :token, :secret)
     end
   

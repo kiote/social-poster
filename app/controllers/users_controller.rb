@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
   
-  #~ layout "social_poster"
-  
   def new
     @user = User.new
   end
@@ -24,7 +22,6 @@ class UsersController < ApplicationController
   
   def edit
     @user = User.find(params[:id])
-    @authorisations = @user.authorisations
   end
   
   def update
