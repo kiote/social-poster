@@ -3,4 +3,6 @@
   %span.content
     = authorisation.provider
   %span.timestamp
-    , for long (#{ time_ago_in_words(authorisation.created_at) }) time ago
+    , for #{ time_ago_in_words(authorisation.created_at) }
+  - if current_user?(authorisation.user)
+    = link_to 'delete', authorisation, method: :delete, data: { confirm: 'You sure?' }, title: authorisation.provider

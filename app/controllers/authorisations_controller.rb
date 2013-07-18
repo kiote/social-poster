@@ -1,37 +1,50 @@
 class AuthorisationsController < ApplicationController
   
-  include AuthorisationsExtra
+  before_action :signed_in_user, only: [:create, :destroy]
+  before_action :correct_user, only: :destroy
   
-  def new
-  end
+  include AuthorisationsExtra
   
   #~ TODO:
   
   def create
+    
     auth_hash = read_authhash(request.env['omniauth.auth'])
-    if session[:user_id] == nil
-      auth = Authorisation.find_by_provider_and_uid(auth_hash[:provider], auth_hash[:uid])
-      if auth
-        auth.update(auth_hash)
-      else
-        auth = Authorisation.build_it_with_user(auth_hash, current_user)
-      end
-      session[:user_id] = auth.user.id
-      redirect_to root_path
+    
+    #~ @auth = current_user.messages.build(authorisation_params)
+    
+    @auth = current_user.authorisations.build(
+      provider: auth_hash[:provider],
+      uid: auth_hash[:uid],
+      token: auth_hash[:token],
+      secret: auth_hash[:secret]
+    )
+    
+    if @auth.save
+      flash[:info] = "auth connected"
+      redirect_to root_url
     else
-      user = User.find(session[:user_id])
-      user.add_authorisation(auth_hash)
-      user.update_info(auth_hash)
-      redirect_to root_path
+      render 'static_pages/home'
     end
   end
   
   def destroy
-    session[:user_id] = nil
-    redirect_to root_path
+    @authorisation.destroy
+    redirect_to root_url
   end
 
   def failure
   end
+  
+  private
+    
+    def correct_user
+      @authorisation = current_user.authorisations.find_by(id: params[:id])
+      redirect_to root_url if @authorisation.nil?
+    end
+    
+    def message_params
+      params.require(:authorisation).permit(:provider, :uid, :token, :secret)
+    end
   
 end

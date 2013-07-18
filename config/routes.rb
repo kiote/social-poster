@@ -9,6 +9,7 @@ SocialPoster::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :messages, only: [:create, :destroy]
+  resources :authorisations, only: [:create, :destroy]
   
   match '/signup', to: 'users#new', via: 'get'
   match '/signin', to: 'sessions#new', via: 'get'

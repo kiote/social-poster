@@ -9,7 +9,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @messages = @user.messages.paginate(page: params[:page])
-    @authorisations = @user.authorisations
   end
   
   def create
@@ -25,12 +24,15 @@ class UsersController < ApplicationController
   
   def edit
     @user = User.find(params[:id])
+    @authorisations = @user.authorisations
   end
   
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      #~ TODO: this; settings' link also
+      flash[:success] = "Profile updated"
+      sign_in @user
+      redirect_to @user
     else
       render 'edit'
     end

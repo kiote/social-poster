@@ -8,12 +8,6 @@
       %h1
         = gravatar_for @user
         = @user.name
-  
-  %div.span8
-    - if @user.authorisations.any?
-      %h3 Authorisations #{ @user.authorisations.count }
-      %ol.authorisations
-        = render @authorisations
 
   %div.span8
     - if @user.messages.any?
