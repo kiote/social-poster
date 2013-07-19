@@ -1,7 +1,7 @@
 
 source 'https://rubygems.org'
 
-#ruby '2.0.0'
+ruby '2.0.0'
 
 gem 'rails', '4.0.0'
 
@@ -50,15 +50,10 @@ group :test do
 	gem 'guard-rspec'
 	gem 'launchy'
 
-	#gem 'webmock'
-	#gem 'fakeweb'
-	#gem 'vcr'
-	
 	gem 'capybara-webkit'
 
-# чёто дурака валяют при litesql3
-#	gem 'cucumber-rails'
-#	gem 'database_cleaner', github: 'bmabey/database_cleaner'
+	gem 'cucumber-rails', require: false
+	gem 'database_cleaner'#, github: 'bmabey/database_cleaner'
 
 end
 
