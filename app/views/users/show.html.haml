@@ -8,10 +8,24 @@
       %h1
         = gravatar_for @user
         = @user.name
-
+  
   %div.span8
+  
+    %h4 Authorisations
+    %p
+      connect
+      %a{href: '/auth/twitter'} Twitter
+      %a{href: '/auth/facebook'} Facebook
+      %a{href: '/auth/linkedin'} LinkedIn
+      %a{href: '/auth/vkontakte'} Vkontakte
+      %p/
+      
+    - if current_user.authorisations.any?
+      %ol.authorisations
+        = render current_user.authorisations
+    
     - if @user.messages.any?
-      %h3 Messages #{ @user.messages.count }
+      %h4 Messages #{ @user.messages.count }
       %ol.messages
         = render @messages
         = will_paginate @messages
