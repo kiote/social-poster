@@ -2,5 +2,5 @@
 = form_for(@message) do |f|
   = render 'shared/error_messages', object: f.object
   %div.field
-    = f.text_area :text, placeholder: "compose new message"
+    = f.text_area :text, placeholder: "compose new message", class: "textarea"
   = f.submit "Post", class: "btn btn-large btn-primary"
