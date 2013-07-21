@@ -4,10 +4,16 @@ class MessagesController < ApplicationController
   before_action :signed_in_user, only: [:create, :destroy]
   before_action :correct_user, only: :destroy
   
+  include SendMessageFunctions
+  
   def create
     @message = current_user.messages.build(message_params)
+    
+    message_sent_statuses = send_message(current_user, @message)
+    
     if @message.save
-      flash[:suckcess] = "message sent"
+      message_sent_statuses += "; saved"
+      flash[:succcess] = message_sent_statuses
       redirect_to root_url
     else
       render 'static_pages/home'
