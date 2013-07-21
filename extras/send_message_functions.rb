@@ -2,8 +2,7 @@ module SendMessageFunctions
   
   
   def send_message(user, message)
-    
-    user_authorisations = 
+  
     sent_statuses = Array.new
     
     user.authorisations.each do |authorisation|
