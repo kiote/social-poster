@@ -7,13 +7,16 @@ class MessagesController < ApplicationController
   include SendMessageFunctions
   
   def create
-    @message = current_user.messages.build(message_params)
     
-    message_sent_statuses = send_message(current_user, @message)
+    @message = current_user.messages.build(message_params)
+    @twitter_message = current_user.messages.build(twitter_message_params)
+    @facebook_message = current_user.messages.build(facebook_message_params)
+    
+    #~ message_sent_statuses = send_message(current_user, @message)
     
     if @message.save
-      message_sent_statuses += "; saved"
-      flash[:succcess] = message_sent_statuses
+      #~ message_sent_statuses += "; saved"
+      flash[:succcess] = 'message saved'#message_sent_statuses
       redirect_to root_url
     else
       render 'static_pages/home'
@@ -26,8 +29,10 @@ class MessagesController < ApplicationController
   end
   
   private
+    
+    #~ TODO: похоже придётся STI делать
     def message_params
-      params.require(:message).permit(:text)
+      params.require(:message).permit(:text, :type)
     end
     
     def correct_user

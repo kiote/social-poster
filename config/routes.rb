@@ -2,6 +2,11 @@ SocialPoster::Application.routes.draw do
   
   root "static_pages#home"
   
+  #~ TODO: STI?
+  
+  resources :twitter_messages, controller: "messages"#, :type => "Highlight"
+  resources :facebook_messages, controller: "messages"#, :type => "Bargain"
+
   match '/help', to: 'static_pages#help', via: 'get'
   match '/about', to: 'static_pages#about', via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
