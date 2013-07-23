@@ -8,16 +8,21 @@ class MessagesController < ApplicationController
   
   def create
     
-    Rails.logger.debug "%s" % params.to_yaml
+    Rails.logger.debug "> %s" % params.to_yaml
     #~ TODO: также полагается что сообщение отправляется только в ту сеть, вкладка которой выбрана
     
     #~ @message = current_user.messages.build(message_params)
     #~ @message.type = params[:type]
     
     if params[:type] == 'TwitterMessage'
-      @message = TwitterMessage.new
-      @message.text = params[:text]
-      @message.user = current_user
+      #~ @message = TwitterMessage.new
+      #~ @message.text = params[:text]
+      #~ @message.user = current_user
+      @message = current_user.messages.build type: 'TwitterMessage', text: params[:twitter_message][:text]
+      Rails.logger.debug "> TwitterMessage %s" % @message
+      Rails.logger.debug "> TwitterMessage %s" % @message.text
+      Rails.logger.debug "> TwitterMessage %s" % @message.type
+      Rails.logger.debug "> TwitterMessage %s" % params[:text]
     else
       @message = current_user.messages.build(message_params)
     end
@@ -28,7 +33,9 @@ class MessagesController < ApplicationController
       flash[:succcess] = "message saved %s %s" % [@message.text.length, @message.type]
       redirect_to root_url
     else
-      render 'static_pages/home'
+      #~ render 'static_pages/home'
+      flash[:succcess] = "message not saved %s %s" % [@message.text.length, @message.type]
+      redirect_to root_url
     end
   end
   
