@@ -8,15 +8,24 @@ class MessagesController < ApplicationController
   
   def create
     
-    @message = current_user.messages.build(message_params)
-    @twitter_message = current_user.messages.build(twitter_message_params)
-    @facebook_message = current_user.messages.build(facebook_message_params)
+    Rails.logger.debug "%s" % params.to_yaml
+    #~ TODO: также полагается что сообщение отправляется только в ту сеть, вкладка которой выбрана
+    
+    #~ @message = current_user.messages.build(message_params)
+    #~ @message.type = params[:type]
+    
+    if params[:type] == 'TwitterMessage'
+      @message = TwitterMessage.new
+      @message.text = params[:text]
+      @message.user = current_user
+    else
+      @message = current_user.messages.build(message_params)
+    end
     
     #~ message_sent_statuses = send_message(current_user, @message)
     
     if @message.save
-      #~ message_sent_statuses += "; saved"
-      flash[:succcess] = 'message saved'#message_sent_statuses
+      flash[:succcess] = "message saved %s %s" % [@message.text.length, @message.type]
       redirect_to root_url
     else
       render 'static_pages/home'
@@ -30,10 +39,37 @@ class MessagesController < ApplicationController
   
   private
     
-    #~ TODO: похоже придётся STI делать
+    #~ TODO: type?
     def message_params
-      params.require(:message).permit(:text, :type)
+      if params[:type] == "TwitterMessage"
+        params.require(:twitter_message).permit(:text, :type)
+      elsif params[:type] == "FacebookMessage"
+        params.require(:facebook_message).permit(:text, :type)
+      else
+        params.require(:message).permit(:text)
+      end
     end
+    
+    #~ def twitter_message_params
+      #~ params.require(:twitter_message).permit(:text, :type)
+    #~ end
+    #~ 
+    #~ def facebook_message_params
+      #~ params.require(:facebook_message).permit(:text, :type)
+    #~ end
+    #~ 
+    #~ def linkedin_message_params
+      #~ params.require(:linkedin_message).permit(:text, :type)
+    #~ end
+    #~ 
+    #~ def tumblr_message_params
+      #~ params.require(:tumblr_message).permit(:text, :type)
+    #~ end
+    #~ 
+    #~ def vkontakte_message_params
+      #~ params.require(:vkontakte_message).permit(:text, :type)
+    #~ end
+    
     
     def correct_user
       @message = current_user.messages.find_by(id: params[:id])

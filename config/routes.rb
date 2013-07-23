@@ -2,10 +2,10 @@ SocialPoster::Application.routes.draw do
   
   root "static_pages#home"
   
-  #~ TODO: STI?
-  
-  resources :twitter_messages, controller: "messages"#, :type => "Highlight"
-  resources :facebook_messages, controller: "messages"#, :type => "Bargain"
+  #~ TODO: такой способ для хранения STI кажется каким то кустарным.
+  #~ TODO: не нравится что для каждого вида отдельный shared\message.html partial.
+  resources :twitter_messages, controller: "messages", type: "TwitterMessage"
+  resources :facebook_messages, controller: "messages", type: "FacebookMessage"
 
   match '/help', to: 'static_pages#help', via: 'get'
   match '/about', to: 'static_pages#about', via: 'get'

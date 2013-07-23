@@ -49,6 +49,7 @@ SocialPoster::Application.configure do
     provider :facebook, APP_KEYS['facebook']['consumer_key'], APP_KEYS['facebook']['secret_key'], scope: 'publish_stream,offline_access,email'
     provider :linkedin, APP_KEYS['linkedin']['consumer_key'], APP_KEYS['linkedin']['secret_key'], scope: 'rw_nus'
     provider :vkontakte, APP_KEYS['vkontakte']['consumer_key'], APP_KEYS['vkontakte']['secret_key'], scope: 'notify,wall,friends'
+    provider :tumblr, APP_KEYS['tumblr']['consumer_key'], APP_KEYS['tumblr']['secret_key']
 
   end
   

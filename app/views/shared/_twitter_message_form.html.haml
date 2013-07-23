@@ -1,0 +1,6 @@
+
+= form_for(@twitter_message) do |f|
+  = render 'shared/error_messages', object: f.object
+  %div.field
+    = f.text_area :text, placeholder: "compose new twitter message", class: "textarea"
+  = f.submit "Post", class: "btn btn-large btn-primary"
