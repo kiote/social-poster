@@ -4,12 +4,13 @@ class StaticPagesController < ApplicationController
     
     #~ TODO: right?
     
-    @user = current_user
+    #~ @user = current_user
     @message = current_user.messages.build if signed_in?
+    @twitter_message = current_user.messages.build type: 'TwitterMessage' if signed_in?
     
-    if signed_in?
-      @twitter_message = TwitterMessage.new
-    end
+    #~ if signed_in?
+      #~ @twitter_message = TwitterMessage.new
+    #~ end
     
   end
 
