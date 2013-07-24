@@ -6,10 +6,12 @@ ruby '2.0.0'
 gem 'rails', '4.0.0'
 
 gem 'omniauth'
+gem 'omniauth-oauth2'
 gem 'omniauth-facebook'
 gem 'omniauth-vkontakte'
 gem 'omniauth-linkedin'
-gem 'omniauth-tumblr'
+#gem 'omniauth-tumblr'
+gem 'omniauth-tumblr', :git => 'git://github.com/jamiew/omniauth-tumblr.git'
 gem 'omniauth-twitter'
 
 gem 'fb_graph'

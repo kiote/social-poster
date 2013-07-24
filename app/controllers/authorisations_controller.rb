@@ -27,6 +27,14 @@ class AuthorisationsController < ApplicationController
     params[:token] = auth_hash[:token]
     params[:secret] = auth_hash[:secret]
     
+    Rails.logger.debug "+++++++++++++++++"
+    Rails.logger.debug params.to_yaml
+    Rails.logger.debug "-----------------"
+    Rails.logger.debug request.env['omniauth.auth'].to_yaml
+    Rails.logger.debug "-----------------"
+    Rails.logger.debug auth_hash.to_yaml
+    Rails.logger.debug "+++++++++++++++++"
+    
     @auth = current_user.authorisations.build(
       provider: auth_hash[:provider],
       uid: auth_hash[:uid],
@@ -40,6 +48,7 @@ class AuthorisationsController < ApplicationController
       redirect_to root_url
     else
       Rails.logger.debug "> auth didnt.save"
+      flash[:info] = "auth didnt.saved"
       redirect_to root_url
     end
   end
