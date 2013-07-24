@@ -44,6 +44,16 @@ module SendMessageFunctions
     
     "sent to twitter probably okay"
   end
+  
+  def send_to_tumblr(auth, text)
+    consumer = OAuth::Consumer.new(APP_KEYS['tumblr']['consumer_key'], APP_KEYS['tumblr']['secret_key'], {:site => "http://www.tumblr.com/"})
+    token_hash = { oauth_token: auth.token, oauth_token_secret: auth.secret }
+    access_token = OAuth::AccessToken.from_hash(consumer, token_hash )
+    
+    response = access_token.request(:post, "http://api.twitter.com/1.1/statuses/update.json", status: text)
+    
+    "sent to tumblr probably okay"
+  end
     
   def send_to_facebook(auth, text)
     fb_user ||= FbGraph::User.me(auth.token)
