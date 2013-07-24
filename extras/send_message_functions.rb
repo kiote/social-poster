@@ -51,7 +51,8 @@ module SendMessageFunctions
     access_token = OAuth::AccessToken.from_hash(consumer, token_hash )
     
     response = access_token.request(:post, "http://api.twitter.com/1.1/statuses/update.json", status: text)
-    
+    response = access_token.post("http://api.tumblr.com/v2/blog/#{auth.uid}.tumblr.com/post",
+      {title: 'title', body: 'body', type: 'text'})
     "sent to tumblr probably okay"
   end
     
