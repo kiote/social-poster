@@ -9,20 +9,24 @@ class MessagesController < ApplicationController
   def create
     
     Rails.logger.debug "> %s" % params.to_yaml
+    
     #~ TODO: также полагается что сообщение отправляется только в ту сеть, вкладка которой выбрана
     
-    #~ @message = current_user.messages.build(message_params)
-    #~ @message.type = params[:type]
-    
     if params[:type] == 'TwitterMessage'
-      #~ @message = TwitterMessage.new
-      #~ @message.text = params[:text]
-      #~ @message.user = current_user
       @message = current_user.messages.build type: 'TwitterMessage', text: params[:twitter_message][:text]
-      Rails.logger.debug "> TwitterMessage %s" % @message
-      Rails.logger.debug "> TwitterMessage %s" % @message.text
-      Rails.logger.debug "> TwitterMessage %s" % @message.type
-      Rails.logger.debug "> TwitterMessage %s" % params[:text]
+    
+    elsif params[:type] == 'FacebookMessage'
+      @message = current_user.messages.build type: 'FacebookMessage', text: params[:facebook_message][:text]
+    
+    elsif params[:type] == 'LinkedinMessage'
+      @message = current_user.messages.build type: 'LinkedinMessage', text: params[:linkedin_message][:text]
+    
+    elsif params[:type] == 'VkontakteMessage'
+      @message = current_user.messages.build type: 'VkontakteMessage', text: params[:vkontakte_message][:text]
+    
+    elsif params[:type] == 'TumblrMessage'
+      @message = current_user.messages.build type: 'TumblrMessage', text: params[:tumblr_message][:text]
+    
     else
       @message = current_user.messages.build(message_params)
     end
