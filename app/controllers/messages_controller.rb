@@ -10,7 +10,8 @@ class MessagesController < ApplicationController
     
     Rails.logger.debug "> %s" % params.to_yaml
     
-    #~ TODO: также полагается что сообщение отправляется только в ту сеть, вкладка которой выбрана
+    #~ TODO: также полагается что сообщение отправляется только в ту сеть,
+    #~ вкладка которой выбрана
     
     if params[:type] == 'TwitterMessage'
       @message = current_user.messages.build type: 'TwitterMessage', text: params[:twitter_message][:text]

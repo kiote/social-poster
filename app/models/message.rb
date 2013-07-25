@@ -3,12 +3,13 @@ class Message < ActiveRecord::Base
   
   belongs_to :user
   
-  default_scope -> { order('created_at DESC') }
-  validates :user_id, presence: true
-  validates :text, presence: true
+  has_one :twitter_message, dependent: :destroy
+  has_one :facebook_message, dependent: :destroy
+  has_one :linkedin_message, dependent: :destroy
+  has_one :vkontakte_message, dependent: :destroy
+  has_one :tumblr_message, dependent: :destroy
   
-  def to_partial_path
-    'messages/message'
-  end
+  validates :user_id, presence: true
+  default_scope -> { order('created_at DESC') }
   
 end

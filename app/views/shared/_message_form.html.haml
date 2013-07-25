@@ -2,5 +2,10 @@
 = form_for(@message) do |f|
   = render 'shared/error_messages', object: f.object
   %div.field
-    = f.text_area :text, placeholder: "compose new message", class: "textarea"
+    = f.text_area :twitter_text, placeholder: "compose new message", class: "textarea"
+    = f.text_area :facebook_text, placeholder: "compose new message", class: "textarea"
+    = f.text_area :linkedin_text, placeholder: "compose new message", class: "textarea"
+    = f.text_area :vkontakte_text, placeholder: "compose new message", class: "textarea"
+    = f.text_area :tumblr_text, placeholder: "compose new message", class: "textarea"
+    
   = f.submit "Post", class: "btn btn-large btn-primary"
