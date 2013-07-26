@@ -2,7 +2,15 @@ class StaticPagesController < ApplicationController
 
   def home
     
-    @message = current_user.messages.build if signed_in?
+    if signed_in?
+      @message = current_user.messages.build
+      
+      @message.build_twitter_message
+      @message.build_facebook_message
+      @message.build_vkontakte_message
+      @message.build_linkedin_message
+      @message.build_tumblr_message
+    end
     
   end
 

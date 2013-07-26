@@ -1,7 +1,12 @@
 
 %li
   %span.content
-    = message.text
+    = message.facebook_message.text
+    = message.twitter_message.text
+    = message.linkedin_message.text
+    = message.vkontakte_message.text
+    = message.tumblr_message.text
+    
   %span.timestamp
     , for long (#{ time_ago_in_words(message.created_at) }) time ago
 
