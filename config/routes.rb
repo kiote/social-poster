@@ -2,14 +2,6 @@ SocialPoster::Application.routes.draw do
   
   root "static_pages#home"
   
-  #~ TODO: такой способ для хранения STI кажется каким то кустарным.
-  #~ TODO: не нравится что для каждого вида отдельный shared\message.html partial.
-  resources :twitter_messages, controller: "messages", type: "TwitterMessage"
-  resources :facebook_messages, controller: "messages", type: "FacebookMessage"
-  resources :linkedin_messages, controller: "messages", type: "LinkedinMessage"
-  resources :vkontakte_messages, controller: "messages", type: "VkontakteMessage"
-  resources :tumblr_messages, controller: "messages", type: "TumblrMessage"
-
   match '/help', to: 'static_pages#help', via: 'get'
   match '/about', to: 'static_pages#about', via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'

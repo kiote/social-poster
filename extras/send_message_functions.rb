@@ -1,39 +1,54 @@
+
 module SendMessageFunctions
   
   
-  def send_message(user, message)
-  
+  #~ TODO:
+  def send_message(message, user)
+    
+    auth_providers = Array.new
+    fb_auth = nil
+    tw_auth = nil
+    tu_auth = nil
+    ln_auth = nil
+    vk_auth = nil
+    
+    user.authorisations.each do |auth|
+      fb_auth = auth if auth.provider == "facebook"
+      tw_auth = auth if auth.provider == "twitter"
+      tu_auth = auth if auth.provider == "tumblr"
+      ln_auth = auth if auth.provider == "linkedin"
+      vk_auth = auth if auth.provider == "vkontakte"
+    end
+    
+    Rails.logger.debug fb_auth
+    Rails.logger.debug tw_auth
+    Rails.logger.debug tu_auth
+    Rails.logger.debug ln_auth
+    Rails.logger.debug vk_auth
+    
     sent_statuses = Array.new
     
-    user.authorisations.each do |authorisation|
-      send_to(authorisation, sent_statuses, message)
+    if message.facebook_message and fb_auth
+      sent_statuses << send_to_facebook(fb_auth, message.facebook_message.text)
+    end
+    
+    if message.twitter_message and tw_auth
+      sent_statuses << send_to_twitter(tw_auth, message.twitter_message.text)
+    end
+    
+    if message.linkedin_message and ln_auth
+      sent_statuses << send_to_linkedin(ln_auth, message.linkedin_message.text)
+    end
+    
+    if message.vkontakte_message and vk_auth
+      sent_statuses << send_to_vkontakte(vk_auth, message.vkontakte_message.text)
+    end
+    
+    if message.tumblr_message and tu_auth
+      sent_statuses << send_to_tumblr(tu_auth, message.tumblr_message.text)
     end
     
     sent_statuses = sent_statuses.join(' ')
-  end
-  
-  def send_to(authorisation, sent_statuses, message)
-    
-    provider = authorisation.provider
-    
-    if provider == 'twitter'
-      sent_statuses << send_to_twitter(authorisation, message.text)
-      
-    elsif provider == 'facebook'
-      sent_statuses << send_to_facebook(authorisation, message.text)
-      
-    elsif provider == 'linkedin'
-      sent_statuses << send_to_linkedin(authorisation, message.text)
-      
-    elsif provider == 'vkontakte'
-      sent_statuses << send_to_vkontakte(authorisation, message.text)
-      
-    elsif provider == 'tumblr'
-      sent_statuses << send_to_tumblr(authorisation, message.text)
-      
-    else
-      sent_statuses << 'nowhere to send'
-    end
   end
   
   def send_to_twitter(auth, text)
@@ -91,11 +106,7 @@ module SendMessageFunctions
     Rails.logger.debug "secret %s" % auth.secret
     Rails.logger.debug "---===++++++++"
     
-    "sent to vkontakte okay"
-  end
-    
-  def send_to_tumblr(auth, text)
-    "sent to tumblr okay"
+    "sent to vkontakte under construction"
   end
 
 end

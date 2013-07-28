@@ -12,17 +12,14 @@ class MessagesController < ApplicationController
   
     @message = current_user.messages.build sent_at: Time.new
     
-    #~ TODO: test if twitter message length more than 140 chars
     @message.build_twitter_message text: params[:twitter_text] if params[:twitter_text].length > 0
     @message.build_facebook_message text: params[:facebook_text] if params[:facebook_text].length > 0
     @message.build_vkontakte_message text: params[:vkontakte_text] if params[:vkontakte_text].length > 0
     @message.build_linkedin_message text: params[:linkedin_text] if params[:linkedin_text].length > 0
     @message.build_tumblr_message text: params[:tumblr_text] if params[:tumblr_text].length > 0
     
-    sent_statuses = send_message(@message, current_user)
-    
     if @message.save
-      flash[:succcess] = "message saved and sent with statuses: %s" % sent_statuses
+      flash[:succcess] = "message saved"
       redirect_to root_url
     else
       flash[:fail] = "message not saved"

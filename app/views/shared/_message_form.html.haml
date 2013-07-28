@@ -1,11 +1,15 @@
 
-= form_for(@message) do |f|
-  = render 'shared/error_messages', object: f.object
+/ TODO: form_for(@message)?
+
+= form_tag(messages_path) do
+
+  / = render 'shared/error_messages', object: f.object
+ 
   %div.field
-    = f.text_area :twitter_text, placeholder: "compose new twitter message", class: "textarea"
-    = f.text_area :facebook_text, placeholder: "compose new facebook message", class: "textarea"
-    = f.text_area :linkedin_text, placeholder: "compose new linkedin message", class: "textarea"
-    = f.text_area :vkontakte_text, placeholder: "compose new vkontakte message", class: "textarea"
-    = f.text_area :tumblr_text, placeholder: "compose new tumblr message", class: "textarea"
+    = text_area_tag "facebook_text", nil, class: "textarea", placeholder: "compose new facebook message"
+    = text_area_tag "linkedin_text", nil, class: "textarea", placeholder: "compose new linkedin message"
+    = text_area_tag "tumblr_text", nil, class: "textarea", placeholder: "compose new tumblr message"
+    = text_area_tag "twitter_text", nil, class: "textarea", placeholder: "compose new twitter message"
+    = text_area_tag "vkontakte_text", nil, class: "textarea", placeholder: "compose new vkontakte message"
     
-  = f.submit "Post", class: "btn btn-large btn-primary"
+  = submit_tag "Post", class: "btn btn-large btn-primary"

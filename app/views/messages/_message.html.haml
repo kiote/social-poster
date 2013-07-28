@@ -1,12 +1,17 @@
 
 %li
   %span.content
-    = message.facebook_message.text
-    = message.twitter_message.text
-    = message.linkedin_message.text
-    = message.vkontakte_message.text
-    = message.tumblr_message.text
-    
+    = message.sent_at
+  %span.content
+    / TODO
+    - if message.facebook_message
+      facebook
+    - if message.twitter_message
+      twitter
+    - if message.twitter_message
+      twitter
+    - if message.twitter_message
+      twitter
   %span.timestamp
     , for long (#{ time_ago_in_words(message.created_at) }) time ago
 
