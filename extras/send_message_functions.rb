@@ -6,6 +6,7 @@ module SendMessageFunctions
   def send_message(message, user)
     
     auth_providers = Array.new
+
     fb_auth = nil
     tw_auth = nil
     tu_auth = nil
