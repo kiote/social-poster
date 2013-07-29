@@ -11,7 +11,9 @@ module SendMessageFunctions
     tu_auth = nil
     ln_auth = nil
     vk_auth = nil
-    
+
+
+    # todo: User should have meth "facebook_auth?" .. "twitter_auth?"
     user.authorisations.each do |auth|
       fb_auth = auth if auth.provider == "facebook"
       tw_auth = auth if auth.provider == "twitter"

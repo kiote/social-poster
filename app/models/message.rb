@@ -3,7 +3,6 @@ class Message < ActiveRecord::Base
   
   belongs_to :user
   
-  #~ TODO: has_one or has_many?
   has_one :twitter_message, dependent: :destroy
   has_one :facebook_message, dependent: :destroy
   has_one :linkedin_message, dependent: :destroy
