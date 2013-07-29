@@ -3,14 +3,20 @@
 
   = render 'shared/error_messages', object: f.object
   
-  / TODO: fields_for
-  
   %div.field
-    = f.text_area :facebook_message, placeholder: "compose new facebook message", class: "textarea"
-    = f.text_area :linkedin_message, placeholder: "compose new linkedin message", class: "textarea"
-    = f.text_area :tumblr_message, placeholder: "compose new tumblr message", class: "textarea"
-    = f.text_area :twitter_message, placeholder: "compose new twitter message", class: "textarea"
-    = f.text_area :vkontakte_message, placeholder: "compose new vkontakte message", class: "textarea"
+    = fields_for @message.facebook_message do |m|
+      = m.text_area :text, placeholder: "compose new facebook message", class: "textarea"
     
+    = fields_for @message.linkedin_message do |m|
+      = m.text_area :text, placeholder: "compose new linkedin message", class: "textarea"
+    
+    = fields_for @message.tumblr_message do |m|
+      = m.text_area :text, placeholder: "compose new tumblr message", class: "textarea"
+    
+    = fields_for @message.twitter_message do |m|
+      = m.text_area :text, placeholder: "compose new twitter message", class: "textarea"
+    
+    = fields_for @message.vkontakte_message do |m|
+      = m.text_area :text, placeholder: "compose new vkontakte message", class: "textarea"
     
   = f.submit "Post", class: "btn btn-large btn-primary"
