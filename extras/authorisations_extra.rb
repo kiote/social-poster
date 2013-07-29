@@ -6,8 +6,7 @@ module AuthorisationsExtra
     
     authhash = Hash.new
     
-    if ['twitter', 'facebook', 'linkedin', 'vkontakte', 'tumblr'].index(params[:provider]) != nil
-      
+    if ProvidersExtra::PROVIDERS.index(params[:provider])
       omniauth['provider'] ? authhash[:provider] = omniauth['provider'] : authhash[:provider] = ''
       omniauth['uid'] ? authhash[:uid] = omniauth['uid'].to_s : authhash[:uid] = ''
       omniauth['info']['name'] ? authhash["name"] =  omniauth['info']['name'] : authhash["name"] = ''
