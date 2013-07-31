@@ -45,19 +45,24 @@ When(/^button Sign In has been pressed$/) do
 end
 
 Then(/^user can observe users\#show page$/) do
-  pending # express the regexp above with the code you wish you had
+  User.create(name: "Савва", email: "vcabba@yahoo.com", password: "qqqwww", password_confirmation: "qqqwww")
+  visit "users#show/1"
+  expect(page).to have_title("Савва")
 end
 
 When(/^fields Email, Password incorrectly filled$/) do
-  pending # express the regexp above with the code you wish you had
+  fill_in "Email", with: 'sample@email.ru'
+  fill_in "Password", with: 'qqqww'
+  field_labeled('Email').value.should =~ 'sample@email.ru'
+  field_labeled('Password').value.should =~ 'qqqwww'
 end
 
 Then(/^user can observe sign_in page$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(page).to have_title("Sign in")
 end
 
 Then(/^error message$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(page).to have_selector('div.alert.alert-error')
 end
 
 Given(/^user is on the sign up page$/) do
@@ -113,7 +118,7 @@ Then(/^user can observe sign_up page again$/) do
 end
 
 Then(/^a message containing error description$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(page).to have_selector('div.alert.alert-error')
 end
 Given(/^user is on the Home page$/) do
   visit root_path
