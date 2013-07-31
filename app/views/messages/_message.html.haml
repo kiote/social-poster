@@ -3,7 +3,6 @@
   %span.content
     = message.sent_at
   %span.content
-    / TODO
     - if message.facebook_message
       facebook
     - if message.twitter_message
@@ -14,5 +13,3 @@
       twitter
   %span.timestamp
     , for long (#{ time_ago_in_words(message.created_at) }) time ago
-
-/ TODO: same partial for users

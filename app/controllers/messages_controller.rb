@@ -13,8 +13,6 @@ class MessagesController < ApplicationController
     @message = current_user.messages.build sent_at: Time.new
     @message.build_texts(params)
     
-    #~ TODO: test if twitter message length more than 140 chars
-    
     sent_statuses = send_message(@message, current_user)
     
     if @message.save

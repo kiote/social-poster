@@ -14,7 +14,7 @@ module SendMessageFunctions
     vk_auth = nil
 
 
-    # todo: User should have meth "facebook_auth?" .. "twitter_auth?"
+    # TODO: User should have meth "facebook_auth?" .. "twitter_auth?"
     user.authorisations.each do |auth|
       fb_auth = auth if auth.provider == "facebook"
       tw_auth = auth if auth.provider == "twitter"
@@ -60,7 +60,7 @@ module SendMessageFunctions
     access_token = OAuth::AccessToken.from_hash(consumer, token_hash)
     response = access_token.request(:post, "http://api.twitter.com/1.1/statuses/update.json", status: text)
     
-    "sent to twitter probably okay"
+    text.length > 140 ? "sent to twitter okay'nt: >140" : "sent to twitter probably okay"
   end
   
   def send_to_tumblr(auth, text)
