@@ -66,10 +66,10 @@ Then(/^error message$/) do
 end
 
 Given(/^user is on the sign up page$/) do
-  visit sign_up_path
+  visit signup_path
 end
 
-When(/^ Name, Email, Password, Confirmation fields correctly filled$/)
+When(/^ Name, Email, Password, Confirmation fields correctly filled$/) do
   
   fill_in "Email", with: 'sample@email.ru'
   fill_in "Name", with: 'W'
