@@ -5,17 +5,11 @@ module SessionsHelper
     cookies.permanent[:remember_me] = remember_me
     user.update_attribute(:remember_me, User.encrypt(remember_me))
     
-    #~ TODO: its for auth attach
-    session[:user_id] = user.id
-    
     self.current_user = user
   end
   
   def sign_out
     self.current_user = nil
-    
-    #~ TODO: its for auth attach
-    session[:user_id] = nil
     
     cookies.delete(:remember_me)
   end

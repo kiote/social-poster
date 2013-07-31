@@ -11,23 +11,9 @@ class MessagesController < ApplicationController
     Rails.logger.debug "> %s" % params.to_yaml
   
     @message = current_user.messages.build sent_at: Time.new
+    @message.build_texts(params)
     
     #~ TODO: test if twitter message length more than 140 chars
-    
-    #~ TODO:
-    #~ - это не то, что должен делать контроллер, это задача модели и нужно перенести в модель
-    
-    @message.build_facebook_message text: params[:facebook_message][:text] if params[:facebook_message][:text].length > 0
-    @message.build_linkedin_message text: params[:linkedin_message][:text] if params[:linkedin_message][:text].length > 0
-    @message.build_tumblr_message text: params[:tumblr_message][:text] if params[:tumblr_message][:text].length > 0
-    @message.build_twitter_message text: params[:twitter_message][:text] if params[:twitter_message][:text].length > 0
-    @message.build_vkontakte_message text: params[:vkontakte_message][:text] if params[:vkontakte_message][:text].length > 0
-    
-    #~ @message.facebook_message.build text: params[:facebook_text] if params[:facebook_text].length > 0
-    #~ @message.linkedin_message.build text: params[:linkedin_text] if params[:linkedin_text].length > 0
-    #~ @message.tumblr_message.build text: params[:tumblr_text] if params[:tumblr_text].length > 0
-    #~ @message.twitter_message.build text: params[:twitter_text] if params[:twitter_text].length > 0
-    #~ @message.vkontakte_message.build text: params[:vkontakte_text] if params[:vkontakte_text].length > 0
     
     sent_statuses = send_message(@message, current_user)
     
