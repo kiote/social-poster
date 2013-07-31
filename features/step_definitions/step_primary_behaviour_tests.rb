@@ -1,34 +1,47 @@
 
 Given(/^user is on the main page$/) do
-  pending # express the regexp above with the code you wish you had
+  visit root_path
 end
 
 When(/^user click sign in$/) do
-  pending # express the regexp above with the code you wish you had
+  click_button "Sign in"
 end
 
 Then(/^user view sign_in page$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(page).to have_title("Sign in")
+  
+  expect(page).to have_selector("input", id: 'session_email', name: 'session[email]', type: "text")
+  expect(page).to have_selector("input", id: 'session_password', name: 'session[password]', type: "password")
+  expect(page).to have_selector("input", class: 'btn btn-large btn-primary', name: 'commit', type: "submit", value: 'Sign in')
 end
 
 When(/^user click sign up$/) do
-  pending # express the regexp above with the code you wish you had
+  click_button "Sign up"
 end
 
 Then(/^user view sign_up page, whooa!$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(page).to have_title("Sign up")
+  
+  expect(page).to have_selector("input", id: 'user_name', name: 'user[name]', type: "text")
+  expect(page).to have_selector("input", id: 'user_email', name: 'user[email]', type: "text")
+  expect(page).to have_selector("input", id: 'user_password', name: 'user[password]', type: "password")
+  expect(page).to have_selector("input", id: 'user_password_confirmation', name: 'user[password_confirmation]', type: "password")
+  expect(page).to have_selector("input", class: 'btn btn-large btn-primary', name: 'commit', type: "submit", value: 'Create my account')
 end
 
 Given(/^user is on the sign in page$/) do
-  pending # express the regexp above with the code you wish you had
+  visit sign_in_path
 end
 
 When(/^fields Email, Password correctly filled$/) do
-  pending # express the regexp above with the code you wish you had
+  fill_in "Email", with: 'sample@email.ru'
+  fill_in "Password", with: 'qqqwww'
+  field_labeled('Email').value.should =~ 'sample@email.ru'
+  field_labeled('Password').value.should =~ 'qqqwww'
 end
 
 When(/^button Sign In has been pressed$/) do
-  pending # express the regexp above with the code you wish you had
+  click_button "Sign in"
 end
 
 Then(/^user can observe users\#show page$/) do
@@ -48,38 +61,62 @@ Then(/^error message$/) do
 end
 
 Given(/^user is on the sign up page$/) do
-  pending # express the regexp above with the code you wish you had
+  visit sign_up_path
 end
 
-When(/^(\d+) fields correctly filled$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+When(/^ Name, Email, Password, Confirmation fields correctly filled$/)
+  
+  fill_in "Email", with: 'sample@email.ru'
+  fill_in "Name", with: 'W'
+  fill_in "Password", with: 'qqqwww'
+  fill_in "Confirmation", with: 'qqqwww'
+  
+  field_labeled('Email').value.should =~ 'sample@email.ru'
+  field_labeled('Name').value.should =~ 'W'
+  field_labeled('Password').value.should =~ 'qqqwww'
+  field_labeled('Confirmation').value.should =~ 'qqqwww'
+  
 end
 
 When(/^button Create Account has been pressed$/) do
-  pending # express the regexp above with the code you wish you had
+  click_button "Create My Account"
 end
 
 Then(/^there new user appears$/) do
-  pending # express the regexp above with the code you wish you had
+  
+  u = User.first
+  u.name == "W"
+  u.email == "sample@email.ru"
+  u.password == "qqqwww"
+  u.password_confirmation == "qqqwww"
+  
 end
 
 Then(/^his page with show action can be observed$/) do
-  pending # express the regexp above with the code you wish you had
+  visit "users#show/1"
 end
 
 When(/^any of field is filled incorrectly$/) do
-  pending # express the regexp above with the code you wish you had
+  fill_in "Email", with: 'sample@email.ru'
+  fill_in "Name", with: 'W'
+  fill_in "Password", with: 'qqqwww'
+  fill_in "Confirmation", with: 'qqqwww'
+  
+  field_labeled('Email').value.should =~ 'same@email.ru'
+  field_labeled('Name').value.should =~ 'W'
+  field_labeled('Password').value.should =~ 'qqqwww'
+  field_labeled('Confirmation').value.should =~ 'qqqwww'
 end
 
 Then(/^user can observe sign_up page again$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(page).to have_title("Sign up")
 end
 
 Then(/^a message containing error description$/) do
   pending # express the regexp above with the code you wish you had
 end
 Given(/^user is on the Home page$/) do
-  pending # express the regexp above with the code you wish you had
+  visit root_path
 end
 
 Given(/^signed in$/) do
@@ -99,7 +136,7 @@ Then(/^page contains things for welcome$/) do
 end
 
 Given(/^clicked "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+  click_button "Create #{arg1} Account"
 end
 
 Then(/^it just users\#show\/id action$/) do

@@ -26,7 +26,7 @@ Feature: testing users behaviour
   
   Scenario: signing up; okay
     Given user is on the sign up page
-    When 4 fields correctly filled
+    When Name, Email, Password, Confirmation fields correctly filled
     And button Create Account has been pressed
     Then there new user appears
     And his page with show action can be observed

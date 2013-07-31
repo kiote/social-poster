@@ -14,6 +14,9 @@ class MessagesController < ApplicationController
     
     #~ TODO: test if twitter message length more than 140 chars
     
+    #~ TODO:
+    #~ - это не то, что должен делать контроллер, это задача модели и нужно перенести в модель
+    
     @message.build_facebook_message text: params[:facebook_message][:text] if params[:facebook_message][:text].length > 0
     @message.build_linkedin_message text: params[:linkedin_message][:text] if params[:linkedin_message][:text].length > 0
     @message.build_tumblr_message text: params[:tumblr_message][:text] if params[:tumblr_message][:text].length > 0
