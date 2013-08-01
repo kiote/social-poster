@@ -4,7 +4,7 @@ Given(/^user is on the main page$/) do
 end
 
 When(/^user click sign in$/) do
-  click_button "Sign in"
+  click_link "Sign in"
 end
 
 Then(/^user view sign_in page$/) do
