@@ -10,9 +10,9 @@ end
 Then(/^user view sign_in page$/) do
   expect(page).to have_title("Sign in")
   
-  expect(page).to have_selector("input", id: 'session_email', name: 'session[email]', type: "text")
-  expect(page).to have_selector("input", id: 'session_password', name: 'session[password]', type: "password")
-  expect(page).to have_selector("input", class: 'btn btn-large btn-primary', name: 'commit', type: "submit", value: 'Sign in')
+  page.should have_xpath("//input[@id='session_email'][@name='session[email]'][@type='text']")
+  #~ expect(page).to have_xpath("//form/input[1]", id: 'session_email', name: 'session[email]', type: "text")
+  #~ expect(page).to have_xpath("//form/input[3]", class: 'btn btn-large btn-primary', name: 'commit', type: "submit", value: 'Sign in')
 end
 
 When(/^user click sign up$/) do
