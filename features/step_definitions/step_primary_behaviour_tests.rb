@@ -35,6 +35,7 @@ Given(/^user is on the sign in page$/) do
 end
 
 When(/^fields Email, Password correctly filled$/) do
+  # TODO: пожалуйста, заюзай Factory GIrl для такого
   fill_in "Email", with: 'sample@email.ru'
   fill_in "Password", with: 'qqqwww'
   field_labeled('Email').value.should =~ 'sample@email.ru'
@@ -46,12 +47,14 @@ When(/^button Sign In has been pressed$/) do
 end
 
 Then(/^user can observe users\#show page$/) do
+# TODO: пожалуйста, заюзай Factory GIrl для такого
   User.create(name: "Савва", email: "vcabba@yahoo.com", password: "qqqwww", password_confirmation: "qqqwww")
   visit "users#show/1"
   expect(page).to have_title("Савва")
 end
 
 When(/^fields Email, Password incorrectly filled$/) do
+  # TODO: пожалуйста, заюзай Factory GIrl для такого
   fill_in "Email", with: 'sample@email.ru'
   fill_in "Password", with: 'qqqww'
   field_labeled('Email').value.should =~ 'sample@email.ru'
@@ -71,7 +74,7 @@ Given(/^user is on the sign up page$/) do
 end
 
 When(/^ Name, Email, Password, Confirmation fields correctly filled$/) do
-  
+  # TODO: пожалуйста, заюзай Factory GIrl для такого
   fill_in "Email", with: 'sample@email.ru'
   fill_in "Name", with: 'W'
   fill_in "Password", with: 'qqqwww'
@@ -89,7 +92,7 @@ When(/^button Create Account has been pressed$/) do
 end
 
 Then(/^there new user appears$/) do
-  
+  # TODO: пожалуйста, заюзай Factory GIrl для такого
   u = User.first
   u.name == "W"
   u.email == "sample@email.ru"
@@ -103,6 +106,7 @@ Then(/^his page with show action can be observed$/) do
 end
 
 When(/^any of field is filled incorrectly$/) do
+  # TODO: пожалуйста, заюзай Factory GIrl для такого
   fill_in "Email", with: 'sample@email.ru'
   fill_in "Name", with: 'W'
   fill_in "Password", with: 'qqqwww'
