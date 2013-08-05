@@ -13,14 +13,12 @@ Feature: testing users behaviour
   
   Scenario: signing in; okay
     Given user is on the sign in page
-    When fields Email, Password correctly filled
-    And button Sign In has been pressed
+    When fields Email, Password correctly filled and sign in pressed
     Then user can observe users#show page
   
   Scenario: signing in; kayo
     Given user is on the sign in page
-    When fields Email, Password incorrectly filled
-    And button Sign In has been pressed
+    When fields Email, Password incorrectly filled and sign in pressed
     Then user can observe sign_in page
     And error message
   

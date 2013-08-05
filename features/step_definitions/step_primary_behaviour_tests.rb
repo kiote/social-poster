@@ -17,45 +17,52 @@ Then(/^user view sign_in page$/) do
 end
 
 When(/^user click sign up$/) do
-  click_button "Sign up"
+  all(:xpath, '//a[text()="Sign up"]').first.click
 end
 
 Then(/^user view sign_up page, whooa!$/) do
   expect(page).to have_title("Sign up")
   
-  expect(page).to have_selector("input", id: 'user_name', name: 'user[name]', type: "text")
-  expect(page).to have_selector("input", id: 'user_email', name: 'user[email]', type: "text")
-  expect(page).to have_selector("input", id: 'user_password', name: 'user[password]', type: "password")
-  expect(page).to have_selector("input", id: 'user_password_confirmation', name: 'user[password_confirmation]', type: "password")
-  expect(page).to have_selector("input", class: 'btn btn-large btn-primary', name: 'commit', type: "submit", value: 'Create my account')
+  expect(page).to have_xpath("//input[@id='user_name'][@name='user[name]'][@type='text']")  
+  expect(page).to have_xpath("//input[@id='user_email'][@name='user[email]'][@type='text']")  
+  expect(page).to have_xpath("//input[@id='user_password'][@name='user[password]'][@type='password']")
+  
+  page.should have_css("input[id='user_password_confirmation'][name='user[password_confirmation]'][type='password']")
+  expect(page).to have_css("input[class='btn btn-large btn-primary'][name='commit'][type='submit'][value='Create my account']")
 end
 
 Given(/^user is on the sign in page$/) do
-  visit sign_in_path
+  visit signin_path
+  user = FactoryGirl.create(:user, name: "Savva", email: 'sample@email.ru', password: 'qqqwww')
+  v = expect(page).to have_title("Sign in")
+  Rails.logger.debug "> %s" % v
 end
 
-When(/^fields Email, Password correctly filled$/) do
+When(/^fields Email, Password correctly filled and sign in pressed$/) do
+  
   fill_in "Email", with: 'sample@email.ru'
   fill_in "Password", with: 'qqqwww'
-  field_labeled('Email').value.should =~ 'sample@email.ru'
-  field_labeled('Password').value.should =~ 'qqqwww'
-end
-
-When(/^button Sign In has been pressed$/) do
-  click_button "Sign in"
+  field_labeled('Email').value.should =~ /sample@email.ru/
+  field_labeled('Password').value.should =~ /qqqwww/
+  
 end
 
 Then(/^user can observe users\#show page$/) do
-  User.create(name: "Савва", email: "vcabba@yahoo.com", password: "qqqwww", password_confirmation: "qqqwww")
-  visit "users#show/1"
-  expect(page).to have_title("Савва")
+  
+  #~ vv = click_link "Sign in"
+  vv = find(:xpath, "//input[@class='btn btn-large btn-primary']").click
+  
+  Rails.logger.debug "> %s" % User.first.name
+  Rails.logger.debug "> %s" % User.first.email
+  v = expect(page).to have_title("Savva")
+  Rails.logger.debug "> title is: %s" % v
+  Rails.logger.debug "> link result is: %s" % vv
+  expect(page).to have_title("Savva")
+  
 end
 
-When(/^fields Email, Password incorrectly filled$/) do
-  fill_in "Email", with: 'sample@email.ru'
-  fill_in "Password", with: 'qqqww'
-  field_labeled('Email').value.should =~ 'sample@email.ru'
-  field_labeled('Password').value.should =~ 'qqqwww'
+When(/^fields Email, Password incorrectly filled and sign in pressed$/) do
+  find(:xpath, "//input[@class='btn btn-large btn-primary']").click
 end
 
 Then(/^user can observe sign_in page$/) do
@@ -85,7 +92,7 @@ When(/^ Name, Email, Password, Confirmation fields correctly filled$/) do
 end
 
 When(/^button Create Account has been pressed$/) do
-  click_button "Create My Account"
+  click_button "Create my account"
 end
 
 Then(/^there new user appears$/) do
@@ -103,15 +110,7 @@ Then(/^his page with show action can be observed$/) do
 end
 
 When(/^any of field is filled incorrectly$/) do
-  fill_in "Email", with: 'sample@email.ru'
-  fill_in "Name", with: 'W'
-  fill_in "Password", with: 'qqqwww'
-  fill_in "Confirmation", with: 'qqqwww'
-  
-  field_labeled('Email').value.should =~ 'same@email.ru'
-  field_labeled('Name').value.should =~ 'W'
-  field_labeled('Password').value.should =~ 'qqqwww'
-  field_labeled('Confirmation').value.should =~ 'qqqwww'
+  find(:xpath, "//input[@class='btn btn-large btn-primary']").click
 end
 
 Then(/^user can observe sign_up page again$/) do
