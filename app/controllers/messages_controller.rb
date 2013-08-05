@@ -10,6 +10,7 @@ class MessagesController < ApplicationController
     
     Rails.logger.debug "> %s" % params.to_yaml
   
+    # Time.new? это должна модель автоматом делать
     @message = current_user.messages.build sent_at: Time.new
     @message.build_texts(params)
     
@@ -17,12 +18,11 @@ class MessagesController < ApplicationController
     
     if @message.save
       flash[:succcess] = "message saved and sent with statuses: %s" % sent_statuses
-      redirect_to root_url
     else
       flash[:fail] = "message not saved"
-      redirect_to root_url
     end
   
+    redirect_to root_url
   end
   
   def destroy

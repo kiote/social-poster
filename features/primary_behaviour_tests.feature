@@ -16,6 +16,7 @@ Feature: testing users behaviour
     When fields Email, Password correctly filled and sign in pressed
     Then user can observe users#show page
   
+  # что за kayo
   Scenario: signing in; kayo
     Given user is on the sign in page
     When fields Email, Password incorrectly filled and sign in pressed
@@ -29,6 +30,7 @@ Feature: testing users behaviour
     Then there new user appears
     And his page with show action can be observed
   
+  # что за okayn't
   Scenario: signing up; okayn't
     Given user is on the sign up page
     When any of field is filled incorrectly

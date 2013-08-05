@@ -45,12 +45,11 @@ class AuthorisationsController < ApplicationController
     if @auth.save
       Rails.logger.debug "> auth.save"
       flash[:info] = "auth connected"
-      redirect_to root_url
     else
       Rails.logger.debug "> auth didnt.save"
       flash[:info] = "auth didnt.saved"
-      redirect_to root_url
     end
+    redirect_to root_url
   end
   
   def destroy

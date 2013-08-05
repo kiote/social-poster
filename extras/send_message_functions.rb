@@ -1,4 +1,8 @@
-
+# TODO: это надо поностью менять, выделять отдельные классы для вконтакта, твиттера и тд
+# когда начнем не токль слать сообещения но и например получать число лайков,
+# тут будет хелл
+# собственно он тут уже
+# смотри в сторону Metaprogramming Ruby
 module SendMessageFunctions
   
   
@@ -31,6 +35,7 @@ module SendMessageFunctions
     
     sent_statuses = Array.new
     
+    # TODO: это дублирование надо выпиливать
     if message.facebook_message and fb_auth
       sent_statuses << send_to_facebook(fb_auth, message.facebook_message.text)
     end
