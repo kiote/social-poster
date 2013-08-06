@@ -49,7 +49,6 @@ end
 
 Then(/^user can observe users\#show page$/) do
   
-  #~ vv = click_link "Sign in"
   vv = find(:xpath, "//input[@class='btn btn-large btn-primary']").click
   
   Rails.logger.debug "> %s" % User.first.name
@@ -77,17 +76,17 @@ Given(/^user is on the sign up page$/) do
   visit signup_path
 end
 
-When(/^ Name, Email, Password, Confirmation fields correctly filled$/) do
+When(/^Name, Email, Password, Confirmation fields correctly filled$/) do
   
   fill_in "Email", with: 'sample@email.ru'
   fill_in "Name", with: 'W'
   fill_in "Password", with: 'qqqwww'
   fill_in "Confirmation", with: 'qqqwww'
   
-  field_labeled('Email').value.should =~ 'sample@email.ru'
-  field_labeled('Name').value.should =~ 'W'
-  field_labeled('Password').value.should =~ 'qqqwww'
-  field_labeled('Confirmation').value.should =~ 'qqqwww'
+  field_labeled('Email').value.should == 'sample@email.ru'
+  field_labeled('Name').value.should =~ /W/
+  field_labeled('Password').value.should == 'qqqwww'
+  field_labeled('Confirmation').value.should =~ /qqqwww/
   
 end
 
@@ -106,7 +105,8 @@ Then(/^there new user appears$/) do
 end
 
 Then(/^his page with show action can be observed$/) do
-  visit "users#show/1"
+  visit root_path
+  click_link "view profile"
 end
 
 When(/^any of field is filled incorrectly$/) do
@@ -118,46 +118,75 @@ Then(/^user can observe sign_up page again$/) do
 end
 
 Then(/^a message containing error description$/) do
-  expect(page).to have_selector('div.alert.alert-error')
+  expect(page).to have_xpath("//input[@id='user_name'][@name='user[name]'][@type='text']")
 end
+
 Given(/^user is on the Home page$/) do
   visit root_path
 end
 
 Given(/^signed in$/) do
-  pending # express the regexp above with the code you wish you had
+  visit root_path
+  user = FactoryGirl.create(:user, name: "Savva", email: 'sample@email.ru', password: 'qqqwww')
+  click_link "Sign in"
+  fill_in "Email", with: 'sample@email.ru'
+  fill_in "Password", with: 'qqqwww'
+  find(:xpath, "//input[@class='btn btn-large btn-primary']").click
+  click_link "Home"
+
 end
 
 Then(/^page contains form_for @message$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(page).to have_xpath("//form[@action='/messages']")
 end
 
 Given(/^unsigned$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(page).to have_xpath("//input[@class='btn btn-large btn-primary'][@href='/signup']")
 end
 
 Then(/^page contains things for welcome$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(page).to have_title("Home")
+  expect(page).to have_content('_ability_to_send_messages_through_networks_')
+end
+
+
+
+
+Given(/^user is signed in$/) do
+  
+  visit root_path
+  user = FactoryGirl.create(:user, name: "Savva", email: 'sample@email.ru', password: 'qqqwww')
+  click_link "Sign in"
+  fill_in "Email", with: 'sample@email.ru'
+  fill_in "Password", with: 'qqqwww'
+  find(:xpath, "//input[@class='btn btn-large btn-primary']").click
+  
+end
+
+Given(/^user isnt signed$/) do
+end
+
+Given(/^there is Home page$/) do
+  visit root_path
+end
+
+Then(/^there is users profile page \(users show action\)$/) do
+  click_link "Profile"
+end
+
+Then(/^there is users providers page \(providers show action\)$/) do
+  visit root_path
+  click_link "view providers"
+end
+
+Given(/^clicked to the settings$/) do
+  click_link "Settings"
+end
+
+Then(/^there is page for settings$/) do
+  expect(page).to have_title("Edit user")
 end
 
 Given(/^clicked "(.*?)"$/) do |arg1|
-  click_button "Create #{arg1} Account"
+  find(:xpath, "//a[text()='#{arg1}']").click
 end
-
-Then(/^it just users\#show\/id action$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-Then(/^it just some action for TODO:$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-Given(/^TODO: that is given$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-Then(/^TODO: ths is to do$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-

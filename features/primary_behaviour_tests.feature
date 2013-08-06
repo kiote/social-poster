@@ -1,6 +1,9 @@
 
 Feature: testing users behaviour
-
+  As a project modeller
+  I want that project to have proper functionality and correct behaviour
+  So that there are couple of tests to pass
+  
   Scenario: main page ; sign in
     Given user is on the main page
     When user click sign in
@@ -38,29 +41,31 @@ Feature: testing users behaviour
     Then user can observe sign_up page again
     And a message containing error description
   
-  Scenario: Home page; signed in
-    Given user is on the Home page
-    And signed in
+  Scenario: View of home page when user is signed
+    Given user is signed in
+    And there is Home page
     Then page contains form_for @message
     
-  Scenario: Home page; unsigned
-    Given user is on the Home page
-    And unsigned
+  Scenario: View of home page when user is unsigned
+    Given user isnt signed
+    And there is Home page
     Then page contains things for welcome
   
-  Scenario: Signed in user; view profile
-    Given user is on the Home page
-    And signed in
+  Scenario: viewing profile
+    Given user is signed in
+    And there is Home page
     And clicked "view profile"
-    Then it just users#show/id action
+    Then there is users profile page (users show action)
   
-  Scenario: Signed in user; view authorisations
-    Given user is on the Home page
-    And signed in
+  Scenario: view authorisations
+    Given user is signed in
+    And there is Home page
     And clicked "view providers"
-    Then it just some action for TODO:
+    Then there is users providers page (providers show action)
   
-  Scenario: test for account' settings TODO:
-    Given TODO: that is given
-    Then TODO: ths is to do
-  
+  Scenario: viewing settings for user
+    Given user is signed in
+    And there is Home page
+    And clicked to the settings
+    Then there is page for settings
+    
