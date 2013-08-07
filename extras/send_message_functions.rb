@@ -1,120 +1,147 @@
+
 # TODO: это надо поностью менять, выделять отдельные классы для вконтакта, твиттера и тд
 # когда начнем не токль слать сообещения но и например получать число лайков,
 # тут будет хелл
 # собственно он тут уже
 # смотри в сторону Metaprogramming Ruby
+
 module SendMessageFunctions
   
   
-  #~ TODO:
-  def send_message(message, user)
+  class MessageSender
     
-    auth_providers = Array.new
+    def initialize(user)
+      @user = user
+      @auth = nil
+    end
+    
+    def send_message(message)
+      #~ если пользователь авторизован у поставщика
+      #~ и соответствующее сообщение не пусто
+      #~ то отправить сообщение этому поставщику и вернуть результат отправки
+    end
+    
+  end
+  
+  class MessageSenderFacebook < MessageSender
+    
+    def initialize(user)
+      super(user)
+      
+      self.user.authorisations.each do |auth|
+        @auth = auth if auth.provider == 'facebook'
+      end
+    end
+    
+    def send_message(message)
+      if @auth and message.facebook_message
+        fb_user ||= FbGraph::User.me(auth.token)
+        fb_user.feed!(message: text, name: 'feed_name')
+        
+        "sent to facebook okay"
+      end
+    end
+    
+  end
+  
+  class MessageSenderLinkedin < MessageSender
+    
+    def initialize(user)
+      super(user)
+      
+      self.user.authorisations.each do |auth|
+        @auth = auth if auth.provider == 'linkedin'
+      end
+    end
+    
+    def send_message(message)
+      if @auth and message.facebook_message
+        consumer_options = {
+          request_token_path: "/uas/oauth/requestToken?scope=r_basicprofile+rw_nus",
+          access_token_path: "/uas/oauth/accessToken",
+          authorize_path: "/uas/oauth/authorize",
+          api_host: "https://api.linkedin.com",
+          auth_host: "https://www.linkedin.com"
+        }
+        
+        client = LinkedIn::Client.new(APP_KEYS['linkedin']['consumer_key'], APP_KEYS['linkedin']['secret_key'], consumer_options)
+        client.authorize_from_access(auth.token, auth.secret)
+        
+        Rails.logger.debug "---==="
+        Rails.logger.debug "%s" % client.profile
+        Rails.logger.debug "---==="
+        
+        client.add_share(comment: text)
+        "sent to linkedin okay"
+      end
+    end
+  end
 
-    fb_auth = nil
-    tw_auth = nil
-    tu_auth = nil
-    ln_auth = nil
-    vk_auth = nil
+  class MessageSenderTumblr < MessageSender
+    
+    def initialize(user)
+      super(user)
+      
+      self.user.authorisations.each do |auth|
+        @auth = auth if auth.provider == 'tumblr'
+      end
+    end
+    
+    def send_message(message)
+      if @auth and message.facebook_message
+        consumer = OAuth::Consumer.new(APP_KEYS['tumblr']['consumer_key'], APP_KEYS['tumblr']['secret_key'], {:site => "http://www.tumblr.com/"})
+        token_hash = { oauth_token: auth.token, oauth_token_secret: auth.secret }
+        access_token = OAuth::AccessToken.from_hash(consumer, token_hash )
+        
+        response = access_token.post("http://api.tumblr.com/v2/blog/#{auth.uid}.tumblr.com/post",
+          {title: 'title', body: 'body', type: 'text'})
+        "sent to tumblr probably okay"
+      end
+    end
+  end
 
+  class MessageSenderTwitter < MessageSender
+    
+    def initialize(user)
+      super(user)
+      
+      self.user.authorisations.each do |auth|
+        @auth = auth if auth.provider == 'twitter'
+      end
+    end
+    
+    def send_message(message)
+      if @auth and message.facebook_message
+        consumer = OAuth::Consumer.new(APP_KEYS['twitter']['consumer_key'], APP_KEYS['twitter']['secret_key'], { :site => "http://api.twitter.com" })
+        token_hash = { oauth_token: auth.token, oauth_token_secret: auth.secret }
+        access_token = OAuth::AccessToken.from_hash(consumer, token_hash)
+        response = access_token.request(:post, "http://api.twitter.com/1.1/statuses/update.json", status: text)
+        text.length > 140 ? "sent to twitter okay'nt: >140" : "sent to twitter probably okay"
+      end
+    end
+  end
 
-    # TODO: User should have meth "facebook_auth?" .. "twitter_auth?"
-    user.authorisations.each do |auth|
-      fb_auth = auth if auth.provider == "facebook"
-      tw_auth = auth if auth.provider == "twitter"
-      tu_auth = auth if auth.provider == "tumblr"
-      ln_auth = auth if auth.provider == "linkedin"
-      vk_auth = auth if auth.provider == "vkontakte"
+  class MessageSenderVkontakte < MessageSender
+    
+    def initialize(user)
+      super(user)
+      
+      self.user.authorisations.each do |auth|
+        @auth = auth if auth.provider == 'vkontakte'
+      end
     end
     
-    Rails.logger.debug fb_auth
-    Rails.logger.debug tw_auth
-    Rails.logger.debug tu_auth
-    Rails.logger.debug ln_auth
-    Rails.logger.debug vk_auth
-    
-    sent_statuses = Array.new
-    
-    # TODO: это дублирование надо выпиливать
-    if message.facebook_message and fb_auth
-      sent_statuses << send_to_facebook(fb_auth, message.facebook_message.text)
+    def send_message(message)
+      if @auth and message.facebook_message
+        vk = VkontakteApi::Client.new auth.token
+        Rails.logger.debug "---===+++++++"
+        #~ vk.wall.post(message: text)
+        Rails.logger.debug "token %s" % auth.token
+        Rails.logger.debug "secret %s" % auth.secret
+        Rails.logger.debug "---===++++++++"
+        "sent to vkontakte under construction"
+      end
     end
-    
-    if message.twitter_message and tw_auth
-      sent_statuses << send_to_twitter(tw_auth, message.twitter_message.text)
-    end
-    
-    if message.linkedin_message and ln_auth
-      sent_statuses << send_to_linkedin(ln_auth, message.linkedin_message.text)
-    end
-    
-    if message.vkontakte_message and vk_auth
-      sent_statuses << send_to_vkontakte(vk_auth, message.vkontakte_message.text)
-    end
-    
-    if message.tumblr_message and tu_auth
-      sent_statuses << send_to_tumblr(tu_auth, message.tumblr_message.text)
-    end
-    
-    sent_statuses = sent_statuses.join(' ')
-  end
-  
-  def send_to_twitter(auth, text)
-    consumer = OAuth::Consumer.new(APP_KEYS['twitter']['consumer_key'], APP_KEYS['twitter']['secret_key'], { :site => "http://api.twitter.com" })
-    token_hash = { oauth_token: auth.token, oauth_token_secret: auth.secret }
-    access_token = OAuth::AccessToken.from_hash(consumer, token_hash)
-    response = access_token.request(:post, "http://api.twitter.com/1.1/statuses/update.json", status: text)
-    
-    text.length > 140 ? "sent to twitter okay'nt: >140" : "sent to twitter probably okay"
-  end
-  
-  def send_to_tumblr(auth, text)
-    consumer = OAuth::Consumer.new(APP_KEYS['tumblr']['consumer_key'], APP_KEYS['tumblr']['secret_key'], {:site => "http://www.tumblr.com/"})
-    token_hash = { oauth_token: auth.token, oauth_token_secret: auth.secret }
-    access_token = OAuth::AccessToken.from_hash(consumer, token_hash )
-    
-    response = access_token.post("http://api.tumblr.com/v2/blog/#{auth.uid}.tumblr.com/post",
-      {title: 'title', body: 'body', type: 'text'})
-    "sent to tumblr probably okay"
-  end
-    
-  def send_to_facebook(auth, text)
-    fb_user ||= FbGraph::User.me(auth.token)
-    fb_user.feed!(message: text, name: 'feed_name')
-    
-    "sent to facebook okay"
-  end
-  
-  def send_to_linkedin(auth, text)
-    consumer_options = {
-      request_token_path: "/uas/oauth/requestToken?scope=r_basicprofile+rw_nus",
-      access_token_path: "/uas/oauth/accessToken",
-      authorize_path: "/uas/oauth/authorize",
-      api_host: "https://api.linkedin.com",
-      auth_host: "https://www.linkedin.com"
-    }
-    
-    client = LinkedIn::Client.new(APP_KEYS['linkedin']['consumer_key'], APP_KEYS['linkedin']['secret_key'], consumer_options)
-    client.authorize_from_access(auth.token, auth.secret)
- 
-    Rails.logger.debug "---==="
-    Rails.logger.debug "%s" % client.profile
-    Rails.logger.debug "---==="
-    
-    client.add_share(comment: text)
-    
-    "sent to linkedin okay"
-  end
-  
-  def send_to_vkontakte(auth, text)
-    vk = VkontakteApi::Client.new auth.token
-    Rails.logger.debug "---===+++++++"
-    #~ vk.wall.post(message: text)
-    Rails.logger.debug "token %s" % auth.token
-    Rails.logger.debug "secret %s" % auth.secret
-    Rails.logger.debug "---===++++++++"
-    
-    "sent to vkontakte under construction"
   end
 
 end
