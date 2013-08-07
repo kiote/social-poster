@@ -13,6 +13,8 @@ class Message < ActiveRecord::Base
   validates :user_id, presence: true
   default_scope -> { order('created_at DESC') }
   
+  before_save { self.sent_at = Time.new }
+  
   def build_texts(params)
     self.build_facebook_message text: params[:facebook_message][:text] if params[:facebook_message][:text].length > 0
     self.build_linkedin_message text: params[:linkedin_message][:text] if params[:linkedin_message][:text].length > 0

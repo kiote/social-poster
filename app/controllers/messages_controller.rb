@@ -10,11 +10,13 @@ class MessagesController < ApplicationController
     
     Rails.logger.debug "> %s" % params.to_yaml
   
-    # Time.new? это должна модель автоматом делать
     @message = current_user.messages.build sent_at: Time.new
     @message.build_texts(params)
     
-    sent_statuses = send_message(@message, current_user)
+    message_sender = MessageSender.new(current_user)
+    message_sender.send_message(@message)
+    
+    #~ sent_statuses = send_message(@message, current_user)
     
     if @message.save
       flash[:succcess] = "message saved and sent with statuses: %s" % sent_statuses
