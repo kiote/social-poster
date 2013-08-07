@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130725095607) do
+ActiveRecord::Schema.define(version: 20130807072835) do
 
   create_table "authorisations", force: true do |t|
     t.integer  "user_id"
@@ -27,13 +27,19 @@ ActiveRecord::Schema.define(version: 20130725095607) do
     t.string   "text"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "message_id"
   end
+
+  add_index "facebook_messages", ["message_id"], name: "index_facebook_messages_on_message_id"
 
   create_table "linkedin_messages", force: true do |t|
     t.string   "text"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "message_id"
   end
+
+  add_index "linkedin_messages", ["message_id"], name: "index_linkedin_messages_on_message_id"
 
   create_table "messages", force: true do |t|
     t.integer  "user_id"
@@ -47,13 +53,19 @@ ActiveRecord::Schema.define(version: 20130725095607) do
     t.string   "text"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "message_id"
   end
+
+  add_index "tumblr_messages", ["message_id"], name: "index_tumblr_messages_on_message_id"
 
   create_table "twitter_messages", force: true do |t|
     t.string   "text"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "message_id"
   end
+
+  add_index "twitter_messages", ["message_id"], name: "index_twitter_messages_on_message_id"
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -71,6 +83,9 @@ ActiveRecord::Schema.define(version: 20130725095607) do
     t.string   "text"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "message_id"
   end
+
+  add_index "vkontakte_messages", ["message_id"], name: "index_vkontakte_messages_on_message_id"
 
 end

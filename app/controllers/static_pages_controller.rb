@@ -1,15 +1,10 @@
 class StaticPagesController < ApplicationController
 
   def home
+    return unless current_user
     
-    if current_user
-      # что такое вообще этот Time.new? может тут Time.now подразумевалось?
-      @message = current_user.messages.build sent_at: Time.new
-      
-      @message.build_empty_texts
-      
-    end
-    
+    @message = current_user.messages.build
+    @message.build_empty_texts
   end
 
   def help
