@@ -1,0 +1,108 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.linkedin.com/v1/people/~
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      X-Li-Format:
+      - json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - OAuth gem v0.4.7
+      Authorization:
+      - OAuth oauth_consumer_key="l6on5uqdtfc8", oauth_nonce="BEQIQbYJ1uEltTiEBh8o6iBFMH1HxPNiRlxMqDMk",
+        oauth_signature="mNCpvadKVbVtZCr9c9%2BoY4eXGLM%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1375984059", oauth_token="2d19df97-5c12-4ed0-80b0-5879109bf6ec",
+        oauth_version="1.0"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      X-Li-Request-Id:
+      - YUKAKHTJYO
+      Vary:
+      - '*'
+      X-Li-Format:
+      - json
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Thu, 08 Aug 2013 17:47:45 GMT
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "firstName": "Savva",
+          "headline": "freelance",
+          "lastName": "Voloshin",
+          "siteStandardProfileRequest": {"url": "http://www.linkedin.com/profile/view?id=265952201&authType=name&authToken=lr_9&trk=api*a294570*s302134*"}
+        }
+    http_version: 
+  recorded_at: Thu, 08 Aug 2013 17:47:40 GMT
+- request:
+    method: post
+    uri: https://api.linkedin.com/v1/people/~/shares
+    body:
+      encoding: UTF-8
+      string: '{"visibility":{"code":"anyone"},"comment":"Message for Linkedin 2013-08-08
+        17:47:39 +0000"}'
+    headers:
+      X-Li-Format:
+      - json
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - OAuth gem v0.4.7
+      Content-Length:
+      - '91'
+      Authorization:
+      - OAuth oauth_body_hash="6eK1qdl6XrLknzrH4ZNi5yHOZVs%3D", oauth_consumer_key="l6on5uqdtfc8",
+        oauth_nonce="ugWTeRDA4bRqA9wMMAvrl43km0z8BAGxfCYs7rDs", oauth_signature="UoXGV14sVBGMgcFEkHR16huU1GE%3D",
+        oauth_signature_method="HMAC-SHA1", oauth_timestamp="1375984060", oauth_token="2d19df97-5c12-4ed0-80b0-5879109bf6ec",
+        oauth_version="1.0"
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      X-Li-Request-Id:
+      - B5VRGOKUG7
+      Location:
+      - http://api.linkedin.com/v1/pal/people/~/network/updates/key=UNIU-265952201-5771295478062800896-SHARE
+      Vary:
+      - '*'
+      X-Li-Format:
+      - json
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Thu, 08 Aug 2013 17:47:46 GMT
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "updateKey": "UNIU-265952201-5771295478062800896-SHARE",
+          "updateUrl": "http://www.linkedin.com/updates?discuss=&scope=265952201&stype=M&topic=5771295478062800896&type=U&a=tp9o"
+        }
+    http_version: 
+  recorded_at: Thu, 08 Aug 2013 17:47:42 GMT
+recorded_with: VCR 2.5.0

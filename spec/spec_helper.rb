@@ -1,11 +1,14 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
+
 ENV["RAILS_ENV"] ||= 'test'
+
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 
 require "capybara/rspec"
 require "capybara/rails"
+
 Capybara.javascript_driver = :webkit
 
 OmniAuth.config.test_mode = true
@@ -33,9 +36,9 @@ OmniAuth.config.add_mock(:vkontakte, {
 
 OmniAuth.config.add_mock(:linkedin, {
   provider: "linkedin",
-  uid: "31",
+  uid: "EsKOV6HBMr",
   info: { name: "Tom Jerry", email: "tj@mgm.com"},
-  credentials: { token: "lk2j3lkjasldkjflk3ljsdf", secret: "lk2j3lkjasldkjflk3ljsdf"}
+  credentials: { token: "2d19df97-5c12-4ed0-80b0-5879109bf6ec", secret: "b1dc687d-2a64-42e2-8300-fa3b161f0630"}
 })
 
 # Requires supporting ruby files with custom matchers and macros, etc,
