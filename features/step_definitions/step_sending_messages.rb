@@ -1,24 +1,13 @@
 
-Given(/^user is signed in and authorised on twitter$/) do
-  @user = User.create(name: "Савва", email: "vcabba@yahoo.com", password: "qqqwww", password_confirmation: "qqqwww")
-  visit signin_path
-  fill_in "Email", with: @user.email
-  fill_in "Password", with: @user.password
-  click_button "Sign in"
-  expect(page).to have_content("Twitter")
-  visit root_path
-  expect(page).to have_title("Home")
-  
+Given(/^there is a message to Linkedin$/) do
+  fill_in "linkedin_message_text", with: "Message for Linkedin %s" % Time.now
 end
 
-Given(/^there is root page$/) do
-  pending # express the regexp above with the code you wish you had
+When(/^user click to post a message$/) do
+  find(:xpath, "//input[@class='btn btn-large btn-primary'][@value='Post']").click
 end
 
-When(/^user's input is correct$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-Then(/^show that messages is sent to twitter$/) do
-  pending # express the regexp above with the code you wish you had
+Then(/^there is a message that message is sent okay$/) do
+  expect(page).to have_xpath("//div[@class='alert alert-success']")
+  #~ expect(page).to have_content("sent to linkedin okay")
 end

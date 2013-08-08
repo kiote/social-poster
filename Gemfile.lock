@@ -1,11 +1,4 @@
 GIT
-  remote: git://github.com/Nerian/bootstrap-wysihtml5-rails.git
-  revision: 20032a67d9c9213f815cebdc4437a27211448c88
-  specs:
-    bootstrap-wysihtml5-rails (0.3.1.21)
-      railties (>= 3.0)
-
-GIT
   remote: git://github.com/heroku/rails3_serve_static_assets.git
   revision: 84910ceb4ca2851d650e66d3b22f5008acf253f8
   specs:
@@ -16,14 +9,6 @@ GIT
   revision: 01b5bcc572e3baed1618f4068920dd83bd491fb2
   specs:
     rails_log_stdout (0.0.1)
-
-GIT
-  remote: git://github.com/jamiew/omniauth-tumblr.git
-  revision: 078c18c746c3f894e0edb1a0862e75a0d6da67a3
-  specs:
-    omniauth-tumblr (1.1)
-      multi_json
-      omniauth-oauth (~> 1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -59,6 +44,8 @@ GEM
     bcrypt-ruby (3.0.1)
     bootstrap-sass (2.3.2.1)
       sass (~> 3.2)
+    bootstrap-wysihtml5-rails (0.3.1.20)
+      railties (>= 3.0)
     builder (3.1.4)
     capybara (2.1.0)
       mime-types (>= 1.16)
@@ -77,6 +64,8 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    crack (0.4.0)
+      safe_yaml (~> 0.9.0)
     cucumber (1.3.5)
       builder (>= 2.1.2)
       diff-lcs (>= 1.1.3)
@@ -99,6 +88,7 @@ GEM
       railties (>= 3.0.0)
     faker (1.1.2)
       i18n (~> 0.5)
+    fakeweb (1.3.0)
     faraday (0.8.7)
       multipart-post (~> 1.1)
     faraday_middleware (0.9.0)
@@ -187,6 +177,8 @@ GEM
     omniauth-oauth2 (1.1.1)
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
+    omniauth-tumblr (1.1)
+      omniauth-oauth (~> 1.0)
     omniauth-twitter (1.0.0)
       multi_json (~> 1.3)
       omniauth-oauth (~> 1.0)
@@ -244,6 +236,7 @@ GEM
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
       rspec-mocks (~> 2.14.0)
+    safe_yaml (0.9.3)
     sass (3.2.9)
     sass-rails (4.0.0)
       railties (>= 4.0.0.beta, < 5.0)
@@ -277,12 +270,16 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    vcr (2.5.0)
     vkontakte_api (1.2)
       faraday (~> 0.8)
       faraday_middleware (~> 0.8)
       faraday_middleware-parse_oj (~> 0.2)
       hashie (~> 2.0)
       oauth2 (~> 0.8)
+    webmock (1.12.3)
+      addressable (>= 2.2.7)
+      crack (>= 0.3.2)
     will_paginate (3.0.4)
     xpath (2.0.0)
       nokogiri (~> 1.3)
@@ -293,7 +290,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   bootstrap-sass
-  bootstrap-wysihtml5-rails!
+  bootstrap-wysihtml5-rails
   capybara
   capybara-webkit
   coffee-rails
@@ -301,6 +298,7 @@ DEPENDENCIES
   database_cleaner
   factory_girl_rails
   faker
+  fakeweb
   fb_graph
   guard-rspec
   haml-rails
@@ -311,7 +309,7 @@ DEPENDENCIES
   omniauth-facebook
   omniauth-linkedin
   omniauth-oauth2
-  omniauth-tumblr!
+  omniauth-tumblr
   omniauth-twitter
   omniauth-vkontakte
   pg
@@ -324,5 +322,7 @@ DEPENDENCIES
   turbolinks
   uglifier (>= 1.0.3)
   unicorn
+  vcr
   vkontakte_api (~> 1.1)
+  webmock
   will_paginate

@@ -10,8 +10,8 @@ gem 'omniauth-oauth2'
 gem 'omniauth-facebook'
 gem 'omniauth-vkontakte'
 gem 'omniauth-linkedin'
-#gem 'omniauth-tumblr'
-gem 'omniauth-tumblr', :git => 'git://github.com/jamiew/omniauth-tumblr.git'
+gem 'omniauth-tumblr'
+gem 'omniauth-tumblr'
 gem 'omniauth-twitter'
 
 gem 'fb_graph'
@@ -21,9 +21,8 @@ gem 'vkontakte_api', '~> 1.1'
 gem 'bcrypt-ruby', '~> 3.0.0'
 
 gem 'bootstrap-sass'
-# gem 'bootstrap-sass', '2.3.2.0'
-gem 'bootstrap-wysihtml5-rails', :require => 'bootstrap-wysihtml5-rails',
-                              :git => 'git://github.com/Nerian/bootstrap-wysihtml5-rails.git'
+gem 'bootstrap-wysihtml5-rails'
+
 gem 'haml-rails'
 gem 'unicorn'
 gem 'will_paginate'
@@ -42,6 +41,9 @@ group :development, :test do
 	gem "sqlite3"
 	gem 'rspec-rails'
 	gem 'factory_girl_rails'
+	gem "vcr"
+	gem "fakeweb"
+	gem "webmock"
 
 end
 
@@ -55,7 +57,7 @@ group :test do
 	gem 'capybara-webkit'
 
 	gem 'cucumber-rails', require: false
-	gem 'database_cleaner'#, github: 'bmabey/database_cleaner'
+	gem 'database_cleaner'
 
 end
 
@@ -66,3 +68,4 @@ gem 'uglifier', '>= 1.0.3'
 
 gem 'jquery-rails'
 gem 'turbolinks'
+

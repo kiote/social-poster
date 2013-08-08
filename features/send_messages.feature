@@ -1,7 +1,13 @@
-Feature: Sending messages
 
-  Scenario: user is trying to send twitter message
-    Given user is signed in and authorised on twitter
-    And there is root page
-    When user's input is correct
-    Then show that messages is sent to twitter
+Feature: Post messages
+
+  In order to make messages to be sent
+  I want this tests to prove that they are
+  
+  
+  Scenario: Sending to Linkedin
+    Given user is signed in
+    And there is Home page
+    And there is a message to Linkedin
+    When user click to post a message
+    Then there is a message that message is sent okay
