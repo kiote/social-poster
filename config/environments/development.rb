@@ -1,7 +1,4 @@
 
-require 'yaml'
-APP_KEYS = YAML::load(File.open('%s/app_keys.yml' % Rails.root.join('config')))
-
 SocialPoster::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 

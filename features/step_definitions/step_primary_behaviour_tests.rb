@@ -158,7 +158,6 @@ end
 Given(/^user is signed in$/) do
   
   visit root_path
-  #~ user = FactoryGirl.create(:user, name: "Savva", email: 'sample@email.ru', password: 'qqqwww')
   click_link "Sign in"
   fill_in "Email", with: 'sample@email.ru'
   fill_in "Password", with: 'qqqwww'

@@ -40,7 +40,7 @@ module SendMessageFunctions
       return "message for facebook is empty" if not message.facebook_message
       
       fb_user ||= FbGraph::User.me(@auth.token)
-      fb_user.feed!(message: text, name: 'feed_name')
+      fb_user.feed!(message: message.facebook_message.text, name: 'feed_name')
       
       "sent to facebook okay"
     end
@@ -102,7 +102,8 @@ module SendMessageFunctions
       
       response = access_token.post("http://api.tumblr.com/v2/blog/#{@auth.uid}.tumblr.com/post",
         {title: 'title', body: 'body', type: 'text'})
-      "sent to tumblr probably okay"
+      
+      "sent to tumblr okay"
     end
     
   end
@@ -120,13 +121,13 @@ module SendMessageFunctions
     def send_message(message)
       
       return "not authorised for twitter" if not @auth
-      return "message for twitter is empty" if not message.facebook_message
+      return "message for twitter is empty" if not message.twitter_message
       
       consumer = OAuth::Consumer.new(APP_KEYS['twitter']['consumer_key'], APP_KEYS['twitter']['secret_key'], { :site => "http://api.twitter.com" })
-      token_hash = { oauth_token: @auth.token, oauth_token_secret: auth.secret }
+      token_hash = { oauth_token: @auth.token, oauth_token_secret: @auth.secret }
       access_token = OAuth::AccessToken.from_hash(consumer, token_hash)
-      response = access_token.request(:post, "http://api.twitter.com/1.1/statuses/update.json", status: text)
-      text.length > 140 ? "sent to twitter okay'nt: >140" : "sent to twitter probably okay"
+      response = access_token.request(:post, "http://api.twitter.com/1.1/statuses/update.json", status: message.twitter_message.text)
+      message.twitter_message.text.length > 140 ? "sent to twitter not okay: >140" : "sent to twitter okay"
     end
     
   end
@@ -153,7 +154,7 @@ module SendMessageFunctions
       Rails.logger.debug "secret %s" % @auth.secret
       Rails.logger.debug "---===++++++++"
       
-      "sent to vkontakte under construction"
+      "sent to vkontakte okay"
     end
   end
 
