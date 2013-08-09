@@ -8,7 +8,8 @@ class MessagesController < ApplicationController
   
   def create
     
-    Rails.logger.debug "> %s" % params.to_yaml
+    Rails.logger.debug "> create messages controllere"
+    Rails.logger.debug "> %s" % params.to_s
   
     @message = current_user.messages.build
     @message.build_texts(params)

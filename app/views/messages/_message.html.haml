@@ -1,15 +1,17 @@
 
 %li
   %span.content
-    = message.sent_at
+    sent_at #{message.sent_at}
   %span.content
     - if message.facebook_message
-      facebook
+      facebook: #{message.facebook_message.text}
+    - if message.linkedin_message
+      linkedin: #{message.linkedin_message.text}
+    - if message.tumblr_message
+      tumblr: #{message.tumblr_message.text}
     - if message.twitter_message
-      twitter
-    - if message.twitter_message
-      twitter
-    - if message.twitter_message
-      twitter
+      twitter: #{message.twitter_message.text}
+    - if message.vkontakte_message
+      vkontakte: #{message.vkontakte_message.text}
   %span.timestamp
-    , for long (#{ time_ago_in_words(message.created_at) }) time ago
+    , created_at (#{ time_ago_in_words(message.created_at) })
