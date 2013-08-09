@@ -10,19 +10,55 @@
   .container
     .hero-unit
       
-      %ul
-        %li
-          %a{:href => "#tabs-1"} Facebook
-        %li
-          %a{:href => "#tabs-2"} LinkedIN
-        %li
-          %a{:href => "#tabs-3"} Tumblr
-        %li
-          %a{:href => "#tabs-4"} Twitter
-        %li
-          %a{:href => "#tabs-5"} VK
-          
-      = render 'shared/message_form'
+      / = render 'shared/message_form'
+      
+      = form_for(@message) do |f|
+        = render 'shared/error_messages', object: f.object
+        
+        %div.field
+
+        #content
+        
+          %ul#tabs.nav.nav-tabs{"data-tabs" => "tabs"}
+            %li.active
+              %a{"data-toggle" => "tab", href: "#red"} Red
+            %li
+              %a{"data-toggle" => "tab", href: "#orange"} Orange
+            %li
+              %a{"data-toggle" => "tab", href: "#yellow"} Yellow
+            %li
+              %a{"data-toggle" => "tab", href: "#green"} Green
+            %li
+              %a{"data-toggle" => "tab", href: "#blue"} Blue
+              
+          #my-tab-content.tab-content
+            #red.tab-pane.active
+              %h1 Red
+              %p red red red red red red
+              = fields_for @message.facebook_message do |m|
+                = m.text_area :text, placeholder: "compose new facebook message", class: "textarea"
+            #orange.tab-pane
+              %h1 Orange
+              %p orange orange orange orange orange
+              = fields_for @message.facebook_message do |m|
+                = m.text_area :text, placeholder: "compose new facebook message", class: "textarea"
+            #yellow.tab-pane
+              %h1 Yellow
+              %p yellow yellow yellow yellow yellow
+              = fields_for @message.facebook_message do |m|
+                = m.text_area :text, placeholder: "compose new facebook message", class: "textarea"
+            #green.tab-pane
+              %h1 Green
+              %p green green green green green
+              = fields_for @message.facebook_message do |m|
+                = m.text_area :text, placeholder: "compose new facebook message", class: "textarea"
+            #blue.tab-pane
+              %h1 Blue
+              %p blue blue blue blue blue
+              = fields_for @message.facebook_message do |m|
+                = m.text_area :text, placeholder: "compose new facebook message", class: "textarea"
+              
+        = f.submit "Post", class: "btn btn-large btn-primary"
 
 - else
   %div.center.hero-unit
