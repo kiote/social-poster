@@ -42,7 +42,7 @@ describe "Static pages" do
     all(:xpath, '//a[text()="Sign up"]').first.click
     expect(page).to have_title(full_title('Sign up'))
     
-    click_link 'Social Poster'
+    all(:xpath, '//a[text()="Social Poster"]').first.click
     expect(page).to have_title(full_title('Home'))
 
   end
