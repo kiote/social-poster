@@ -5,6 +5,8 @@
 # собственно он тут уже
 # смотри в сторону Metaprogramming Ruby
 
+require 'yaml'
+
 module SendMessageFunctions
   
   
@@ -101,9 +103,16 @@ module SendMessageFunctions
       access_token = OAuth::AccessToken.from_hash(consumer, token_hash )
       
       response = access_token.post("http://api.tumblr.com/v2/blog/#{@auth.uid}.tumblr.com/post",
-        {title: 'title', body: 'body', type: 'text'})
+        {title: 'message from Social Poster', body: message.tumblr_message.text, type: 'text'})
       
-      "sent to tumblr okay"
+      Rails.logger.debug '> %s' % response.body
+      
+      if response.body.include? '"status":201,"msg":"Created"'
+        "tumblr: created" 
+      else
+        "tumblr: failure"
+      end
+      
     end
     
   end

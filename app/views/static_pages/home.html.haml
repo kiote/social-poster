@@ -21,42 +21,32 @@
         
           %ul#tabs.nav.nav-tabs{"data-tabs" => "tabs"}
             %li.active
-              %a{"data-toggle" => "tab", href: "#red"} Red
+              %a{"data-toggle" => "tab", href: "#facebook"} Facebook
             %li
-              %a{"data-toggle" => "tab", href: "#orange"} Orange
+              %a{"data-toggle" => "tab", href: "#linkedin"} LinkedIn
             %li
-              %a{"data-toggle" => "tab", href: "#yellow"} Yellow
+              %a{"data-toggle" => "tab", href: "#tumblr"} Tumblr
             %li
-              %a{"data-toggle" => "tab", href: "#green"} Green
+              %a{"data-toggle" => "tab", href: "#twitter"} Twitter
             %li
-              %a{"data-toggle" => "tab", href: "#blue"} Blue
+              %a{"data-toggle" => "tab", href: "#vkontakte"} Vkontakte
               
           #my-tab-content.tab-content
-            #red.tab-pane.active
-              %h1 Red
-              %p red red red red red red
+            #facebook.tab-pane.active
               = fields_for @message.facebook_message do |m|
                 = m.text_area :text, placeholder: "compose new facebook message", class: "textarea"
-            #orange.tab-pane
-              %h1 Orange
-              %p orange orange orange orange orange
-              = fields_for @message.facebook_message do |m|
-                = m.text_area :text, placeholder: "compose new facebook message", class: "textarea"
-            #yellow.tab-pane
-              %h1 Yellow
-              %p yellow yellow yellow yellow yellow
-              = fields_for @message.facebook_message do |m|
-                = m.text_area :text, placeholder: "compose new facebook message", class: "textarea"
-            #green.tab-pane
-              %h1 Green
-              %p green green green green green
-              = fields_for @message.facebook_message do |m|
-                = m.text_area :text, placeholder: "compose new facebook message", class: "textarea"
-            #blue.tab-pane
-              %h1 Blue
-              %p blue blue blue blue blue
-              = fields_for @message.facebook_message do |m|
-                = m.text_area :text, placeholder: "compose new facebook message", class: "textarea"
+            #linkedin.tab-pane
+              = fields_for @message.linkedin_message do |m|
+                = m.text_area :text, placeholder: "compose new linkedin message", class: "textarea"
+            #tumblr.tab-pane
+              = fields_for @message.tumblr_message do |m|
+                = m.text_area :text, placeholder: "compose new tumblr message", class: "textarea"
+            #twitter.tab-pane
+              = fields_for @message.twitter_message do |m|
+                = m.text_area :text, placeholder: "compose new twitter message", class: "textarea"
+            #vkontakte.tab-pane
+              = fields_for @message.vkontakte_message do |m|
+                = m.text_area :text, placeholder: "compose new vkontakte message", class: "textarea"
               
         = f.submit "Post", class: "btn btn-large btn-primary"
 
