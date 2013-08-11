@@ -25,9 +25,9 @@ Then(/^sent to linkedin okay$/) do
   expect(page).to have_content("sent to linkedin okay")
 end
 
-Then(/^sent to tumblr okay$/) do
+Then(/^successfully sent to tumblr$/) do
   expect(page).to have_xpath("//div[@class='alert alert-success']")
-  expect(page).to have_content("sent to tumblr okay")
+  expect(page).to have_content("tumblr: created")
 end
 
 Then(/^sent to twitter okay$/) do

@@ -5,7 +5,7 @@ http_interactions:
     uri: https://graph.facebook.com/me/feed
     body:
       encoding: UTF-8
-      string: message=Message+for+Facebook+2013-08-09+10%3A22%3A14+%2B0000&name=feed_name&access_token=CAAHtNEnQEmcBACbxZCVp7AzHEQ2CD3KhEMwwEtBpXgTZCXMy2ZAwZCUZCrfoVztniwUlSSUsdTOZCyDSZC70q4JAycuYlSOea9dvWltBNHFDuEscrAt0Ql3Yv5kZCZApGED0n5anZAZBB65TzXqoyvA3wrk
+      string: message=Message+for+Facebook+2013-08-11+14%3A33%3A00+%2B0000&name=feed_name&access_token=CAAHtNEnQEmcBACbxZCVp7AzHEQ2CD3KhEMwwEtBpXgTZCXMy2ZAwZCUZCrfoVztniwUlSSUsdTOZCyDSZC70q4JAycuYlSOea9dvWltBNHFDuEscrAt0Ql3Yv5kZCZApGED0n5anZAZBB65TzXqoyvA3wrk
     headers:
       Content-Type:
       - application/x-www-form-urlencoded
@@ -25,20 +25,20 @@ http_interactions:
       Pragma:
       - no-cache
       X-Fb-Rev:
-      - '902737'
+      - '904170'
       X-Fb-Debug:
-      - 4AC82hx37V80U+Q/alPizDD7uApL3CuYg1mIe0CQA0Q=
+      - uOL4CfxDcGssGWXCBj75nYFkhJ8gjmWFnZQDbgoGyww=
       Date:
-      - Fri, 09 Aug 2013 10:22:20 GMT
+      - Sun, 11 Aug 2013 14:33:11 GMT
       Connection:
       - keep-alive
       Content-Length:
       - '40'
     body:
       encoding: UTF-8
-      string: '{"id":"100005133014329_179975622183537"}'
+      string: '{"id":"100005133014329_180718975442535"}'
     http_version: 
-  recorded_at: Fri, 09 Aug 2013 10:22:17 GMT
+  recorded_at: Sun, 11 Aug 2013 14:33:02 GMT
 - request:
     method: get
     uri: https://api.linkedin.com/v1/people/~
@@ -55,9 +55,9 @@ http_interactions:
       User-Agent:
       - OAuth gem v0.4.7
       Authorization:
-      - OAuth oauth_consumer_key="l6on5uqdtfc8", oauth_nonce="mFsiYlfab72Irul4NphPwQ1JG0nbkXpWYdaRWaFJ5CY",
-        oauth_signature="WCvexrY5edBtPrYidec0nUgXvQM%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1376043737", oauth_token="2d19df97-5c12-4ed0-80b0-5879109bf6ec",
+      - OAuth oauth_consumer_key="l6on5uqdtfc8", oauth_nonce="ZcWCF02FJR8aoZxcqOCAPuZAeil7UZPLP4DuQcG7ns",
+        oauth_signature="ivKAKCjqz03gsNGhTsXof17mFTw%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1376231583", oauth_token="2d19df97-5c12-4ed0-80b0-5879109bf6ec",
         oauth_version="1.0"
   response:
     status:
@@ -67,7 +67,7 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       X-Li-Request-Id:
-      - DQ9W4T0CPC
+      - OCYEQLL15K
       Vary:
       - '*'
       X-Li-Format:
@@ -77,7 +77,7 @@ http_interactions:
       Transfer-Encoding:
       - chunked
       Date:
-      - Fri, 09 Aug 2013 10:22:20 GMT
+      - Sun, 11 Aug 2013 14:33:12 GMT
     body:
       encoding: UTF-8
       string: |-
@@ -88,14 +88,14 @@ http_interactions:
           "siteStandardProfileRequest": {"url": "http://www.linkedin.com/profile/view?id=265952201&authType=name&authToken=lr_9&trk=api*a294570*s302134*"}
         }
     http_version: 
-  recorded_at: Fri, 09 Aug 2013 10:22:18 GMT
+  recorded_at: Sun, 11 Aug 2013 14:33:04 GMT
 - request:
     method: post
     uri: https://api.linkedin.com/v1/people/~/shares
     body:
       encoding: UTF-8
-      string: '{"visibility":{"code":"anyone"},"comment":"Message for Linkedin 2013-08-09
-        10:22:17 +0000"}'
+      string: '{"visibility":{"code":"anyone"},"comment":"Message for Linkedin 2013-08-11
+        14:33:03 +0000"}'
     headers:
       X-Li-Format:
       - json
@@ -110,9 +110,9 @@ http_interactions:
       Content-Length:
       - '91'
       Authorization:
-      - OAuth oauth_body_hash="N8iPHtfFsmMdE9Yci8h5tKEWLdk%3D", oauth_consumer_key="l6on5uqdtfc8",
-        oauth_nonce="dqkdR6Hvpy2YpMDmd1liEJsNH5RfwBmPKxLFsmEZZo", oauth_signature="YBVXccMqkVrVpcsM5E0THFTZ67c%3D",
-        oauth_signature_method="HMAC-SHA1", oauth_timestamp="1376043738", oauth_token="2d19df97-5c12-4ed0-80b0-5879109bf6ec",
+      - OAuth oauth_body_hash="9%2FnXNC%2BWN2GlRT679DDf9SLeaio%3D", oauth_consumer_key="l6on5uqdtfc8",
+        oauth_nonce="8qsR4ZCrK3w8E7e5jWeqz9rdRTLFyQEcsHrBayM", oauth_signature="6j%2FcZulglilSRYwsvLFUPK5%2Fc94%3D",
+        oauth_signature_method="HMAC-SHA1", oauth_timestamp="1376231584", oauth_token="2d19df97-5c12-4ed0-80b0-5879109bf6ec",
         oauth_version="1.0"
   response:
     status:
@@ -122,9 +122,9 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       X-Li-Request-Id:
-      - 7JZQ3KV1O9
+      - T0H344K0UR
       Location:
-      - http://api.linkedin.com/v1/pal/people/~/network/updates/key=UNIU-265952201-5771545775163056129-SHARE
+      - http://api.linkedin.com/v1/pal/people/~/network/updates/key=UNIU-265952201-5772333680647225344-SHARE
       Vary:
       - '*'
       X-Li-Format:
@@ -134,22 +134,22 @@ http_interactions:
       Transfer-Encoding:
       - chunked
       Date:
-      - Fri, 09 Aug 2013 10:22:22 GMT
+      - Sun, 11 Aug 2013 14:33:13 GMT
     body:
       encoding: UTF-8
       string: |-
         {
-          "updateKey": "UNIU-265952201-5771545775163056129-SHARE",
-          "updateUrl": "http://www.linkedin.com/updates?discuss=&scope=265952201&stype=M&topic=5771545775163056129&type=U&a=mj6S"
+          "updateKey": "UNIU-265952201-5772333680647225344-SHARE",
+          "updateUrl": "http://www.linkedin.com/updates?discuss=&scope=265952201&stype=M&topic=5772333680647225344&type=U&a=uyW8"
         }
     http_version: 
-  recorded_at: Fri, 09 Aug 2013 10:22:19 GMT
+  recorded_at: Sun, 11 Aug 2013 14:33:05 GMT
 - request:
     method: post
     uri: http://api.tumblr.com/v2/blog/uid.tumblr.com/post
     body:
       encoding: US-ASCII
-      string: body=body&title=title&type=text
+      string: body=Message%20for%20Tumblr%202013-08-11%2014%3A33%3A06%20%2B0000&title=message%20from%20Social%20Poster&type=text
     headers:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -163,8 +163,8 @@ http_interactions:
       - application/x-www-form-urlencoded
       Authorization:
       - OAuth oauth_consumer_key="RTeUQFDPqbrtYPZMgpEkDPxkMAOudz2bJOgo9Mb0Fo2cgf6Mex",
-        oauth_nonce="7Tl8d23m7oHGKgHkuPy3xO3gAYuJ1CfDI1tKU4Nlgo", oauth_signature="dZSkrvEARhAldqOXMlGq4dtX4v4%3D",
-        oauth_signature_method="HMAC-SHA1", oauth_timestamp="1376043740", oauth_token="token",
+        oauth_nonce="fGiQvNvRivx1XMSFNrKpCYA25KiZBUuODR4oFLDETY", oauth_signature="NKQaVe9nErWyictJpTpAtbp%2Fvkk%3D",
+        oauth_signature_method="HMAC-SHA1", oauth_timestamp="1376231586", oauth_token="token",
         oauth_version="1.0"
   response:
     status:
@@ -174,7 +174,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Fri, 09 Aug 2013 10:22:23 GMT
+      - Sun, 11 Aug 2013 14:33:15 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -187,13 +187,13 @@ http_interactions:
       encoding: UTF-8
       string: '{"meta":{"status":401,"msg":"Not Authorized"},"response":[]}'
     http_version: 
-  recorded_at: Fri, 09 Aug 2013 10:22:20 GMT
+  recorded_at: Sun, 11 Aug 2013 14:33:06 GMT
 - request:
     method: post
     uri: http://api.twitter.com/1.1/statuses/update.json
     body:
       encoding: US-ASCII
-      string: status=Message%20for%20Twitter%202013-08-09%2010%3A22%3A21%20%2B0000
+      string: status=Message%20for%20Twitter%202013-08-11%2014%3A33%3A07%20%2B0000
     headers:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -206,9 +206,9 @@ http_interactions:
       Content-Type:
       - application/x-www-form-urlencoded
       Authorization:
-      - OAuth oauth_consumer_key="78Xe54R18Dx0xjehhGOAw", oauth_nonce="GlFw2xjDLGExcuheIJRLiuu76J1sgHAevj34Cxk2qOM",
-        oauth_signature="tF%2Ft5LrgZxyaZMy6mEJ8tlsTec4%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1376043741", oauth_token="1497573638-k31hUR783ken3ntgBvhY6zgrjXpBjBzLrjPcgIL",
+      - OAuth oauth_consumer_key="78Xe54R18Dx0xjehhGOAw", oauth_nonce="AkR3VVbeSUVFEWPkwKH5eVOXUB49uEA4TU4a6eEKg",
+        oauth_signature="BYaCmfBu1QoLdGHbXxqax3ciqZI%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1376231587", oauth_token="1497573638-k31hUR783ken3ntgBvhY6zgrjXpBjBzLrjPcgIL",
         oauth_version="1.0"
   response:
     status:
@@ -218,38 +218,106 @@ http_interactions:
       Cache-Control:
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
       Content-Length:
-      - '891'
+      - '910'
       Content-Type:
-      - application/json;charset=utf-8
+      - application/json; charset=utf-8
       Date:
-      - Fri, 09 Aug 2013 10:22:24 GMT
+      - Sun, 11 Aug 2013 14:33:16 GMT
+      Etag:
+      - '"0927f5cef21c6c43c8ba9f0e84486a28"'
       Expires:
       - Tue, 31 Mar 1981 05:00:00 GMT
       Last-Modified:
-      - Fri, 09 Aug 2013 10:22:24 GMT
+      - Sun, 11 Aug 2013 14:33:16 GMT
       Pragma:
       - no-cache
       Server:
       - tfe
       Set-Cookie:
-      - guest_id=v1%3A137604374484795571; Domain=.twitter.com; Path=/; Expires=Sun,
-        09-Aug-2015 10:22:24 UTC
-      - lang=en
+      - _twitter_sess=BAh7CDoMY3NyZl9pZCIlZDA0NjZiZjAyYWJhNWU5MzMwZDI4NWI1MDdkNDg4%250ANDY6D2NyZWF0ZWRfYXRsKwhFosttQAE6B2lkIiU1NjM3NjRmYmExODQ4NWMy%250ANDAxZWQxNGFkNDQ0ZTQ4MA%253D%253D--7c04b192ab6e423573240b1ae36a0ad996f5720f;
+        domain=.twitter.com; path=/; HttpOnly
+      - dnt=; domain=.twitter.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
+      - guest_id=v1%3A137623159646378194; Domain=.twitter.com; Path=/; Expires=Tue,
+        11-Aug-2015 14:33:16 UTC
+      - lang=en; path=/
+      - lang=en; path=/
+      - lang=en; path=/
+      - twid=u%3D1497573638%7ClZcTg9KipwoZwi8EDgcLq9X6tnk%3D; domain=.twitter.com;
+        path=/; secure
       Status:
       - 200 OK
+      Vary:
+      - Accept-Encoding
       X-Access-Level:
       - read-write
       X-Frame-Options:
       - SAMEORIGIN
+      X-Mid:
+      - f9311ed0585079caae5c8f8d57d3d2ae93415d13
+      X-Runtime:
+      - '0.20303'
       X-Transaction:
-      - 5fa52a30054d74cd
+      - fcd2c5a52f3814cb
+      X-Transaction-Mask:
+      - a6183ffa5f8ca943ff1b53b5644ef114012de4a1
+      X-Xss-Protection:
+      - 1; mode=block
     body:
       encoding: UTF-8
-      string: '{"created_at":"Fri Aug 09 10:22:24 +0000 2013","id":365780093702254592,"id_str":"365780093702254592","text":"Message
-        for Twitter 2013-08-09 10:22:21 +0000","source":"\u003ca href=\"http:\/\/rsshh-vcabba.rhcloud.com\/static_pages\/authorization_enter_pin\"
-        rel=\"nofollow\"\u003evcabba_RailsOAuth\u003c\/a\u003e","truncated":false,"in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"user":{"id":1497573638,"id_str":"1497573638","name":"Savva","screen_name":"_vcabba","location":"","description":"It
-        begins long time ago.. Omsk, Syberia, since 1985.","url":null,"entities":{"description":{"urls":[]}},"protected":false,"followers_count":0,"friends_count":2,"listed_count":0,"created_at":"Mon
-        Jun 10 07:01:23 +0000 2013","favourites_count":0,"utc_offset":25200,"time_zone":"Bangkok","geo_enabled":false,"verified":false,"statuses_count":7,"lang":"en","contributors_enabled":false,"is_translator":false,"profile_background_color":"C0DEED","profile_background_image_url":"http:\/\/a0.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_image_url_https":"https:\/\/si0.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_tile":false,"profile_image_url":"http:\/\/a0.twimg.com\/profile_images\/378800000102548180\/9727c54502bb1c329ca73bba0e9d6599_normal.png","profile_image_url_https":"https:\/\/si0.twimg.com\/profile_images\/378800000102548180\/9727c54502bb1c329ca73bba0e9d6599_normal.png","profile_banner_url":"https:\/\/pbs.twimg.com\/profile_banners\/1497573638\/1375073206","profile_link_color":"0084B4","profile_sidebar_border_color":"C0DEED","profile_sidebar_fill_color":"DDEEF6","profile_text_color":"333333","profile_use_background_image":true,"default_profile":true,"default_profile_image":false,"following":false,"follow_request_sent":false,"notifications":false},"geo":null,"coordinates":null,"place":null,"contributors":null,"retweet_count":0,"favorite_count":0,"entities":{"hashtags":[],"symbols":[],"urls":[],"user_mentions":[]},"favorited":false,"retweeted":false,"lang":"da"}'
+      string: '{"in_reply_to_user_id_str":null,"place":null,"retweeted":false,"user":{"profile_image_url_https":"https:\/\/twimg0-a.akamaihd.net\/profile_images\/378800000102548180\/9727c54502bb1c329ca73bba0e9d6599_normal.png","friends_count":2,"id_str":"1497573638","name":"Savva","profile_background_image_url_https":"https:\/\/twimg0-a.akamaihd.net\/images\/themes\/theme1\/bg.png","screen_name":"_vcabba","default_profile":true,"profile_use_background_image":true,"url":null,"is_translator":false,"profile_text_color":"333333","notifications":false,"location":null,"id":1497573638,"entities":{"description":{"urls":[]}},"statuses_count":8,"geo_enabled":false,"profile_sidebar_border_color":"C0DEED","listed_count":0,"profile_image_url":"http:\/\/a0.twimg.com\/profile_images\/378800000102548180\/9727c54502bb1c329ca73bba0e9d6599_normal.png","lang":"en","utc_offset":25200,"profile_background_tile":false,"profile_sidebar_fill_color":"DDEEF6","protected":false,"default_profile_image":false,"description":"It
+        begins long time ago.. Omsk, Syberia, since 1985.","contributors_enabled":false,"verified":false,"created_at":"Mon
+        Jun 10 07:01:23 +0000 2013","profile_background_color":"C0DEED","favourites_count":0,"followers_count":0,"following":false,"profile_background_image_url":"http:\/\/a0.twimg.com\/images\/themes\/theme1\/bg.png","profile_banner_url":"https:\/\/pbs.twimg.com\/profile_banners\/1497573638\/1375073206","time_zone":"Bangkok","follow_request_sent":false,"profile_link_color":"0084B4"},"truncated":false,"in_reply_to_status_id":null,"geo":null,"in_reply_to_screen_name":null,"source":"\u003Ca
+        href=\"http:\/\/rsshh-vcabba.rhcloud.com\/static_pages\/authorization_enter_pin\"
+        rel=\"nofollow\"\u003Evcabba_RailsOAuth\u003C\/a\u003E","favorited":false,"id":366568001190887425,"created_at":"Sun
+        Aug 11 14:33:16 +0000 2013","coordinates":null,"id_str":"366568001190887425","in_reply_to_user_id":null,"text":"Message
+        for Twitter 2013-08-11 14:33:07 +0000","in_reply_to_status_id_str":null,"retweet_count":0,"entities":{"hashtags":[],"urls":[],"user_mentions":[]},"contributors":null}'
     http_version: 
-  recorded_at: Fri, 09 Aug 2013 10:22:21 GMT
+  recorded_at: Sun, 11 Aug 2013 14:33:08 GMT
+- request:
+    method: post
+    uri: http://api.tumblr.com/v2/blog/vcabba.tumblr.com/post
+    body:
+      encoding: US-ASCII
+      string: body=Message%20for%20Tumblr%202013-08-11%2014%3A44%3A19%20%2B0000&title=message%20from%20Social%20Poster&type=text
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - OAuth gem v0.4.7
+      Content-Length:
+      - '0'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Authorization:
+      - OAuth oauth_consumer_key="RTeUQFDPqbrtYPZMgpEkDPxkMAOudz2bJOgo9Mb0Fo2cgf6Mex",
+        oauth_nonce="HcY3kO4WV8cNpQhEA0gYgIUOvezUfG0BTSWtyT810mc", oauth_signature="NI5HvSUvgUqXAz16xP8b5z7Wa18%3D",
+        oauth_signature_method="HMAC-SHA1", oauth_timestamp="1376232259", oauth_token="hvI02kG7pRfjVzXtA5oEgD3BVnYIdOki5qcvafv44sZHyLtDmV",
+        oauth_version="1.0"
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 11 Aug 2013 14:44:28 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      P3p:
+      - CP="ALL ADM DEV PSAi COM OUR OTRo STP IND ONL"
+      Set-Cookie:
+      - tmgioct=5207a34cd7d7000128859880; expires=Wed, 09-Aug-2023 14:44:28 GMT; path=/;
+        httponly
+    body:
+      encoding: UTF-8
+      string: '{"meta":{"status":201,"msg":"Created"},"response":{"id":57968029599}}'
+    http_version: 
+  recorded_at: Sun, 11 Aug 2013 14:44:20 GMT
 recorded_with: VCR 2.5.0

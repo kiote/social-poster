@@ -25,9 +25,9 @@ FactoryGirl.define do
   
   factory :auth_tumblr, class: Authorisation do
     provider "tumblr"
-    uid "uid"
-    token "token"
-    secret "secret"
+    uid "vcabba"
+    token "hvI02kG7pRfjVzXtA5oEgD3BVnYIdOki5qcvafv44sZHyLtDmV"
+    secret "lDwbpAfzcNz7toQ1bWhS6HGeQvkXXn3NQqMfVHRy8tfFP6Oo4Y"
   end
   
   factory :auth_twitter, class: Authorisation do

@@ -106,11 +106,12 @@ module SendMessageFunctions
         {title: 'message from Social Poster', body: message.tumblr_message.text, type: 'text'})
       
       Rails.logger.debug '> %s' % response.body
+      Rails.logger.debug '> t: %s, s: %s, u: %s' % [@auth.token, @auth.secret, @auth.uid]
       
       if response.body.include? '"status":201,"msg":"Created"'
         "tumblr: created" 
       else
-        "tumblr: failure"
+        "tumblr: failure: %s" % response.body
       end
       
     end

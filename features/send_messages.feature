@@ -32,7 +32,7 @@ Feature: Post messages
     And there is Home page
     And there is a message to Tumblr
     When user click to post a message
-    Then sent to tumblr okay
+    Then successfully sent to tumblr
   
   @post_message_twitter
   Scenario: Sending to Twitter
