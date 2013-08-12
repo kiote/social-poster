@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
   before_action :signed_in_user, only: [:create, :destroy]
   before_action :correct_user, only: :destroy
   
-  include SendMessageFunctions
+  #~ include SendMessageFunctions
   
   def create
     
@@ -14,11 +14,12 @@ class MessagesController < ApplicationController
     @message = current_user.messages.build
     @message.build_texts(params)
     
-    ms_fb = MessageSenderFacebook.new(current_user)
-    ms_ln = MessageSenderLinkedin.new(current_user)
-    ms_tu = MessageSenderTumblr.new(current_user)
-    ms_tw = MessageSenderTwitter.new(current_user)
-    ms_vk = MessageSenderVkontakte.new(current_user)
+    # TODO: like in messafe.rb
+    ms_fb = MessageSendersExtra::MessageSenderFacebook.new(current_user)
+    ms_ln = MessageSendersExtra::MessageSenderLinkedin.new(current_user)
+    ms_tu = MessageSendersExtra::MessageSenderTumblr.new(current_user)
+    ms_tw = MessageSendersExtra::MessageSenderTwitter.new(current_user)
+    ms_vk = MessageSendersExtra::MessageSenderVkontakte.new(current_user)
     
     sent_statuses = Array.new
     
