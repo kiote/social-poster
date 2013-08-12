@@ -75,11 +75,16 @@ module SendMessageFunctions
       client = LinkedIn::Client.new(APP_KEYS['linkedin']['consumer_key'], APP_KEYS['linkedin']['secret_key'], consumer_options)
       client.authorize_from_access(@auth.token, @auth.secret)
       
-      Rails.logger.debug "---==="
-      Rails.logger.debug "%s" % client.profile
-      Rails.logger.debug "---==="
+      response = client.add_share(comment: message.linkedin_message.text)
+      Rails.logger.debug '> %s' % response.to_yaml
+      Rails.logger.debug '> t: %s, s: %s, u: %s' % [@auth.token, @auth.secret, @auth.uid]
       
-      "sent to linkedin okay + %s" % client.add_share(comment: message.linkedin_message.text)
+      # TODO: как определить успешно ли опубликовано сообщение
+      if response.body.include? 'updateKey'
+        "linkedin: created" 
+      else
+        "linkedin: failure: %s" % response.body
+      end
     end
   end
 
