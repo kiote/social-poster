@@ -72,10 +72,11 @@ SocialPoster::Application.configure do
     # ALWAYS RESTART YOUR SERVER IF YOU MAKE CHANGES TO THESE SETTINGS!
     
     # providers with id/secret, you need to sign up for their services (see below) and enter the parameters here
-    provider :facebook, '542283809165927', '1a8e252855790961ed937a993304e480', {:scope => 'publish_stream,offline_access,email'}
-    provider :vkontakte, '3756304 ', 'PQlol0o4iIEn7GEljq49', {:scope => 'wall,friends', :redirect_uri => 'http://oauth.vk.com/blank.html'} # :display => 'popup' 
-    provider :twitter, '78Xe54R18Dx0xjehhGOAw', 'IMNaQoy65nLkWa15qp5HvoqHYAu5XTXCfgg86fKC0'
-    provider :linkedin, 'l6on5uqdtfc8', 'LiDHc2gdkyYTOEuB', {:scope => 'rw_nus'}
+    provider :twitter, APP_KEYS['twitter']['consumer_key'], APP_KEYS['twitter']['secret_key']
+    provider :facebook, APP_KEYS['facebook']['consumer_key'], APP_KEYS['facebook']['secret_key'], scope: 'publish_stream,offline_access,email'
+    provider :linkedin, APP_KEYS['linkedin']['consumer_key'], APP_KEYS['linkedin']['secret_key'], scope: 'rw_nus'
+    provider :vkontakte, APP_KEYS['vkontakte']['consumer_key'], APP_KEYS['vkontakte']['secret_key'], scope: 'notify,wall,friends'
+    provider :tumblr, APP_KEYS['tumblr']['consumer_key'], APP_KEYS['tumblr']['secret_key']
     
   end
 

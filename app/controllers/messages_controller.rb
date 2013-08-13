@@ -4,8 +4,6 @@ class MessagesController < ApplicationController
   before_action :signed_in_user, only: [:create, :destroy]
   before_action :correct_user, only: :destroy
   
-  #~ include SendMessageFunctions
-  
   def create
     
     Rails.logger.debug "> create messages controllere"
