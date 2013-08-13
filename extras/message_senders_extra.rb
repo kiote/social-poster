@@ -49,6 +49,7 @@ module MessageSendersExtra
       
       # успешно ли опубликовано сообщение ?
       # dupliczte statues message ?
+      "facebook: created"
     end
     
   end
@@ -182,7 +183,8 @@ module MessageSendersExtra
       Rails.logger.debug "secret %s" % @auth.secret
       Rails.logger.debug "---===++++++++"
       
-      "sent to vkontakte okay"
+      # TODO: really its not
+      "vkontakte: created"
     end
   end
 

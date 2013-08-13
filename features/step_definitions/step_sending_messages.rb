@@ -17,12 +17,12 @@ end
 
 Then(/^sent to facebook okay$/) do
   expect(page).to have_xpath("//div[@class='alert alert-success']")
-  expect(page).to have_content("sent to facebook okay")
+  expect(page).to have_content("facebook: created")
 end
 
 Then(/^sent to linkedin okay$/) do
   expect(page).to have_xpath("//div[@class='alert alert-success']")
-  expect(page).to have_content("sent to linkedin okay")
+  expect(page).to have_content("linkedin: created")
 end
 
 Then(/^successfully sent to tumblr$/) do
@@ -32,12 +32,12 @@ end
 
 Then(/^sent to twitter okay$/) do
   expect(page).to have_xpath("//div[@class='alert alert-success']")
-  expect(page).to have_content("sent to twitter okay")
+  expect(page).to have_content("twitter: created")
 end
 
 Then(/^sent to vkontakte okay$/) do
   expect(page).to have_xpath("//div[@class='alert alert-success']")
-  expect(page).to have_content("sent to vkontakte okay")
+  expect(page).to have_content("vkontakte: created")
 end
 
 Given(/^user is authorised for facebook$/) do
