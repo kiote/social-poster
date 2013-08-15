@@ -12,7 +12,6 @@ class MessagesController < ApplicationController
     @message = current_user.messages.build
     @message.build_texts(params)
     
-    # TODO: like in messafe.rb
     ms_fb = MessageSendersExtra::MessageSenderFacebook.new(current_user)
     ms_ln = MessageSendersExtra::MessageSenderLinkedin.new(current_user)
     ms_tu = MessageSendersExtra::MessageSenderTumblr.new(current_user)

@@ -9,8 +9,6 @@ require 'yaml'
 
 module MessageSendersExtra
   
-  
-  #~ TODO: с такими классами чувствую себя лисёнком
   class MessageSender
     
     def initialize(user)
@@ -44,12 +42,16 @@ module MessageSendersExtra
       fb_user ||= FbGraph::User.me(@auth.token)
       response = fb_user.feed!(message: message.facebook_message.text)
       
-      Rails.logger.debug '> %s' % response
+      Rails.logger.debug '> %s' % response.inspect
+      Rails.logger.debug '> okay' 
       Rails.logger.debug '> t: %s, s: %s, u: %s' % [@auth.token, @auth.secret, @auth.uid]
       
-      # успешно ли опубликовано сообщение ?
-      # dupliczte statues message ?
-      "facebook: created"
+      if response.message == message.facebook_message.text
+        "facebook: created"
+      else
+        "facebook: failure"
+      end
+      
     end
     
   end
@@ -81,15 +83,15 @@ module MessageSendersExtra
       client.authorize_from_access(@auth.token, @auth.secret)
       
       response = client.add_share(comment: message.linkedin_message.text)
-      Rails.logger.debug '> %s' % response.to_yaml
+      Rails.logger.debug '> %s' % response.inspect
       Rails.logger.debug '> t: %s, s: %s, u: %s' % [@auth.token, @auth.secret, @auth.uid]
       
-      # TODO: как определить успешно ли опубликовано сообщение
-      if response.body.include? 'updateKey'
+      if "#{response.inspect}".include? '201 Created'
         "linkedin: created" 
       else
-        "linkedin: failure: %s" % response.body
+        "linkedin: failure"
       end
+      
     end
   end
 
@@ -121,7 +123,7 @@ module MessageSendersExtra
       if response.body.include? '"status":201,"msg":"Created"'
         "tumblr: created" 
       else
-        "tumblr: failure: %s" % response.body
+        "tumblr: failure"
       end
       
     end
@@ -154,7 +156,7 @@ module MessageSendersExtra
       if response.body.include? 'created_at'
         "twitter: created" 
       else
-        "twitter: failure: %s" % response.body
+        "twitter: failure"
       end
       
     end
