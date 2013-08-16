@@ -1,3 +1,19 @@
+
+class CreateUser < Mutations::Command
+  
+  required do
+    string :name
+    string :email
+    string :password
+    string :password_confirmation
+  end
+  
+  def execute
+    user = User.create!(inputs)
+    user
+  end
+end
+
 class UsersController < ApplicationController
   
   def new
@@ -10,20 +26,30 @@ class UsersController < ApplicationController
   end
   
   def create
-    @user = User.new(user_params)
-    if @user.save
-      sign_in @user
-      flash[:msg] = "ё"
-      redirect_to @user
+    
+    outcome = CreateUser.run(params[:user])
+    
+    user = outcome.result
+    
+    if outcome.success?
+      Rails.logger.debug "> #{outcome.result.name} created"
+      flash[:info] = "> #{outcome.result.name} created"
+      
+      sign_in user
+      redirect_to user
     else
+      Rails.logger.debug "> not created %s" % outcome.inspect
+      flash[:info] = "> #{user.name} not created"
       render 'new'
     end
+    
   end
   
   def edit
     @user = User.find(params[:id])
   end
   
+  # TODO: update with mutations
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
@@ -34,10 +60,5 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
-  
-  private
-    def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
-    end
   
 end

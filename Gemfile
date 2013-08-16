@@ -27,6 +27,8 @@ gem 'haml-rails'
 gem 'unicorn'
 gem 'will_paginate'
 
+gem 'mutations'
+
 group :production, :staging do
   gem 'pg'
   

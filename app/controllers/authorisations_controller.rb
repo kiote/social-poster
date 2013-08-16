@@ -1,22 +1,26 @@
+
+class CreateAuthorisation < Mutations::Command
+  
+  required do
+    model :user
+    string :provider
+    string :uid
+    string :token
+    string :secret
+  end
+  
+  def execute
+    auth = Authorisation.create!(inputs)
+    auth
+  end
+end
+
 class AuthorisationsController < ApplicationController
   
   before_action :signed_in_user, only: [:create, :destroy]
   before_action :correct_user, only: :destroy
   
   include AuthorisationsExtra
-  
-  #~ TODO:
-  def create_special_for_vkontakte
-    #~ 3756304
-    
-    #~ получить от пользователя email& pass для vkontakte
-    vk = VkontakteApi.authorization_url(type: :client, scope: [:notify, :friends, :photos, :wall], client_id: '3756304')
-    #~ затем пройте полученной ссылке
-    #~ подтвердить там всё что надо
-    #~ и сделать авторизацию
-    vk = VkontakteApi::Client.new('d18242bcb1ef81444a8c6078ff635b35b4aec053893208bdaf8aaa7cbddb206a4cc60a51727ace0c6a76d')
-    vk.wall.post message: 'sample'
-  end
   
   def create
     
@@ -27,28 +31,16 @@ class AuthorisationsController < ApplicationController
     params[:token] = auth_hash[:token]
     params[:secret] = auth_hash[:secret]
     
-    Rails.logger.debug "+++++++++++++++++"
-    Rails.logger.debug params.to_yaml
-    Rails.logger.debug "-----------------"
-    Rails.logger.debug request.env['omniauth.auth'].to_yaml
-    Rails.logger.debug "-----------------"
-    Rails.logger.debug auth_hash.to_yaml
-    Rails.logger.debug "+++++++++++++++++"
+    outcome = CreateAuthorisation.run(params, user: current_user)
     
-    @auth = current_user.authorisations.build(
-      provider: auth_hash[:provider],
-      uid: auth_hash[:uid],
-      token: auth_hash[:token],
-      secret: auth_hash[:secret]
-    )
-    
-    if @auth.save
-      Rails.logger.debug "> auth.save"
-      flash[:info] = "auth connected"
+    if outcome.success?
+      Rails.logger.debug "#{outcome.result.provider} connected"
+      flash[:info] = "#{outcome.result.provider} connected"
     else
-      Rails.logger.debug "> auth didnt.save"
-      flash[:info] = "auth didnt.saved"
+      Rails.logger.debug "#{outcome.result.provider} not connected"
+      flash[:error] = "#{outcome.result.provider} not connected"
     end
+    
     redirect_to root_url
   end
   
@@ -65,10 +57,6 @@ class AuthorisationsController < ApplicationController
     def correct_user
       @authorisation = current_user.authorisations.find_by(id: params[:id])
       redirect_to root_url if @authorisation.nil?
-    end
-    
-    def authorisation_params
-      params.require(:authorisation).permit(:provider, :uid, :token, :secret)
     end
   
 end
