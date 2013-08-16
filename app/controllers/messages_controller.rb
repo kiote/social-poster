@@ -12,6 +12,12 @@ class MessagesController < ApplicationController
     @message = current_user.messages.build
     @message.build_texts(params)
     
+    if @message.save
+      flash[:success] = "message saved"
+    else
+      flash[:fail] = "message not saved"
+    end
+    
     ms_fb = MessageSendersExtra::MessageSenderFacebook.new(current_user)
     ms_ln = MessageSendersExtra::MessageSenderLinkedin.new(current_user)
     ms_tu = MessageSendersExtra::MessageSenderTumblr.new(current_user)
@@ -28,14 +34,10 @@ class MessagesController < ApplicationController
     
     sent_statuses = sent_statuses.join('; ')
     
+    flash[:success] = "%s; sent with statuses: %s" % [flash[:success], sent_statuses]
+    
     Rails.logger.debug "> sent statuses: %s" % sent_statuses
     
-    if @message.save
-      flash[:success] = "message saved and sent with statuses: %s" % sent_statuses
-    else
-      flash[:fail] = "message not saved"
-    end
-  
     redirect_to root_url
   end
   

@@ -1,17 +1,17 @@
 
 %li
   %span.content
-    sent_at #{message.sent_at}
-  %span.content
     - if message.facebook_message
-      facebook: #{message.facebook_message.text}
+      facebook: "#{message.facebook_message.text}"
     - if message.linkedin_message
-      linkedin: #{message.linkedin_message.text}
+      linkedin: "#{message.linkedin_message.text}"
     - if message.tumblr_message
-      tumblr: #{message.tumblr_message.text}
+      tumblr: "#{message.tumblr_message.text}"
     - if message.twitter_message
-      twitter: #{message.twitter_message.text}
+      twitter: "#{message.twitter_message.text}"
     - if message.vkontakte_message
-      vkontakte: #{message.vkontakte_message.text}
-  %span.timestamp
-    , created_at (#{ time_ago_in_words(message.created_at) })
+      vkontakte: "#{message.vkontakte_message.text}"
+  
+  %span.content
+    - if message.sent_at
+      sent_at: #{message.sent_at}

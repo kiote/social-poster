@@ -5,19 +5,6 @@ class AuthorisationsController < ApplicationController
   
   include AuthorisationsExtra
   
-  #~ TODO:
-  def create_special_for_vkontakte
-    #~ 3756304
-    
-    #~ получить от пользователя email& pass для vkontakte
-    vk = VkontakteApi.authorization_url(type: :client, scope: [:notify, :friends, :photos, :wall], client_id: '3756304')
-    #~ затем пройте полученной ссылке
-    #~ подтвердить там всё что надо
-    #~ и сделать авторизацию
-    vk = VkontakteApi::Client.new('d18242bcb1ef81444a8c6078ff635b35b4aec053893208bdaf8aaa7cbddb206a4cc60a51727ace0c6a76d')
-    vk.wall.post message: 'sample'
-  end
-  
   def create
     
     auth_hash = read_authhash(request.env['omniauth.auth'])

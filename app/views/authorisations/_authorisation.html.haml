@@ -1,7 +1,5 @@
 
 %li
-  / %span.timestamp
-  /   , for #{ time_ago_in_words(authorisation.created_at) }
   - if current_user?(authorisation.user)
     %span.content
       = authorisation.provider.capitalize
