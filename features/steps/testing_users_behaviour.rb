@@ -78,7 +78,8 @@ class Spinach::Features::TestingUsersBehaviour < Spinach::FeatureSteps
   end
 
   step 'button Create Account has been pressed' do
-    click_button "Create my account"
+    expect(page).to have_title("Sign up")
+    find(:xpath, "//input[@class='btn btn-large btn-primary'][@value='Create my account']").click
   end
 
   step 'there new user appears' do
@@ -86,7 +87,8 @@ class Spinach::Features::TestingUsersBehaviour < Spinach::FeatureSteps
     u.name == "W"
     u.email == "sample@email.ru"
     u.password == "qqqwww"
-    u.password_confirmation == "qqqwww"
+    # TODO: not all clear with this method
+    #~ u.password_confirmation == "qqqwww"
   end
 
   step 'his page with show action can be observed' do
@@ -98,7 +100,7 @@ class Spinach::Features::TestingUsersBehaviour < Spinach::FeatureSteps
     fill_in "Email", with: 'vcabba@gmx.com'
     fill_in "Name", with: 'vcabba'
     fill_in "Password", with: 'qqqwww'
-    fill_in "Confirmation", with: 'qqqwww'
+    fill_in "Confirmation", with: 'wwwqqq'
     find(:xpath, "//input[@class='btn btn-large btn-primary']").click
   end
 
