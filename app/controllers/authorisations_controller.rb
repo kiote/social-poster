@@ -13,6 +13,7 @@ class CreateAuthorisation < Mutations::Command
     auth = Authorisation.create!(inputs)
     auth
   end
+  
 end
 
 class AuthorisationsController < ApplicationController

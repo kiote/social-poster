@@ -9,6 +9,17 @@ class CreateUser < Mutations::Command
   end
   
   def execute
+    
+    if password != password_confirmation
+      add_error(:password_confirmation, :doesnt_match, "Your passwords don't match.")
+      return
+    end
+    
+    if User.find_by_email(email)
+      add_error(:email, :doesnt_unique, "Your email already taken.")
+      return
+    end
+    
     user = User.create!(inputs)
     user
   end
@@ -54,13 +65,14 @@ class UsersController < ApplicationController
     
     if outcome.success?
       Rails.logger.debug "> #{outcome.result.name} created"
-      flash[:info] = "> #{outcome.result.name} created"
+      flash[:success] = "> #{outcome.result.name} created"
       
       sign_in user
       redirect_to user
     else
       Rails.logger.debug "> not created %s" % outcome.inspect
-      flash[:info] = "> #{user.name} not created"
+      flash[:error] = "> not created %s" % outcome.inspect
+      @user = User.new
       render 'new'
     end
     

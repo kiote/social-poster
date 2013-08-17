@@ -9,8 +9,6 @@ class MessagesController < ApplicationController
     Rails.logger.debug "> create messages controllere"
     Rails.logger.debug "> %s" % params.to_s
     
-    Rails.logger.debug "> %s" % outcome.inspect
-    
     @message = current_user.messages.build
     @message.build_texts(params)
     
