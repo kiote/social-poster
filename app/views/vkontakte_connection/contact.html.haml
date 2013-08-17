@@ -1,0 +1,31 @@
+
+%a
+  create connection
+
+%p#debug
+
+%script{:src => "http://vkontakte.ru/js/api/openapi.js", :type => "text/javascript"}
+
+#login_button{:onclick => "VK.Auth.login(authInfo);"}
+
+%script{:language => "javascript"}
+  VK.init({
+  apiId: 3756304
+  });
+  function authInfo(response) {
+  if (response.session) {
+  alert('user: '+response.session.mid);
+  } else {
+  alert('not auth');
+  }
+  }
+  VK.Auth.getLoginStatus(authInfo);
+  VK.UI.button('login_button');
+  
+  function fn_callback(data) { alert('fn_callback'); };
+  
+  VK.api('wall.post', {message: '1234'}, fn_callback)
+  
+  document.getElementById("debug").innerHTML='12345'
+
+%p asdasd

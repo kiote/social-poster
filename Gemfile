@@ -40,9 +40,10 @@ end
 
 group :development, :test do
 
-	gem "sqlite3"
-	gem 'rspec-rails'
-	gem 'factory_girl_rails'
+  gem "sqlite3"
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem "spinach-rails"
 
 end
 
@@ -60,7 +61,11 @@ group :test do
 	gem 'capybara-webkit'
 
 	gem 'cucumber-rails', require: false
-	gem 'database_cleaner'
+  
+# TODO: version is less than it might be
+  gem 'database_cleaner', '<= 1.0.1'
+  
+  gem "spinach"
 
 end
 

@@ -125,17 +125,6 @@ Given(/^user is on the Home page$/) do
   visit root_path
 end
 
-#~ Given(/^signed in$/) do
-  #~ visit root_path
-  #~ user = FactoryGirl.create(:user, name: "Savva", email: 'sample@email.ru', password: 'qqqwww')
-  #~ click_link "Sign in"
-  #~ fill_in "Email", with: 'sample@email.ru'
-  #~ fill_in "Password", with: 'qqqwww'
-  #~ find(:xpath, "//input[@class='btn btn-large btn-primary']").click
-  #~ click_link "Home"
-#~ 
-#~ end
-
 Then(/^page contains form_for @message$/) do
   expect(page).to have_xpath("//form[@action='/messages']")
 end

@@ -14,6 +14,27 @@ class CreateUser < Mutations::Command
   end
 end
 
+class UpdateUser < Mutations::Command
+  
+  required do
+    model :user
+    integer :id
+  end
+  
+  optional do
+    string :name
+    string :email
+    # TODO: но если обновил пароль, то и будь добр обнови подтверждение
+    string :password
+    string :password_confirmation
+  end
+  
+  def execute
+    # TODO: так почемуто unknown attribute user
+    #~ user.update_attributes!(inputs)
+  end
+end
+
 class UsersController < ApplicationController
   
   def new
@@ -51,14 +72,23 @@ class UsersController < ApplicationController
   
   # TODO: update with mutations
   def update
-    @user = User.find(params[:id])
-    if @user.update_attributes(user_params)
-      flash[:success] = "Profile updated"
-      sign_in @user
-      redirect_to @user
+  
+    outcome = UpdateUser.run(params[:user], user: User.find(params[:id]))
+    
+    user = outcome.result
+    
+    if outcome.success?
+      Rails.logger.debug "> #{outcome.result.name} updated"
+      flash[:success] = "> #{outcome.result.name} updated"
+      
+      sign_in user
+      redirect_to user
     else
+      Rails.logger.debug "> not updated %s" % outcome.inspect
+      flash[:error] = "> #{user.name} not updated"
       render 'edit'
     end
+    
   end
   
 end
