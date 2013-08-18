@@ -6,15 +6,6 @@ class User < ActiveRecord::Base
   
   has_secure_password validations: false
   
-  # TODO: validations to mutations
-  
-  #~ VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  
-  #~ validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: true
-  
-  #~ validates :password, presence: true, length: { minimum: 5 }
-  #~ validates :password_confirmation, presence: true
-  
   before_create :create_remember_token
   
   before_save { self.email = email.downcase }
