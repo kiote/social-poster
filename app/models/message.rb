@@ -26,7 +26,7 @@ class Message < ActiveRecord::Base
   
   def sub_br(text_to_send, provider)
     br_dislike = ['twitter', 'linkedin', 'facebook']
-    text_to_send = text_to_send.sub("<br>", "") if provider in br_dislike
+    text_to_send = text_to_send.sub("<br>", "") if br_dislike.include? provider
     text_to_send
   end
   
