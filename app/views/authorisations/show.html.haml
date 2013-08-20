@@ -1,6 +1,14 @@
-%h1 Authorisations#show
+%h1 Authorisations
 
-%p connect with following providers:
+%p Connected providers:
+
+- if current_user.authorisations.any?
+  %ol.authorisations
+    = render current_user.authorisations
+  
+
+
+%p Connect with following providers:
 
 %li
   %a{ href: "/auth/facebook" } Facebook

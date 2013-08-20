@@ -1,4 +1,14 @@
 
+class CreateMessage < Mutations::Command
+  
+  required do
+  end
+  
+  def execute
+  end
+  
+end
+
 class MessagesController < ApplicationController
   
   before_action :signed_in_user, only: [:create, :destroy]

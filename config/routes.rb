@@ -18,7 +18,7 @@ SocialPoster::Application.routes.draw do
   match '/signin', to: 'sessions#new', via: 'get'
   match '/signout', to: 'sessions#destroy', via: 'delete'
   
-  match '/authorise', to: 'authorisations#new', via: 'get'
+  match '/authorisations', to: 'authorisations#show', via: 'get'
   
   get '/auth/:provider/callback', to: 'authorisations#create'
   get '/auth/failure', to: 'authorisations#failure'

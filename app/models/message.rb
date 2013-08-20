@@ -17,9 +17,17 @@ class Message < ActiveRecord::Base
   
   def build_texts(params)
     ProvidersExtra::PROVIDERS.each do |provider|
-      next if params[:"#{provider}_message"][:text].length == 0
-      self.send(:"build_#{provider}_message", text: params[:"#{provider}_message"][:text])
+      text_to_send = params[:"#{provider}_message"][:text]
+      next if text_to_send.length == 0
+      text_to_send = sub_br(text_to_send, provider)
+      self.send(:"build_#{provider}_message", text: text_to_send)
     end
+  end
+  
+  def sub_br(text_to_send, provider)
+    br_dislike = ['twitter', 'linkedin', 'facebook']
+    text_to_send = text_to_send.sub("<br>", "") if provider in br_dislike
+    text_to_send
   end
   
   def build_empty_texts()
