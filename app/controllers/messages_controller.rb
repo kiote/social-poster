@@ -5,6 +5,10 @@ class CreateFacebookMessage < Mutations::Command
     model :message
     string :text
   end
+  
+  def execute
+    
+  end
 end
 
 class CreateMessage < Mutations::Command
@@ -17,7 +21,7 @@ class CreateMessage < Mutations::Command
   end
   
   def execute
-    Rails.logger.debug "> inputs: #{inputs.inspect}"
+  
     message = Message.create!(inputs)
     message.sent_at = Time.new
     
@@ -33,17 +37,37 @@ class MessagesController < ApplicationController
   
   def create
     
+    outcome = CreateMessage.run(params, user: current_user)
+    
+    if outcome.success?
+      
+      outcome.result.build_texts(params)
+      outcome.result.save!
+      
+      Rails.logger.debug "> created: #{outcome.result.inspect}"
+      flash[:info] = "> #{outcome.result.inspect} created"
+    else
+      Rails.logger.debug "> #{outcome.result.inspect} not created"
+      flash[:error] = "> #{outcome.result.inspect} not created"
+    end
+    
     Rails.logger.debug "> create messages controllere"
     Rails.logger.debug "> %s" % params.to_s
     
-    @message = current_user.messages.build
-    @message.build_texts(params)
+    #~ @message = current_user.messages.build
+    #~ @message.build_texts(params)
+    #~ 
+    #~ if @message.save
+      #~ flash[:success] = "message saved"
+    #~ else
+      #~ flash[:fail] = "message not saved"
+    #~ end
     
-    if @message.save
-      flash[:success] = "message saved"
-    else
-      flash[:fail] = "message not saved"
+    if not outcome.success?
+      redirect_to root_url
     end
+    
+    @message = outcome.result
     
     ms_fb = MessageSendersExtra::MessageSenderFacebook.new(current_user)
     ms_ln = MessageSendersExtra::MessageSenderLinkedin.new(current_user)

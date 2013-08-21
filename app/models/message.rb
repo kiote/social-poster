@@ -21,6 +21,7 @@ class Message < ActiveRecord::Base
       next if text_to_send.length == 0
       text_to_send = sub_br(text_to_send, provider)
       self.send(:"build_#{provider}_message", text: text_to_send)
+      Rails.logger.debug "> build_#{provider}_message: #{text_to_send}"
     end
   end
   
