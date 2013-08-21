@@ -41,6 +41,7 @@ class MessagesController < ApplicationController
     
     if outcome.success?
       
+      # TODO: to CreateMessage should?
       outcome.result.build_texts(params)
       outcome.result.save!
       
