@@ -1,10 +1,27 @@
 
+
+class CreateFacebookMessage < Mutations::Command
+  required do
+    model :message
+    string :text
+  end
+end
+
 class CreateMessage < Mutations::Command
   
   required do
+    model :user
+  end
+  
+  optional do
   end
   
   def execute
+    Rails.logger.debug "> inputs: #{inputs.inspect}"
+    message = Message.create!(inputs)
+    message.sent_at = Time.new
+    
+    message
   end
   
 end
