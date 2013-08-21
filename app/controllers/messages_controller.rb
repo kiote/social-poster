@@ -40,8 +40,7 @@ class MessagesController < ApplicationController
     outcome = CreateMessage.run(params, user: current_user)
     
     if outcome.success?
-      
-      # TODO: to CreateMessage should?
+    
       outcome.result.build_texts(params)
       outcome.result.save!
       
