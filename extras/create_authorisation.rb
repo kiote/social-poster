@@ -1,3 +1,4 @@
+
 # как модель попала в контроллер? надо ее убирать, пока не поздно
 
 class CreateAuthorisation < Mutations::Command

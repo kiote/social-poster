@@ -9,9 +9,8 @@
 #login_button{:onclick => "VK.Auth.login(authInfo);"}
 
 %script{:language => "javascript"}
-  VK.init({
-  apiId: 3756304
-  });
+  VK.init( { apiId: 3756304 } );
+  
   function authInfo(response) {
   if (response.session) {
   alert('user: '+response.session.mid);
@@ -19,13 +18,14 @@
   alert('not auth');
   }
   }
+  
   VK.Auth.getLoginStatus(authInfo);
   VK.UI.button('login_button');
   
-  function fn_callback(data) { alert('fn_callback'); };
+  function fn_callback(data) { if(data) { alert('Привет, ' + data.response[0]);  } };
   
-  VK.api('wall.post', {message: '1234'}, fn_callback)
+  VK.api('wall.post', {message: 'mesage'}, fn_callback)
   
-  document.getElementById("debug").innerHTML='12345'
+  document.getElementById("debug").innerHTML='debug'
 
 %p asdasd

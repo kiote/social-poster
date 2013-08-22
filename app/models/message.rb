@@ -13,8 +13,6 @@ class Message < ActiveRecord::Base
   validates :user_id, presence: true
   default_scope -> { order('created_at DESC') }
   
-  #~ before_save { self.sent_at = Time.new }
-  
   def build_texts(params)
     ProvidersExtra::PROVIDERS.each do |provider|
       text_to_send = params[:"#{provider}_message"][:text]

@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
   
   def create
     
-    outcome = MutationsExtra::CreateMessage.run(params, user: current_user)
+    outcome = CreateMessage.run(params, user: current_user)
     
     if outcome.success?
       
