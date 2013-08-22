@@ -31,15 +31,19 @@ class AuthorisationsController < ApplicationController
     params[:uid] = auth_hash[:uid]
     params[:token] = auth_hash[:token]
     params[:secret] = auth_hash[:secret]
+    params[:secret] = "secret" if auth_hash[:secret].length < 1
+    
     
     outcome = CreateAuthorisation.run(params, user: current_user)
     
+    Rails.logger.debug "> params: %s" % params
+    
     if outcome.success?
-      Rails.logger.debug "#{outcome.result.provider} connected"
-      flash[:info] = "#{outcome.result.provider} connected"
+      Rails.logger.debug "> #{outcome.result.provider} connected"
+      flash[:info] = "> #{outcome.result.provider} connected"
     else
-      Rails.logger.debug "#{outcome.result.provider} not connected"
-      flash[:error] = "#{outcome.result.provider} not connected"
+      Rails.logger.debug "> #{outcome.inspect} not connected"
+      flash[:error] = "> #{outcome.inspect} not connected"
     end
     
     redirect_to root_url

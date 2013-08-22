@@ -13,6 +13,18 @@ class CreateFacebookMessage < Mutations::Command
   
 end
 
+class CreateLinkedinMessage < Mutations::Command
+  required do
+    model :message
+    string :text
+  end
+  
+  def execute
+    linkedin_message = LinkedinMessage.create!(inputs)
+    linkedin_message
+  end
+  
+end
 class CreateTumblrMessage < Mutations::Command
   required do
     model :message
@@ -25,46 +37,40 @@ class CreateTumblrMessage < Mutations::Command
   end
   
 end
+class CreateTwitterMessage < Mutations::Command
+  required do
+    model :message
+    string :text
+  end
+  
+  def execute
+    twitter_message = TwitterMessage.create!(inputs)
+    twitter_message
+  end
+  
+end
+class CreateVkontakteMessage < Mutations::Command
+  required do
+    model :message
+    string :text
+  end
+  
+  def execute
+    vkontakte_message = VkontakteMessage.create!(inputs)
+    vkontakte_message
+  end
+  
+end
 
 class CreateMessage < Mutations::Command
   
   required do
-    
     model :user
-    
-    #~ model :facebook_message do
-      #~ string :text
-    #~ end
-    #~ model :linkedin_message do
-      #~ string :text
-    #~ end
-    #~ model :tumblr_message do
-      #~ string :text
-    #~ end
-    #~ model :twitter_message do
-      #~ string :text
-    #~ end
-    #~ model :vkontakte_message do
-      #~ string :text
-    #~ end
-    
-  end
-  
-  optional do
   end
   
   def execute
-    
-    Rails.logger.debug "> "
-    Rails.logger.debug "> "
-    Rails.logger.debug "> "
-    #~ Rails.logger.debug "> inputs: #{inputs.inspect}"
-    #~ Rails.logger.debug "> inputs[][]: #{inputs[:facebook_message][:text]}"
-    
     message = Message.create!(inputs)
-    #~ message.build_texts(inputs)
     message.sent_at = Time.new
-    
     message
   end
   
@@ -80,9 +86,6 @@ class MessagesController < ApplicationController
     outcome = CreateMessage.run(params, user: current_user)
     
     if outcome.success?
-    
-      #~ outcome.result.build_texts(params)
-      #~ outcome.result.save!
       
       Rails.logger.debug "> created: #{outcome.inspect}"
       flash[:info] = "> created: #{outcome.inspect}"
@@ -95,25 +98,16 @@ class MessagesController < ApplicationController
     Rails.logger.debug "> create messages controllere"
     Rails.logger.debug "> %s" % params.to_s
     
-    #~ @message = current_user.messages.build
-    #~ @message.build_texts(params)
-    #~ 
-    #~ if @message.save
-      #~ flash[:success] = "message saved"
-    #~ else
-      #~ flash[:fail] = "message not saved"
-    #~ end
-    
     if outcome.success?
     
       @message = outcome.result
       
+      # TODO: doub
       facebook_message = CreateFacebookMessage.run(params[:facebook_message], message: @message)
+      linkedin_message = CreateLinkedinMessage.run(params[:linkedin_message], message: @message)
       tumblr_message = CreateTumblrMessage.run(params[:tumblr_message], message: @message)
-      
-      #~ @message.facebook_message = facebook_message.result
-      #~ @message.tumblr_message = tumblr_message.result
-      #~ @message.save!
+      twitter_message = CreateTwitterMessage.run(params[:twitter_message], message: @message)
+      vkontakte_message = CreateVkontakteMessage.run(params[:vkontakte_message], message: @message)
       
       ms_fb = MessageSendersExtra::MessageSenderFacebook.new(current_user)
       ms_ln = MessageSendersExtra::MessageSenderLinkedin.new(current_user)
