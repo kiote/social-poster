@@ -1,4 +1,4 @@
-
+# как модель попала в контроллер? надо ее убирать, пока не поздно
 class CreateAuthorisation < Mutations::Command
   
   required do
@@ -10,8 +10,7 @@ class CreateAuthorisation < Mutations::Command
   end
   
   def execute
-    auth = Authorisation.create!(inputs)
-    auth
+    Authorisation.create!(inputs)
   end
   
 end
