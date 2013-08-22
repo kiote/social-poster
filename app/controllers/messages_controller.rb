@@ -1,81 +1,4 @@
 
-
-class CreateFacebookMessage < Mutations::Command
-  required do
-    model :message
-    string :text
-  end
-  
-  def execute
-    facebook_message = FacebookMessage.create!(inputs)
-    facebook_message
-  end
-  
-end
-
-class CreateLinkedinMessage < Mutations::Command
-  required do
-    model :message
-    string :text
-  end
-  
-  def execute
-    linkedin_message = LinkedinMessage.create!(inputs)
-    linkedin_message
-  end
-  
-end
-class CreateTumblrMessage < Mutations::Command
-  required do
-    model :message
-    string :text
-  end
-  
-  def execute
-    tumblr_message = TumblrMessage.create!(inputs)
-    tumblr_message
-  end
-  
-end
-class CreateTwitterMessage < Mutations::Command
-  required do
-    model :message
-    string :text
-  end
-  
-  def execute
-    twitter_message = TwitterMessage.create!(inputs)
-    twitter_message
-  end
-  
-end
-class CreateVkontakteMessage < Mutations::Command
-  required do
-    model :message
-    string :text
-  end
-  
-  def execute
-    vkontakte_message = VkontakteMessage.create!(inputs)
-    vkontakte_message
-  end
-  
-end
-
-class CreateMessage < Mutations::Command
-  
-  required do
-    model :user
-  end
-  
-  def execute
-    message = Message.create!(inputs)
-    message.sent_at = Time.new
-    message
-  end
-  
-end
-
 class MessagesController < ApplicationController
   
   before_action :signed_in_user, only: [:create, :destroy]
@@ -83,7 +6,7 @@ class MessagesController < ApplicationController
   
   def create
     
-    outcome = CreateMessage.run(params, user: current_user)
+    outcome = MutationsExtra::CreateMessage.run(params, user: current_user)
     
     if outcome.success?
       
@@ -103,6 +26,11 @@ class MessagesController < ApplicationController
       @message = outcome.result
       
       # TODO: doub
+      
+      params[:facebook_message][:text] = params[:facebook_message][:text].sub("<br>", "")
+      params[:linkedin_message][:text] = params[:linkedin_message][:text].sub("<br>", "")
+      params[:twitter_message][:text] = params[:twitter_message][:text].sub("<br>", "")
+      
       facebook_message = CreateFacebookMessage.run(params[:facebook_message], message: @message)
       linkedin_message = CreateLinkedinMessage.run(params[:linkedin_message], message: @message)
       tumblr_message = CreateTumblrMessage.run(params[:tumblr_message], message: @message)

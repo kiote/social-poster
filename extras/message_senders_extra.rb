@@ -1,4 +1,3 @@
-
 # TODO: это надо поностью менять, выделять отдельные классы для вконтакта, твиттера и тд
 # когда начнем не токль слать сообещения но и например получать число лайков,
 # тут будет хелл
@@ -43,7 +42,7 @@ module MessageSendersExtra
       response = fb_user.feed!(message: message.facebook_message.text)
       
       Rails.logger.debug '> %s' % response.inspect
-      Rails.logger.debug '> okay' 
+      Rails.logger.debug '> okay'
       Rails.logger.debug '> t: %s, s: %s, u: %s' % [@auth.token, @auth.secret, @auth.uid]
       
       if response.message == message.facebook_message.text
@@ -87,7 +86,7 @@ module MessageSendersExtra
       Rails.logger.debug '> t: %s, s: %s, u: %s' % [@auth.token, @auth.secret, @auth.uid]
       
       if "#{response.inspect}".include? '201 Created'
-        "linkedin: created" 
+        "linkedin: created"
       else
         "linkedin: failure"
       end
@@ -121,7 +120,7 @@ module MessageSendersExtra
       Rails.logger.debug '> t: %s, s: %s, u: %s' % [@auth.token, @auth.secret, @auth.uid]
       
       if response.body.include? '"status":201,"msg":"Created"'
-        "tumblr: created" 
+        "tumblr: created"
       else
         "tumblr: failure"
       end
@@ -154,7 +153,7 @@ module MessageSendersExtra
       Rails.logger.debug '> t: %s, s: %s, u: %s' % [@auth.token, @auth.secret, @auth.uid]
       
       if response.body.include? 'created_at'
-        "twitter: created" 
+        "twitter: created"
       else
         "twitter: failure"
       end
