@@ -1,4 +1,3 @@
-
 module MutationsExtra
   
   class CreateFacebookMessage < Mutations::Command
@@ -8,12 +7,13 @@ module MutationsExtra
     end
     
     def execute
-      facebook_message = FacebookMessage.create!(inputs)
-      facebook_message
+      # зачем тут лишние присваивания?
+      FacebookMessage.create!(inputs)
     end
     
   end
   
+  # они же все одинаковые, получится что-то с этим сделать?
   class CreateLinkedinMessage < Mutations::Command
     required do
       model :message
@@ -21,8 +21,7 @@ module MutationsExtra
     end
     
     def execute
-      linkedin_message = LinkedinMessage.create!(inputs)
-      linkedin_message
+      LinkedinMessage.create!(inputs)
     end
     
   end
@@ -33,8 +32,7 @@ module MutationsExtra
     end
     
     def execute
-      tumblr_message = TumblrMessage.create!(inputs)
-      tumblr_message
+      TumblrMessage.create!(inputs)
     end
     
   end
@@ -45,8 +43,7 @@ module MutationsExtra
     end
     
     def execute
-      twitter_message = TwitterMessage.create!(inputs)
-      twitter_message
+      TwitterMessage.create!(inputs)
     end
     
   end
@@ -57,8 +54,7 @@ module MutationsExtra
     end
     
     def execute
-      vkontakte_message = VkontakteMessage.create!(inputs)
-      vkontakte_message
+      VkontakteMessage.create!(inputs)
     end
     
   end
