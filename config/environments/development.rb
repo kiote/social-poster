@@ -45,7 +45,7 @@ SocialPoster::Application.configure do
     provider :twitter, APP_KEYS['twitter']['consumer_key'], APP_KEYS['twitter']['secret_key']
     provider :facebook, APP_KEYS['facebook']['consumer_key'], APP_KEYS['facebook']['secret_key'], scope: 'publish_stream,offline_access,email'
     provider :linkedin, APP_KEYS['linkedin']['consumer_key'], APP_KEYS['linkedin']['secret_key'], scope: 'rw_nus'
-    #~ https://oauth.vk.com/authorize?client_id=3756304&scope=notify,wall,friends&redirect_uri=blank.html&display=popup&v=5.0&response_type=token
+    #~ https://oauth.vk.com/authorize?client_id=3756304&scope=notify,wall,friends,offline&redirect_uri=blank.html&display=popup&v=5.0&response_type=token
     #~ Если Вы разрабатываете браузерное Javascript-приложение (обращаетесь к API с внешнего сайта), необходимо указывать ссылку в рамках домена, указанного в настройках приложения. В остальных случаях в качестве redirect_uri нужно использовать адрес http://oauth.vk.com/blank.html. 
     provider :vkontakte, APP_KEYS['vkontakte']['consumer_key'], APP_KEYS['vkontakte']['secret_key'], scope: 'notify,wall,friends'
     provider :tumblr, APP_KEYS['tumblr']['consumer_key'], APP_KEYS['tumblr']['secret_key']

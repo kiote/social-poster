@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   
   def create
     
-    outcome = CreateUser.run(params[:user])
+    outcome = UserCreate.run(params[:user])
     
     user = outcome.result
     

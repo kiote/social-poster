@@ -1,4 +1,5 @@
-class CreateUser < Mutations::Command
+
+class UserCreate < Mutations::Command
   
   required do
     
@@ -28,7 +29,7 @@ class CreateUser < Mutations::Command
   end
 end
 
-class UpdateUser < Mutations::Command
+class UserUpdate < Mutations::Command
   
 
   required do

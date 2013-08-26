@@ -4,13 +4,7 @@
 
 %h1
   = current_user.name
-
-%span
-  = link_to "view profile", current_user
-%span
-  = link_to "view providers", authorisations_path
-
-
+%br
 %span
   = pluralize(current_user.messages.count, "message")
 %span

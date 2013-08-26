@@ -1,3 +1,4 @@
+
 # TODO: это надо поностью менять, выделять отдельные классы для вконтакта, твиттера и тд
 # когда начнем не токль слать сообещения но и например получать число лайков,
 # тут будет хелл
@@ -7,6 +8,36 @@
 require 'yaml'
 
 module MessageSendersExtra
+  
+  class << self
+  
+    def create_submessages(params, message)
+      facebook_message = CreateFacebookMessage.run(params[:facebook_message], message: message)
+      linkedin_message = CreateLinkedinMessage.run(params[:linkedin_message], message: message)
+      tumblr_message = CreateTumblrMessage.run(params[:tumblr_message], message: message)
+      twitter_message = CreateTwitterMessage.run(params[:twitter_message], message: message)
+      vkontakte_message = CreateVkontakteMessage.run(params[:vkontakte_message], message: message)
+    end
+    
+    def send_messages(current_user, message)
+      ms_fb = MessageSendersExtra::MessageSenderFacebook.new(current_user)
+      ms_ln = MessageSendersExtra::MessageSenderLinkedin.new(current_user)
+      ms_tu = MessageSendersExtra::MessageSenderTumblr.new(current_user)
+      ms_tw = MessageSendersExtra::MessageSenderTwitter.new(current_user)
+      ms_vk = MessageSendersExtra::MessageSenderVkontakte.new(current_user)
+      
+      sent_statuses = Array.new
+      
+      sent_statuses << ms_fb.send_message(message)
+      sent_statuses << ms_ln.send_message(message)
+      sent_statuses << ms_tu.send_message(message)
+      sent_statuses << ms_tw.send_message(message)
+      sent_statuses << ms_vk.send_message(message)
+      
+      sent_statuses = sent_statuses.join('; ')
+    end
+    
+  end
   
   class MessageSender
     
