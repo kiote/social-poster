@@ -59,12 +59,6 @@ Feature: testing users behaviour
     And clicked "view profile"
     Then there is users profile page (users show action)
   
-  Scenario: view authorisations
-    Given user
-    And user is signed in
-    And there is Home page
-    And clicked "view providers"
-    Then there is users providers page (providers show action)
   
   Scenario: viewing settings for user
     Given user

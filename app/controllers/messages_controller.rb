@@ -6,6 +6,7 @@ class MessagesController < ApplicationController
   
   def create
     
+    # TODO: контроль отправки статусы.
     outcome = CreateMessage.run(params, user: current_user)
     
     if outcome.success?

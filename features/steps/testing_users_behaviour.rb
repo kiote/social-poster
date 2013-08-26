@@ -93,7 +93,7 @@ class Spinach::Features::TestingUsersBehaviour < Spinach::FeatureSteps
 
   step 'his page with show action can be observed' do
     visit root_path
-    click_link "view profile"
+    click_link "Profile"
   end
 
   step 'any of field is filled incorrectly' do
@@ -142,7 +142,7 @@ class Spinach::Features::TestingUsersBehaviour < Spinach::FeatureSteps
   end
 
   step 'clicked "view profile"' do
-    find(:xpath, "//a[text()='view profile']").click
+    find(:xpath, "//a[text()='Profile']").click
   end
 
   step 'there is users profile page (users show action)' do
@@ -150,12 +150,12 @@ class Spinach::Features::TestingUsersBehaviour < Spinach::FeatureSteps
   end
 
   step 'clicked "view providers"' do
-    find(:xpath, "//a[text()='view providers']").click
+    find(:xpath, "//a[text()='Profile']").click
   end
 
   step 'there is users providers page (providers show action)' do
     visit root_path
-    click_link "view providers"
+    click_link "Profile"
   end
 
   step 'clicked to the settings' do
