@@ -1,10 +1,11 @@
 
-Feature: Post messages
+@send_messages
+Feature: sending messages to networks
 
   In order to make messages to be sent
   I want this tests to prove that they are
   
-  @post_message_facebook
+  @facebook
   Scenario: Sending to Facebook
     Given user
     And user is signed in
@@ -14,7 +15,7 @@ Feature: Post messages
     When user click to post a message
     Then sent to facebook okay
   
-  @post_message_linkedin
+  @linkedin
   Scenario: Sending to Linkedin
     Given user
     And user is signed in
@@ -24,7 +25,7 @@ Feature: Post messages
     When user click to post a message
     Then sent to linkedin okay
   
-  @post_message_tumblr
+  @tumblr
   Scenario: Sending to Tumblr
     Given user
     And user is signed in
@@ -34,7 +35,7 @@ Feature: Post messages
     When user click to post a message
     Then successfully sent to tumblr
   
-  @post_message_twitter
+  @twitter
   Scenario: Sending to Twitter
     Given user
     And user is signed in
@@ -44,7 +45,7 @@ Feature: Post messages
     When user click to post a message
     Then sent to twitter okay
   
-  @post_message_vkontakte
+  @vkontakte
   Scenario: Sending to Vkontakte
     Given user
     And user is signed in

@@ -1,20 +1,19 @@
-class Spinach::Features::PostMessages < Spinach::FeatureSteps
+class Spinach::Features::SendingMessagesToNetworks < Spinach::FeatureSteps
   
   step 'user' do
     user = FactoryGirl.create(:user, name: "Savva", email: 'vcabba@gmx.com', password: 'qqqwww')
   end
 
   step 'user is signed in' do
-    visit root_path
-    click_link "Sign in"
+    visit signin_path
     fill_in "Email", with: 'vcabba@gmx.com'
     fill_in "Password", with: 'qqqwww'
-    find(:xpath, "//input[@class='btn btn-large btn-primary']").click
+    find(:xpath, "//input[@class='btn btn-large btn-primary'][@value='Sign in']").click
     expect(page).to have_title("Savva")
   end
 
   step 'user is authorised for facebook' do
-    user = User.first
+    user = User.find_by_email('vcabba@gmx.com')
     FactoryGirl.create(:auth_facebook, user: user)
     user.authorisations.first.provider.should == 'facebook'
   end
@@ -24,7 +23,7 @@ class Spinach::Features::PostMessages < Spinach::FeatureSteps
   end
 
   step 'there is a message to Facebook' do
-    fill_in "facebook_message_text", with: "Message for Facebook %s" % Time.now
+    fill_in "facebook_message_text", with: "RSpec: Message for Facebook %s" % Time.now
   end
 
   step 'user click to post a message' do
