@@ -9,48 +9,48 @@ Feature: sending messages to networks
   Scenario: Sending to Facebook
     Given user
     And user is signed in
-    And user is authorised for facebook
+    And user is authorised on Facebook
     And there is Home page
     And there is a message to Facebook
     When user click to post a message
-    Then sent to facebook okay
+    Then successfully sent to Facebook
   
   @linkedin
   Scenario: Sending to Linkedin
     Given user
     And user is signed in
-    And user is authorised for linkedin
+    And user is authorised on Linkedin
     And there is Home page
     And there is a message to Linkedin
     When user click to post a message
-    Then sent to linkedin okay
+    Then successfully sent to Linkedin
   
   @tumblr
   Scenario: Sending to Tumblr
     Given user
     And user is signed in
-    And user is authorised for Tumblr
+    And user is authorised on Tumblr
     And there is Home page
     And there is a message to Tumblr
     When user click to post a message
-    Then successfully sent to tumblr
+    Then successfully sent to Tumblr
   
   @twitter
   Scenario: Sending to Twitter
     Given user
     And user is signed in
-    And user is authorised for Twitter
+    And user is authorised on Twitter
     And there is Home page
     And there is a message to Twitter
     When user click to post a message
-    Then sent to twitter okay
+    Then successfully sent to Twitter
   
   @vkontakte
   Scenario: Sending to Vkontakte
     Given user
     And user is signed in
-    And user is authorised for vkontakte
+    And user is authorised on Vkontakte
     And there is Home page
     And there is a message to Vkontakte
     When user click to post a message
-    Then sent to vkontakte okay
+    Then successfully sent to Vkontakte
