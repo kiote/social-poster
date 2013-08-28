@@ -5,42 +5,58 @@ module SubBrs
   end
 end
 
-class CreateSubMessage < Mutations::Command
+class CreateFacebookMessage < Mutations::Command
   
   include SubBrs
   
   required do
     model :message
+  end
+  
+  optional do
     string :text
   end
   
   def execute
-  end
-  
-end
-
-class CreateFacebookMessage < CreateSubMessage
-  
-  def execute
-    sub_brs(text)
+    sub_brs(text) if text
     facebook_message = FacebookMessage.create!(inputs)
     facebook_message
   end
   
 end
 
-class CreateLinkedinMessage < CreateSubMessage
+class CreateLinkedinMessage < Mutations::Command
+  
+  include SubBrs
+  
+  required do
+    model :message
+  end
+  
+  optional do
+    string :text
+  end
   
   def execute
-    sub_brs(text)
+    sub_brs(text) if text
     linkedin_message = LinkedinMessage.create!(inputs)
     linkedin_message
   end
   
 end
 
-class CreateTumblrMessage < CreateSubMessage
+class CreateTumblrMessage < Mutations::Command
   
+  include SubBrs
+  
+  required do
+    model :message
+  end
+  
+  optional do
+    string :text
+  end
+    
   def execute
     tumblr_message = TumblrMessage.create!(inputs)
     tumblr_message
@@ -48,18 +64,38 @@ class CreateTumblrMessage < CreateSubMessage
   
 end
 
-class CreateTwitterMessage < CreateSubMessage
+class CreateTwitterMessage < Mutations::Command
   
+  include SubBrs
+  
+  required do
+    model :message
+  end
+  
+  optional do
+    string :text
+  end
+    
   def execute
-    sub_brs(text)
+    sub_brs(text) if text
     twitter_message = TwitterMessage.create!(inputs)
     twitter_message
   end
   
 end
 
-class CreateVkontakteMessage < CreateSubMessage
+class CreateVkontakteMessage < Mutations::Command
   
+  include SubBrs
+  
+  required do
+    model :message
+  end
+  
+  optional do
+    string :text
+  end
+    
   def execute
     vkontakte_message = VkontakteMessage.create!(inputs)
     vkontakte_message

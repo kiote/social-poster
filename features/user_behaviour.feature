@@ -1,5 +1,6 @@
 
 Feature: testing users behaviour
+  
   As a project modeller
   I want that project to have proper functionality and correct behaviour
   So that there are couple of tests to pass

@@ -4,6 +4,8 @@
 
 %script{:src => "http://vkontakte.ru/js/api/openapi.js", :type => "text/javascript"}
 
-= javascript_include_tag "exp"
+%script{src: "exp.js", type: "text/javascript"}
 
-%a{href: "javascript:popitup();"} create connection
+/ = javascript_include_tag "exp"
+
+/ %a{href: "javascript:popitup();"} create connection
