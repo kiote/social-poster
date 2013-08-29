@@ -47,9 +47,9 @@
             #vkontakte.tab-pane
               = fields_for @message.vkontakte_message do |m|
                 = m.text_area :text, placeholder: "compose new vkontakte message", class: "textarea", rows: "7"
-        %div
-          %button.link{onclick: "submit_message_form();", class: "btn btn-large btn-primary"} Post
-        / = f.submit "Post", class: "btn btn-large btn-primary"
+        / %div
+        %button.link{onclick: "submit_message_form();", class: "btn btn-large btn-primary"} Post
+        = f.submit "Post", class: "btn btn-large btn-primary"
         
 
 - else

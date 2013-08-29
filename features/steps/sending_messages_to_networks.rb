@@ -41,7 +41,7 @@ class Spinach::Features::SendingMessagesToNetworks < Spinach::FeatureSteps
 
   step 'user click to post a message' do
     VCR.use_cassette("I hope its something with external calls", record: :new_episodes) do
-      find(:xpath, "//input[@class='btn btn-large btn-primary'][@value='Post']").click
+      find(:xpath, "//button[@class='btn btn-large btn-primary link']").click
     end
   end
 
