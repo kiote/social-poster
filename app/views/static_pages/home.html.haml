@@ -12,7 +12,7 @@
       
       / = render 'shared/message_form'
       
-      = form_for(@message) do |f|
+      = form_for @message, html: {name: "message_form"} do |f|
         = render 'shared/error_messages', object: f.object
         
         %div.field
@@ -47,8 +47,9 @@
             #vkontakte.tab-pane
               = fields_for @message.vkontakte_message do |m|
                 = m.text_area :text, placeholder: "compose new vkontakte message", class: "textarea", rows: "7"
-              
-        = f.submit "Post", class: "btn btn-large btn-primary"
+        %div
+          %button.link{onclick: "submit_message_form();", class: "btn btn-large btn-primary"} Post
+        / = f.submit "Post", class: "btn btn-large btn-primary"
         
 
 - else
@@ -64,3 +65,4 @@
 :javascript
   $('.textarea').wysihtml5();
 
+%script{src: "http://vk.com/js/api/openapi.js"}
