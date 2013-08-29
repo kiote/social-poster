@@ -1,7 +1,6 @@
 
 class Spinach::Features::TestingModels < Spinach::FeatureSteps
   
-  #~ include UserSteps::SignIn
   
   step 'user' do
    @user = FactoryGirl.create(:user, name: "Savva", email: 'vcabba@gmx.com', password: 'qqqwww')
@@ -14,6 +13,18 @@ class Spinach::Features::TestingModels < Spinach::FeatureSteps
   step 'message is created' do
     @outcome.success?.should == true
     @message = @outcome.result
+    @message.user_id.should == 1
+    @message.id.should == 1
+  end
+  
+  step 'there are another message is created' do
+    @another_outcome = CreateMessage.run(user: @user)
+  end
+  step 'its id is unique' do
+    @another_outcome.success?.should == true
+    @another_message = @another_outcome.result
+    @another_message.user_id.should == 1
+    @another_message.id.should == 2
   end
   
   step 'there attempt to create a submessages for message' do

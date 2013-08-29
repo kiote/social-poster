@@ -7,6 +7,10 @@ class MessagesController < ApplicationController
   def create
     
     # TODO: контроль отправки, статусы.
+    
+    Rails.logger.debug "> MessagesController create"
+    Rails.logger.debug "> message: %s" % @message
+    
     outcome = CreateMessage.run(params, user: current_user)
     
     if outcome.success?
