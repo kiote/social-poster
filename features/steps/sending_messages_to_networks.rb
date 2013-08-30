@@ -45,7 +45,6 @@ class Spinach::Features::SendingMessagesToNetworks < Spinach::FeatureSteps
     end
   end
 
-
   step 'successfully sent to Facebook' do
     expect(page).to have_xpath("//div[@class='alert alert-success']")
     expect(page).to have_content("facebook: created")
