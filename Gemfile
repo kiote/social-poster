@@ -29,6 +29,8 @@ gem 'will_paginate'
 
 gem 'mutations'
 
+gem 'mysql2'
+
 group :production, :staging do
   gem 'pg'
   
@@ -40,7 +42,6 @@ end
 
 group :development, :test do
 
-  gem "sqlite3"
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem "spinach-rails"
@@ -56,7 +57,7 @@ group :test do
 	gem 'faker'
 	gem 'capybara'
 	gem 'guard-rspec'
-	gem 'launchy'
+	#gem 'launchy'
 
 	gem 'capybara-webkit'
 
