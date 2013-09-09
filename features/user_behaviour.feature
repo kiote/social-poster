@@ -15,27 +15,25 @@ Feature: testing users behaviour
     When user click sign up
     Then user view sign_up page, whooa!
   
-  Scenario: signing in; okay
+  Scenario: signing in with correct data
     Given user is on the sign in page
     When fields Email, Password correctly filled and sign in pressed
     Then user can observe users#show page
   
-  # что за kayo
-  Scenario: signing in; kayo
+  Scenario: signing in with incorrect data
     Given user is on the sign in page
     When fields Email, Password incorrectly filled and sign in pressed
     Then user can observe sign_in page
     And error message
   
-  Scenario: signing up; okay
+  Scenario: signing up with correct data
     Given user is on the sign up page
     When Name, Email, Password, Confirmation fields correctly filled
     And button Create Account has been pressed
     Then there new user appears
     And his page with show action can be observed
   
-  # что за okayn't
-  Scenario: signing up; okayn't
+  Scenario: signing up with incorrect data
     Given user is on the sign up page
     When any of field is filled incorrectly
     And button Create Account has been pressed

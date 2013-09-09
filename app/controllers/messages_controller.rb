@@ -21,8 +21,7 @@ class MessagesController < ApplicationController
       
       sent_statuses = MessageSendersExtra.send_messages(current_user, @message)
       
-      flash[:success] = "%s; sent with statuses: %s" % [flash[:success], sent_statuses]
-      flash[:info] = "> created: #{outcome.inspect}"
+      flash[:success] = "message successfully sent"
       
       Rails.logger.debug "> sent statuses: %s" % sent_statuses
       Rails.logger.debug "> created: #{outcome.inspect}"
@@ -31,7 +30,7 @@ class MessagesController < ApplicationController
     else
       Rails.logger.debug ">"
       Rails.logger.debug "> not created: #{outcome.inspect}"
-      flash[:error] = "> not created: #{outcome.inspect}"
+      flash[:error] = "message not sent, there is an error"
     end
     
     Rails.logger.debug "> create messages controllere"

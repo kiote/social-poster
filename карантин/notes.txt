@@ -1,3 +1,7 @@
+
+для тестов залогинивание:
+https://github.com/gitlabhq/gitlabhq/blob/master/features/snippets/user_snippets.feature
+
     if session[:user_id] == nil
       auth = Authorisation.find_by_provider_and_uid(auth_hash[:provider], auth_hash[:uid])
       if auth
