@@ -1,7 +1,19 @@
 
 class Spinach::Features::SendingMessagesToNetworks < Spinach::FeatureSteps
   
-  include UserSteps::SignIn
+  #~ TODO: include UserSteps::SignIn
+  
+  step 'user' do
+   @user = FactoryGirl.create(:user, name: "Savva", email: 'vcabba@gmx.com', password: 'qqqwww')
+  end
+
+  step 'user is signed in' do
+    visit signin_path
+    fill_in "Email", with: 'vcabba@gmx.com'
+    fill_in "Password", with: 'qqqwww'
+    find(:xpath, "//input[@class='btn btn-large btn-primary'][@value='Sign in']").click
+    expect(page).to have_title("Savva")
+  end
 
   step 'there is Home page' do
     visit root_path

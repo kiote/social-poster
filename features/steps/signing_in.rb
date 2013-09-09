@@ -1,7 +1,17 @@
 class Spinach::Features::SigningIn < Spinach::FeatureSteps
   
+  #~ TODO : include UserSteps::SignIn
+  
   step 'user is on the signin page' do
     visit signin_path
+  end
+  
+  step 'user is signed in' do
+    visit signin_path
+    fill_in "Email", with: 'vcabba@gmx.com'
+    fill_in "Password", with: 'qqqwww'
+    find(:xpath, "//input[@class='btn btn-large btn-primary'][@value='Sign in']").click
+    expect(page).to have_title("Savva")
   end
 
   step 'user\'s input is incorrect' do
