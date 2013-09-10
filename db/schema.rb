@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20130809123445) do
     t.integer  "message_id"
   end
 
-  add_index "facebook_messages", ["message_id"], name: "index_facebook_messages_on_message_id", using: :btree
+  add_index "facebook_messages", ["message_id"], name: "index_facebook_messages_on_message_id"
 
   create_table "linkedin_messages", force: true do |t|
     t.string   "text"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20130809123445) do
     t.integer  "message_id"
   end
 
-  add_index "linkedin_messages", ["message_id"], name: "index_linkedin_messages_on_message_id", using: :btree
+  add_index "linkedin_messages", ["message_id"], name: "index_linkedin_messages_on_message_id"
 
   create_table "messages", force: true do |t|
     t.integer  "user_id"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20130809123445) do
     t.datetime "sent_at"
   end
 
-  add_index "messages", ["user_id", "created_at"], name: "index_messages_on_user_id_and_created_at", using: :btree
+  add_index "messages", ["user_id", "created_at"], name: "index_messages_on_user_id_and_created_at"
 
   create_table "tumblr_messages", force: true do |t|
     t.string   "text"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20130809123445) do
     t.integer  "message_id"
   end
 
-  add_index "tumblr_messages", ["message_id"], name: "index_tumblr_messages_on_message_id", using: :btree
+  add_index "tumblr_messages", ["message_id"], name: "index_tumblr_messages_on_message_id"
 
   create_table "twitter_messages", force: true do |t|
     t.string   "text"
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 20130809123445) do
     t.integer  "message_id"
   end
 
-  add_index "twitter_messages", ["message_id"], name: "index_twitter_messages_on_message_id", using: :btree
+  add_index "twitter_messages", ["message_id"], name: "index_twitter_messages_on_message_id"
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -77,8 +77,8 @@ ActiveRecord::Schema.define(version: 20130809123445) do
     t.string   "remember_me"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["remember_me"], name: "index_users_on_remember_me", using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["remember_me"], name: "index_users_on_remember_me"
 
   create_table "vkontakte_messages", force: true do |t|
     t.string   "text"
@@ -87,6 +87,6 @@ ActiveRecord::Schema.define(version: 20130809123445) do
     t.integer  "message_id"
   end
 
-  add_index "vkontakte_messages", ["message_id"], name: "index_vkontakte_messages_on_message_id", using: :btree
+  add_index "vkontakte_messages", ["message_id"], name: "index_vkontakte_messages_on_message_id"
 
 end

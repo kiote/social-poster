@@ -45,6 +45,8 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem "spinach-rails"
 
+  gem "sqlite3"
+
 end
 
 group :test do
