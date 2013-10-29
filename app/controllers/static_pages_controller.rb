@@ -1,3 +1,4 @@
+
 class StaticPagesController < ApplicationController
 
   def home
@@ -6,6 +7,7 @@ class StaticPagesController < ApplicationController
     
     Rails.logger.debug "> StaticPagesController home"
     
+    #~ TODO:
     @message = current_user.messages.build
     @message.facebook_message = FacebookMessage.new
     @message.linkedin_message = LinkedinMessage.new

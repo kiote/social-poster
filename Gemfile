@@ -64,7 +64,6 @@ group :test do
 
 	gem 'cucumber-rails', require: false
   
-# TODO: version is less than it might be
   gem 'database_cleaner', '<= 1.0.1'
   
   gem "spinach"

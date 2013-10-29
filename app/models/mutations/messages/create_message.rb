@@ -1,106 +1,9 @@
 
+
 module SubBrs
   def sub_brs text
     text.gsub!("<br>", "")
   end
-end
-
-class CreateFacebookMessage < Mutations::Command
-  
-  include SubBrs
-  
-  required do
-    model :message
-  end
-  
-  optional do
-    string :text
-  end
-  
-  def execute
-    sub_brs(text) if text
-    facebook_message = FacebookMessage.create!(inputs)
-    facebook_message
-  end
-  
-end
-
-class CreateLinkedinMessage < Mutations::Command
-  
-  include SubBrs
-  
-  required do
-    model :message
-  end
-  
-  optional do
-    string :text
-  end
-  
-  def execute
-    sub_brs(text) if text
-    linkedin_message = LinkedinMessage.create!(inputs)
-    linkedin_message
-  end
-  
-end
-
-class CreateTumblrMessage < Mutations::Command
-  
-  include SubBrs
-  
-  required do
-    model :message
-  end
-  
-  optional do
-    string :text
-  end
-    
-  def execute
-    tumblr_message = TumblrMessage.create!(inputs)
-    tumblr_message
-  end
-  
-end
-
-class CreateTwitterMessage < Mutations::Command
-  
-  include SubBrs
-  
-  required do
-    model :message
-  end
-  
-  optional do
-    string :text
-  end
-    
-  def execute
-    sub_brs(text) if text
-    twitter_message = TwitterMessage.create!(inputs)
-    twitter_message
-  end
-  
-end
-
-class CreateVkontakteMessage < Mutations::Command
-  
-  include SubBrs
-  
-  required do
-    model :message
-  end
-  
-  optional do
-    string :text
-  end
-    
-  def execute
-    vkontakte_message = VkontakteMessage.create!(inputs)
-    vkontakte_message
-  end
-  
 end
 
 class CreateMessage < Mutations::Command
@@ -109,10 +12,41 @@ class CreateMessage < Mutations::Command
     model :user
   end
   
+  optional do
+
+    hash :linkedin_message do
+      string :*, :discard_empty => true
+    end
+  
+    hash :twitter_message do
+      string :*, :discard_empty => true
+    end
+    
+    hash :tumblr_message do
+      string :*, :discard_empty => true
+    end
+  
+    hash :vkontakte_message do
+      string :*, :discard_empty => true
+    end
+  
+    hash :facebook_message do
+      string :*, :discard_empty => true
+    end
+    
+  end
+  
   def execute
     
-    message = Message.create!(inputs)
+    message = Message.create!(user: user)
     message.sent_at = Time.new
+    
+    LinkedinMessage.create!(message: message, text: inputs[:linkedin_message][:text]) if inputs[:linkedin_message][:text]
+    FacebookMessage.create!(message: message, text: inputs[:facebook_message][:text]) if inputs[:facebook_message][:text]
+    TwitterMessage.create!(message: message, text: inputs[:twitter_message][:text]) if inputs[:twitter_message][:text]
+    TumblrMessage.create!(message: message, text: inputs[:tumblr_message][:text]) if inputs[:tumblr_message][:text]
+    VkontakteMessage.create!(message: message, text: inputs[:vkontakte_message][:text]) if inputs[:vkontakte_message][:text]
+    
     message
   end
   

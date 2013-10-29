@@ -10,7 +10,9 @@ class Message < ActiveRecord::Base
   has_one :twitter_message, dependent: :destroy
   has_one :vkontakte_message, dependent: :destroy
   
+  # TODO: эту проврку в mutations ?
   validates :user_id, presence: true
+  
   default_scope -> { order('created_at DESC') }
   
   def build_texts(params)

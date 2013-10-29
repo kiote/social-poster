@@ -2,6 +2,7 @@
 function submit_message_form()
 {
   var vkontakte_message = document.getElementById("vkontakte_message_text").value
+  
   vkontakte_message = vkontakte_message.replace("<br>","");
   
   function send_vkontakte_message(vkontakte_message)
@@ -10,15 +11,18 @@ function submit_message_form()
       apiId: 3756304
     });
     
-    function authInfo(response) {
-      if (response.session) {
-        VK.Api.call("wall.post", {message: vkontakte_message}, function(r) {alert("callback");})
-      } else {
-        alert('not auth');
-      }
-    }
-
-    VK.Auth.getLoginStatus(authInfo);
+    VK.Api.call("wall.post", {message: vkontakte_message}, function(r) {alert("callback");})
+    
+    //~ VK.Auth.login
+    //~ function authInfo(response) {
+      //~ if (response.session) {
+        //~ VK.Api.call("wall.post", {message: vkontakte_message}, function(r) {alert("callback");})
+      //~ } else {
+        //~ alert('not auth');
+      //~ }
+    //~ }
+//~ 
+    //~ VK.Auth.getLoginStatus(authInfo);
   }
 
   if(vkontakte_message.length > 0) {

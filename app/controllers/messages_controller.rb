@@ -1,4 +1,3 @@
-
 class MessagesController < ApplicationController
   
   before_action :signed_in_user, only: [:create, :destroy]
@@ -6,35 +5,16 @@ class MessagesController < ApplicationController
   
   def create
     
-    # TODO: контроль отправки, статусы.
-    
-    Rails.logger.debug "> MessagesController create"
-    Rails.logger.debug "> message: %s" % @message
-    
     outcome = CreateMessage.run(params, user: current_user)
     
-    if outcome.success?
-      
-      @message = outcome.result
-      
-      MessageSendersExtra.create_submessages(params, @message)
-      
-      sent_statuses = MessageSendersExtra.send_messages(current_user, @message)
-      
-      flash[:success] = "message successfully sent"
-      
-      Rails.logger.debug "> sent statuses: %s" % sent_statuses
-      Rails.logger.debug "> created: #{outcome.inspect}"
-      
-      
-    else
-      Rails.logger.debug ">"
-      Rails.logger.debug "> not created: #{outcome.inspect}"
-      flash[:error] = "message not sent, there is an error"
-    end
+    #~ raise outcome.result.facebook_message.inspect
     
-    Rails.logger.debug "> create messages controllere"
-    Rails.logger.debug "> %s" % params.to_s
+    if outcome.success?
+      sent_statuses = MessageSendersExtra.send_message(outcome.result)
+      flash[:success] = "message is sent"
+    else
+      flash[:error] = "message is not sent"
+    end
     
     redirect_to root_url
   end

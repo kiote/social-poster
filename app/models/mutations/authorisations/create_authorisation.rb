@@ -11,7 +11,11 @@ class CreateAuthorisation < Mutations::Command
     string :secret
   end
   
-  def execute
-    Authorisation.create!(inputs)
+  def execute    
+    if user.authorisations.find_by_provider(provider)
+      user.authorisations.find_by_provider(provider)
+    else
+      Authorisation.create!(inputs)
+    end
   end
 end

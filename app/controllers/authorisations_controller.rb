@@ -16,7 +16,6 @@ class AuthorisationsController < ApplicationController
     params[:secret] = auth_hash[:secret]
     params[:secret] = "secret" if auth_hash[:secret].length < 1
     
-    
     outcome = CreateAuthorisation.run(params, user: current_user)
     
     Rails.logger.debug "> params: %s" % params

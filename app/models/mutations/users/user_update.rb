@@ -1,6 +1,7 @@
-class UserCreate < Mutations::Command
+class UserUpdate < Mutations::Command
   
   required do
+    model :user
     
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     
@@ -18,12 +19,15 @@ class UserCreate < Mutations::Command
       return
     end
     
-    if User.find_by_email(email)
+    if User.find_by_email(email) and user.email != email
       add_error(:email, :doesnt_unique, "Your email already taken.")
       return
     end
     
-    user = User.create!(inputs)
+    user.name = name
+    user.email = email
+    user.password = password
     user
   end
+  
 end
