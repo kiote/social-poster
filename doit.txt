@@ -1,0 +1,27 @@
+
+для моделей проверки:
+
+message:
+validates :user_id, presence: true
+
+tumblr_message:
+validates :text, length: { maximum: 512 }
+
+twitter_message:
+validates :text, length: { maximum: 140 }
+
+linkedin_message:
+validates :text, length: { maximum: 512 }
+
+vkontakte_message:
+validates :text, length: { maximum: 512 }
+
+facebook_message:
+validates :text, length: { maximum: 512 }
+
+authorisation:
+validates :provider, :uid, presence: true
+validates :user_id, uniqueness: {scope: [:provider, :uid]}
+
+user:
+before_create & before_save?
