@@ -65,3 +65,37 @@
   VK.callMethod("resizeWindow", 510, 600); 
 </script>
 
+
+
+async
+
+#vk_api_transport
+:javascript
+  window.vkAsyncInit = function() {
+    VK.init({
+      apiId: ВАШ_API_ID
+    });
+  };
+
+  setTimeout(function() {
+    var el = document.createElement("script");
+    el.type = "text/javascript";
+    el.src = "//vk.com/js/api/openapi.js";
+    el.async = true;
+    document.getElementById("vk_api_transport").appendChild(el);
+  }, 0);
+
+
+
+
+
+window.onload = function()
+      {
+        VK.init({
+          apiId: 3756304
+        });
+        
+        VK.Auth.getLoginStatus(authInfo);
+        VK.UI.button('login_button');
+        
+      }

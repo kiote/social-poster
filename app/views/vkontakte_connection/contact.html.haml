@@ -19,6 +19,40 @@
   
     #login_button{onclick: "VK.Auth.login(authInfo);"}
     
+    #vk_api_transport
+    
+    :javascript
+      window.vkAsyncInit = function() {
+        
+        VK.init({
+          apiId: 3756304
+        });
+        
+        VK.Auth.getLoginStatus(authInfo);
+        VK.UI.button('login_button');
+        
+        //VK.api('wall.post', {message: 'mesage'}, function(r) { alert(r); })
+        
+        VK.Api.call('users.get', {uids: 6492},
+         function(r) {
+          if(r.response) {alert('Привет, ' + r.response[0].first_name);} }
+        );
+        
+        //VK.Api.call('wall.post', {message: 'mesage'},
+        // function(r) {
+        //  if(r.response) {alert('Привет, ' + r.response[0].first_name);} }
+        //);
+        
+      };
+    
+      setTimeout(function() {
+        var el = document.createElement("script");
+        el.type = "text/javascript";
+        el.src = "http://vk.com/js/api/openapi.js";
+        el.async = true;
+        document.getElementById("vk_api_transport").appendChild(el);
+      }, 0);
+      
     :javascript
     
       function authInfo(response)
@@ -31,17 +65,5 @@
         {
           alert('not auth');
         }
-      }
-      
-      
-      window.onload = function()
-      {
-        VK.init({
-          apiId: 3756304
-        });
-        
-        VK.Auth.getLoginStatus(authInfo);
-        VK.UI.button('login_button');
-        VK.api('wall.post', {message: 'mesage'}, function(r) { alert(r); })
       }
     %p by the way
