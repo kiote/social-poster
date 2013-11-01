@@ -29,3 +29,39 @@
   document.getElementById("debug").innerHTML='debug'
 
 %p asdasd
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  
+  function init_okay() {
+     // API initialization succeeded
+     // Your code here
+     
+     apiId: 3756304
+     
+     alert(1);
+  };
+  
+  function init_feil() {
+     // API initialization failed
+     // Can reload page here
+     
+     alert(2);
+  };
+  
+  var actual_version = '5.2';
+  
+  VK.init( init_okay, init_feil, actual_version);
+  
+  //~ VK.callMethod('wall.post', {message: 'mesage'}, function(r) { alert(r); } )
+  
+  VK.callMethod("resizeWindow", 510, 600); 
+</script>
+

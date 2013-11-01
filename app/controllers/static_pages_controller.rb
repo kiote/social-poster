@@ -3,9 +3,7 @@ class StaticPagesController < ApplicationController
 
   def home
   
-    return unless current_user
-    
-    Rails.logger.debug "> StaticPagesController home"
+    return if not current_user
     
     #~ TODO:
     @message = current_user.messages.build

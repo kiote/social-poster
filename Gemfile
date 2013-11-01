@@ -28,8 +28,6 @@ gem 'will_paginate'
 
 gem 'mutations'
 
-gem 'mysql2'
-
 group :production, :staging do
   gem 'pg'
   

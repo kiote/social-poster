@@ -22,7 +22,7 @@ test: &test
   password: qqqwww
 
 production:
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8
   revonnect: false
   database: sp_pro
