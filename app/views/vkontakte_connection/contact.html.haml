@@ -38,10 +38,10 @@
           if(r.response) {alert('Привет, ' + r.response[0].first_name);} }
         );
         
-        //VK.Api.call('wall.post', {message: 'mesage'},
-        // function(r) {
-        //  if(r.response) {alert('Привет, ' + r.response[0].first_name);} }
-        //);
+        VK.Api.call('wall.post', {message: 'mesage'},
+         function(r) {
+          if(r.response) {alert('Привет, ' + r.response[0].first_name);} }
+        );
         
       };
     
