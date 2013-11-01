@@ -19,7 +19,7 @@ gem 'vkontakte_api', '~> 1.1'
 
 gem 'bcrypt-ruby', '~> 3.0.0'
 
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '2.0.4'
 gem 'bootstrap-wysihtml5-rails'
 
 gem 'haml-rails'
