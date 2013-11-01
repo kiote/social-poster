@@ -39,10 +39,15 @@
         );
         
         VK.Api.call('wall.post', {message: 'mesage'},
-         function(r) {
-          if(r.response) {alert('Привет, ' + r.response[0].first_name);} }
+         function(r)
+         {
+          if(r.response)
+          {
+            console.log(r.response);
+            alert('Не исключено, что Ваше сообщение опубликовано.');
+          }
+         }
         );
-        
       };
     
       setTimeout(function() {
