@@ -1,7 +1,7 @@
 
 function submit_message_form()
 {
-  var vkontakte_message = document.getElementById("vkontakte_message_text").value
+  var vkontakte_message = document.getElementById("vkontakte_message_text").value;
   
   vkontakte_message = vkontakte_message.replace("<br>","");
   
