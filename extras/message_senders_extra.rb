@@ -11,26 +11,24 @@ module MessageSendersExtra
   
   class << self
     
-    def do_send_message(m)
+    def do_send_message(message)
       #~ проверить какие подсообщения сообщения не пусты
       #~ проверить авторизована ли отправка для этих подсообщений
       #~ отправить сообщение, вернуть что-то типа кодоа ошибки
       
       ProvidersExtra::PROVIDERS.each do |provider|
         
-        if m.send(:"#{provider}_message") == nil
+        if message.send(:"#{provider}_message") == nil
           next
         end
         
-        if m.user.authorisations.find_by_provider(provider) == nil
+        if message.user.authorisations.find_by_provider(provider) == nil
           next
         end
         
-        self.send(:"send_message_to_#{provider}", m)
+        self.send(:"send_message_to_#{provider}", message)
         
       end
-      
-      return 1
       
     end
     

@@ -6,11 +6,13 @@
     %aside.span4
       %section
         = render 'shared/user_info'
+  
+  = javascript_include_tag params[:controller]
+  
+  #vk_api_transport
     
   .container
     .hero-unit
-      
-      / = render 'shared/message_form'
       
       = form_for @message, html: {name: "message_form"} do |f|
         = render 'shared/error_messages', object: f.object
@@ -54,16 +56,5 @@
   
   = render file: "app/views/sessions/new"
   
-  /%div.center.hero-unit
-  /  
-  /  %h2
-  /    = link_to "Sign up", signup_path, class: "btn btn-large btn-primary"
-  /    _ability_to_send_messages_through_networks_
-  /    = link_to "Sign up", signup_path, class: "btn btn-large btn-primary"
-  /    
-  /= link_to image_tag("social_poster.png", alt: "SocialPoster"), 'http://social-poster.herokuapp.com'
-
 :javascript
   $('.textarea').wysihtml5();
-
-%script{src: "http://vk.com/js/api/openapi.js"}

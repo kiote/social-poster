@@ -7,8 +7,6 @@ class MessagesController < ApplicationController
     
     outcome = CreateMessage.run(params, user: current_user)
     
-    #~ raise outcome.result.facebook_message.inspect
-    
     if outcome.success?
       
       MessageSendersExtra.do_send_message(outcome.result)
