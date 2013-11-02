@@ -15,11 +15,10 @@ gem 'omniauth-twitter'
 
 gem 'fb_graph'
 gem 'linkedin'
-gem 'vkontakte_api', '~> 1.1'
 
 gem 'bcrypt-ruby', '~> 3.0.0'
 
-gem 'bootstrap-sass', '2.0.4'
+gem 'bootstrap-sass'
 gem 'bootstrap-wysihtml5-rails'
 
 gem 'haml-rails'
@@ -50,19 +49,18 @@ end
 group :test do
 
 	gem "vcr"
-	gem "webmock", "< 1.12"
+	gem "webmock"
 	gem "fakeweb"
 
 	gem 'faker'
 	gem 'capybara'
 	gem 'guard-rspec'
-	#gem 'launchy'
 
 	gem 'capybara-webkit'
 
 	gem 'cucumber-rails', require: false
   
-  gem 'database_cleaner', '<= 1.0.1'
+  gem 'database_cleaner'
   
   gem "spinach"
 
@@ -70,8 +68,8 @@ end
 
 
 gem 'coffee-rails'
-gem 'sass-rails', '~> 4.0.0.rc1'
-gem 'uglifier', '>= 1.0.3'
+gem 'sass-rails'
+gem 'uglifier'
 
 gem 'jquery-rails'
 gem 'turbolinks'

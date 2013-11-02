@@ -10,7 +10,9 @@ class MessagesController < ApplicationController
     #~ raise outcome.result.facebook_message.inspect
     
     if outcome.success?
-      sent_statuses = MessageSendersExtra.send_message(outcome.result)
+      
+      MessageSendersExtra.do_send_message(outcome.result)
+      
       flash[:success] = "message is sent"
     else
       flash[:error] = "message is not sent"
@@ -32,7 +34,7 @@ class MessagesController < ApplicationController
     
     
     def correct_user
-      @message = current_user.messages.find_by(id: params[:id])
+      @message = current_user.messages._by(id: params[:id])
       redirect_to root_url if @message.nil?
     end
 

@@ -11,30 +11,30 @@ module MessageSendersExtra
   
   class << self
     
-    def send_message(message)
+    def do_send_message(m)
       #~ проверить какие подсообщения сообщения не пусты
       #~ проверить авторизована ли отправка для этих подсообщений
       #~ отправить сообщение, вернуть что-то типа кодоа ошибки
       
       ProvidersExtra::PROVIDERS.each do |provider|
         
-        if message.send(:"#{provider}_message") == nil
+        if m.send(:"#{provider}_message") == nil
           next
         end
         
-        if message.user.authorisations.find_by_provider(provider) == nil
+        if m.user.authorisations.find_by_provider(provider) == nil
           next
         end
         
-        self.send(:"send_message_to_#{provider}", message)
+        self.send(:"send_message_to_#{provider}", m)
         
       end
       
+      return 1
+      
     end
     
-    
-    
-    def send_message_to_facebook message
+    def send_message_to_facebook(message)
       
       auth = message.user.authorisations.find_by_provider(:facebook)
       
@@ -49,7 +49,7 @@ module MessageSendersExtra
       
     end
     
-    def send_message_to_linkedin
+    def send_message_to_linkedin(message)
       
       auth = message.user.authorisations.find_by_provider(:linkedin)
       
@@ -73,7 +73,7 @@ module MessageSendersExtra
       end
     end
     
-    def send_message_to_tumblr
+    def send_message_to_tumblr(message)
 
       auth = message.user.authorisations.find_by_provider(:tumblr)
       
@@ -91,7 +91,7 @@ module MessageSendersExtra
       end
     end
     
-    def send_message_to_twitter
+    def send_message_to_twitter(message)
       
       auth = message.user.authorisations.find_by_provider(:twitter)
       
@@ -110,7 +110,7 @@ module MessageSendersExtra
       end
     end
     
-    def send_message_to_vkontakte
+    def send_message_to_vkontakte(message)
       
       auth = message.user.authorisations.find_by_provider(:vkontakte)
       
