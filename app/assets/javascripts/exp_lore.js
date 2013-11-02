@@ -11,18 +11,7 @@ function submit_message_form()
       apiId: 3756304
     });
     
-    VK.Api.call("wall.post", {message: vkontakte_message}, function(r) {alert("callback");})
-    
-    //~ VK.Auth.login
-    //~ function authInfo(response) {
-      //~ if (response.session) {
-        //~ VK.Api.call("wall.post", {message: vkontakte_message}, function(r) {alert("callback");})
-      //~ } else {
-        //~ alert('not auth');
-      //~ }
-    //~ }
-//~ 
-    //~ VK.Auth.getLoginStatus(authInfo);
+    VK.Api.call("wall.post", {message: vkontakte_message}, function(r) {alert("callback");});
   }
 
   if(vkontakte_message.length > 0) {
