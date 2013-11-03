@@ -7,10 +7,13 @@
       %section
         = render 'shared/user_info'
   
-  = javascript_include_tag params[:controller]
-  
   #vk_api_transport
-    
+  
+  -# = javascript_include_tag params[:controller]
+  = javascript_include_tag "init_vk_openapi"
+  
+  %button.link{onclick: "trying();", class: "btn btn-large btn-primary"} Exp
+  
   .container
     .hero-unit
       
@@ -50,7 +53,7 @@
               = fields_for @message.vkontakte_message do |m|
                 = m.text_area :text, placeholder: "compose new vkontakte message", class: "textarea", rows: "7"
 
-        %button.link{onclick: "submit_message_form();", class: "btn btn-large btn-primary"} Post
+        %button.link{onclick: "submit_form();", class: "btn btn-large btn-primary"} Post
 
 - else
   
