@@ -25,11 +25,13 @@ window.vkAsyncInit = ->
   console.info "it seems that VK.api initialized"
   # VK.Auth.getLoginStatus authInfo
       
-  console.info "something"
+window.submit_form = ()->
+  return "submitted"
 
-window.submit_form = ->
-  VK.Api.call "wall.post", message: "mesage", (r) -> alert "your note as far as far away published"  if r.response
-
-window.trying = ->
-  alert "trym try"
-  VK.Api.call "wall.post", message: "mesage", (r) -> alert "your note as far as far away published"  if r.response
+window.send_especially_to_vkontakte = ->
+  
+  vkontakte_message = document.getElementById("vkontakte_message_text").value
+  vkontakte_message = vkontakte_message.replace("<br>", "")
+  
+  if vkontakte_message.length > 0
+    VK.Api.call "wall.post", message: vkontakte_message, (r) -> return "msg is sent" if r.response

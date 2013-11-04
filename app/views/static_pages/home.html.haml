@@ -12,9 +12,8 @@
   -# = javascript_include_tag params[:controller]
   = javascript_include_tag "init_vk_openapi"
   
-  %button.link{onclick: "trying();", class: "btn btn-large btn-primary"} Exp
-  
   .container
+
     .hero-unit
       
       = form_for @message, html: {name: "message_form"} do |f|
@@ -54,7 +53,9 @@
                 = m.text_area :text, placeholder: "compose new vkontakte message", class: "textarea", rows: "7"
 
         %button.link{onclick: "submit_form();", class: "btn btn-large btn-primary"} Post
-
+        
+    %button.link{onclick: "send_especially_to_vkontakte();", class: "btn btn-large btn-primary"} Send especially to "vkontakte"
+    
 - else
   
   = render file: "app/views/sessions/new"
