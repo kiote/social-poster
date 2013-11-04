@@ -25,9 +25,6 @@ SocialPoster::Application.configure do
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
   
-  # Raise exception on mass assignment protection for Active Record models
-  config.active_record.mass_assignment_sanitizer = :strict
-
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   #~ config.active_record.auto_explain_threshold_in_seconds = 0.5
@@ -45,7 +42,6 @@ SocialPoster::Application.configure do
     provider :twitter, APP_KEYS['twitter']['consumer_key'], APP_KEYS['twitter']['secret_key']
     provider :facebook, APP_KEYS['facebook']['consumer_key'], APP_KEYS['facebook']['secret_key'], scope: 'publish_stream,offline_access,email'
     provider :linkedin, APP_KEYS['linkedin']['consumer_key'], APP_KEYS['linkedin']['secret_key'], scope: 'rw_nus'
-    provider :vkontakte, APP_KEYS['vkontakte']['consumer_key'], APP_KEYS['vkontakte']['secret_key'], scope: 'notify,wall,friends'
     provider :tumblr, APP_KEYS['tumblr']['consumer_key'], APP_KEYS['tumblr']['secret_key']
 
   end

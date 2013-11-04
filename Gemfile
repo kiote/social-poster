@@ -6,10 +6,9 @@ gem 'rails', '4.0.0'
 
 gem 'omniauth'
 gem 'omniauth-oauth2'
+
 gem 'omniauth-facebook'
-gem 'omniauth-vkontakte'
 gem 'omniauth-linkedin'
-gem 'omniauth-tumblr'
 gem 'omniauth-tumblr'
 gem 'omniauth-twitter'
 
@@ -40,8 +39,6 @@ group :development, :test do
 
   gem 'rspec-rails'
   gem 'factory_girl_rails'
-  gem "spinach-rails"
-
   gem "sqlite3"
 
 end
@@ -59,10 +56,7 @@ group :test do
 	gem 'capybara-webkit'
 
 	gem 'cucumber-rails', require: false
-  
-  gem 'database_cleaner'
-  
-  gem "spinach"
+	gem 'database_cleaner'
 
 end
 

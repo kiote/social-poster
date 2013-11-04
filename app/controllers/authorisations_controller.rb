@@ -18,13 +18,9 @@ class AuthorisationsController < ApplicationController
     
     outcome = CreateAuthorisation.run(params, user: current_user)
     
-    Rails.logger.debug "> params: %s" % params
-    
     if outcome.success?
-      Rails.logger.debug "> #{outcome.result.provider} connected"
       flash[:info] = "> #{outcome.result.provider} connected"
     else
-      Rails.logger.debug "> #{outcome.inspect} not connected"
       flash[:error] = "> #{outcome.inspect} not connected"
     end
     
