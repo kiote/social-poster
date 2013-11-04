@@ -51,13 +51,7 @@ module MessageSendersExtra
       
       auth = message.user.authorisations.find_by_provider(:linkedin)
       
-      consumer_options = {
-        request_token_path: "/uas/oauth/requestToken?scope=r_basicprofile+rw_nus",
-        access_token_path: "/uas/oauth/accessToken",
-        authorize_path: "/uas/oauth/authorize",
-        api_host: "https://api.linkedin.com",
-        auth_host: "https://www.linkedin.com"
-      }
+      consumer_options = MISC_PARAMS['linkedin']['consumer_options']
       
       client = LinkedIn::Client.new(APP_KEYS['linkedin']['consumer_key'], APP_KEYS['linkedin']['secret_key'], consumer_options)
       client.authorize_from_access(auth.token, auth.secret)
@@ -66,6 +60,7 @@ module MessageSendersExtra
       
       if "#{response.inspect}".include? '201 Created'
         "linkedin: created"
+        raise response.inspect
       else
         "linkedin: failure"
       end
@@ -75,7 +70,7 @@ module MessageSendersExtra
 
       auth = message.user.authorisations.find_by_provider(:tumblr)
       
-      consumer = OAuth::Consumer.new(APP_KEYS['tumblr']['consumer_key'], APP_KEYS['tumblr']['secret_key'], {:site => "http://www.tumblr.com/"})
+      consumer = OAuth::Consumer.new(APP_KEYS['tumblr']['consumer_key'], APP_KEYS['tumblr']['secret_key'], {site: "http://www.tumblr.com/"})
       token_hash = { oauth_token: auth.token, oauth_token_secret: auth.secret }
       access_token = OAuth::AccessToken.from_hash(consumer, token_hash )
       
@@ -97,9 +92,6 @@ module MessageSendersExtra
       token_hash = { oauth_token: auth.token, oauth_token_secret: auth.secret }
       access_token = OAuth::AccessToken.from_hash(consumer, token_hash)
       response = access_token.request(:post, "http://api.twitter.com/1.1/statuses/update.json", status: message.twitter_message.text)
-      
-      Rails.logger.debug '> %s' % response.body
-      Rails.logger.debug '> t: %s, s: %s, u: %s' % [auth.token, auth.secret, auth.uid]
       
       if response.body.include? 'created_at'
         "twitter: created"

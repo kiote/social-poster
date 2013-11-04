@@ -1,0 +1,7 @@
+linkedin:
+  consumer_options:
+    request_token_path: "/uas/oauth/requestToken?scope=r_basicprofile+rw_nus"
+    access_token_path: "/uas/oauth/accessToken"
+    authorize_path: "/uas/oauth/authorize"
+    api_host: "https://api.linkedin.com"
+    auth_host: "https://www.linkedin.com"
