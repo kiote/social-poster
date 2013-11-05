@@ -1,15 +1,12 @@
-
-@sign_in
 Feature: Signing in
 
-  Scenario: user fails to sign in
+  Scenario: sign in with incorrect info
     Given user is on the signin page
     And user have account
     When user's input is incorrect
     Then show that its error
   
-  @successful
-  Scenario: signing in
+  Scenario: sign in with correct info
     Given user is on the signin page
     And user have account
     When user submit email & password
