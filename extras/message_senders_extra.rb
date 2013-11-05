@@ -60,7 +60,6 @@ module MessageSendersExtra
       
       if "#{response.inspect}".include? '201 Created'
         "linkedin: created"
-        raise response.inspect
       else
         "linkedin: failure"
       end
@@ -70,12 +69,12 @@ module MessageSendersExtra
 
       auth = message.user.authorisations.find_by_provider(:tumblr)
       
-      consumer = OAuth::Consumer.new(APP_KEYS['tumblr']['consumer_key'], APP_KEYS['tumblr']['secret_key'], {site: "http://www.tumblr.com/"})
+      consumer = OAuth::Consumer.new(APP_KEYS['tumblr']['consumer_key'], APP_KEYS['tumblr']['secret_key'], {site: MISC_PARAMS['tumblr']['site']})
       token_hash = { oauth_token: auth.token, oauth_token_secret: auth.secret }
       access_token = OAuth::AccessToken.from_hash(consumer, token_hash )
       
-      response = access_token.post("http://api.tumblr.com/v2/blog/#{auth.uid}.tumblr.com/post",
-        {title: 'message from Social Poster', body: message.tumblr_message.text, type: 'text'})
+      response = access_token.post(MISC_PARAMS['tumblr']['post_to_url'],
+        {title: 'a message from Social Poster', body: message.tumblr_message.text, type: 'text'})
       
       if response.body.include? '"status":201,"msg":"Created"'
         "tumblr: created"
@@ -88,10 +87,10 @@ module MessageSendersExtra
       
       auth = message.user.authorisations.find_by_provider(:twitter)
       
-      consumer = OAuth::Consumer.new(APP_KEYS['twitter']['consumer_key'], APP_KEYS['twitter']['secret_key'], { :site => "http://api.twitter.com" })
+      consumer = OAuth::Consumer.new(APP_KEYS['twitter']['consumer_key'], APP_KEYS['twitter']['secret_key'], { site: MISC_PARAMS['twitter']['site'] })
       token_hash = { oauth_token: auth.token, oauth_token_secret: auth.secret }
       access_token = OAuth::AccessToken.from_hash(consumer, token_hash)
-      response = access_token.request(:post, "http://api.twitter.com/1.1/statuses/update.json", status: message.twitter_message.text)
+      response = access_token.request(:post, MISC_PARAMS['twitter']['post_to_url'], status: message.twitter_message.text)
       
       if response.body.include? 'created_at'
         "twitter: created"

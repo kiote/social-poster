@@ -5,3 +5,11 @@ linkedin:
     authorize_path: "/uas/oauth/authorize"
     api_host: "https://api.linkedin.com"
     auth_host: "https://www.linkedin.com"
+
+tumblr:
+  post_to_url: "http://api.tumblr.com/v2/blog/#{auth.uid}.tumblr.com/post"
+  site: "http://www.tumblr.com/"
+
+twitter:
+  post_to_url: "http://api.twitter.com/1.1/statuses/update.json"
+  site: "http://api.twitter.com"
