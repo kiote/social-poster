@@ -27,6 +27,7 @@ class UserUpdate < Mutations::Command
     user.name = name
     user.email = email
     user.password = password
+    user.save!
     user
   end
   
