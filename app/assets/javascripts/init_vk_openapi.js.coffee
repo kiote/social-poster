@@ -16,8 +16,6 @@ authInfo = (response) ->
   else
     alert "not auth"
 
-
-
 # initialize app asynchronously
 
 window.vkAsyncInit = ->  
@@ -25,9 +23,6 @@ window.vkAsyncInit = ->
   console.info "it seems that VK.api initialized"
   # VK.Auth.getLoginStatus authInfo
       
-window.submit_form = ()->
-  return "submitted"
-
 window.send_especially_to_vkontakte = ->
   
   vkontakte_message = document.getElementById("vkontakte_message_text").value
