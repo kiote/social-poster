@@ -1,0 +1,29 @@
+
+= javascript_include_tag "send_vkontakte"
+= javascript_include_tag "http://vkontakte.ru/js/api/openapi.js"
+
+= javascript_tag do
+  window.vk_message = '#{@message.facebook_message.text}';
+
+:javascript
+  send_especially_to_vkontakte(window.vk_message)
+  
+%h1 Messages#create
+%p Find me in app/views/messages/create.html.haml
+
+%section.container
+  .span8
+    = if @message.facebook_message
+      %h3=@message.facebook_message.text
+      
+    = if @message.linkedin_message
+      %h3=@message.linkedin_message.text
+      
+    = if @message.vkontakte_message
+      %h3=@message.vkontakte_message.text
+      
+    = if @message.tumblr_message
+      %h3=@message.tumblr_message.text
+      
+    = if @message.twitter_message
+      %h3=@message.twitter_message.text

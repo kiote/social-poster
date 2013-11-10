@@ -31,3 +31,15 @@ window.send_especially_to_vkontakte = ->
   if vkontakte_message.length > 0
     VK.Api.call "wall.post", message: vkontakte_message,
      (r) -> return "msg is sent" if r.response
+
+
+window.handleIt = ->
+  alert "hello"
+  VK.Api.call "wall.post",
+    message: "vkontakte_message"
+  , (r) ->
+    if r.response
+      alert "seems like message is sent"
+      "msg is sent"
+    else
+      alert "there's emptyiness ewponse"

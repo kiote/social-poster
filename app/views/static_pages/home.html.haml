@@ -7,10 +7,6 @@
       %section
         = render 'shared/user_info'
   
-  #vk_api_transport
-  
-  = javascript_include_tag "init_vk_openapi"
-  
   .container
 
     .hero-unit
@@ -52,57 +48,7 @@
                 = m.text_area :text, placeholder: "compose new vkontakte message", class: "textarea", rows: "7"
 
         %button.link{ class: "btn btn-large btn-primary", id: "submit_button"} Post
-        / onclick: "send_especially_to_vkontakte();",
-        
-        %script{src: "//vk.com/js/api/openapi.js", type: "text/javascript"}
-
-        :javascript
           
-          var submit_button=document.getElementById("submit_button");
-          submit_button.addEventListener("click",formvalidate,false);
-          
-          function formvalidate() {
-            console.log(" vua moi click submit");
-            alert("js2");
-            
-            var authInfo;
-            
-            authInfo = function(response) {
-              if (response.session) {
-                return alert("user: " + response.session.mid);
-              } else {
-                return alert("not auth");
-              }
-            };
-            
-            VK.Auth.getLoginStatus(authInfo);
-
-
-            VK.init({ apiId: 3756304 });
-            
-            VK.Api.call("wall.post", { message: "vkontakte_message" },
-             function(r) {
-              if (r.response) {
-                alert("seems like message is sent");
-                return "msg is sent";
-              } else {
-                alert("there's emptyiness ewponse");
-              }
-             }
-            );
-            
-            alert("js3");
-
-            if(t==null){
-              // var t= document.forms["myForm"]["fname"].value;
-              if(t==null || t==""){
-                alert("xin dien vao email");
-              }
-            }
-          }
-          
-    / %button.link{onclick: "send_especially_to_vkontakte();", class: "btn btn-large btn-primary"} Send especially to "vkontakte"
-    
 - else
   
   = render file: "app/views/sessions/new"

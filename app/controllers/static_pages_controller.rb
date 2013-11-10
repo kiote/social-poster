@@ -11,6 +11,12 @@ class StaticPagesController < ApplicationController
     @message.tumblr_message = TumblrMessage.new
     @message.twitter_message = TwitterMessage.new
     @message.vkontakte_message = VkontakteMessage.new
+    
+    @message.facebook_message.text = ''
+    @message.linkedin_message.text = ''
+    @message.tumblr_message.text = ''
+    @message.twitter_message.text = ''
+    @message.vkontakte_message.text = ''
 
   end
 

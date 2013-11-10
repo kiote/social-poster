@@ -9,19 +9,24 @@ class MessagesController < ApplicationController
     
     if outcome.success?
       
-      MessageSendersExtra.do_send_message(outcome.result)
+      @message = outcome.result
+      MessageSendersExtra.do_send_message(@message)
       
       flash[:success] = "message is sent"
     else
       flash[:error] = "message is not sent"
     end
     
-    redirect_to root_url
+    # redirect_to root_url
   end
   
   def destroy
     @message.destroy
     redirect_to root_url
+  end
+  
+  def show
+    
   end
   
   private

@@ -1,6 +1,26 @@
 <html>
   
   <head>
+    
+    <script type="text/javascript">
+      function handleIt()
+      {
+        alert("hello");
+        VK.Api.call("wall.post", { message: "vkontakte_message" },
+        function(r)
+        {
+          if (r.response)
+          {
+            alert("seems like message is sent");
+            return "msg is sent";
+          } else {
+            alert("there's emptyiness ewponse");
+          }
+        }
+      );
+      }
+    </script>
+    
   </head>
   
   <body>
@@ -12,6 +32,9 @@
     
     <div id="login_button" onclick="VK.Auth.login(authInfo);"></div>
     
+    <form name="myform" action="javascript:handleIt()">
+      <input name="Submit"  type="submit" value="Update"/>
+    </form>
     
     
     <script type="text/javascript">
@@ -32,25 +55,6 @@
       
       VK.Auth.getLoginStatus(authInfo);
       VK.UI.button('login_button');
-      
-      //~ VK.Api.call('users.get', {uids: 6492}, function(r) {
-        //~ if(r.response) {
-          //~ alert('Привет, ' + r.response[0].first_name);
-        //~ }
-      //~ });
-      
-      VK.Api.call("wall.post", { message: "vkontakte_message" },
-        function(r)
-        {
-          if (r.response)
-          {
-            alert("seems like message is sent");
-            return "msg is sent";
-          } else {
-            alert("there's emptyiness ewponse");
-          }
-        }
-      );
       
     </script>
     
