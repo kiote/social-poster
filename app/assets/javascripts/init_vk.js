@@ -10,7 +10,17 @@ window.vkAsyncInit = function() {
           console.log(r.response);
       }
   });
-
+  
+  VK.Api.call('users.get', {uids: 6492, fields: 'sex,photo_big'},
+     function(r) {
+      if(r.response) {
+        alert('Привет, ' + r.response[0].first_name);
+        console.log(r.response);
+      }
+      else {
+        alert(123123);
+      }
+    });
 };
 
 setTimeout(function() {
