@@ -1,13 +1,46 @@
 
-= javascript_include_tag "send_vkontakte"
-= javascript_include_tag "http://vkontakte.ru/js/api/openapi.js"
+/ = javascript_include_tag "init_vk_openapi"
 
-= javascript_tag do
-  window.vk_message = '#{@message.facebook_message.text}';
+/ = javascript_include_tag "init_vk"
+
+= javascript_include_tag "http://vk.com/js/api/openapi.js"
+
+#login_button{onclick: "VK.Auth.login(authInfo);"}
+#wall_post{onclick: "wall_post();"}
+/ #wall_post{onclick: "VK.Auth.login(authInfo);"}
 
 :javascript
-  send_especially_to_vkontakte(window.vk_message)
+  VK.init({
+    apiId: 3756304
+  });
+  function authInfo(response) {
+    if (response.session) {
+      alert('user: '+response.session.mid);
+    } else {
+      alert('not auth');
+    }
+  }
+  function wall_post()
+  {
+    console.log('wall_post');
+    
+    VK.Api.call('users.get', {uids: 6492, fields: 'sex,photo_big'},
+     function(r) {
+      if(r.response) {
+        alert('Привет, ' + r.response[0].first_name);
+        console.log(r.response);
+      }
+      else {
+        alert(123123);
+      }
+    });
+  }
   
+  VK.Auth.getLoginStatus(authInfo);
+  VK.UI.button('login_button');
+  VK.UI.button('wall_post');
+
+
 %h1 Messages#create
 %p Find me in app/views/messages/create.html.haml
 

@@ -47,7 +47,7 @@
               = fields_for @message.vkontakte_message do |m|
                 = m.text_area :text, placeholder: "compose new vkontakte message", class: "textarea", rows: "7"
 
-        %button.link{ class: "btn btn-large btn-primary", id: "submit_button"} Post
+        %button.link{ class: "btn btn-large btn-primary", onclick: "javascript:handleIt()", id: "submit_button"} Post
           
 - else
   
