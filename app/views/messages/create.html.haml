@@ -1,13 +1,5 @@
 
-/ = javascript_include_tag "init_vk_openapi"
-
-/ = javascript_include_tag "init_vk"
-
 = javascript_include_tag "http://vk.com/js/api/openapi.js"
-
-#login_button{onclick: "VK.Auth.login(authInfo);"}
-#wall_post{onclick: "wall_post();"}
-/ #wall_post{onclick: "VK.Auth.login(authInfo);"}
 
 :javascript
   VK.init({
@@ -24,7 +16,11 @@
   {
     console.log('wall_post');
     
-    VK.Api.call('wall.post', {message: "message"}, function(r) {
+    var msg = "#{params[:vkontakte_message][:text]}"
+    
+    console.log('msg: ' + msg);
+    
+    VK.Api.call('wall.post', {message: msg}, function(r) {
       if(r.response) {
           alert(r.response);
           console.log("r.response:"+r.response);
@@ -32,9 +28,7 @@
     });
   }
   
-  VK.Auth.getLoginStatus(authInfo);
-  VK.UI.button('login_button');
-  VK.UI.button('wall_post');
+  wall_post();
 
 
 %h1 Messages#create

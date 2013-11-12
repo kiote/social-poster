@@ -5,11 +5,14 @@ class MessagesController < ApplicationController
   
   def create
     
+    params[:vkontakte_message][:text] = params[:vkontakte_message][:text].sub("<br>", "")
+    
     outcome = CreateMessage.run(params, user: current_user)
     
     if outcome.success?
       
       @message = outcome.result
+      
       MessageSendersExtra.do_send_message(@message)
       
       flash[:success] = "message is sent"
