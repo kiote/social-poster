@@ -15,8 +15,11 @@
   function wall_post()
   {
     console.log('wall_post');
-    
+     
     var msg = "#{params[:vkontakte_message][:text]}"
+    if ( msg.length <=1 ) {
+     return
+    }
     
     console.log('msg: ' + msg);
     
@@ -36,17 +39,27 @@
 
 %section.container
   .span8
-    = if @message.facebook_message
-      %h3=@message.facebook_message.text
+    - if @message.facebook_message
+      %h3
+        =@message.facebook_message.text
+        =@send_results[:facebook]
+        
+    - if @message.linkedin_message
+      %h3
+        =@message.linkedin_message.text
+        =@send_results[:linkedin]
+        
+    - if @message.vkontakte_message
+      %h3
+        =@message.vkontakte_message.text
+        =@send_results[:vkontakte]
       
-    = if @message.linkedin_message
-      %h3=@message.linkedin_message.text
-      
-    = if @message.vkontakte_message
-      %h3=@message.vkontakte_message.text
-      
-    = if @message.tumblr_message
-      %h3=@message.tumblr_message.text
-      
-    = if @message.twitter_message
-      %h3=@message.twitter_message.text
+    - if @message.tumblr_message
+      %h3
+        =@message.tumblr_message.text
+        =@send_results[:tumblr]
+    
+    - if @message.twitter_message
+      %h3
+        =@message.twitter_message.text
+        =@send_results[:twitter]

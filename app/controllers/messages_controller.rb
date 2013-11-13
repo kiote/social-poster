@@ -5,15 +5,20 @@ class MessagesController < ApplicationController
   
   def create
     
+    params[:facebook_message][:text] = params[:facebook_message][:text].sub("<br>", "")
+    params[:linkedin_message][:text] = params[:linkedin_message][:text].sub("<br>", "")
+    params[:twitter_message][:text] = params[:twitter_message][:text].sub("<br>", "")
     params[:vkontakte_message][:text] = params[:vkontakte_message][:text].sub("<br>", "")
     
     outcome = CreateMessage.run(params, user: current_user)
+    
+    @send_results = {}
     
     if outcome.success?
       
       @message = outcome.result
       
-      MessageSendersExtra.do_send_message(@message)
+      @send_results = MessageSendersExtra.do_send_message(@message)
       
       flash[:success] = "message is sent"
     else

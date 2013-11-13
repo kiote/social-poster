@@ -16,6 +16,8 @@ module MessageSendersExtra
       #~ проверить авторизована ли отправка для этих подсообщений
       #~ отправить сообщение, вернуть что-то типа кодоа ошибки
       
+      send_results = {}
+      
       ProvidersExtra::PROVIDERS.each do |provider|
         
         if message.send(:"#{provider}_message") == nil
@@ -26,9 +28,11 @@ module MessageSendersExtra
           next
         end
         
-        self.send(:"send_message_to_#{provider}", message)
+        send_results[:"#{provider}"] = self.send(:"send_message_to_#{provider}", message)
         
       end
+      
+      return send_results
       
     end
     
@@ -42,7 +46,7 @@ module MessageSendersExtra
       if response.message == message.facebook_message.text
         "facebook: created"
       else
-        "facebook: failure"
+        "facebook: something wrong: %s" % response.inspect
       end
       
     end
@@ -61,7 +65,7 @@ module MessageSendersExtra
       if "#{response.inspect}".include? '201 Created'
         "linkedin: created"
       else
-        "linkedin: failure"
+        "linkedin: something wrong: %s" % response.inspect
       end
     end
     
@@ -73,13 +77,15 @@ module MessageSendersExtra
       token_hash = { oauth_token: auth.token, oauth_token_secret: auth.secret }
       access_token = OAuth::AccessToken.from_hash(consumer, token_hash )
       
-      response = access_token.post(MISC_PARAMS['tumblr']['post_to_url'],
+      #MISC_PARAMS['tumblr']['post_to_url'],
+      
+      response = access_token.post("http://api.tumblr.com/v2/blog/#{auth.uid}.tumblr.com/post",
         {title: 'a message from Social Poster', body: message.tumblr_message.text, type: 'text'})
       
       if response.body.include? '"status":201,"msg":"Created"'
         "tumblr: created"
       else
-        "tumblr: failure"
+        "tumblr: something wrong: %s" % response.body.inspect
       end
     end
     
@@ -95,16 +101,8 @@ module MessageSendersExtra
       if response.body.include? 'created_at'
         "twitter: created"
       else
-        "twitter: failure"
+        "twitter: something wrong: %s" % response.body.inspect
       end
-    end
-    
-    def send_message_to_vkontakte(message)
-      
-      auth = message.user.authorisations.find_by_provider(:vkontakte)
-      
-      vk = VkontakteApi::Client.new auth.token
-      vk.wall.post(message: text)
     end
     
   end

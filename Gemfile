@@ -64,7 +64,5 @@ end
 gem 'coffee-rails'
 gem 'sass-rails'
 gem 'uglifier'
-
-gem 'jquery-rails'
 gem 'turbolinks'
-
+gem 'jquery-rails'
