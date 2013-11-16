@@ -40,13 +40,20 @@ module MessageSendersExtra
       
       auth = message.user.authorisations.find_by_provider(:facebook)
       
-      fb_user ||= FbGraph::User.me(auth.token)
-      response = fb_user.feed!(message: message.facebook_message.text)
+      begin
+        fb_user ||= FbGraph::User.me(auth.token)
+        response = fb_user.feed!(message: message.facebook_message.text)
+      rescue Exception => e
+        damn = "facebook message publicity error: %s " % e.message
+        return damn
+      end
       
-      if response.message == message.facebook_message.text
-        "facebook: created"
-      else
-        "facebook: something wrong: %s" % response.inspect
+      if response
+        if response.message == message.facebook_message.text
+          "facebook: created"
+        else
+          "facebook: something wrong: %s" % response.inspect
+        end          
       end
       
     end
@@ -94,15 +101,18 @@ module MessageSendersExtra
       auth = message.user.authorisations.find_by_provider(:twitter)
       
       consumer = OAuth::Consumer.new(APP_KEYS['twitter']['consumer_key'], APP_KEYS['twitter']['secret_key'], { site: MISC_PARAMS['twitter']['site'] })
+      
       token_hash = { oauth_token: auth.token, oauth_token_secret: auth.secret }
       access_token = OAuth::AccessToken.from_hash(consumer, token_hash)
+
       response = access_token.request(:post, MISC_PARAMS['twitter']['post_to_url'], status: message.twitter_message.text)
       
       if response.body.include? 'created_at'
         "twitter: created"
       else
         "twitter: something wrong: %s" % response.body.inspect
-      end
+      end        
+      
     end
     
   end

@@ -11,7 +11,8 @@ class CreateAuthorisation < Mutations::Command
     string :secret
   end
   
-  def execute    
+  def execute
+    
     if user.authorisations.find_by_provider(provider)
       user.authorisations.find_by_provider(provider)
     else

@@ -24,8 +24,6 @@ class MessagesController < ApplicationController
     else
       flash[:error] = "message is not sent"
     end
-    
-    # redirect_to root_url
   end
   
   def destroy
@@ -33,20 +31,11 @@ class MessagesController < ApplicationController
     redirect_to root_url
   end
   
-  def show
-    
-  end
-  
   private
-    
-    def message_params
-      params.require(:message).permit(:text)
-    end
-    
-    
-    def correct_user
-      @message = current_user.messages._by(id: params[:id])
-      redirect_to root_url if @message.nil?
-    end
+  
+  def correct_user
+    @message = current_user.messages._by(id: params[:id])
+    redirect_to root_url if @message.nil?
+  end
 
 end

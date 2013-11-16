@@ -43,7 +43,7 @@ class CreateMessage < Mutations::Command
     
     LinkedinMessage.create!(message: message, text: inputs[:linkedin_message][:text]) if inputs[:linkedin_message][:text]
     FacebookMessage.create!(message: message, text: inputs[:facebook_message][:text]) if inputs[:facebook_message][:text]
-    TwitterMessage.create!(message: message, text: inputs[:twitter_message][:text]) if inputs[:twitter_message][:text]
+    TwitterMessage.create!(message: message, text: inputs[:twitter_message][:text]) if inputs[:twitter_message][:text].length < 513
     TumblrMessage.create!(message: message, text: inputs[:tumblr_message][:text]) if inputs[:tumblr_message][:text]
     VkontakteMessage.create!(message: message, text: inputs[:vkontakte_message][:text]) if inputs[:vkontakte_message][:text]
     

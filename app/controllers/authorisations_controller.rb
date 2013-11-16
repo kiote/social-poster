@@ -32,14 +32,11 @@ class AuthorisationsController < ApplicationController
     redirect_to root_url
   end
 
-  def failure
-  end
-  
   private
-    
-    def correct_user
-      @authorisation = current_user.authorisations.find_by(id: params[:id])
-      redirect_to root_url if @authorisation.nil?
-    end
+  
+  def correct_user
+    @authorisation = current_user.authorisations.find_by(id: params[:id])
+    redirect_to root_url if @authorisation.nil?
+  end
   
 end
